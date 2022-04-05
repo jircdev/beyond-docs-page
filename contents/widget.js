@@ -146,7 +146,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./views/page', {
-    hash: 594795155,
+    hash: 3829922070,
     creator: function (require, exports) {
       "use strict";
 
@@ -166,33 +166,20 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         const propsContent = uri.vars.get('content');
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'what-is-beyond';
-        const [titles, setTitles] = React.useState([]);
         const [hmrChanged, setHmr] = React.useState(performance.now());
-        const [updated, setUpdated] = React.useState();
-        const [content, fetching] = (0, _code.useContent)(contentId, sub, hmrChanged);
         React.useEffect(() => {
-          window?.setTimeout(() => {
-            const titles = Array.from(component.shadowRoot.querySelectorAll('h1, h2'));
-            setTitles(titles);
-          }, 500);
-
           const onChange = () => setHmr(performance.now());
 
           _code.hmr.on('change', onChange);
 
           return () => _code.hmr.off('change', onChange);
-        }, []);
-        if (fetching) return React.createElement("div", null, "cargando...");
-        const Control = content.control; // @ts-ignore
+        }, []); // @ts-ignore
 
-        return React.createElement("div", {
-          className: "page__main-container"
-        }, React.createElement("section", {
-          className: "page__main-content"
-        }, React.createElement(Control, null)), titles && React.createElement(_code.RightAside, {
-          container: component.shadowRoot,
-          titles: titles
-        }));
+        return React.createElement(_code.ContentsPage, {
+          component: component,
+          contentId: contentId,
+          sub: sub
+        });
       }
     }
   }); // Exports managed by beyond bundle objects

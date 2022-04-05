@@ -1048,7 +1048,7 @@ define(["exports"], function (_exports2) {
   *****************************************/
 
   modules.set('./bundles/package/ims/ims', {
-    hash: 240871094,
+    hash: 2538123762,
     creator: function (require, exports) {
       "use strict";
 
@@ -1086,6 +1086,7 @@ define(["exports"], function (_exports2) {
         }
 
         require(id, trace, source) {
+          id = this.#ims.has(id) ? id : `${id}/index`;
           if (!this.#ims.has(id)) throw new Error(`Module "${id}" not found`);
           const im = this.#ims.get(id);
           return im.require(trace, source);

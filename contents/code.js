@@ -4,7 +4,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond-js/kernel/core/ts",
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.useContent = _exports2.hmr = _exports2.RightAside = _exports2.Controller = void 0;
+  _exports2.useContent = _exports2.hmr = _exports2.RightAside = _exports2.Controller = _exports2.ContentsPage = void 0;
   const dependencies = new Map();
   dependencies.set('react', dependency_0);
   dependencies.set('@beyond/ui/link/code', dependency_1);
@@ -869,7 +869,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   modules.set('./db', {
-    hash: 1008201144,
+    hash: 3214237994,
     creator: function (require, exports) {
       "use strict";
 
@@ -953,12 +953,13 @@ class Controller extends ReactWidgetController {
           ssr: _ssr.SSRPage,
           deployment: _deployment.DeploymentPage
         };
-        const fundations = {
+        const foundations = {
           bee: _bee.BEE,
           hmr: _hmr.HMR
         };
         const contents = { ...starting,
           ...basics,
+          ...foundations,
           template: _template.TemplatePage,
           fetching: _fetching.FetchingDAtaPage,
           'what-is-beyond': _whatIs.WhatIs,
@@ -1125,6 +1126,90 @@ class Controller extends ReactWidgetController {
         }, React.createElement("h1", null, "\u00BFPor qu\u00E9 ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), "?"));
+      }
+    }
+  });
+  /*************************
+  INTERNAL MODULE: ./loading
+  *************************/
+
+  modules.set('./loading', {
+    hash: 1741376517,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.PreloadPage = PreloadPage;
+
+      var React = require("react");
+
+      function PreloadPage() {
+        return React.createElement("div", {
+          className: "page__main-container"
+        }, React.createElement("div", {
+          className: "page__main-content"
+        }, React.createElement("h1", null, "Cargando...")));
+      }
+    }
+  });
+  /**********************
+  INTERNAL MODULE: ./page
+  **********************/
+
+  modules.set('./page', {
+    hash: 331498319,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ContentsPage = ContentsPage;
+
+      var React = require("react");
+
+      var _rightAside = require("./views/right-aside");
+
+      var _useContent = require("./use-content");
+
+      var _loading = require("./loading");
+      /*bundle*/
+
+
+      function ContentsPage({
+        component,
+        contentId,
+        sub
+      }) {
+        const [hmrChanged, setHmr] = React.useState(performance.now());
+        const [titles, setTitles] = React.useState([]);
+        const [content, fetching] = (0, _useContent.useContent)(contentId, sub, hmrChanged);
+        React.useEffect(() => {
+          window?.setTimeout(() => {
+            const titles = Array.from(component.shadowRoot.querySelectorAll('h1,h2'));
+            setTitles(titles);
+          }, 50);
+        }, []);
+        React.useEffect(() => {
+          const body = document.querySelector('body');
+          body.scroll({
+            top: 0,
+            left: 0,
+            behavior: "smooth"
+          });
+        });
+        if (fetching) return React.createElement(_loading.PreloadPage, null);
+        const Control = content.control;
+        return React.createElement("div", {
+          className: "page__main-container"
+        }, React.createElement("section", {
+          className: "page__main-content"
+        }, React.createElement(Control, null)), !!titles.length && React.createElement(_rightAside.RightAside, {
+          container: component.shadowRoot,
+          titles: titles
+        }));
       }
     }
   });
@@ -1823,7 +1908,7 @@ export /*bundle*/ class Auth {
   *********************************/
 
   modules.set('./views/error-404', {
-    hash: 672718312,
+    hash: 2553778734,
     creator: function (require, exports) {
       "use strict";
 
@@ -1839,7 +1924,6 @@ export /*bundle*/ class Auth {
           version: "1.1",
           id: "Capa_1",
           xmlns: "http://www.w3.org/2000/svg",
-          "xmlns:xlink": "http://www.w3.org/1999/xlink",
           x: "0px",
           y: "0px",
           viewBox: "0 0 1080 1080"
@@ -3491,18 +3575,21 @@ function Page(): JSX.Element {
 
   __pkg.exports.managed = function (require, _exports) {
     _exports.Controller = require('./controller').Controller;
+    _exports.ContentsPage = require('./page').ContentsPage;
     _exports.useContent = require('./use-content').useContent;
     _exports.RightAside = require('./views/right-aside/index').RightAside;
   };
 
-  let Controller, useContent, RightAside; // Module exports
+  let Controller, ContentsPage, useContent, RightAside; // Module exports
 
   _exports2.RightAside = RightAside;
   _exports2.useContent = useContent;
+  _exports2.ContentsPage = ContentsPage;
   _exports2.Controller = Controller;
 
   __pkg.exports.process = function (require) {
     _exports2.Controller = Controller = require('./controller').Controller;
+    _exports2.ContentsPage = ContentsPage = require('./page').ContentsPage;
     _exports2.useContent = useContent = require('./use-content').useContent;
     _exports2.RightAside = RightAside = require('./views/right-aside/index').RightAside;
   };
