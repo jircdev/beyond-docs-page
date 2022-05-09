@@ -4,7 +4,7 @@ define(["exports"], function (_exports2) {
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.widgets = _exports2.hmr = _exports2.beyond = _exports2.WidgetSpecs = _exports2.WidgetControllerLoader = _exports2.SingleCall = _exports2.PendingPromise = _exports2.NodeWidget = _exports2.ModuleTexts = _exports2.Module = _exports2.ListenerFunction = _exports2.IWidgetStore = _exports2.IWidgetRendered = _exports2.Events = _exports2.Collection = _exports2.CancellationToken = _exports2.BundleStyles = _exports2.Bundle = _exports2.BeyondWidgetControllerSSR = _exports2.BeyondWidgetControllerBase = _exports2.BeyondWidgetController = _exports2.ActionsBridge = void 0;
+  _exports2.widgets = _exports2.beyond = _exports2.WidgetSpecs = _exports2.WidgetControllerLoader = _exports2.SingleCall = _exports2.PendingPromise = _exports2.NodeWidget = _exports2.ModuleTexts = _exports2.ModuleCurrentTexts = _exports2.Module = _exports2.ListenerFunction = _exports2.IWidgetStore = _exports2.IWidgetRendered = _exports2.Events = _exports2.Collection = _exports2.CancellationToken = _exports2.BundleStyles = _exports2.Bundle = _exports2.BeyondWidgetControllerSSR = _exports2.BeyondWidgetControllerBase = _exports2.BeyondWidgetController = _exports2.BeyondWidget = _exports2.ActionsBridge = void 0;
   const amd_require = require;
   let __pkg = {
     exports: {}
@@ -243,7 +243,7 @@ define(["exports"], function (_exports2) {
   ******************************/
 
   modules.set('./base/package', {
-    hash: 890772254,
+    hash: 1331048606,
     creator: function (require, exports) {
       "use strict";
 
@@ -296,16 +296,17 @@ define(["exports"], function (_exports2) {
 
         require(id, source) {
           id = source ? resolve(source, id) : id;
-          if (this.#cached.has(id)) return this.#cached.get(id);
-          if (!this.#ims.has(id)) throw new Error(`Internal module "${id}" not found`);
-          const fn = this.#ims.get(id).creator;
+          const module = this.#ims.has(id) ? id : `${id}/index`;
+          if (this.#cached.has(module)) return this.#cached.get(module);
+          if (!this.#ims.has(module)) throw new Error(`Internal module "${id}" not found`);
+          const fn = this.#ims.get(module).creator;
 
-          const require = required => this.require(required, id); // Here the id is the source of the require
+          const require = required => this.require(required, module); // Here the id is the source of the require
 
 
           const exports = {};
           fn(require, exports);
-          this.#cached.set(id, exports);
+          this.#cached.set(module, exports);
           return exports;
         }
 
@@ -319,7 +320,7 @@ define(["exports"], function (_exports2) {
   ************************/
 
   modules.set('./beyond', {
-    hash: 627870118,
+    hash: 2788943761,
     creator: function (require, exports) {
       "use strict";
 
@@ -421,6 +422,7 @@ define(["exports"], function (_exports2) {
 
         #import;
         import = module => this.#import.import(module); // Required by HMR only in local environment
+        // Note: in AMD mode, the querystring is not allowed (it is used require.undef by the beyond.reload method)
 
         reload = (module, version) => this.#import.reload(module, version);
         require = module => this.#import.require(module);
@@ -715,7 +717,7 @@ define(["exports"], function (_exports2) {
   *****************************/
 
   modules.set('./bundles/hmr', {
-    hash: 1009328673,
+    hash: 788573053,
     creator: function (require, exports) {
       "use strict";
 
@@ -744,11 +746,11 @@ define(["exports"], function (_exports2) {
           if (!beyond.local) return;
           const local = (await beyond.import('@beyond-js/local/main/ts')).local;
 
-          const onchange = (processor, extname, language) => {
-            this.trigger(`${extname}//${language}`, processor);
+          const onchange = (extname, language) => {
+            this.trigger(`${extname}//${language}`);
           };
 
-          const event = `change:${this.#bundle.id}//${beyond.distribution}`;
+          const event = `bundle.change:${this.#bundle.id}//${beyond.distribution}`;
           local.on(event, onchange);
           this.#local = local;
         };
@@ -906,7 +908,7 @@ define(["exports"], function (_exports2) {
   *************************************/
 
   modules.set('./bundles/package/hmr', {
-    hash: 7735247,
+    hash: 1140800002,
     creator: function (require, exports) {
       "use strict";
 
@@ -922,15 +924,18 @@ define(["exports"], function (_exports2) {
         #pkg;
         #change = 0;
 
-        async #onchange(processor) {
-          if (['js', 'jsx'].includes(processor)) return; // Legacy processors does not support HMR
-
+        async #onchange() {
           const beyond = this.#beyond;
-          this.#change++; // In AMD mode, the querystring is not allowed (it is used require.undef by the beyond.reload method)
+          this.#change++; // Note: in AMD mode, the querystring is not allowed (it is used require.undef by the beyond.reload method)
 
-          const qs = beyond.mode !== 'amd' ? `?change=${this.#change}` : '';
-          const url = `${this.#pkg.bundle.id}[${processor}]${qs}`;
-          await beyond.reload(url, this.#change);
+          const url = beyond.mode === 'amd' ? `${this.#pkg.bundle.id}.hmr` : `${this.#pkg.bundle.id}?hmr=${this.#change}`;
+
+          try {
+            await beyond.reload(url, this.#change);
+          } catch (exc) {
+            console.log(`Error loading hmr of bundle "${this.#pkg.bundle.id}"`, exc.stack);
+          }
+
           this.trigger('change');
         }
 
@@ -939,7 +944,7 @@ define(["exports"], function (_exports2) {
           this.#pkg = pkg;
           this.#beyond = require('../../beyond').beyond;
 
-          const onchange = processor => this.#onchange(processor).catch(exc => console.log(exc.stack));
+          const onchange = () => this.#onchange().catch(exc => console.log(exc.stack));
 
           const {
             language
@@ -957,7 +962,7 @@ define(["exports"], function (_exports2) {
   ****************************************/
 
   modules.set('./bundles/package/ims/im', {
-    hash: 1018388379,
+    hash: 1424025085,
     creator: function (require, exports) {
       "use strict";
 
@@ -991,6 +996,7 @@ define(["exports"], function (_exports2) {
         #require;
         #exports = {};
         #creator;
+        #creating = false;
         #created = false;
 
         get created() {
@@ -999,12 +1005,15 @@ define(["exports"], function (_exports2) {
 
         #create = trace => {
           if (this.#created) throw new Error(`Internal module "${this.#id}" already created`);
+          if (this.#creating) throw new Error(`Cyclical import found on internal module "${this.#id}"`);
+          this.#creating = true;
 
           const require = id => this.#require.solve(id, trace, this);
 
           Object.keys(this.#exports).forEach(key => delete this.#exports[key]);
           this.#creator(require, this.#exports);
           this.#created = true;
+          this.#creating = false;
         };
 
         require(trace, source) {
@@ -1048,7 +1057,7 @@ define(["exports"], function (_exports2) {
   *****************************************/
 
   modules.set('./bundles/package/ims/ims', {
-    hash: 2538123762,
+    hash: 555795167,
     creator: function (require, exports) {
       "use strict";
 
@@ -1086,9 +1095,9 @@ define(["exports"], function (_exports2) {
         }
 
         require(id, trace, source) {
-          id = this.#ims.has(id) ? id : `${id}/index`;
-          if (!this.#ims.has(id)) throw new Error(`Module "${id}" not found`);
-          const im = this.#ims.get(id);
+          const mid = this.#ims.has(id) ? id : `${id}/index`;
+          if (!this.#ims.has(mid)) throw new Error(`Module "${id}" not found`);
+          const im = this.#ims.get(mid);
           return im.require(trace, source);
         }
 
@@ -1338,7 +1347,7 @@ define(["exports"], function (_exports2) {
   ***************************************/
 
   modules.set('./bundles/styles/styles', {
-    hash: 3192230825,
+    hash: 3795615356,
     creator: function (require, exports) {
       "use strict";
 
@@ -1441,7 +1450,10 @@ define(["exports"], function (_exports2) {
         }
 
         appendToDOM(is) {
-          if (!this.#value) throw new Error(`CSS values are not set on bundle "${this.id}"`);
+          if (!this.#value) {
+            console.warn(`CSS is defined but empty on bundle "${this.id}"`);
+            return;
+          }
 
           if (this.#appended) {
             const previous = document.querySelectorAll(`:scope > [bundle="${this.id}"]`)[0];
@@ -1545,7 +1557,7 @@ define(["exports"], function (_exports2) {
   ********************************/
 
   modules.set('./import/require', {
-    hash: 72439168,
+    hash: 2538040457,
     creator: function (require, exports) {
       "use strict";
 
@@ -1629,6 +1641,7 @@ define(["exports"], function (_exports2) {
         }
         /**
          * Used only in local environment to support HMR
+         * Note: in AMD mode, the querystring is not allowed (it is used require.undef by the beyond.reload method)
          *
          * @param {string} module
          * @return {Promise<*>}
@@ -1782,7 +1795,7 @@ define(["exports"], function (_exports2) {
   ********************************/
 
   modules.set('./modules/module', {
-    hash: 865846079,
+    hash: 3331046118,
     creator: function (require, exports) {
       "use strict";
 
@@ -1901,11 +1914,7 @@ define(["exports"], function (_exports2) {
           this.#dirname = specs.dirname;
           this.#package = !container ? new _data.PackageData(id) : undefined;
           this.#container = container;
-          const {
-            txt
-          } = specs; // To know if the bundle's container has a txt bundle
-
-          txt && (this.#texts = new _texts.ModuleTexts(this, 'txt', txt.multilanguage));
+          this.#texts = new _texts.ModuleTextsLanguages(this, specs);
         }
 
       }
@@ -1955,40 +1964,41 @@ define(["exports"], function (_exports2) {
       exports.Modules = Modules;
     }
   });
-  /*******************************
-  INTERNAL MODULE: ./modules/texts
-  *******************************/
+  /***************************************
+  INTERNAL MODULE: ./modules/texts/current
+  ***************************************/
 
-  modules.set('./modules/texts', {
-    hash: 3054253026,
+  modules.set('./modules/texts/current', {
+    hash: 901078924,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.ModuleTexts = void 0;
+      exports.ModuleCurrentTexts = void 0;
 
-      var _events = require("../utils/events/events");
+      var _texts = require("./texts");
 
-      var _singleCall = require("../utils/execution-control/single-call/single-call");
-
-      var __decorate = void 0 && (void 0).__decorate || function (decorators, target, key, desc) {
-        var c = arguments.length,
-            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc,
-            d;
-        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-        return c > 3 && r && Object.defineProperty(target, key, r), r;
-      };
+      var _events = require("../../utils/events/events");
       /*bundle*/
 
+      /**
+       * The texts loaded by the current language (not available in SSR environment)
+       */
 
-      class ModuleTexts extends _events.Events {
+
+      class ModuleCurrentTexts extends _events.Events {
         #beyond;
-        #id;
+        #texts = new Map();
+        #module;
 
-        get id() {
-          return this.#id;
+        get module() {
+          return this.#module;
+        }
+
+        get bundle() {
+          return 'txt';
         }
 
         #multilanguage;
@@ -1997,13 +2007,6 @@ define(["exports"], function (_exports2) {
           return this.#multilanguage;
         }
 
-        #value;
-
-        get value() {
-          return this.#value;
-        }
-
-        #pkg;
         #enabled = false;
 
         get enabled() {
@@ -2015,17 +2018,203 @@ define(["exports"], function (_exports2) {
           value && this.load().catch(exc => console.error(exc.stack));
         }
 
+        #last;
+
+        get #current() {
+          const {
+            current: language
+          } = this.#beyond.languages;
+          if (this.#texts.has(language)) return this.#texts.get(language);
+          const texts = new _texts.ModuleTexts(this.#module, 'txt', this.#multilanguage, language);
+          this.#texts.set(language, texts);
+          return texts;
+        }
+
+        get loading() {
+          return this.#current.loading;
+        }
+
+        get loaded() {
+          return this.#current.loaded;
+        }
+        /*
+        @deprecated
+        old versions
+         */
+
+
+        get ready() {
+          !this.loaded && !this.loading && this.load().catch(exc => console.error(exc.stack));
+          return this.loaded;
+        }
+
+        get value() {
+          return this.#current.value;
+        }
+        /**
+         * Module texts constructor
+         *
+         * @param {Module} module The module that holds the texts bundle
+         * @param {boolean} multilanguage
+         */
+
+
+        constructor(module, multilanguage) {
+          super();
+          this.#module = module;
+          this.#multilanguage = multilanguage;
+          this.#beyond = require('../../beyond').beyond;
+          this.#beyond.languages.on('change', this.#change);
+          this.#current.on('change', this.#triggerChange);
+          this.#last = this.#current;
+        }
+
+        #triggerChange = () => {
+          this.trigger('change');
+        };
+        #change = () => {
+          this.#last.off('change', this.#triggerChange);
+          this.#enabled && this.load().catch(exc => console.log(exc.stack));
+          this.#current.on('change', this.#triggerChange);
+          this.#last = this.#current;
+          this.#triggerChange();
+        };
+
+        async load() {
+          await this.#current.load();
+        }
+
+        destroy() {
+          this.#texts.forEach(texts => texts.destroy());
+          this.#beyond.languages.off('change', this.#change);
+        }
+
+      }
+
+      exports.ModuleCurrentTexts = ModuleCurrentTexts;
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./modules/texts/index
+  *************************************/
+
+  modules.set('./modules/texts/index', {
+    hash: 2425582602,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ModuleTextsLanguages = void 0;
+
+      var _texts = require("./texts");
+
+      var _current = require("./current");
+
+      class ModuleTextsLanguages {
+        #texts = new Map();
+        #module;
+
+        get module() {
+          return this.#module;
+        }
+
+        #specs;
+
+        get specs() {
+          return this.#specs;
+        }
+
+        #current;
+
+        get current() {
+          return this.#current;
+        }
+        /**
+         * Module texts constructor
+         *
+         * @param {Module} module The module that holds the texts bundle
+         * @param {IModuleSpecs} specs To know which txt bundles are present
+         */
+
+
+        constructor(module, specs) {
+          this.#module = module;
+          this.#specs = specs;
+          this.#current = typeof window === 'object' ? new _current.ModuleCurrentTexts(module, specs.txt?.multilanguage) : void 0;
+        }
+
+        get(bundle, language) {
+          const key = `${bundle}/${language}`;
+          if (this.#texts.has(key)) return this.#texts.get(key);
+          const multilanguage = bundle === 'txt' ? !!this.#specs.txt?.multilanguage : true;
+          const texts = new _texts.ModuleTexts(this.#module, bundle, multilanguage, language);
+          this.#texts.set(key, texts);
+          return texts;
+        }
+
+      }
+
+      exports.ModuleTextsLanguages = ModuleTextsLanguages;
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./modules/texts/texts
+  *************************************/
+
+  modules.set('./modules/texts/texts', {
+    hash: 3211441126,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ModuleTexts = void 0;
+
+      var _events = require("../../utils/events/events");
+      /*bundle*/
+
+
+      class ModuleTexts extends _events.Events {
+        #beyond;
+        #module;
+
+        get module() {
+          return this.#module;
+        }
+
+        #bundle;
+
+        get bundle() {
+          return this.#bundle;
+        }
+
+        #multilanguage;
+
+        get multilanguage() {
+          return this.#multilanguage;
+        } // The bundle package
+
+
+        #pkg;
         #loaded = false;
 
         get loaded() {
           return this.#loaded;
-        } // The language being load
-
+        }
 
         #loading;
 
         get loading() {
           return this.#loading;
+        }
+
+        #value;
+
+        get value() {
+          return this.#value;
         }
 
         get ready() {
@@ -2038,7 +2227,27 @@ define(["exports"], function (_exports2) {
 
         get language() {
           return this.#language;
-        } // HMR updates
+        }
+        /**
+         * Module texts constructor
+         *
+         * @param {Module} module The module that holds the texts bundle
+         * @param {string} bundle The bundle name
+         * @param {boolean=} multilanguage
+         * @param {string=} language
+         */
+
+
+        constructor(module, bundle, multilanguage, language) {
+          super();
+          this.#module = module;
+          this.#bundle = bundle;
+          this.#multilanguage = bundle === 'txt' ? multilanguage : true;
+          this.#language = language;
+          this.#beyond = require('../../beyond').beyond;
+          if (multilanguage && !language) throw new Error('Language must be set on a multilanguage texts bundle');
+        } // Updated the value of the texts from the exported texts of the bundle package
+        // Used by HMR when packaged has been updated
 
 
         #update = () => {
@@ -2048,77 +2257,41 @@ define(["exports"], function (_exports2) {
           this.#value = bundle.package(this.#language).exports.values.texts;
           this.trigger('change');
         };
-        #import = async () => {
-          const beyond = this.#beyond;
+
+        async load() {
+          if (this.#loading || this.#loaded) return;
+          this.#loading = true;
+          this.trigger('change');
+          const id = `${this.#module.id}/${this.#bundle}`;
 
           const resource = (() => {
-            const bundle = this.#id.split('/').pop();
-            const transversal = bundle === 'txt-menu';
-            const mid = transversal ? `${this.#beyond.application.package.id}/${bundle}` : this.#id;
-            const pathname = mid + (this.#multilanguage ? `.${this.#loading}` : '');
+            const bundle = this.#bundle;
+            const transversal = bundle !== 'txt';
+            let pathname = transversal ? `${this.#beyond.application.package.id}/${this.#bundle}` : id;
+            pathname = pathname + (this.#multilanguage ? `.${this.#language}` : '');
             return {
               bundle,
               pathname
             };
           })();
 
-          await beyond.import(resource.pathname);
-          const bundle = beyond.bundles.get(this.#id);
-          const pkg = this.#pkg = bundle.package(this.#multilanguage ? this.#loading : void 0);
+          await this.#beyond.import(resource.pathname);
+          const bundle = this.#beyond.bundles.get(id);
+          const pkg = this.#pkg = bundle.package(this.#multilanguage ? this.#language : void 0);
           pkg.hmr.on('change:txt', this.#update);
           this.#value = pkg.exports.values.txt;
-        };
-        #change = () => {
-          if (!this.#enabled) return;
-          this.load().catch(exc => console.error(exc.stack));
-        };
-        /**
-         * Module texts constructor
-         *
-         * @param {Module} module The module that holds the texts bundle
-         * @param {string} bundle The bundle name
-         * @param {boolean=true} multilanguage
-         */
-
-        constructor(module, bundle, multilanguage = true) {
-          super();
-          this.#id = `${module.id}/${bundle}`;
-          this.#multilanguage = multilanguage;
-          this.#beyond = require('../beyond').beyond;
-          this.#beyond.languages.on('change', this.#change);
-        }
-
-        async load() {
-          this.#enabled = true;
-          const {
-            current
-          } = this.#beyond.languages;
-          if (this.#language === current) return;
-          this.#loading = current;
-          this.trigger('change');
-          await this.#import(); // Check if language changed while loading
-
-          if (this.#loading !== this.#beyond.languages.current) {
-            await this.load();
-            return;
-          }
-
-          this.#loading = void 0;
+          this.#loading = false;
           this.#loaded = true;
-          this.#language = current;
           this.trigger('change');
         }
 
         destroy() {
           this.#pkg?.hmr.off('change:txt', this.#update);
-          this.#beyond.languages.off('change', this.#change);
         }
 
       }
 
       exports.ModuleTexts = ModuleTexts;
-
-      __decorate([_singleCall.SingleCall], ModuleTexts.prototype, "load", null);
     }
   });
   /******************************
@@ -3528,7 +3701,7 @@ define(["exports"], function (_exports2) {
   *****************************************/
 
   modules.set('./widgets/controller/base', {
-    hash: 134850450,
+    hash: 3950132559,
     creator: function (require, exports) {
       "use strict";
 
@@ -3540,6 +3713,8 @@ define(["exports"], function (_exports2) {
       var _beyond = require("../../beyond");
 
       var _widgets = require("../widgets");
+
+      var _instances = require("../../bundles/instances/instances");
       /*bundle*/
 
 
@@ -3565,6 +3740,12 @@ define(["exports"], function (_exports2) {
 
         get layout() {
           return this.#specs.layout;
+        }
+
+        #language;
+
+        get language() {
+          return this.#language;
         } // The widget component to be mounted should be specified by the module
         // (can be a React, Svelte, Vue, ... component)
 
@@ -3573,13 +3754,31 @@ define(["exports"], function (_exports2) {
           return;
         }
 
-        createStore() {
-          return void 0;
+        get styles() {
+          const styles = new Set();
+
+          const recursive = bundle => bundle.dependencies.forEach(resource => {
+            if (!_instances.instances.has(resource)) return;
+
+            const dependency = _instances.instances.get(resource);
+
+            styles.add(dependency.styles);
+            recursive(dependency);
+          });
+
+          styles.add(this.bundle.styles);
+          recursive(this.bundle);
+          return [...styles];
+        }
+
+        createStore(language) {
+          return void language;
         }
 
         constructor({
           specs,
-          component
+          component,
+          language
         }) {
           if (!specs) {
             const {
@@ -3590,6 +3789,7 @@ define(["exports"], function (_exports2) {
           }
 
           this.#specs = specs;
+          this.#language = language;
 
           if (!_beyond.beyond.bundles.has(specs.id)) {
             throw new Error(`Bundle "${specs.id}" not found on "${specs.name}" widget`);
@@ -3608,7 +3808,7 @@ define(["exports"], function (_exports2) {
   ***********************************************/
 
   modules.set('./widgets/controller/controller', {
-    hash: 1544759127,
+    hash: 3540341572,
     creator: function (require, exports) {
       "use strict";
 
@@ -3616,8 +3816,6 @@ define(["exports"], function (_exports2) {
         value: true
       });
       exports.BeyondWidgetController = void 0;
-
-      var _instances = require("../../bundles/instances/instances");
 
       var _base = require("./base");
 
@@ -3689,17 +3887,7 @@ define(["exports"], function (_exports2) {
             styles.on('change', this.#hmrStylesChanged);
           };
 
-          const recursive = bundle => bundle.dependencies.forEach(resource => {
-            if (!_instances.instances.has(resource)) return;
-
-            const dependency = _instances.instances.get(resource);
-
-            append(dependency.styles);
-            recursive(dependency);
-          });
-
-          append(this.bundle.styles);
-          recursive(this.bundle); // Append the global styles
+          this.styles.forEach(styles => append(styles)); // Append the global styles
 
           const global = document.createElement('link');
 
@@ -3723,7 +3911,13 @@ define(["exports"], function (_exports2) {
             this.#attributes.body = this.#body;
           }
 
-          this.mount(); // Once the widget is hydrated, next HMR refreshes are standard render calls
+          try {
+            this.mount();
+          } catch (exc) {
+            console.log(`Error mounting widget controller "${this.bundle.id}":`);
+            console.log(exc.stack);
+          } // Once the widget is hydrated, next HMR refreshes are standard render calls
+
 
           this.#hydratable = false;
         }
@@ -3737,18 +3931,17 @@ define(["exports"], function (_exports2) {
 
         #refresh = () => this.refresh();
 
-        initialise() {
+        async initialise() {
           if (!this.Widget) throw new Error(`Widget controller of bundle "${this.bundle.id}" does not expose a Widget property`);
           const {
             component
           } = this;
-          this.#store = this.createStore?.();
+          this.#store = this.createStore?.(); // Property ssrId is defined in the Widget class of the ssr hydrator
 
-          if (typeof __beyond_hydrator === 'object' && component.hasAttribute('ssr-widget-id')) {
-            const hydrator = __beyond_hydrator;
-            const id = component.getAttribute('ssr-widget-id');
-            const cached = hydrator.getCachedStore(parseInt(id));
-            this.#store?.hydrate(cached);
+          if (typeof __beyond_hydrator === 'object' && component.ssrId !== void 0) {
+            const cached = __beyond_hydrator.getCachedStore(parseInt(component.ssrId));
+
+            await this.#store?.hydrate(cached);
             const {
               shadowRoot
             } = this.component;
@@ -3756,7 +3949,7 @@ define(["exports"], function (_exports2) {
             this.#attributes.body = this.#body;
             this.#hydratable = true;
           } else {
-            this.#store?.fetch?.().catch(exc => console.log(exc instanceof Error ? exc.stack : exc));
+            await this.#store?.fetch?.();
           }
 
           this.#setStyles();
@@ -3801,7 +3994,7 @@ define(["exports"], function (_exports2) {
   *********************************************/
 
   modules.set('./widgets/instances/instances', {
-    hash: 3518843442,
+    hash: 3075162923,
     creator: function (require, exports) {
       "use strict";
 
@@ -3821,17 +4014,12 @@ define(["exports"], function (_exports2) {
       exports.roots = roots;
       const instances = new class extends Map {
         /**
-         * Returns the node of the parent widget of an HTML element
+         * Returns the widget from its shadow root
          *
-         * @param {HTMLElement} element
+         * @param {ShadowRoot} root
          */
-        parent(element) {
-          const root = element.getRootNode();
-          if (!shadowRoots.has(root)) return; // The BeyondWidget
-
-          const widget = shadowRoots.get(root); // The Node of the BeyondWidget
-
-          return this.get(widget);
+        getWidgetByShadowRoot(root) {
+          return shadowRoots.get(root);
         }
 
         register(widget) {
@@ -3925,7 +4113,7 @@ define(["exports"], function (_exports2) {
   ***************************************/
 
   modules.set('./widgets/widget/loader', {
-    hash: 1845875303,
+    hash: 2520622149,
     creator: function (require, exports) {
       "use strict";
 
@@ -3989,7 +4177,6 @@ define(["exports"], function (_exports2) {
             this.#loaded = true;
             this.#holders.delete('loaded');
             this.#render();
-            this.trigger('controller.loaded');
           }).catch(exc => {
             console.error(`Error loading widget "${this.#id}"`, exc.stack);
             this.#error = exc.message;
@@ -4029,7 +4216,7 @@ define(["exports"], function (_exports2) {
           }
 
           this.#controller = new Controller(this.#component);
-          this.#controller.initialise();
+          this.#controller.initialise().then(() => this.trigger('controller.initialised')).catch(exc => console.log(exc instanceof Error ? exc.stack : exc));
         };
         /**
          * Called by the widget to inform the connectedCallback
@@ -4051,7 +4238,7 @@ define(["exports"], function (_exports2) {
   ***************************************/
 
   modules.set('./widgets/widget/widget', {
-    hash: 1002075496,
+    hash: 975596116,
     creator: function (require, exports) {
       "use strict";
 
@@ -4066,6 +4253,7 @@ define(["exports"], function (_exports2) {
 
 
       const Element = typeof HTMLElement === 'undefined' ? null : HTMLElement;
+      /*bundle*/
 
       class BeyondWidget extends Element {
         #loader;
@@ -4114,7 +4302,7 @@ define(["exports"], function (_exports2) {
         }
 
         #oncontroller = () => {
-          const event = new CustomEvent('controller.loaded', {
+          const event = new CustomEvent('controller.initialised', {
             bubbles: true,
             composed: true
           });
@@ -4133,7 +4321,7 @@ define(["exports"], function (_exports2) {
 
           this.#specs = widgets.get(this.localName);
           this.#loader = new _loader.WidgetControllerLoader(this);
-          this.#loader.on('controller.loaded', this.#oncontroller);
+          this.#loader.on('controller.initialised', this.#oncontroller);
         }
 
         connectedCallback() {
@@ -4152,7 +4340,7 @@ define(["exports"], function (_exports2) {
   *********************************/
 
   modules.set('./widgets/widgets', {
-    hash: 238074361,
+    hash: 1413803168,
     creator: function (require, exports) {
       "use strict";
 
@@ -4207,10 +4395,11 @@ define(["exports"], function (_exports2) {
       exports.widgets = widgets;
     }
   });
-  let beyond, Bundle, BundleStyles, Module, ModuleTexts, ActionsBridge, Collection, Events, ListenerFunction, CancellationToken, SingleCall, PendingPromise, IWidgetStore, BeyondWidgetControllerBase, BeyondWidgetController, IWidgetRendered, BeyondWidgetControllerSSR, NodeWidget, WidgetControllerLoader, WidgetSpecs, widgets; // Module exports
+  let beyond, Bundle, BundleStyles, Module, ModuleCurrentTexts, ModuleTexts, ActionsBridge, Collection, Events, ListenerFunction, CancellationToken, SingleCall, PendingPromise, IWidgetStore, BeyondWidgetControllerBase, BeyondWidgetController, IWidgetRendered, BeyondWidgetControllerSSR, NodeWidget, WidgetControllerLoader, BeyondWidget, WidgetSpecs, widgets; // Module exports
 
   _exports2.widgets = widgets;
   _exports2.WidgetSpecs = WidgetSpecs;
+  _exports2.BeyondWidget = BeyondWidget;
   _exports2.WidgetControllerLoader = WidgetControllerLoader;
   _exports2.NodeWidget = NodeWidget;
   _exports2.BeyondWidgetControllerSSR = BeyondWidgetControllerSSR;
@@ -4226,6 +4415,7 @@ define(["exports"], function (_exports2) {
   _exports2.Collection = Collection;
   _exports2.ActionsBridge = ActionsBridge;
   _exports2.ModuleTexts = ModuleTexts;
+  _exports2.ModuleCurrentTexts = ModuleCurrentTexts;
   _exports2.Module = Module;
   _exports2.BundleStyles = BundleStyles;
   _exports2.Bundle = Bundle;
@@ -4236,7 +4426,8 @@ define(["exports"], function (_exports2) {
     _exports2.Bundle = Bundle = require('./bundles/bundle').Bundle;
     _exports2.BundleStyles = BundleStyles = require('./bundles/styles/styles').BundleStyles;
     _exports2.Module = Module = require('./modules/module').Module;
-    _exports2.ModuleTexts = ModuleTexts = require('./modules/texts').ModuleTexts;
+    _exports2.ModuleCurrentTexts = ModuleCurrentTexts = require('./modules/texts/current').ModuleCurrentTexts;
+    _exports2.ModuleTexts = ModuleTexts = require('./modules/texts/texts').ModuleTexts;
     _exports2.ActionsBridge = ActionsBridge = require('./service/actions-bridge').ActionsBridge;
     _exports2.Collection = Collection = require('./utils/collection/collection').Collection;
     _exports2.Events = Events = require('./utils/events/events').Events;
@@ -4251,16 +4442,11 @@ define(["exports"], function (_exports2) {
     _exports2.BeyondWidgetControllerSSR = BeyondWidgetControllerSSR = require('./widgets/controller/ssr').BeyondWidgetControllerSSR;
     _exports2.NodeWidget = NodeWidget = require('./widgets/instances/node').NodeWidget;
     _exports2.WidgetControllerLoader = WidgetControllerLoader = require('./widgets/widget/loader').WidgetControllerLoader;
+    _exports2.BeyondWidget = BeyondWidget = require('./widgets/widget/widget').BeyondWidget;
     _exports2.WidgetSpecs = WidgetSpecs = require('./widgets/widgets').WidgetSpecs;
     _exports2.widgets = widgets = require('./widgets/widgets').widgets;
   };
 
-  const hmr = new function () {
-    this.on = (event, listener) => void 0;
-
-    this.off = (event, listener) => void 0;
-  }();
-  _exports2.hmr = hmr;
   const __bp = {};
   modules.get('./base/package').creator(() => 0, __bp);
   __pkg = new __bp.BeyondPackage(__pkg.exports);

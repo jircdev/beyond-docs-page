@@ -17,6 +17,13 @@ var __commonJS = (cb, mod) => function __require() {
   }).exports, mod), mod.exports;
 };
 
+var __export = (target, all) => {
+  for (var name in all) __defProp(target, name, {
+    get: all[name],
+    enumerable: true
+  });
+};
+
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
@@ -1204,9 +1211,18 @@ var require_prism = __commonJS({
 
 
 var __exports = {};
+
+__export(__exports, {
+  default: () => __default
+});
+
 module.exports = __toCommonJS(__exports);
 
 __reExport(__exports, __toESM(require_prism()), module.exports);
+
+var import_prismjs = __toESM(require_prism());
+
+var __default = import_prismjs.default;
 /**
  * Prism: Lightweight, robust, elegant syntax highlighting
  *

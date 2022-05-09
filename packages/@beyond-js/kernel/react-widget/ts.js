@@ -23,7 +23,7 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
   ****************************/
 
   modules.set('./controller', {
-    hash: 1662714630,
+    hash: 3610802844,
     creator: function (require, exports) {
       "use strict";
 
@@ -46,7 +46,12 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
         _mount(props) {
           const method = this.hydratable ? 'hydrate' : 'render'; // Render the widget
 
-          ReactDOM[method](React.createElement(this.Widget, props), this.body);
+          try {
+            ReactDOM[method](React.createElement(this.Widget, props), this.body);
+          } catch (exc) {
+            console.log(`Error rendering widget "${this.bundle.id}":`);
+            console.log(exc.stack);
+          }
         }
 
         mount() {
@@ -60,9 +65,9 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
           ReactDOM.unmountComponentAtNode(this.body);
         }
 
-        initialise() {
+        async initialise() {
           this.component.localName === 'main-layout' && (0, _retargetEvents.retargetEvents)(this.component.shadowRoot);
-          super.initialise();
+          await super.initialise();
         }
 
       }
@@ -75,7 +80,7 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
   **********************/
 
   modules.set('./page', {
-    hash: 3352408644,
+    hash: 3426493260,
     creator: function (require, exports) {
       "use strict";
 
@@ -115,10 +120,10 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
           ReactDOM.unmountComponentAtNode(this.body);
         }
 
-        initialise() {
+        async initialise() {
           const child = this.component.getAttribute('data-child-id');
           this.#uri = child ? _ts.routing.manager.pages.find(child).uri : void 0;
-          super.initialise();
+          await super.initialise();
         }
 
       }

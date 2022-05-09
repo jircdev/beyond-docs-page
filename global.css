@@ -1,1 +1,8 @@
-/*global file*/
+.accent {
+  color: var(--accent-color) !important;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}

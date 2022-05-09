@@ -146,7 +146,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./views/page', {
-    hash: 3829922070,
+    hash: 1145008439,
     creator: function (require, exports) {
       "use strict";
 
@@ -168,7 +168,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'what-is-beyond';
         const [hmrChanged, setHmr] = React.useState(performance.now());
         React.useEffect(() => {
-          const onChange = () => setHmr(performance.now());
+          const onChange = () => {
+            setHmr(performance.now());
+          };
 
           _code.hmr.on('change', onChange);
 

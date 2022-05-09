@@ -13,25 +13,31 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
   *************/
 
   beyond.widgets.register([{
-    "name": "beyond-ui-test-page",
-    "id": "@beyond/ui/test/widget",
-    "is": "page",
-    "route": "/test"
-  }, {
     "name": "contents-page",
     "id": "@beyond/docs/contents/widget",
     "is": "page",
-    "route": "/${content}/${sub}"
+    "route": "/docs/${content}/${sub}",
+    "layout": "main-layout"
+  }, {
+    "name": "contents-single-page",
+    "id": "@beyond/docs/contents-single-page/widget",
+    "is": "page",
+    "route": "/docs/${content}",
+    "layout": "main-layout"
   }, {
     "name": "editor-page",
     "id": "@beyond/docs/editor/widget",
     "is": "page",
     "route": "/editor"
   }, {
+    "name": "header-animation",
+    "id": "@beyond/docs/header-animation/widget"
+  }, {
     "name": "home-page",
     "id": "@beyond/docs/home/widget",
     "is": "page",
-    "route": "/${content}"
+    "route": "/",
+    "layout": "home-layout"
   }, {
     "name": "beyond-docs-header",
     "id": "@beyond/docs/header/widget"
@@ -43,6 +49,10 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
     "name": "menu-layout",
     "id": "@beyond/docs/layout/menu/widget",
     "is": "layout"
+  }, {
+    "name": "home-layout",
+    "id": "@beyond/docs/layout/home/widget",
+    "is": "layout"
   }]);
   const bundles = new Map();
   /**********************
@@ -50,7 +60,7 @@ define(["@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (
   **********************/
 
   bundles.set('@beyond/docs/unnamed/routing/start', {
-    hash: 4050346668,
+    hash: 4070508067,
     specs: {},
     creator: function (transversal, bundle, __pkg) {
       const modules = new Map();

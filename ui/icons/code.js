@@ -17,11 +17,50 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/core/ts"
   const __pkg = bundle.package();
 
   const modules = new Map();
-  /*************************
-  INTERNAL MODULE: ./control
-  *************************/
+  /**********************
+  INTERNAL MODULE: ./icon
+  **********************/
 
-  modules.set('./control', {
+  modules.set('./icon', {
+    hash: 3768040567,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.AppIcon = void 0;
+      exports.AppIconButton = AppIconButton;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/icons/code");
+
+      var _icons = require("./icons");
+      /*bundle*/
+
+
+      const AppIcon = props => {
+        return React.createElement(_code.BeyondIcon, { ...props,
+          icons: _icons.ICONS
+        });
+      };
+
+      exports.AppIcon = AppIcon;
+      /*bundle*/
+
+      function AppIconButton(props) {
+        return React.createElement(_code.BeyondIconButton, { ...props,
+          icons: _icons.ICONS
+        });
+      }
+    }
+  });
+  /***********************
+  INTERNAL MODULE: ./icons
+  ***********************/
+
+  modules.set('./icons', {
     hash: 2054247707,
     creator: function (require, exports) {
       "use strict";
@@ -197,63 +236,24 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/core/ts"
       };
       exports.ICONS = ICONS;
     }
-  });
-  /**********************
-  INTERNAL MODULE: ./icon
-  **********************/
-
-  modules.set('./icon', {
-    hash: 126982817,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.AppIcon = void 0;
-      exports.AppIconButton = AppIconButton;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/icons/code");
-
-      var _control = require("./control");
-      /*bundle*/
-
-
-      const AppIcon = props => {
-        return React.createElement(_code.BeyondIcon, { ...props,
-          icons: _control.ICONS
-        });
-      };
-
-      exports.AppIcon = AppIcon;
-      /*bundle*/
-
-      function AppIconButton(props) {
-        return React.createElement(_code.BeyondIconButton, { ...props,
-          icons: _control.ICONS
-        });
-      }
-    }
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
-    _exports.ICONS = require('./control').ICONS;
     _exports.AppIcon = require('./icon').AppIcon;
     _exports.AppIconButton = require('./icon').AppIconButton;
+    _exports.ICONS = require('./icons').ICONS;
   };
 
-  let ICONS, AppIcon, AppIconButton; // Module exports
+  let AppIcon, AppIconButton, ICONS; // Module exports
 
+  _exports2.ICONS = ICONS;
   _exports2.AppIconButton = AppIconButton;
   _exports2.AppIcon = AppIcon;
-  _exports2.ICONS = ICONS;
 
   __pkg.exports.process = function (require) {
-    _exports2.ICONS = ICONS = require('./control').ICONS;
     _exports2.AppIcon = AppIcon = require('./icon').AppIcon;
     _exports2.AppIconButton = AppIconButton = require('./icon').AppIconButton;
+    _exports2.ICONS = ICONS = require('./icons').ICONS;
   };
 
   const hmr = new function () {

@@ -18,6 +18,13 @@ var __commonJS = (cb, mod) => function __require() {
   }).exports, mod), mod.exports;
 };
 
+var __export = (target, all) => {
+  for (var name in all) __defProp(target, name, {
+    get: all[name],
+    enumerable: true
+  });
+};
+
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
@@ -789,9 +796,18 @@ var require_prop_types = __commonJS({
 
 
 var __exports = {};
+
+__export(__exports, {
+  default: () => __default
+});
+
 module.exports = __toCommonJS(__exports);
 
 __reExport(__exports, __toESM(require_prop_types()), module.exports);
+
+var import_prop_types = __toESM(require_prop_types());
+
+var __default = import_prop_types.default;
 /*
 object-assign
 (c) Sindre Sorhus

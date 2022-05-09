@@ -63,7 +63,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
   **********************/
 
   modules.set('./page', {
-    hash: 2731159955,
+    hash: 3282113093,
     creator: function (require, exports) {
       "use strict";
 
@@ -99,10 +99,10 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
 
         unmount() {}
 
-        initialise() {
+        async initialise() {
           const child = this.component.getAttribute('data-child-id');
           this.#uri = child ? _ts.routing.manager.pages.find(child).uri : void 0;
-          super.initialise();
+          await super.initialise();
         }
 
       }

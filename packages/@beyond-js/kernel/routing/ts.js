@@ -4,7 +4,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.routing = _exports2.hmr = _exports2.URI = _exports2.Layout = _exports2.BeyondLayoutChildrenRenderer = void 0;
+  _exports2.routing = _exports2.URI = _exports2.Layout = _exports2.BeyondLayoutChildrenRenderer = void 0;
   const dependencies = new Map();
   dependencies.set('@beyond-js/kernel/core/ts', dependency_0);
   const {
@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   ***************************************************************/
 
   modules.set('./beyond-layout-children/beyond-layout-children', {
-    hash: 2522377829,
+    hash: 2002849390,
     creator: function (require, exports) {
       "use strict";
 
@@ -29,9 +29,9 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       typeof window === 'object' && !customElements.get('beyond-layout-children') && customElements.define('beyond-layout-children', class extends HTMLElement {
         #renderer;
 
-        constructor() {
-          super();
-          this.#renderer = new _renderer.BeyondLayoutChildrenRenderer(this);
+        connectedCallback() {
+          // Wait for routing to be created, otherwise a cyclical import occurs
+          setTimeout(() => this.#renderer = new _renderer.BeyondLayoutChildrenRenderer(this), 0);
         }
 
       });
@@ -42,7 +42,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   *************************************************/
 
   modules.set('./beyond-layout-children/renderer', {
-    hash: 2588483788,
+    hash: 1396988951,
     creator: function (require, exports) {
       "use strict";
 
@@ -56,7 +56,12 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
 
       class BeyondLayoutChildrenRenderer {
-        #component;
+        #element;
+
+        get element() {
+          return this.#element;
+        }
+
         #layout;
 
         get layout() {
@@ -66,68 +71,84 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
         #active;
         #mounted = new Map();
 
-        constructor(component) {
-          this.#component = component;
+        constructor(element) {
+          this.#element = element;
           this.#identify();
           if (!this.#layout) return;
-          component.attachShadow({
-            mode: 'open'
-          });
+
+          if (element.shadowRoot) {
+            // The shadow root is already created in ssr distributions
+            this.#layout.children.forEach(child => {
+              // Check which of the children were created in by ssr
+              const childElement = element.shadowRoot.querySelector(child.element);
+              if (!childElement) return;
+              childElement.setAttribute('data-child-id', child.id);
+              this.#mounted.set(child.id, childElement);
+            });
+          } else {
+            element.attachShadow({
+              mode: 'open'
+            });
+          }
+
           this.#layout.on('change', this.render);
           this.render();
         } // Identify the layout of the current widget
 
 
-        #identify = () => {
-          // Construct the ascending layouts of the current widget
-          let iterate = _ts.widgets.instances.parent(this.#component);
+        #identify = () => this.#layout = (() => {
+          const {
+            routing
+          } = require('../routing');
 
-          const layouts = [];
+          const root = this.#element.getRootNode();
+          if (root === document) return routing.manager.main;
 
-          while (iterate?.parent) {
-            const {
-              parent
-            } = iterate;
-            parent.is === 'layout' && layouts.unshift(parent);
-            iterate = parent;
+          const widget = _ts.widgets.instances.getWidgetByShadowRoot(root);
+
+          if (!widget) {
+            throw new Error(`Widget container of beyond-layout-children not found`);
           }
 
-          if (!layouts.length || layouts[0].widget.localName === _ts.beyond.application.layout) {
-            const {
-              routing
-            } = require('../routing');
+          return widget.getAttribute('data-main') === '1' ? routing.manager.main : routing.manager.layouts.get(widget.getAttribute('data-child-id'));
+        })(); // Render the layouts and pages of this container
 
-            this.#layout = routing.manager.main;
-          }
-        }; // Render the layouts and pages of this container
+        render = () => {
+          this.#layout.children.forEach(child => {
+            // Create the HTMLElement of the child if it was not already created
+            if (!this.#mounted.has(child.id)) {
+              const element = document.createElement(child.element);
+              element.setAttribute('data-child-id', child.id);
+              this.#element.shadowRoot.append(element);
+              this.#mounted.set(child.id, element);
+            }
 
-        render = () => this.#layout.children.forEach(child => {
-          // Create the HTMLElement of the child if it was not already created
-          if (!this.#mounted.has(child.id)) {
-            const element = document.createElement(child.element);
-            element.setAttribute('data-child-id', child.id);
-            this.#component.shadowRoot.append(element);
-            this.#mounted.set(child.id, element);
-          }
+            const element = this.#mounted.get(child.id);
+            const page = element; // The show and hide methods are defined in the page controller
 
-          const element = this.#mounted.get(child.id);
-          const page = element; // The show and hide methods are defined in the page controller
+            const active = this.#layout.active === child;
 
-          if (child.active && element !== this.#active) {
-            this.#active = element;
+            if (active && element !== this.#active) {
+              this.#active = element;
 
-            const show = () => {
-              page.removeEventListener('controller.loaded', show);
-              this.#active === element && page.controller.show?.();
-            };
+              const show = () => {
+                page.removeEventListener('controller.initialised', show);
 
-            page.controller ? page.controller.show?.() : page.addEventListener('controller.loaded', show);
-          } else if (!element.hidden && !child.active) {
-            page.controller?.hide?.();
-          }
+                if (!page.controller) {
+                  throw new Error(`Controller of page widget "${child.element}" is undefined`);
+                }
 
-          element.hidden = !child.active;
-        });
+                this.#active === element && page.controller.show?.();
+              };
+
+              page.controller ? page.controller.show?.() : page.addEventListener('controller.initialised', show);
+            } else if (!element.hidden && !active) {
+              page.controller?.hide?.();
+            }
+
+            element.hidden = !active;
+          });
+        };
       }
 
       exports.BeyondLayoutChildrenRenderer = BeyondLayoutChildrenRenderer;
@@ -248,7 +269,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   ***********************************/
 
   modules.set('./config/pages/page', {
-    hash: 3912964666,
+    hash: 1424233750,
     creator: function (require, exports) {
       "use strict";
 
@@ -293,14 +314,14 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
 
         get parents() {
-          const config = require('../config'); // Ascending list of containers layouts of the page being navigated
+          const config = require('../config').config; // Ascending list of containers layouts of the current page
 
 
-          const parents = [];
+          const value = [];
           let layoutName = this.layout;
 
-          while (layoutName && layoutName !== 'main') {
-            if (!config.layouts.has(layoutName) && layoutName !== 'main') {
+          while (layoutName) {
+            if (!config.layouts.has(layoutName)) {
               const error = `Layout "${layoutName}" not found`;
               return {
                 error
@@ -308,12 +329,12 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
             }
 
             const layout = config.layouts.get(layoutName);
-            parents.unshift(layout);
+            value.unshift(layout);
             layoutName = layout.layout;
           }
 
           return {
-            parents
+            value
           };
         }
 
@@ -685,80 +706,12 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       exports.HistoryRecords = HistoryRecords;
     }
   });
-  /*******************************
-  INTERNAL MODULE: ./layouts/child
-  *******************************/
-
-  modules.set('./layouts/child', {
-    hash: 101984651,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Child = void 0;
-
-      class Child {
-        #config;
-
-        get element() {
-          return this.#config.element;
-        }
-
-        get is() {
-          return this.#config.is;
-        }
-
-        get id() {
-          return this.#config.id;
-        }
-
-        #layout; // Only if the instance is a layout
-
-        get layout() {
-          return this.#layout;
-        }
-
-        get children() {
-          return this.#layout?.children;
-        }
-
-        #active = false;
-
-        get active() {
-          return this.#active;
-        }
-
-        constructor(config) {
-          this.#config = config;
-
-          const {
-            Layout
-          } = require('./layout');
-
-          config.is === 'layout' && (this.#layout = new Layout(this.#layout));
-        }
-
-        show() {
-          this.#active = true;
-        }
-
-        hide() {
-          this.#active = false;
-        }
-
-      }
-
-      exports.Child = Child;
-    }
-  });
   /********************************
   INTERNAL MODULE: ./layouts/layout
   ********************************/
 
   modules.set('./layouts/layout', {
-    hash: 3968956989,
+    hash: 3907903496,
     creator: function (require, exports) {
       "use strict";
 
@@ -767,68 +720,95 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       });
       exports.Layout = void 0;
 
-      var _child = require("./child");
-
       var _ts = require("@beyond-js/kernel/core/ts");
+
+      let id = 0;
       /*bundle*/
 
-
       class Layout extends _ts.Events {
-        // The active child in the layout
-        #active; // Property #parent is undefined only if it is the main layout
+        get is() {
+          return 'layout';
+        }
 
-        #parent;
+        #layouts;
+        #element;
+
+        get element() {
+          return this.#element;
+        }
+
+        #id;
+
+        get id() {
+          return `${this.#element}:${this.#id}`;
+        } // The active child in the layout
+
+
+        #active;
+
+        get active() {
+          return this.#active;
+        } // Property #parent is undefined only if it is the main layout
+
+
+        #parent; // The layouts and pages that are contained in the current layout
+
         #children = new Map();
 
         get children() {
           return this.#children;
         }
+        /**
+         * Layout constructor
+         *
+         * @param {Layouts} layouts The layouts registry
+         * @param {string} element The element name of the widget. Undefined if the project does not set a layout
+         * and the index.html has a <beyond-layout-children/> as its main layout container
+         * @param {Layout} parent The parent layout. Undefined if it is the main layout
+         */
 
-        constructor(parent) {
+
+        constructor(layouts, element, parent) {
           super();
+          this.#layouts = layouts;
+          this.#element = element ? element : 'main';
+          this.#id = ++id;
           this.#parent = parent;
         }
         /**
          * Selects a page
          *
          * @param {PageInstanceData} page The page being selected (navigated)
+         * @param {LayoutConfig[]} descending The descending layouts
          */
 
 
-        select(page) {
-          const {
-            error,
-            parents
-          } = page.parents;
-          if (error) throw new Error(error);
-          let changed = false;
-
-          const getChild = parent => {
-            if (this.#children.has(parent.id)) return this.#children.get(parent.id);
-            const child = new _child.Child(parent);
-            this.#children.set(parent.id, child);
-            changed = true;
-            return child;
-          };
-
-          let child;
-
-          if (parents.length) {
-            const parent = parents.shift();
-            child = getChild(parent);
-            child.layout.select(page);
-          } else {
-            child = getChild(page);
-            this.children.set(page.id, child);
+        select(page, descending) {
+          if (descending.length && descending[0].element === this.#element) {
+            console.log(`Invalid layout configuration. Layout element "${this.#element}" is already created`);
+            return;
           }
 
-          if (this.#active !== child) {
-            this.#active?.hide();
-            child.show();
-            this.#active = child;
-            changed = true;
-          }
+          const child = (() => {
+            if (!descending.length) return page;
+            const {
+              element
+            } = descending[0];
+            let layout = [...this.#children.values()].find(child => child.element === element);
 
+            if (!layout) {
+              layout = new Layout(this.#layouts, element, this);
+              this.#layouts.register(layout);
+            }
+
+            return layout;
+          })();
+
+          this.#children.set(child.id, child);
+          const changed = this.#active !== child;
+          this.#active = child;
+          descending.shift();
+          child.is === 'layout' && child.select(page, descending);
           changed && this.trigger('change');
         }
 
@@ -837,12 +817,39 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       exports.Layout = Layout;
     }
   });
+  /*********************************
+  INTERNAL MODULE: ./layouts/layouts
+  *********************************/
+
+  modules.set('./layouts/layouts', {
+    hash: 2337437683,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Layouts = void 0;
+      /**
+       * The registry of all layouts instances registered in the session, except the main layout
+       */
+
+      class Layouts extends Map {
+        register(layout) {
+          this.set(layout.id, layout);
+        }
+
+      }
+
+      exports.Layouts = Layouts;
+    }
+  });
   /*************************
   INTERNAL MODULE: ./manager
   *************************/
 
   modules.set('./manager', {
-    hash: 2783750688,
+    hash: 1353394538,
     creator: function (require, exports) {
       "use strict";
 
@@ -855,14 +862,26 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
       var _pages = require("./pages/pages");
 
+      var _layouts = require("./layouts/layouts");
+
       class Manager {
-        #main = new _layout.Layout(); // A collection of layouts and pages
+        // The registry of all layouts instances registered in the session, except the main layout
+        #layouts = new _layouts.Layouts();
+
+        get layouts() {
+          return this.#layouts;
+        } // The main layout can be the layout set in the project.json, or the beyond-layout-children
+        // set when the project does not have set a layout
+
+
+        #main = new _layout.Layout(this.#layouts);
 
         get main() {
           return this.#main;
-        }
+        } // The registry of all the pages that were navigated in the application
 
-        #pages = new _pages.Pages(); // The registry of all the pages that were navigated in the application
+
+        #pages = new _pages.Pages();
 
         get pages() {
           return this.#pages;
@@ -878,7 +897,19 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
             return;
           }
 
-          this.#main.select(this.#pages.register(uri, element));
+          const page = this.#pages.register(uri, element); // Property page.parents is an array that contains the descending list of layouts where the page is contained
+
+          const {
+            error,
+            value: descending
+          } = page.parents;
+
+          if (error) {
+            console.error(`Page on "${uri.uri}" cannot be shown: ${error}`);
+            return;
+          }
+
+          this.#main.select(page, descending);
         }
 
       }
@@ -986,7 +1017,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   *************************/
 
   modules.set('./routing', {
-    hash: 3685224982,
+    hash: 3301894040,
     creator: function (require, exports) {
       "use strict";
 
@@ -1127,8 +1158,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
 
           _config.config.pages.register(pages);
 
-          !ssr && this.update().catch(exc => console.error(exc.stack));
-          this.#hydrate();
+          !ssr && this.update().then(() => this.#hydrate()).catch(exc => console.error(exc.stack));
         }
 
         #redirect = async uri => {
@@ -1416,13 +1446,6 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
     _exports2.routing = routing = require('./routing').routing;
     _exports2.URI = URI = require('./uri/uri').URI;
   };
-
-  const hmr = new function () {
-    this.on = (event, listener) => void 0;
-
-    this.off = (event, listener) => void 0;
-  }();
-  _exports2.hmr = hmr;
 
   __pkg.initialise(modules);
 });

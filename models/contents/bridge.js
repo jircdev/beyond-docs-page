@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   ***********************/
 
   modules.set('./index', {
-    hash: 3431966292,
+    hash: 545566116,
     creator: function (require, exports) {
       "use strict";
 

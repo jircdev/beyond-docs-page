@@ -4631,7 +4631,7 @@ var Point = {
 
         case "insert_text":
           {
-            if (Path.equals(op.path, path) && op.offset <= offset) {
+            if (Path.equals(op.path, path) && (op.offset < offset || op.offset === offset && affinity === "forward")) {
               p2.offset += op.text.length;
             }
 
@@ -6004,7 +6004,8 @@ var NodeTransforms = {
     Editor.withoutNormalizing(editor, () => {
       var {
         match,
-        at = editor.selection
+        at = editor.selection,
+        compare
       } = options;
       var {
         hanging = false,
@@ -6058,6 +6059,10 @@ var NodeTransforms = {
         }
       }
 
+      if (!compare) {
+        compare = (prop, nodeProp) => prop !== nodeProp;
+      }
+
       for (var [node, path] of Editor.nodes(editor, {
         at,
         match,
@@ -6078,7 +6083,7 @@ var NodeTransforms = {
             continue;
           }
 
-          if (props[k2] !== node[k2]) {
+          if (compare(props[k2], node[k2])) {
             hasChanges = true;
             if (node.hasOwnProperty(k2)) properties[k2] = node[k2];
             if (props[k2] != null) newProperties[k2] = props[k2];
@@ -7100,8 +7105,7 @@ var TextTransforms = {
             return;
           }
 
-          var start = Range.start(at);
-          var pointRef = Editor.pointRef(editor, start);
+          var pointRef = Editor.pointRef(editor, end);
           Transforms.delete(editor, {
             at,
             voids

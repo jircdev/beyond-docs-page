@@ -160,6 +160,7 @@ __export(__exports, {
   Manager: () => Manager,
   Socket: () => Socket,
   connect: () => lookup,
+  default: () => __default,
   io: () => lookup,
   protocol: () => protocol
 });
@@ -1247,7 +1248,9 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-});
+}); // .beyond/uimport/temp/socket.io-client/4.4.1.js
+
+var __default = lookup;
 };
 
 code(module, require);

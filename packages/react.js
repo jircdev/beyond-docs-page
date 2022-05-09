@@ -17,6 +17,13 @@ var __commonJS = (cb, mod) => function __require() {
   }).exports, mod), mod.exports;
 };
 
+var __export = (target, all) => {
+  for (var name in all) __defProp(target, name, {
+    get: all[name],
+    enumerable: true
+  });
+};
+
 var __copyProps = (to, from, except, desc) => {
   if (from && typeof from === "object" || typeof from === "function") {
     for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
@@ -1973,9 +1980,18 @@ var require_react = __commonJS({
 
 
 var __exports = {};
+
+__export(__exports, {
+  default: () => __default
+});
+
 module.exports = __toCommonJS(__exports);
 
 __reExport(__exports, __toESM(require_react()), module.exports);
+
+var import_react = __toESM(require_react());
+
+var __default = import_react.default;
 /*
 object-assign
 (c) Sindre Sorhus
