@@ -630,7 +630,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       const tpl = `
 {
-  "name": "button-component",
+  "name": "code",
   "code": {
     "sass": {
       "path": "sass",
@@ -1229,7 +1229,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   **********************************************/
 
   modules.set('./views/sections/config-module', {
-    hash: 4069459151,
+    hash: 2979428409,
     creator: function (require, exports) {
       "use strict";
 
@@ -1246,7 +1246,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       const tpl = `
 {
-  "name": "code",
+  "name": "button-component",
   "code": {
     "sass": {
       "path": "sass",
