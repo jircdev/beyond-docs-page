@@ -29,7 +29,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/svelte/internal/3.48.0.js
+}), mod); // .beyond/uimport/temp/svelte/internal/3.47.0.js
 
 
 var __exports = {};
@@ -143,7 +143,6 @@ __export(__exports, {
   is_empty: () => is_empty,
   is_function: () => is_function,
   is_promise: () => is_promise,
-  is_void: () => is_void,
   listen: () => listen,
   listen_dev: () => listen_dev,
   loop: () => loop,
@@ -211,7 +210,6 @@ __export(__exports, {
   validate_each_keys: () => validate_each_keys,
   validate_slots: () => validate_slots,
   validate_store: () => validate_store,
-  validate_void_dynamic_element: () => validate_void_dynamic_element,
   xlink_attr: () => xlink_attr
 });
 
@@ -898,12 +896,12 @@ function find_comment(nodes, text2, start) {
   return nodes.length;
 }
 
-function claim_html_tag(nodes, is_svg) {
+function claim_html_tag(nodes) {
   const start_index = find_comment(nodes, "HTML_TAG_START", 0);
   const end_index = find_comment(nodes, "HTML_TAG_END", start_index);
 
   if (start_index === end_index) {
-    return new HtmlTagHydration(void 0, is_svg);
+    return new HtmlTagHydration();
   }
 
   init_claim_info(nodes);
@@ -917,7 +915,7 @@ function claim_html_tag(nodes, is_svg) {
     nodes.claim_info.total_claimed += 1;
   }
 
-  return new HtmlTagHydration(claimed_nodes, is_svg);
+  return new HtmlTagHydration(claimed_nodes);
 }
 
 function set_data(text2, data) {
@@ -1033,12 +1031,9 @@ function toggle_class(element2, name, toggle) {
   element2.classList[toggle ? "add" : "remove"](name);
 }
 
-function custom_event(type, detail, {
-  bubbles = false,
-  cancelable = false
-} = {}) {
+function custom_event(type, detail, bubbles = false) {
   const e = document.createEvent("CustomEvent");
-  e.initCustomEvent(type, bubbles, cancelable, detail);
+  e.initCustomEvent(type, bubbles, false, detail);
   return e;
 }
 
@@ -1047,9 +1042,7 @@ function query_selector_all(selector, parent = document.body) {
 }
 
 var HtmlTag = class {
-  constructor(is_svg = false) {
-    this.is_svg = false;
-    this.is_svg = is_svg;
+  constructor() {
     this.e = this.n = null;
   }
 
@@ -1059,7 +1052,7 @@ var HtmlTag = class {
 
   m(html, target, anchor = null) {
     if (!this.e) {
-      if (this.is_svg) this.e = svg_element(target.nodeName);else this.e = element(target.nodeName);
+      this.e = element(target.nodeName);
       this.t = target;
       this.c(html);
     }
@@ -1090,8 +1083,8 @@ var HtmlTag = class {
 
 };
 var HtmlTagHydration = class extends HtmlTag {
-  constructor(claimed_nodes, is_svg = false) {
-    super(is_svg);
+  constructor(claimed_nodes) {
+    super();
     this.e = this.n = null;
     this.l = claimed_nodes;
   }
@@ -1327,28 +1320,20 @@ function onDestroy(fn) {
 
 function createEventDispatcher() {
   const component = get_current_component();
-  return (type, detail, {
-    cancelable = false
-  } = {}) => {
+  return (type, detail) => {
     const callbacks = component.$$.callbacks[type];
 
     if (callbacks) {
-      const event = custom_event(type, detail, {
-        cancelable
-      });
+      const event = custom_event(type, detail);
       callbacks.slice().forEach(fn => {
         fn.call(component, event);
       });
-      return !event.defaultPrevented;
     }
-
-    return true;
   };
 }
 
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
-  return context;
 }
 
 function getContext(key) {
@@ -2019,12 +2004,6 @@ function get_spread_object(spread_props) {
 }
 
 var boolean_attributes = /* @__PURE__ */new Set(["allowfullscreen", "allowpaymentrequest", "async", "autofocus", "autoplay", "checked", "controls", "default", "defer", "disabled", "formnovalidate", "hidden", "ismap", "loop", "multiple", "muted", "nomodule", "novalidate", "open", "playsinline", "readonly", "required", "reversed", "selected"]);
-var void_element_names = /^(?:area|base|br|col|command|embed|hr|img|input|keygen|link|meta|param|source|track|wbr)$/;
-
-function is_void(name) {
-  return void_element_names.test(name) || name.toLowerCase() === "!doctype";
-}
-
 var invalid_attribute_name_character = /[\s'">/=\u{FDD0}-\u{FDEF}\u{FFFE}\u{FFFF}\u{1FFFE}\u{1FFFF}\u{2FFFE}\u{2FFFF}\u{3FFFE}\u{3FFFF}\u{4FFFE}\u{4FFFF}\u{5FFFE}\u{5FFFF}\u{6FFFE}\u{6FFFF}\u{7FFFE}\u{7FFFF}\u{8FFFE}\u{8FFFF}\u{9FFFE}\u{9FFFF}\u{AFFFE}\u{AFFFF}\u{BFFFE}\u{BFFFF}\u{CFFFE}\u{CFFFF}\u{DFFFE}\u{DFFFF}\u{EFFFE}\u{EFFFF}\u{FFFFE}\u{FFFFF}\u{10FFFE}\u{10FFFF}]/u;
 
 function spread(args, attrs_to_add) {
@@ -2412,10 +2391,8 @@ var SvelteComponent = class {
 
 function dispatch_dev(type, detail) {
   document.dispatchEvent(custom_event(type, Object.assign({
-    version: "3.48.0"
-  }, detail), {
-    bubbles: true
-  }));
+    version: "3.47.0"
+  }, detail), true));
 }
 
 function append_dev(target, node) {
@@ -2560,16 +2537,8 @@ function validate_slots(name, slot, keys) {
 }
 
 function validate_dynamic_element(tag) {
-  const is_string = typeof tag === "string";
-
-  if (tag && !is_string) {
+  if (tag && typeof tag !== "string") {
     throw new Error('<svelte:element> expects "this" attribute to be a string.');
-  }
-}
-
-function validate_void_dynamic_element(tag) {
-  if (tag && is_void(tag)) {
-    throw new Error(`<svelte:element this="${tag}"> is self-closing and cannot have content.`);
   }
 }
 

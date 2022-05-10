@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/svelte/3.48.0.js
+}), mod); // .beyond/uimport/temp/svelte/3.47.0.js
 
 
 var __exports = {};

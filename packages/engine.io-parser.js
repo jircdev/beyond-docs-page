@@ -29,7 +29,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/engine.io-parser/5.0.4.js
+}), mod); // .beyond/uimport/temp/engine.io-parser/5.0.3.js
 
 
 var __exports = {};
@@ -100,17 +100,17 @@ var encodeBlobAsBase64 = (data, callback) => {
   return fileReader.readAsDataURL(data);
 };
 
-var encodePacket_browser_default = encodePacket; // node_modules/engine.io-parser/build/esm/contrib/base64-arraybuffer.js
+var encodePacket_browser_default = encodePacket; // node_modules/@socket.io/base64-arraybuffer/dist/base64-arraybuffer.es5.js
 
 var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 var lookup = typeof Uint8Array === "undefined" ? [] : new Uint8Array(256);
 
-for (let i = 0; i < chars.length; i++) {
+for (i = 0; i < chars.length; i++) {
   lookup[chars.charCodeAt(i)] = i;
 }
 
-var encode = arraybuffer => {
-  let bytes = new Uint8Array(arraybuffer),
+var encode = function (arraybuffer) {
+  var bytes = new Uint8Array(arraybuffer),
       i,
       len = bytes.length,
       base64 = "";
@@ -131,8 +131,8 @@ var encode = arraybuffer => {
   return base64;
 };
 
-var decode = base64 => {
-  let bufferLength = base64.length * 0.75,
+var decode = function (base64) {
+  var bufferLength = base64.length * 0.75,
       len = base64.length,
       i,
       p = 0,
@@ -149,8 +149,8 @@ var decode = base64 => {
     }
   }
 
-  const arraybuffer = new ArrayBuffer(bufferLength),
-        bytes = new Uint8Array(arraybuffer);
+  var arraybuffer = new ArrayBuffer(bufferLength),
+      bytes = new Uint8Array(arraybuffer);
 
   for (i = 0; i < len; i += 4) {
     encoded1 = lookup[base64.charCodeAt(i)];
@@ -163,8 +163,9 @@ var decode = base64 => {
   }
 
   return arraybuffer;
-}; // node_modules/engine.io-parser/build/esm/decodePacket.browser.js
+};
 
+var i; // node_modules/engine.io-parser/build/esm/decodePacket.browser.js
 
 var withNativeArrayBuffer2 = typeof ArrayBuffer === "function";
 

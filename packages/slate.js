@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/slate/0.78.0.js
+}), mod); // .beyond/uimport/temp/slate/0.77.2.js
 
 
 var __exports = {};

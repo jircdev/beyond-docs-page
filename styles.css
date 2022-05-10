@@ -17,16 +17,13 @@
   --chat-online: #43fc22;
   --preload: $secondary;
   --border-radius-base: 8px;
-  --border-element-color-1: var(--gray-darker);
-  --app-primary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary));
-  --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
-  --app-dark-text-gradient: linear-gradient(var(--color-carbon-70), var(--gray-light));
   --primary-surface: #fff;
   --primary: #FF8056;
   --primary-dark: #E36152;
   --primary-light: #FFA789;
   --primary-accent: #FFA789;
   --text-on-primary: #fff;
+  --accent-color: var(--primary);
   --secondary: #121F36;
   --secondary-dark: #121F36;
   --secondary-light: #313C50;
@@ -34,7 +31,7 @@
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: #5E5F5C;
+  --text-color: var(--color-gray-50);
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -42,6 +39,19 @@
   --element-bg: var(--gray-light);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
+  --app-element-surface: var(--color-gray-10);
+  --app-element-hover-surface: var(--color-gray-10);
+  --app-element-border-color-1: var(--color-gray-10);
+  --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
+  --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
+  --app-dark-text-gradient: linear-gradient(var(--color-carbon-50), var(--secondary));
+  --app-animation-color: var(--gray-light);
+  --app-link-color: var(--secondary);
+  --app-link-hover-color: var(--secondary-dark);
+  /**
+  highlight content
+   */
+  --app-insight-surface: var(--primary-light);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -67,16 +77,27 @@
     --bg-element: var(--secondary-dark);
     --element-border-color: var(--gray-light);
     --separator-color: var(--gray-lighter);
+    --app-element-surface: var(--color-gray-90);
+    --app-element-hover-surface: var(--color-gray-90);
+    --app-element-border-color-1: var(--gray-darker);
+    --app-primary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary));
+    --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
+    --app-dark-text-gradient: linear-gradient(var(--color-carbon-70), var(--gray-light));
+    --app-animation-color: var(--secondary-dark);
+    --app-link-color: var(--primary);
+    --app-link-hover-color: var(--primary-dark);
+    --app-insight-surface: var(--secondary-light-light);
   }
 }
 
 html[data-beyond-mode=light] {
-  --primary-surface: #121212;
+  --primary-surface: #fff;
   --primary: #FF8056;
   --primary-dark: #E36152;
   --primary-light: #FFA789;
   --primary-accent: #FFA789;
   --text-on-primary: #fff;
+  --accent-color: var(--primary);
   --secondary: #121F36;
   --secondary-dark: #121F36;
   --secondary-light: #313C50;
@@ -84,7 +105,7 @@ html[data-beyond-mode=light] {
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: #5E5F5C;
+  --text-color: var(--color-gray-50);
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -92,6 +113,19 @@ html[data-beyond-mode=light] {
   --element-bg: var(--gray-light);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
+  --app-element-surface: var(--color-gray-10);
+  --app-element-hover-surface: var(--color-gray-10);
+  --app-element-border-color-1: var(--color-gray-10);
+  --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
+  --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
+  --app-dark-text-gradient: linear-gradient(var(--color-carbon-50), var(--secondary));
+  --app-animation-color: var(--gray-light);
+  --app-link-color: var(--secondary);
+  --app-link-hover-color: var(--secondary-dark);
+  /**
+  highlight content
+   */
+  --app-insight-surface: var(--primary-light);
 }
 
 html[data-beyond-mode=dark] {
@@ -117,6 +151,16 @@ html[data-beyond-mode=dark] {
   --bg-element: var(--secondary-dark);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-lighter);
+  --app-element-surface: var(--color-gray-90);
+  --app-element-hover-surface: var(--color-gray-90);
+  --app-element-border-color-1: var(--gray-darker);
+  --app-primary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary));
+  --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
+  --app-dark-text-gradient: linear-gradient(var(--color-carbon-70), var(--gray-light));
+  --app-animation-color: var(--secondary-dark);
+  --app-link-color: var(--primary);
+  --app-link-hover-color: var(--primary-dark);
+  --app-insight-surface: var(--secondary-light-light);
 }
 :root {
   --bynd-aside-width: 250px;
@@ -313,7 +357,7 @@ html[data-beyond-mode=dark] {
 
 .gradient-one {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,2a2896+100 */
-  background: #4096ee;
+  background: rgb(64, 150, 238);
   /* Old browsers */
   background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
   /* FF3.6-15 */

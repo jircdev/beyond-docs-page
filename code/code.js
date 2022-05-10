@@ -1,80 +1,126 @@
-define(["exports", "react", "prismjs", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
-  "use strict";
+/**
+ * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
+ * Based on https://github.com/chriskempson/tomorrow-theme
+ * @author Rose Pritchard
+ */
+code:not(.inline-code, .inline), pre {
+  background: #1a1a1a;
+  padding: 15px;
+}
 
-  Object.defineProperty(_exports2, "__esModule", {
-    value: true
-  });
-  _exports2.hmr = _exports2.Code = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('prismjs', dependency_1);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_2);
-  const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/code/code', false, {}, dependencies);
+code[class*=language-]:not(.inline-code),
+pre[class*=language-] {
+  color: #ccc;
+  background: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 14px;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
 
-  const __pkg = bundle.package();
+/* Code blocks */
+pre[class*=language-] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
-  /**********************
-  INTERNAL MODULE: ./code
-  **********************/
+:not(pre) > code[class*=language-],
+pre[class*=language-] {
+  background: #2d2d2d;
+}
 
-  modules.set('./code', {
-    hash: 1094602998,
-    creator: function (require, exports) {
-      "use strict";
+/* Inline code */
+:not(pre) > code[class*=language-] {
+  padding: 0.1em;
+  border-radius: 0.3em;
+  white-space: normal;
+}
 
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Code = Code;
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.parameter,
+.token.cdata {
+  color: #999;
+}
 
-      var React = require("react");
+.token.punctuation {
+  color: #ccc;
+}
 
-      var Prism = require("prismjs");
-      /*bundle*/
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+  color: #e2777a;
+}
 
+.token.function-name {
+  color: #6196cc;
+}
 
-      function Code({
-        language = 'typescript',
-        children
-      }) {
-        const createMarkup = () => {
-          const html = Prism.highlight(children, Prism.languages.javascript, language);
-          return {
-            __html: html
-          };
-        };
+.token.boolean,
+.token.number,
+.token.function {
+  color: #f08d49;
+}
 
-        return React.createElement("pre", null, React.createElement("code", {
-          className: `language-${language}`,
-          dangerouslySetInnerHTML: createMarkup()
-        }));
-      }
-    }
-  }); // Exports managed by beyond bundle objects
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+  color: #f8c555;
+}
 
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Code = require('./code').Code;
-  };
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #cc99cd;
+}
 
-  let Code; // Module exports
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+  color: #7ec699;
+}
 
-  _exports2.Code = Code;
+.token.operator,
+.token.entity,
+.token.url {
+  color: #67cdcc;
+}
 
-  __pkg.exports.process = function (require) {
-    _exports2.Code = Code = require('./code').Code;
-  };
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
 
-  const hmr = new function () {
-    this.on = (event, listener) => void 0;
+.token.italic {
+  font-style: italic;
+}
 
-    this.off = (event, listener) => void 0;
-  }();
-  _exports2.hmr = hmr;
+.token.entity {
+  cursor: help;
+}
 
-  __pkg.initialise(modules);
-});
+.token.inserted {
+  color: green;
+}
+

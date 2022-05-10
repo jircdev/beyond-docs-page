@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/engine.io-client/6.2.2.js
+}), mod); // .beyond/uimport/temp/engine.io-client/6.2.1.js
 
 
 var __exports = {};
@@ -141,7 +141,7 @@ Emitter.prototype.hasListeners = function (event) {
 }; // node_modules/engine.io-client/build/esm/globalThis.browser.js
 
 
-var globalThisShim = (() => {
+var globalThis_browser_default = (() => {
   if (typeof self !== "undefined") {
     return self;
   } else if (typeof window !== "undefined") {
@@ -167,11 +167,11 @@ var NATIVE_CLEAR_TIMEOUT = clearTimeout;
 
 function installTimerFunctions(obj, opts) {
   if (opts.useNativeTimers) {
-    obj.setTimeoutFn = NATIVE_SET_TIMEOUT.bind(globalThisShim);
-    obj.clearTimeoutFn = NATIVE_CLEAR_TIMEOUT.bind(globalThisShim);
+    obj.setTimeoutFn = NATIVE_SET_TIMEOUT.bind(globalThis_browser_default);
+    obj.clearTimeoutFn = NATIVE_CLEAR_TIMEOUT.bind(globalThis_browser_default);
   } else {
-    obj.setTimeoutFn = setTimeout.bind(globalThisShim);
-    obj.clearTimeoutFn = clearTimeout.bind(globalThisShim);
+    obj.setTimeoutFn = setTimeout.bind(globalThis_browser_default);
+    obj.clearTimeoutFn = clearTimeout.bind(globalThis_browser_default);
   }
 }
 
@@ -352,7 +352,7 @@ try {
 
 var hasCORS = value; // node_modules/engine.io-client/build/esm/transports/xmlhttprequest.browser.js
 
-function XHR(opts) {
+function xmlhttprequest_browser_default(opts) {
   const xdomain = opts.xdomain;
 
   try {
@@ -363,7 +363,7 @@ function XHR(opts) {
 
   if (!xdomain) {
     try {
-      return new globalThisShim[["Active"].concat("Object").join("X")]("Microsoft.XMLHTTP");
+      return new globalThis_browser_default[["Active"].concat("Object").join("X")]("Microsoft.XMLHTTP");
     } catch (e) {}
   }
 } // node_modules/engine.io-client/build/esm/transports/polling.js
@@ -374,7 +374,7 @@ var import_engine2 = require("engine.io-parser");
 function empty() {}
 
 var hasXHR2 = function () {
-  const xhr = new XHR({
+  const xhr = new xmlhttprequest_browser_default({
     xdomain: false
   });
   return xhr.responseType != null;
@@ -563,7 +563,7 @@ var Request = class extends Emitter {
     const opts = pick(this.opts, "agent", "pfx", "key", "passphrase", "cert", "ca", "ciphers", "rejectUnauthorized", "autoUnref");
     opts.xdomain = !!this.opts.xd;
     opts.xscheme = !!this.opts.xs;
-    const xhr = this.xhr = new XHR(opts);
+    const xhr = this.xhr = new xmlhttprequest_browser_default(opts);
 
     try {
       xhr.open(this.method, this.uri, this.async);
@@ -671,7 +671,7 @@ if (typeof document !== "undefined") {
   if (typeof attachEvent === "function") {
     attachEvent("onunload", unloadHandler);
   } else if (typeof addEventListener === "function") {
-    const terminationEvent = "onpagehide" in globalThisShim ? "pagehide" : "unload";
+    const terminationEvent = "onpagehide" in globalThis_browser_default ? "pagehide" : "unload";
     addEventListener(terminationEvent, unloadHandler, false);
   }
 }
@@ -695,7 +695,7 @@ var nextTick = (() => {
   }
 })();
 
-var WebSocket = globalThisShim.WebSocket || globalThisShim.MozWebSocket;
+var WebSocket = globalThis_browser_default.WebSocket || globalThis_browser_default.MozWebSocket;
 var usingBrowserWebSocket = true;
 var defaultBinaryType = "arraybuffer"; // node_modules/engine.io-client/build/esm/transports/websocket.js
 
@@ -825,7 +825,7 @@ var WS = class extends Transport {
   }
 
   check() {
-    return !!WebSocket;
+    return !!WebSocket && !("__initialize" in WebSocket && this.name === WS.prototype.name);
   }
 
 }; // node_modules/engine.io-client/build/esm/transports/index.js
