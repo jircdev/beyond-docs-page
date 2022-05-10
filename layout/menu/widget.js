@@ -60,7 +60,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   **********************/
 
   modules.set('./data', {
-    hash: 3137535151,
+    hash: 3384530130,
     creator: function (require, exports) {
       "use strict";
 
@@ -91,8 +91,14 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           id: 'projects',
           label: 'Projectos'
         }, {
-          id: 'modules',
-          label: 'Módulos'
+          label: 'Módulos',
+          children: [{
+            id: 'modules/introduction',
+            label: 'Modulos en Beyond'
+          }, {
+            id: 'modules/config',
+            label: 'Configuración'
+          }]
         }, {
           id: 'bundles',
           label: 'Bundles'
@@ -189,22 +195,12 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
       exports.useMenuContext = useMenuContext;
     }
   });
-  /************************************
-  INTERNAL MODULE: ./view/item-children
-  ************************************/
-
-  modules.set('./view/item-children', {
-    hash: 0,
-    creator: function (require, exports) {
-      "use strict";
-    }
-  });
   /**********************************
   INTERNAL MODULE: ./view/items/index
   **********************************/
 
   modules.set('./view/items/index', {
-    hash: 3059224001,
+    hash: 1922908051,
     creator: function (require, exports) {
       "use strict";
 
@@ -227,9 +223,9 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         items,
         className
       }) {
-        const output = items.map(item => React.createElement(MenuItem, {
+        const output = items.map((item, i) => React.createElement(MenuItem, {
           item: item,
-          key: item.id
+          key: `${item.id}.${i}`
         }));
         const cls = `docs__menu__sublist${className ? ` ${className}` : ''}`;
         return React.createElement("ul", {
@@ -291,7 +287,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   ***************************/
 
   modules.set('./view/list', {
-    hash: 1833651499,
+    hash: 2630424517,
     creator: function (require, exports) {
       "use strict";
 
@@ -311,9 +307,9 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           MenuItem
         } = require('./items/index');
 
-        const output = items.map(item => React.createElement(MenuItem, {
+        const output = items.map((item, i) => React.createElement(MenuItem, {
           item: item,
-          key: item.id
+          key: `${item.id}.${i}`
         }));
         const clsToApply = level ? 'docs__menu__sublist' : 'docs__menu__list';
         const cls = `${clsToApply}${className ? ` ${className}` : ''}`;

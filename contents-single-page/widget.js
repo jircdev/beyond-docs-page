@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   **************************/
 
   modules.set('./contents', {
-    hash: 179180343,
+    hash: 2811480227,
     creator: function (require, exports) {
       "use strict";
 
@@ -74,15 +74,6 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         async fetch() {
           this.#loading = true;
           this.trigger('change');
-          await new Promise(resolve => setTimeout(resolve, 4000));
-          this.#value.push({
-            id: 1,
-            name: 'Pepsi'
-          });
-          this.#value.push({
-            id: 2,
-            name: 'Coca Cola'
-          });
           this.#loading = false;
           this.#loaded = true;
           this.trigger('change');

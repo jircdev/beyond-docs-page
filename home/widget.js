@@ -1229,7 +1229,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   **********************************************/
 
   modules.set('./views/sections/config-module', {
-    hash: 172012258,
+    hash: 4069459151,
     creator: function (require, exports) {
       "use strict";
 
@@ -1278,7 +1278,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           className: "action"
         }, React.createElement(_code.Link, {
           className: "link-more",
-          href: "/docs/module"
+          href: "/docs/modules/introduction"
         }, "Leer M\u00E1s"))), React.createElement(_navigatorBox.CodeBox, {
           title: "module.json"
         }, tpl));
@@ -1401,7 +1401,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   modules.set('./views/sections/solution', {
-    hash: 1171834889,
+    hash: 164351420,
     creator: function (require, exports) {
       "use strict";
 
@@ -1428,32 +1428,29 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         }, React.createElement(_card.Card, {
           title: "Typescript Universal",
           href: "/docs/backend"
-        }, "Dise\u00F1ado para crear desde un mismo proyecto, m\u00FAltiples distribuciones como sitios web, aplicaciones", React.createElement(_code.Elink, {
+        }, "Dise\u00F1ado para crear desde un mismo proyecto, m\u00FAltiples distribuciones como sitios web, aplicaciones ", React.createElement(_code.Elink, {
           href: "https://cordova.apache.org/"
-        }, " C\u00F3rdova"), ",", React.createElement(_code.Elink, {
+        }, "C\u00F3rdova"), ", ", React.createElement(_code.Elink, {
           href: "https://docs.npmjs.com/packages-and-modules"
-        }, " paquetes NPM "), "y c\u00F3digo ", React.createElement(_code.Elink, {
+        }, "paquetes NPM"), " y c\u00F3digo ", React.createElement(_code.Elink, {
           href: "https://nodejs.org"
-        }, " Node"), "."), React.createElement(_card.Card, {
+        }, "Node"), "."), React.createElement(_card.Card, {
           title: "Desarrollo Isomorfico",
           href: "/docs/tutorial/web"
-        }, "Listo para publicar sitios est\u00E1ticos, ", React.createElement("strong", null, "SSR"), ", ", React.createElement("strong", null, "CSR"), " o arquitecturas", React.createElement(_code.Elink, {
+        }, "Listo para publicar sitios est\u00E1ticos, ", React.createElement("strong", null, "SSR"), ", ", React.createElement("strong", null, "CSR"), " o arquitecturas ", React.createElement(_code.Elink, {
           href: "https://jamstack.org/"
-        }, " Jamstack"), " y con posibilidad de usarlas en conjunto por medio de", React.createElement(_code.Elink, {
+        }, "Jamstack"), " y con posibilidad de usarlas en conjunto por medio de ", React.createElement(_code.Elink, {
           href: "https://micro-frontends.org/"
-        }, " micro frontends"), "."), React.createElement(_card.Card, {
+        }, "micro frontends"), "."), React.createElement(_card.Card, {
           title: "Frameworks de vistas",
           href: "/docs/widgets"
         }, "Compatible con\u00A0", React.createElement(_code.Elink, {
-          href: "https://reactjs.org",
-          className: "accent"
+          href: "https://reactjs.org"
         }, "React"), ",\u00A0", React.createElement(_code.Elink, {
-          href: "https://vuejs.org/",
-          className: "accent"
-        }, "Vue\u00A0"), " y", React.createElement(_code.Elink, {
-          href: "https://svelte.dev/",
-          className: "accent"
-        }, "\u00A0Svelte"), ". Preparado para incluir otros frameworks o librerias de gestion de vistas.")));
+          href: "https://vuejs.org/"
+        }, "Vue"), " y ", React.createElement(_code.Elink, {
+          href: "https://svelte.dev/"
+        }, "Svelte"), ". Preparado para incluir otros frameworks o librerias de gestion de vistas.")));
       }
     }
   });

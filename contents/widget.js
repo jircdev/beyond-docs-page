@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   **************************/
 
   modules.set('./contents', {
-    hash: 179180343,
+    hash: 661352488,
     creator: function (require, exports) {
       "use strict";
 
@@ -74,22 +74,12 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         async fetch() {
           this.#loading = true;
           this.trigger('change');
-          await new Promise(resolve => setTimeout(resolve, 4000));
-          this.#value.push({
-            id: 1,
-            name: 'Pepsi'
-          });
-          this.#value.push({
-            id: 2,
-            name: 'Coca Cola'
-          });
           this.#loading = false;
           this.#loaded = true;
           this.trigger('change');
         }
 
         hydrate(cached) {
-          console.log(cached);
           this.#loading = false;
           this.#loaded = true;
           cached.forEach(company => this.#value.push(company));
@@ -110,7 +100,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./controller', {
-    hash: 1348900836,
+    hash: 531389837,
     creator: function (require, exports) {
       "use strict";
 
@@ -129,6 +119,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
 
       class Controller extends _ts.PageReactWidgetController {
         createStore() {
+          console.log(1, window.performance.now() / 1000);
           return new _contents.Contents(this.body);
         }
 
@@ -146,7 +137,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./views/page', {
-    hash: 1145008439,
+    hash: 1869363560,
     creator: function (require, exports) {
       "use strict";
 
@@ -163,10 +154,12 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         uri,
         component
       }) {
+        console.log(1.1, performance.now() / 1000);
         const propsContent = uri.vars.get('content');
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'what-is-beyond';
         const [hmrChanged, setHmr] = React.useState(performance.now());
+        console.log(2, performance.now() / 1000);
         React.useEffect(() => {
           const onChange = () => {
             setHmr(performance.now());

@@ -1,4 +1,4 @@
-define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
+define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -9,11 +9,12 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   dependencies.set('react', dependency_0);
   dependencies.set('@beyond/ui/link/code', dependency_1);
   dependencies.set('@beyond/docs/code/code', dependency_2);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_3);
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_4);
-  dependencies.set('@beyond/docs/ui/icons/code', dependency_5);
-  dependencies.set('@beyond/ui/image/code', dependency_6);
-  dependencies.set('@beyond/ui/modal/code', dependency_7);
+  dependencies.set('@beyond/docs/components/next-links/code', dependency_3);
+  dependencies.set('@beyond-js/kernel/core/ts', dependency_4);
+  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_5);
+  dependencies.set('@beyond/docs/ui/icons/code', dependency_6);
+  dependencies.set('@beyond/ui/image/code', dependency_7);
+  dependencies.set('@beyond/ui/modal/code', dependency_8);
   const {
     beyond
   } = globalThis;
@@ -151,7 +152,7 @@ class Auth {
   *******************************/
 
   modules.set('./basic/install', {
-    hash: 3486218594,
+    hash: 1128528773,
     creator: function (require, exports) {
       "use strict";
 
@@ -164,7 +165,7 @@ class Auth {
 
       var _code = require("@beyond/docs/code/code");
 
-      var _code2 = require("@beyond/ui/link/code");
+      var _code2 = require("@beyond/docs/components/next-links/code");
 
       function Install() {
         return React.createElement(React.Fragment, null, React.createElement("h1", {
@@ -179,13 +180,9 @@ class Auth {
           className: "beyond"
         }, "BeyondJS"), " se instala de forma global y puede ser ejecutado en cualquier directorio. Para utilizarlo, s\u00F3lo necesitas ir a la carpeta en la cual desees trabajar, abrir la consola de comandos y ejecutar \"beyond\"."), React.createElement(_code.Code, {
           language: "bash"
-        }, ` > beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendote que beyond se est\u00E1 ejecutando y el puerto de acceso para ir al Dashboard."), React.createElement("p", null, "\u00A1Y ya est\u00E1! \u00BFSimple verdad? Puedes empezar con tu proyecto utilizando el dashboard y tu IDE de preferencia."), React.createElement("div", {
-          className: "next__content link__content"
-        }, React.createElement("ul", null, React.createElement("li", null, React.createElement(_code2.Link, {
-          href: "/docs/web"
-        }, "Dashboard")), React.createElement("li", null, React.createElement(_code2.Link, {
-          href: "/docs/tutorial/web"
-        }, "Tutorial")))));
+        }, ` > beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendote que beyond se est\u00E1 ejecutando y el puerto de acceso para ir al Dashboard."), React.createElement("p", null, "\u00A1Y ya est\u00E1! \u00BFSimple verdad? Puedes empezar con tu proyecto utilizando el dashboard y tu IDE de preferencia."), React.createElement(_code2.NextLinks, {
+          items: [['Dashboard', '/docs/web'], ['Tutorial', '/docs/tutorial/we']]
+        }));
       }
     }
   });
@@ -927,7 +924,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   modules.set('./db', {
-    hash: 1544477814,
+    hash: 1075987466,
     creator: function (require, exports) {
       "use strict";
 
@@ -1032,8 +1029,8 @@ class Controller extends ReactWidgetController {
             basics: _concepts.Concepts
           },
           error404: _error.Error404,
-          module: {
-            into: _moduleIntro.ModuleIntro,
+          modules: {
+            introduction: _moduleIntro.ModuleIntro,
             config: _config.ModuleConfig
           },
           project: {
@@ -1248,7 +1245,7 @@ class Controller extends ReactWidgetController {
   **********************/
 
   modules.set('./page', {
-    hash: 1600289029,
+    hash: 1603913855,
     creator: function (require, exports) {
       "use strict";
 
@@ -1555,7 +1552,7 @@ class Controller extends ReactWidgetController {
   ****************************************************/
 
   modules.set('./views/concepts/module/module-intro', {
-    hash: 1570975433,
+    hash: 2931588705,
     creator: function (require, exports) {
       "use strict";
 
@@ -1568,9 +1565,9 @@ class Controller extends ReactWidgetController {
 
       var _code = require("@beyond/docs/code/code");
 
-      var _config = require("./config");
-
       var _code2 = require("@beyond/ui/link/code");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
 
       const exportTpl = `
 export /*bundle*/ class Auth {
@@ -1645,7 +1642,9 @@ export /*bundle*/ class Auth {
           className: "inline-code"
         }, "login"), " que hemos creado. Nuestra importaci\u00F3n quedar\u00EDa de la siguiente manera:"), React.createElement(_code.Code, {
           language: "ts"
-        }, `import {Auth} from '@company/project/login/code'`), React.createElement(_config.ModuleConfig, null));
+        }, `import {Auth} from '@company/project/login/code'`), React.createElement(_code3.NextLinks, {
+          items: [['Configuración de modulos', '/docs/modules/config'], ['Bundles', '/docs/bundles']]
+        }));
       }
     }
   });

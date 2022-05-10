@@ -128,9 +128,6 @@
 .cards__container .accent {
   color: var(--accent-color);
 }
-.cards__container a {
-  text-decoration: none;
-}
 .cards__container .docs__card {
   text-decoration: none;
   background: var(--app-element-surface);
@@ -259,6 +256,9 @@
 }
 .top__header .header__menu li a {
   text-decoration: none;
+}
+.top__header .header__menu li a:after {
+  display: none;
 }
 .top__header .header__menu li:hover:after {
   width: 100%;
@@ -710,6 +710,11 @@ a {
   cursor: pointer;
   transition: all 200ms linear;
   text-decoration: none;
+  position: relative;
+}
+a:not(.link-more) {
+  text-underline-offset: 1.5px;
+  text-decoration: underline;
 }
 a:hover {
   color: var(--app-link-hover-color);
