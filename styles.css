@@ -71,7 +71,7 @@
 }
 
 html[data-beyond-mode=light] {
-  --primary-surface: #fff;
+  --primary-surface: #121212;
   --primary: #FF8056;
   --primary-dark: #E36152;
   --primary-light: #FFA789;
