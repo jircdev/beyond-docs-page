@@ -1,22 +1,14 @@
-define(["has-cors","@socket.io/component-emitter","engine.io-parser","yeast","engine.io-client"], (dep_0, dep_1, dep_2, dep_3, dep_4) => {
-const dependencies = new Map([['has-cors', dep_0],['@socket.io/component-emitter', dep_1],['engine.io-parser', dep_2],['yeast', dep_3],['engine.io-client', dep_4]]);
+define(["engine.io-parser","engine.io-client"], (dep_0, dep_1) => {
+const dependencies = new Map([['engine.io-parser', dep_0],['engine.io-client', dep_1]]);
 const define = void 0;
 const require = dependency => dependencies.get(dependency);
 const module = {};
 
 const code = (module, require) => {
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-
-var __commonJS = (cb, mod) => function __require() {
-  return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = {
-    exports: {}
-  }).exports, mod), mod.exports;
-};
 
 var __export = (target, all) => {
   for (var name in all) __defProp(target, name, {
@@ -36,122 +28,9 @@ var __copyProps = (to, from, except, desc) => {
   return to;
 };
 
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-  value: mod,
-  enumerable: true
-}) : target, mod));
-
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // node_modules/parseuri/index.js
-
-
-var require_parseuri = __commonJS({
-  "node_modules/parseuri/index.js"(exports, module2) {
-    var re = /^(?:(?![^:@]+:[^:@\/]*@)(http|https|ws|wss):\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?((?:[a-f0-9]{0,4}:){2,7}[a-f0-9]{0,4}|[^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/;
-    var parts = ["source", "protocol", "authority", "userInfo", "user", "password", "host", "port", "relative", "path", "directory", "file", "query", "anchor"];
-
-    module2.exports = function parseuri2(str) {
-      var src = str,
-          b = str.indexOf("["),
-          e = str.indexOf("]");
-
-      if (b != -1 && e != -1) {
-        str = str.substring(0, b) + str.substring(b, e).replace(/:/g, ";") + str.substring(e, str.length);
-      }
-
-      var m = re.exec(str || ""),
-          uri = {},
-          i = 14;
-
-      while (i--) {
-        uri[parts[i]] = m[i] || "";
-      }
-
-      if (b != -1 && e != -1) {
-        uri.source = src;
-        uri.host = uri.host.substring(1, uri.host.length - 1).replace(/;/g, ":");
-        uri.authority = uri.authority.replace("[", "").replace("]", "").replace(/;/g, ":");
-        uri.ipv6uri = true;
-      }
-
-      uri.pathNames = pathNames(uri, uri["path"]);
-      uri.queryKey = queryKey(uri, uri["query"]);
-      return uri;
-    };
-
-    function pathNames(obj, path) {
-      var regx = /\/{2,9}/g,
-          names = path.replace(regx, "/").split("/");
-
-      if (path.substr(0, 1) == "/" || path.length === 0) {
-        names.splice(0, 1);
-      }
-
-      if (path.substr(path.length - 1, 1) == "/") {
-        names.splice(names.length - 1, 1);
-      }
-
-      return names;
-    }
-
-    function queryKey(uri, query) {
-      var data = {};
-      query.replace(/(?:^|&)([^&=]*)=?([^&]*)/g, function ($0, $1, $2) {
-        if ($1) {
-          data[$1] = $2;
-        }
-      });
-      return data;
-    }
-  }
-
-}); // node_modules/backo2/index.js
-
-
-var require_backo2 = __commonJS({
-  "node_modules/backo2/index.js"(exports, module2) {
-    module2.exports = Backoff2;
-
-    function Backoff2(opts) {
-      opts = opts || {};
-      this.ms = opts.min || 100;
-      this.max = opts.max || 1e4;
-      this.factor = opts.factor || 2;
-      this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
-      this.attempts = 0;
-    }
-
-    Backoff2.prototype.duration = function () {
-      var ms = this.ms * Math.pow(this.factor, this.attempts++);
-
-      if (this.jitter) {
-        var rand = Math.random();
-        var deviation = Math.floor(rand * this.jitter * ms);
-        ms = (Math.floor(rand * 10) & 1) == 0 ? ms - deviation : ms + deviation;
-      }
-
-      return Math.min(ms, this.max) | 0;
-    };
-
-    Backoff2.prototype.reset = function () {
-      this.attempts = 0;
-    };
-
-    Backoff2.prototype.setMin = function (min) {
-      this.ms = min;
-    };
-
-    Backoff2.prototype.setMax = function (max) {
-      this.max = max;
-    };
-
-    Backoff2.prototype.setJitter = function (jitter) {
-      this.jitter = jitter;
-    };
-  }
-
-}); // .beyond/uimport/temp/socket.io-client/4.4.1.js
+}), mod); // .beyond/uimport/temp/socket.io-client/4.5.0.js
 
 
 var __exports = {};
@@ -167,7 +46,7 @@ __export(__exports, {
 
 module.exports = __toCommonJS(__exports); // node_modules/socket.io-client/build/esm/url.js
 
-var import_parseuri = __toESM(require_parseuri(), 1);
+var import_engine = require("engine.io-client");
 
 function url(uri, path = "", loc) {
   let obj = uri;
@@ -191,7 +70,7 @@ function url(uri, path = "", loc) {
       }
     }
 
-    obj = (0, import_parseuri.default)(uri);
+    obj = (0, import_engine.parse)(uri);
   }
 
   if (!obj.port) {
@@ -218,7 +97,102 @@ __export(esm_exports, {
   Encoder: () => Encoder,
   PacketType: () => PacketType,
   protocol: () => protocol
-}); // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/is-binary.js
+}); // node_modules/@socket.io/component-emitter/index.mjs
+
+
+function Emitter(obj) {
+  if (obj) return mixin(obj);
+}
+
+function mixin(obj) {
+  for (var key in Emitter.prototype) {
+    obj[key] = Emitter.prototype[key];
+  }
+
+  return obj;
+}
+
+Emitter.prototype.on = Emitter.prototype.addEventListener = function (event, fn) {
+  this._callbacks = this._callbacks || {};
+  (this._callbacks["$" + event] = this._callbacks["$" + event] || []).push(fn);
+  return this;
+};
+
+Emitter.prototype.once = function (event, fn) {
+  function on2() {
+    this.off(event, on2);
+    fn.apply(this, arguments);
+  }
+
+  on2.fn = fn;
+  this.on(event, on2);
+  return this;
+};
+
+Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.removeAllListeners = Emitter.prototype.removeEventListener = function (event, fn) {
+  this._callbacks = this._callbacks || {};
+
+  if (arguments.length == 0) {
+    this._callbacks = {};
+    return this;
+  }
+
+  var callbacks = this._callbacks["$" + event];
+  if (!callbacks) return this;
+
+  if (arguments.length == 1) {
+    delete this._callbacks["$" + event];
+    return this;
+  }
+
+  var cb;
+
+  for (var i = 0; i < callbacks.length; i++) {
+    cb = callbacks[i];
+
+    if (cb === fn || cb.fn === fn) {
+      callbacks.splice(i, 1);
+      break;
+    }
+  }
+
+  if (callbacks.length === 0) {
+    delete this._callbacks["$" + event];
+  }
+
+  return this;
+};
+
+Emitter.prototype.emit = function (event) {
+  this._callbacks = this._callbacks || {};
+  var args = new Array(arguments.length - 1),
+      callbacks = this._callbacks["$" + event];
+
+  for (var i = 1; i < arguments.length; i++) {
+    args[i - 1] = arguments[i];
+  }
+
+  if (callbacks) {
+    callbacks = callbacks.slice(0);
+
+    for (var i = 0, len = callbacks.length; i < len; ++i) {
+      callbacks[i].apply(this, args);
+    }
+  }
+
+  return this;
+};
+
+Emitter.prototype.emitReserved = Emitter.prototype.emit;
+
+Emitter.prototype.listeners = function (event) {
+  this._callbacks = this._callbacks || {};
+  return this._callbacks["$" + event] || [];
+};
+
+Emitter.prototype.hasListeners = function (event) {
+  return !!this.listeners(event).length;
+}; // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/is-binary.js
 
 
 var withNativeArrayBuffer = typeof ArrayBuffer === "function";
@@ -340,8 +314,6 @@ function _reconstructPacket(data, buffers) {
 } // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/index.js
 
 
-var import_component_emitter = require("@socket.io/component-emitter");
-
 var protocol = 5;
 var PacketType;
 
@@ -356,6 +328,10 @@ var PacketType;
 })(PacketType || (PacketType = {}));
 
 var Encoder = class {
+  constructor(replacer) {
+    this.replacer = replacer;
+  }
+
   encode(obj) {
     if (obj.type === PacketType.EVENT || obj.type === PacketType.ACK) {
       if (hasBinary(obj)) {
@@ -383,7 +359,7 @@ var Encoder = class {
     }
 
     if (obj.data != null) {
-      str += JSON.stringify(obj.data);
+      str += JSON.stringify(obj.data, this.replacer);
     }
 
     return str;
@@ -398,9 +374,10 @@ var Encoder = class {
   }
 
 };
-var Decoder = class extends import_component_emitter.Emitter {
-  constructor() {
+var Decoder = class extends Emitter {
+  constructor(reviver) {
     super();
+    this.reviver = reviver;
   }
 
   add(obj) {
@@ -492,7 +469,7 @@ var Decoder = class extends import_component_emitter.Emitter {
     }
 
     if (str.charAt(++i)) {
-      const payload = tryParse(str.substr(i));
+      const payload = this.tryParse(str.substr(i));
 
       if (Decoder.isPayloadValid(p.type, payload)) {
         p.data = payload;
@@ -502,6 +479,14 @@ var Decoder = class extends import_component_emitter.Emitter {
     }
 
     return p;
+  }
+
+  tryParse(str) {
+    try {
+      return JSON.parse(str, this.reviver);
+    } catch (e) {
+      return false;
+    }
   }
 
   static isPayloadValid(type, payload) {
@@ -532,15 +517,6 @@ var Decoder = class extends import_component_emitter.Emitter {
   }
 
 };
-
-function tryParse(str) {
-  try {
-    return JSON.parse(str);
-  } catch (e) {
-    return false;
-  }
-}
-
 var BinaryReconstructor = class {
   constructor(packet) {
     this.packet = packet;
@@ -575,8 +551,6 @@ function on(obj, ev, fn) {
 } // node_modules/socket.io-client/build/esm/socket.js
 
 
-var import_component_emitter2 = require("@socket.io/component-emitter");
-
 var RESERVED_EVENTS = Object.freeze({
   connect: 1,
   connect_error: 1,
@@ -585,11 +559,10 @@ var RESERVED_EVENTS = Object.freeze({
   newListener: 1,
   removeListener: 1
 });
-var Socket = class extends import_component_emitter2.Emitter {
+var Socket = class extends Emitter {
   constructor(io, nsp, opts) {
     super();
     this.connected = false;
-    this.disconnected = true;
     this.receiveBuffer = [];
     this.sendBuffer = [];
     this.ids = 0;
@@ -603,6 +576,10 @@ var Socket = class extends import_component_emitter2.Emitter {
     }
 
     if (this.io._autoConnect) this.open();
+  }
+
+  get disconnected() {
+    return !this.connected;
   }
 
   subEvents() {
@@ -659,6 +636,7 @@ var Socket = class extends import_component_emitter2.Emitter {
     const discardPacket = this.flags.volatile && (!isTransportWritable || !this.connected);
 
     if (discardPacket) {} else if (this.connected) {
+      this.notifyOutgoingListeners(packet);
       this.packet(packet);
     } else {
       this.sendBuffer.push(packet);
@@ -722,11 +700,10 @@ var Socket = class extends import_component_emitter2.Emitter {
     }
   }
 
-  onclose(reason) {
+  onclose(reason, description) {
     this.connected = false;
-    this.disconnected = true;
     delete this.id;
-    this.emitReserved("disconnect", reason);
+    this.emitReserved("disconnect", reason, description);
   }
 
   onpacket(packet) {
@@ -745,17 +722,11 @@ var Socket = class extends import_component_emitter2.Emitter {
         break;
 
       case PacketType.EVENT:
-        this.onevent(packet);
-        break;
-
       case PacketType.BINARY_EVENT:
         this.onevent(packet);
         break;
 
       case PacketType.ACK:
-        this.onack(packet);
-        break;
-
       case PacketType.BINARY_ACK:
         this.onack(packet);
         break;
@@ -825,7 +796,6 @@ var Socket = class extends import_component_emitter2.Emitter {
   onconnect(id) {
     this.id = id;
     this.connected = true;
-    this.disconnected = false;
     this.emitBuffered();
     this.emitReserved("connect");
   }
@@ -833,7 +803,10 @@ var Socket = class extends import_component_emitter2.Emitter {
   emitBuffered() {
     this.receiveBuffer.forEach(args => this.emitEvent(args));
     this.receiveBuffer = [];
-    this.sendBuffer.forEach(packet => this.packet(packet));
+    this.sendBuffer.forEach(packet => {
+      this.notifyOutgoingListeners(packet);
+      this.packet(packet);
+    });
     this.sendBuffer = [];
   }
 
@@ -927,15 +900,100 @@ var Socket = class extends import_component_emitter2.Emitter {
     return this._anyListeners || [];
   }
 
+  onAnyOutgoing(listener) {
+    this._anyOutgoingListeners = this._anyOutgoingListeners || [];
+
+    this._anyOutgoingListeners.push(listener);
+
+    return this;
+  }
+
+  prependAnyOutgoing(listener) {
+    this._anyOutgoingListeners = this._anyOutgoingListeners || [];
+
+    this._anyOutgoingListeners.unshift(listener);
+
+    return this;
+  }
+
+  offAnyOutgoing(listener) {
+    if (!this._anyOutgoingListeners) {
+      return this;
+    }
+
+    if (listener) {
+      const listeners = this._anyOutgoingListeners;
+
+      for (let i = 0; i < listeners.length; i++) {
+        if (listener === listeners[i]) {
+          listeners.splice(i, 1);
+          return this;
+        }
+      }
+    } else {
+      this._anyOutgoingListeners = [];
+    }
+
+    return this;
+  }
+
+  listenersAnyOutgoing() {
+    return this._anyOutgoingListeners || [];
+  }
+
+  notifyOutgoingListeners(packet) {
+    if (this._anyOutgoingListeners && this._anyOutgoingListeners.length) {
+      const listeners = this._anyOutgoingListeners.slice();
+
+      for (const listener of listeners) {
+        listener.apply(this, packet.data);
+      }
+    }
+  }
+
+}; // node_modules/socket.io-client/build/esm/contrib/backo2.js
+
+function Backoff(opts) {
+  opts = opts || {};
+  this.ms = opts.min || 100;
+  this.max = opts.max || 1e4;
+  this.factor = opts.factor || 2;
+  this.jitter = opts.jitter > 0 && opts.jitter <= 1 ? opts.jitter : 0;
+  this.attempts = 0;
+}
+
+Backoff.prototype.duration = function () {
+  var ms = this.ms * Math.pow(this.factor, this.attempts++);
+
+  if (this.jitter) {
+    var rand = Math.random();
+    var deviation = Math.floor(rand * this.jitter * ms);
+    ms = (Math.floor(rand * 10) & 1) == 0 ? ms - deviation : ms + deviation;
+  }
+
+  return Math.min(ms, this.max) | 0;
+};
+
+Backoff.prototype.reset = function () {
+  this.attempts = 0;
+};
+
+Backoff.prototype.setMin = function (min) {
+  this.ms = min;
+};
+
+Backoff.prototype.setMax = function (max) {
+  this.max = max;
+};
+
+Backoff.prototype.setJitter = function (jitter) {
+  this.jitter = jitter;
 }; // node_modules/socket.io-client/build/esm/manager.js
 
-var import_engine = require("engine.io-client");
 
-var import_backo2 = __toESM(require_backo2(), 1);
+var import_engine2 = require("engine.io-client");
 
-var import_component_emitter3 = require("@socket.io/component-emitter");
-
-var Manager = class extends import_component_emitter3.Emitter {
+var Manager = class extends Emitter {
   constructor(uri, opts) {
     var _a;
 
@@ -951,13 +1009,13 @@ var Manager = class extends import_component_emitter3.Emitter {
     opts = opts || {};
     opts.path = opts.path || "/socket.io";
     this.opts = opts;
-    (0, import_engine.installTimerFunctions)(this, opts);
+    (0, import_engine2.installTimerFunctions)(this, opts);
     this.reconnection(opts.reconnection !== false);
     this.reconnectionAttempts(opts.reconnectionAttempts || Infinity);
     this.reconnectionDelay(opts.reconnectionDelay || 1e3);
     this.reconnectionDelayMax(opts.reconnectionDelayMax || 5e3);
     this.randomizationFactor((_a = opts.randomizationFactor) !== null && _a !== void 0 ? _a : 0.5);
-    this.backoff = new import_backo2.default({
+    this.backoff = new Backoff({
       min: this.reconnectionDelay(),
       max: this.reconnectionDelayMax(),
       jitter: this.randomizationFactor()
@@ -1027,7 +1085,7 @@ var Manager = class extends import_component_emitter3.Emitter {
 
   open(fn) {
     if (~this._readyState.indexOf("open")) return this;
-    this.engine = new import_engine.Socket(this.uri, this.opts);
+    this.engine = new import_engine2.Socket(this.uri, this.opts);
     const socket = this.engine;
     const self = this;
     this._readyState = "opening";
@@ -1153,11 +1211,11 @@ var Manager = class extends import_component_emitter3.Emitter {
     return this._close();
   }
 
-  onclose(reason) {
+  onclose(reason, description) {
     this.cleanup();
     this.backoff.reset();
     this._readyState = "closed";
-    this.emitReserved("close", reason);
+    this.emitReserved("close", reason, description);
 
     if (this._reconnection && !this.skipReconnect) {
       this.reconnect();
@@ -1248,7 +1306,7 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-}); // .beyond/uimport/temp/socket.io-client/4.4.1.js
+}); // .beyond/uimport/temp/socket.io-client/4.5.0.js
 
 var __default = lookup;
 };

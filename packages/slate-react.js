@@ -1985,6 +1985,11 @@ var createEditor = () => {
         always: true
       });
     },
+    insertSoftBreak: () => {
+      Transforms.splitNodes(editor, {
+        always: true
+      });
+    },
     insertFragment: fragment => {
       Transforms.insertFragment(editor, fragment);
     },
@@ -2744,6 +2749,10 @@ var Editor = {
     editor.insertBreak();
   },
 
+  insertSoftBreak(editor) {
+    editor.insertSoftBreak();
+  },
+
   insertFragment(editor, fragment) {
     editor.insertFragment(fragment);
   },
@@ -2768,7 +2777,7 @@ var Editor = {
       return cachedIsEditor;
     }
 
-    var isEditor = typeof value.addMark === "function" && typeof value.apply === "function" && typeof value.deleteBackward === "function" && typeof value.deleteForward === "function" && typeof value.deleteFragment === "function" && typeof value.insertBreak === "function" && typeof value.insertFragment === "function" && typeof value.insertNode === "function" && typeof value.insertText === "function" && typeof value.isInline === "function" && typeof value.isVoid === "function" && typeof value.normalizeNode === "function" && typeof value.onChange === "function" && typeof value.removeMark === "function" && (value.marks === null || (0, import_is_plain_object.isPlainObject)(value.marks)) && (value.selection === null || Range.isRange(value.selection)) && Node.isNodeList(value.children) && Operation.isOperationList(value.operations);
+    var isEditor = typeof value.addMark === "function" && typeof value.apply === "function" && typeof value.deleteBackward === "function" && typeof value.deleteForward === "function" && typeof value.deleteFragment === "function" && typeof value.insertBreak === "function" && typeof value.insertSoftBreak === "function" && typeof value.insertFragment === "function" && typeof value.insertNode === "function" && typeof value.insertText === "function" && typeof value.isInline === "function" && typeof value.isVoid === "function" && typeof value.normalizeNode === "function" && typeof value.onChange === "function" && typeof value.removeMark === "function" && (value.marks === null || (0, import_is_plain_object.isPlainObject)(value.marks)) && (value.selection === null || Range.isRange(value.selection)) && Node.isNodeList(value.children) && Operation.isOperationList(value.operations);
     IS_EDITOR_CACHE.set(value, isEditor);
     return isEditor;
   },
@@ -3338,6 +3347,7 @@ var Editor = {
       if (Element.isElement(node)) {
         if (!voids && editor.isVoid(node)) {
           yield Editor.start(editor, path);
+          isNewBlock = false;
           continue;
         }
 
@@ -6005,7 +6015,8 @@ var NodeTransforms = {
       var {
         match,
         at = editor.selection,
-        compare
+        compare,
+        merge
       } = options;
       var {
         hanging = false,
@@ -6086,7 +6097,12 @@ var NodeTransforms = {
           if (compare(props[k2], node[k2])) {
             hasChanges = true;
             if (node.hasOwnProperty(k2)) properties[k2] = node[k2];
-            if (props[k2] != null) newProperties[k2] = props[k2];
+
+            if (merge) {
+              if (props[k2] != null) newProperties[k2] = merge(node[k2], props[k2]);
+            } else {
+              if (props[k2] != null) newProperties[k2] = props[k2];
+            }
           }
         }
 
@@ -6143,92 +6159,98 @@ var NodeTransforms = {
       var beforeRef = Editor.pointRef(editor, at, {
         affinity: "backward"
       });
-      var [highest] = Editor.nodes(editor, {
-        at,
-        match,
-        mode,
-        voids
-      });
+      var afterRef;
 
-      if (!highest) {
-        return;
-      }
+      try {
+        var [highest] = Editor.nodes(editor, {
+          at,
+          match,
+          mode,
+          voids
+        });
 
-      var voidMatch = Editor.void(editor, {
-        at,
-        mode: "highest"
-      });
-      var nudge = 0;
+        if (!highest) {
+          return;
+        }
 
-      if (!voids && voidMatch) {
-        var [voidNode, voidPath] = voidMatch;
+        var voidMatch = Editor.void(editor, {
+          at,
+          mode: "highest"
+        });
+        var nudge = 0;
 
-        if (Element.isElement(voidNode) && editor.isInline(voidNode)) {
-          var after = Editor.after(editor, voidPath);
+        if (!voids && voidMatch) {
+          var [voidNode, voidPath] = voidMatch;
 
-          if (!after) {
-            var text = {
-              text: ""
-            };
-            var afterPath = Path.next(voidPath);
-            Transforms.insertNodes(editor, text, {
-              at: afterPath,
-              voids
-            });
-            after = Editor.point(editor, afterPath);
+          if (Element.isElement(voidNode) && editor.isInline(voidNode)) {
+            var after = Editor.after(editor, voidPath);
+
+            if (!after) {
+              var text = {
+                text: ""
+              };
+              var afterPath = Path.next(voidPath);
+              Transforms.insertNodes(editor, text, {
+                at: afterPath,
+                voids
+              });
+              after = Editor.point(editor, afterPath);
+            }
+
+            at = after;
+            always = true;
           }
 
-          at = after;
+          var siblingHeight = at.path.length - voidPath.length;
+          height = siblingHeight + 1;
           always = true;
         }
 
-        var siblingHeight = at.path.length - voidPath.length;
-        height = siblingHeight + 1;
-        always = true;
-      }
+        afterRef = Editor.pointRef(editor, at);
+        var depth = at.path.length - height;
+        var [, highestPath] = highest;
+        var lowestPath = at.path.slice(0, depth);
+        var position = height === 0 ? at.offset : at.path[depth] + nudge;
 
-      var afterRef = Editor.pointRef(editor, at);
-      var depth = at.path.length - height;
-      var [, highestPath] = highest;
-      var lowestPath = at.path.slice(0, depth);
-      var position = height === 0 ? at.offset : at.path[depth] + nudge;
+        for (var [node, _path2] of Editor.levels(editor, {
+          at: lowestPath,
+          reverse: true,
+          voids
+        })) {
+          var split = false;
 
-      for (var [node, _path2] of Editor.levels(editor, {
-        at: lowestPath,
-        reverse: true,
-        voids
-      })) {
-        var split = false;
+          if (_path2.length < highestPath.length || _path2.length === 0 || !voids && Editor.isVoid(editor, node)) {
+            break;
+          }
 
-        if (_path2.length < highestPath.length || _path2.length === 0 || !voids && Editor.isVoid(editor, node)) {
-          break;
+          var _point = beforeRef.current;
+          var isEnd = Editor.isEnd(editor, _point, _path2);
+
+          if (always || !beforeRef || !Editor.isEdge(editor, _point, _path2)) {
+            split = true;
+            var properties = Node.extractProps(node);
+            editor.apply({
+              type: "split_node",
+              path: _path2,
+              position,
+              properties
+            });
+          }
+
+          position = _path2[_path2.length - 1] + (split || isEnd ? 1 : 0);
         }
 
-        var _point = beforeRef.current;
-        var isEnd = Editor.isEnd(editor, _point, _path2);
+        if (options.at == null) {
+          var _point2 = afterRef.current || Editor.end(editor, []);
 
-        if (always || !beforeRef || !Editor.isEdge(editor, _point, _path2)) {
-          split = true;
-          var properties = Node.extractProps(node);
-          editor.apply({
-            type: "split_node",
-            path: _path2,
-            position,
-            properties
-          });
+          Transforms.select(editor, _point2);
         }
+      } finally {
+        var _afterRef;
 
-        position = _path2[_path2.length - 1] + (split || isEnd ? 1 : 0);
+        beforeRef.unref();
+        (_afterRef = afterRef) === null || _afterRef === void 0 ? void 0 : _afterRef.unref();
       }
-
-      if (options.at == null) {
-        var _point2 = afterRef.current || Editor.end(editor, []);
-
-        Transforms.select(editor, _point2);
-      }
-
-      beforeRef.unref();
-      afterRef.unref();
     });
   },
 
@@ -6861,7 +6883,9 @@ var TextTransforms = {
         });
       }
 
-      var point = reverse ? startRef.unref() || endRef.unref() : endRef.unref() || startRef.unref();
+      var startUnref = startRef.unref();
+      var endUnref = endRef.unref();
+      var point = reverse ? startUnref || endUnref : endUnref || startUnref;
 
       if (options.at == null && point) {
         Transforms.select(editor, point);
