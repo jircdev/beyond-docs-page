@@ -630,7 +630,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       const tpl = `
 {
-  "name": "code",
+  "name": "button-component",
   "code": {
     "sass": {
       "path": "sass",
