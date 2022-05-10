@@ -1,167 +1,220 @@
-:where(html) {
-  --ease-1:cubic-bezier(.25,0,.5,1);
-  --ease-2:cubic-bezier(.25,0,.4,1);
-  --ease-3:cubic-bezier(.25,0,.3,1);
-  --ease-4:cubic-bezier(.25,0,.2,1);
-  --ease-5:cubic-bezier(.25,0,.1,1);
-  --ease-in-1:cubic-bezier(.25,0,1,1);
-  --ease-in-2:cubic-bezier(.50,0,1,1);
-  --ease-in-3:cubic-bezier(.70,0,1,1);
-  --ease-in-4:cubic-bezier(.90,0,1,1);
-  --ease-in-5:cubic-bezier(1,0,1,1);
-  --ease-out-1:cubic-bezier(0,0,.75,1);
-  --ease-out-2:cubic-bezier(0,0,.50,1);
-  --ease-out-3:cubic-bezier(0,0,.3,1);
-  --ease-out-4:cubic-bezier(0,0,.1,1);
-  --ease-out-5:cubic-bezier(0,0,0,1);
-  --ease-in-out-1:cubic-bezier(.1,0,.9,1);
-  --ease-in-out-2:cubic-bezier(.3,0,.7,1);
-  --ease-in-out-3:cubic-bezier(.5,0,.5,1);
-  --ease-in-out-4:cubic-bezier(.7,0,.3,1);
-  --ease-in-out-5:cubic-bezier(.9,0,.1,1);
-  --ease-elastic-1:cubic-bezier(.5,.75,.75,1.25);
-  --ease-elastic-2:cubic-bezier(.5,1,.75,1.25);
-  --ease-elastic-3:cubic-bezier(.5,1.25,.75,1.25);
-  --ease-elastic-4:cubic-bezier(.5,1.5,.75,1.25);
-  --ease-elastic-5:cubic-bezier(.5,1.75,.75,1.25);
-  --ease-squish-1:cubic-bezier(.5,-.1,.1,1.5);
-  --ease-squish-2:cubic-bezier(.5,-.3,.1,1.5);
-  --ease-squish-3:cubic-bezier(.5,-.5,.1,1.5);
-  --ease-squish-4:cubic-bezier(.5,-.7,.1,1.5);
-  --ease-squish-5:cubic-bezier(.5,-.9,.1,1.5);
-  --ease-step-1:steps(2);
-  --ease-step-2:steps(3);
-  --ease-step-3:steps(4);
-  --ease-step-4:steps(7);
-  --ease-step-5:steps(10);
-}
-.hamburger-icon-container {
-  background: transparent;
-  border: none;
-}
-@media (min-width: 769px) {
-  .hamburger-icon-container {
-    display: none;
-  }
-}
-.hamburger-icon-container .hamburger-icon {
-  display: none;
-}
-.hamburger-icon-container .hamburger-icon + label {
-  user-select: none;
-  position: relative;
-  display: inline-block;
-  width: 32px;
-  height: 23px;
-  box-sizing: content-box;
-  border: 0 solid transparent;
-  z-index: 1050;
-  line-height: 23px;
-  white-space: nowrap;
-  background: transparent;
-  border-radius: 0;
-}
-.hamburger-icon-container .hamburger-icon + label span {
-  display: inline-block;
-  position: absolute;
-  left: 100%;
-  margin-top: 1px;
-  transition: color 0.25s;
-  margin-left: 0;
-}
-.hamburger-icon-container .hamburger-icon + label span::before, .hamburger-icon-container .hamburger-icon + label span::after {
-  content: "";
-  display: inline-block;
-  min-width: 10px;
-  width: 6.4px;
-}
-.hamburger-icon-container .hamburger-icon + label i, .hamburger-icon-container .hamburger-icon + label::before, .hamburger-icon-container .hamburger-icon + label::after {
-  position: absolute;
-  left: 0;
-  display: block;
-  will-change: transform, background-color;
-  width: 32px;
-  height: 3px;
-  border-radius: 0;
-  transition: transform 0.25s, background-color 0.25s;
-  backface-visibility: hidden;
-  outline: 1px solid transparent;
-}
-.hamburger-icon-container .hamburger-icon + label i {
-  top: 10px;
-  font-size: 0;
-  color: transparent;
-  line-height: 0;
-}
-.hamburger-icon-container .hamburger-icon + label::before, .hamburger-icon-container .hamburger-icon + label::after {
-  content: "";
-}
-.hamburger-icon-container .hamburger-icon + label::before {
-  top: 0;
-}
-.hamburger-icon-container .hamburger-icon + label::after {
-  bottom: 0;
-}
-.hamburger-icon-container .hamburger-icon + label:hover {
-  cursor: pointer;
-}
-.hamburger-icon-container .hamburger-icon:checked + label i {
-  transform: scaleX(0.001);
-}
-.hamburger-icon-container .hamburger-icon:checked + label::before {
-  transform: translateY(10px) rotate(45deg);
-}
-.hamburger-icon-container .hamburger-icon:checked + label::after {
-  transform: translateY(-10px) rotate(-45deg);
-}
-.hamburger-icon-container .hamburger-icon + label i, .hamburger-icon-container .hamburger-icon + label::before, .hamburger-icon-container .hamburger-icon + label::after {
-  background-color: var(--primary-accent);
-}
-.docs-header {
-  display: flex;
-  padding: 5px 15px;
-  border-bottom: 1px solid var(--accent-color);
-  justify-content: space-between;
-  position: sticky;
-  height: 60px;
-  top: 0;
-  z-index: 100;
-  background: var(--background);
-}
-.docs-header .container, .docs-header figure, .docs-header ul {
-  padding: 0;
-  margin: auto;
-}
-.docs-header .docs-header__link-icon {
-  display: flex;
-  align-content: center;
-}
-.docs-header .docs-header__link-icon .beyond-icon {
-  height: 20px;
-  width: 20px;
-}
-.docs-header .header-logo {
-  display: flex;
-  gap: 15px;
-  align-items: center;
-  height: 60%;
-  align-self: center;
-}
-.docs-header .header-logo a {
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  height: 60%;
-}
-.docs-header .header-logo .beyond-element-image.img-logo {
-  height: 100%;
-}
-.docs-header .header-logo .beyond-element-image.img-logo img {
-  height: 34.8px;
-}
+define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/ts", "react", "@beyond/docs/manager/code", "@beyond/docs/ui/icons/code", "@beyond/ui/link/code", "@beyond/docs/layout/styles/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
+  "use strict";
 
-[data-beyond-mode=dark] .docs-header .beyond-icon {
-  fill: var(--primary);
-  stroke: var(--primary);
-}
+  Object.defineProperty(_exports2, "__esModule", {
+    value: true
+  });
+  _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
+  const dependencies = new Map();
+  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_0);
+  dependencies.set('@beyond-js/kernel/core/ts', dependency_1);
+  dependencies.set('react', dependency_2);
+  dependencies.set('@beyond/docs/manager/code', dependency_3);
+  dependencies.set('@beyond/docs/ui/icons/code', dependency_4);
+  dependencies.set('@beyond/ui/link/code', dependency_5);
+  dependencies.set('@beyond/docs/layout/styles/code', dependency_6);
+  dependencies.set('@beyond/ui/image/code', dependency_7);
+  dependencies.set('@beyond/docs/components/theme-button/code', dependency_8);
+  const {
+    beyond
+  } = globalThis;
+  const bundle = beyond.bundles.obtain('@beyond/docs/header/widget', false, {}, dependencies);
 
+  const __pkg = bundle.package();
+
+  bundle.styles.mode = 'external';
+  const modules = new Map();
+  /****************************
+  INTERNAL MODULE: ./controller
+  ****************************/
+
+  modules.set('./controller', {
+    hash: 3550501828,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Controller = void 0;
+
+      var _ts = require("@beyond-js/kernel/react-widget/ts");
+
+      var _ts2 = require("@beyond-js/kernel/core/ts");
+
+      class Store extends _ts2.Events {
+        async fetch() {//code
+        }
+
+        #value;
+
+        get value() {
+          return this.#value;
+        }
+
+        toJSON() {
+          return this.#value;
+        }
+
+        hydrate(cached) {}
+
+      }
+      /*bundle*/
+
+
+      class Controller extends _ts.ReactWidgetController {
+        async fetch() {}
+
+        createStore() {
+          return new Store();
+        }
+
+      }
+
+      exports.Controller = Controller;
+    }
+  });
+  /********************************
+  INTERNAL MODULE: ./view/hamburger
+  ********************************/
+
+  modules.set('./view/hamburger', {
+    hash: 2056600686,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Hamburger = Hamburger;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/manager/code");
+
+      function Hamburger({
+        onClick
+      }) {
+        const showMenu = event => {
+          event.preventDefault();
+          _code.AppManager.menuOpened = !_code.AppManager.menuOpened;
+          console.log(1, _code.AppManager.menuOpened);
+        };
+
+        return React.createElement("button", {
+          className: "hamburger-icon-container",
+          onClick: showMenu
+        }, React.createElement("input", {
+          id: "hamburger__input",
+          type: "checkbox",
+          className: "hamburger-icon"
+        }), React.createElement("label", {
+          htmlFor: "hamburger__input"
+        }, React.createElement("i", null), React.createElement("span", null)), React.createElement("em", null));
+      }
+    }
+  });
+  /*****************************
+  INTERNAL MODULE: ./view/notice
+  *****************************/
+
+  modules.set('./view/notice', {
+    hash: 2514501766,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Notice = Notice;
+
+      var React = require("react");
+
+      function Notice() {
+        return React.createElement("section", {
+          className: "flex-container flex-center header-notice bg-primary-accent pd-5"
+        }, "Beta version");
+      }
+    }
+  });
+  /*****************************
+  INTERNAL MODULE: ./view/widget
+  *****************************/
+
+  modules.set('./view/widget', {
+    hash: 3167345406,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Widget = Widget;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/ui/icons/code");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      var _hamburger = require("./hamburger");
+
+      var _notice = require("./notice");
+
+      var _code3 = require("@beyond/ui/image/code");
+
+      var _code4 = require("@beyond/docs/components/theme-button/code");
+      /*bundle*/
+
+
+      function Widget() {
+        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement("header", {
+          className: "docs-header"
+        }, React.createElement("div", {
+          className: "container flex-container space-between ph-15"
+        }, React.createElement("section", {
+          className: "header-logo"
+        }, React.createElement("div", null, React.createElement(_hamburger.Hamburger, null), React.createElement(_code2.Link, {
+          href: "/"
+        }, React.createElement(_code3.BeyondImage, {
+          src: "/images/beyond-logo.png",
+          className: "img-logo",
+          alt: "Beyond the universal meta framework"
+        })))), React.createElement("div", {
+          className: "flex-center-y right-content"
+        }, React.createElement("span", {
+          className: "version"
+        }, "1.0.0"), React.createElement(_code4.ThemeToggleButton, null), React.createElement(_code2.Elink, {
+          className: "docs-header__link-icon",
+          href: "http://github.com"
+        }, React.createElement(_code.AppIcon, {
+          icon: "github"
+        }))))));
+      }
+    }
+  }); // Exports managed by beyond bundle objects
+
+  __pkg.exports.managed = function (require, _exports) {
+    _exports.Controller = require('./controller').Controller;
+    _exports.Widget = require('./view/widget').Widget;
+  };
+
+  let Controller, Widget; // Module exports
+
+  _exports2.Widget = Widget;
+  _exports2.Controller = Controller;
+
+  __pkg.exports.process = function (require) {
+    _exports2.Controller = Controller = require('./controller').Controller;
+    _exports2.Widget = Widget = require('./view/widget').Widget;
+  };
+
+  const hmr = new function () {
+    this.on = (event, listener) => void 0;
+
+    this.off = (event, listener) => void 0;
+  }();
+  _exports2.hmr = hmr;
+
+  __pkg.initialise(modules);
+});
