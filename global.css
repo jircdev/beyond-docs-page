@@ -6,3 +6,24 @@ ul {
   padding: 0;
   margin: 0;
 }
+
+.content-container {
+  display: grid;
+  grid-gap: 1rem;
+  padding: 0;
+}
+.content-container .two-columns,
+.content-container .three-columns {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 481px) {
+  .content-container {
+    margin: 2rem auto;
+  }
+  .content-container.two-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .content-container.three-columns {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

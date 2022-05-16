@@ -60,7 +60,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   **********************/
 
   modules.set('./data', {
-    hash: 3384530130,
+    hash: 2129689643,
     creator: function (require, exports) {
       "use strict";
 
@@ -136,6 +136,9 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         }, {
           id: 'hmr',
           label: 'HMR'
+        }, {
+          id: "processors",
+          label: "Procesadores"
         }, {
           id: 'bee',
           label: 'BEE'

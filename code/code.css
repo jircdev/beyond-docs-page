@@ -1,3 +1,43 @@
+.code__box {
+  border: 1 ps solid var(--color-gray-80);
+  display: grid;
+  background: var(--color-gray-80);
+  box-shadow: var(--shadow-1);
+  border-radius: var(--border-radius-base);
+  overflow: hidden;
+  grid-template-rows: auto 1fr;
+}
+.code__box header {
+  background: var(--color-gray-70);
+  border-radius: var(--border-radius-base);
+  display: flex;
+  padding: 0.6rem;
+  flex-grow: 1;
+  gap: 1rem;
+}
+.code__box header .box__buttons {
+  display: flex;
+  gap: 8px;
+}
+.code__box header .box__buttons .circle {
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  height: 1rem;
+}
+.code__box header .box__buttons .circle.red {
+  background: red;
+}
+.code__box header .box__buttons .circle.blue {
+  background: var(--color-blue-50);
+}
+.code__box header .box__buttons .circle.green {
+  background: var(--color-green-80);
+}
+.code__box .box__code pre {
+  height: 100%;
+  padding-top: 0;
+  margin: 0;
+}
 /**
  * prism.js tomorrow night eighties for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/chriskempson/tomorrow-theme

@@ -615,7 +615,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************/
 
   modules.set('./views/block', {
-    hash: 184412487,
+    hash: 2755651297,
     creator: function (require, exports) {
       "use strict";
 
@@ -1401,7 +1401,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   modules.set('./views/sections/solution', {
-    hash: 164351420,
+    hash: 3160495218,
     creator: function (require, exports) {
       "use strict";
 
@@ -1427,16 +1427,16 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           className: "container cards__container"
         }, React.createElement(_card.Card, {
           title: "Typescript Universal",
-          href: "/docs/backend"
+          href: "/docs/intro"
         }, "Dise\u00F1ado para crear desde un mismo proyecto, m\u00FAltiples distribuciones como sitios web, aplicaciones ", React.createElement(_code.Elink, {
           href: "https://cordova.apache.org/"
         }, "C\u00F3rdova"), ", ", React.createElement(_code.Elink, {
           href: "https://docs.npmjs.com/packages-and-modules"
-        }, "paquetes NPM"), " y c\u00F3digo ", React.createElement(_code.Elink, {
+        }, "paquetes NPM"), " y proyectos ", React.createElement(_code.Elink, {
           href: "https://nodejs.org"
         }, "Node"), "."), React.createElement(_card.Card, {
           title: "Desarrollo Isomorfico",
-          href: "/docs/tutorial/web"
+          href: "/docs/rendering"
         }, "Listo para publicar sitios est\u00E1ticos, ", React.createElement("strong", null, "SSR"), ", ", React.createElement("strong", null, "CSR"), " o arquitecturas ", React.createElement(_code.Elink, {
           href: "https://jamstack.org/"
         }, "Jamstack"), " y con posibilidad de usarlas en conjunto por medio de ", React.createElement(_code.Elink, {

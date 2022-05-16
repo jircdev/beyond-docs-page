@@ -29,12 +29,12 @@ code *, pre * {
   margin: 3px;
   border: 1px solid var(--color-gray-20);
 }
-.page__main-content a {
-  padding: 0 5px;
-}
 .page__main-content p:not(pre, code), .page__main-content ul:not(pre, code), .page__main-content li:not(pre, code), .page__main-content a:not(pre, code) {
   font-size: 1rem;
   line-height: 1.8rem;
+}
+.page__main-content ul {
+  padding-left: 30px;
 }
 .page__main-content p:first-letter, .page__main-content .content:first-letter {
   text-transform: uppercase;
@@ -47,36 +47,6 @@ code *, pre * {
 }
 .page__main-content a {
   color: var(--primary);
-}
-.next__content {
-  margin-top: 30px;
-  padding-top: 30px;
-  border-top: 1px solid var(--secondary-accent);
-}
-.next__content.link__content {
-  display: grid;
-  justify-content: right;
-}
-.next__content.link__content ul {
-  cursor: pointer;
-  padding: 0;
-  text-align: right;
-}
-.next__content.link__content ul li {
-  list-style: none;
-  margin: 5px;
-  text-align: right;
-  display: flex;
-  justify-content: right;
-}
-.next__content.link__content ul li a {
-  text-decoration: none;
-  display: flex;
-  padding: 2px 8px;
-  color: var(--primary-light);
-}
-.next__content.link__content ul li a:hover {
-  text-decoration: underline;
 }
 .content .beyond-icon {
   fill: var(--primary-dark);
@@ -149,6 +119,8 @@ ul.icon__list li .beyond-icon {
 .docs__aside-navbar .aside__container {
   position: sticky;
   top: 80px;
+  display: flex;
+  flex-direction: column;
   padding-top: 15px;
 }
 .docs__aside-navbar .aside__container h4 {
@@ -181,7 +153,6 @@ ul.icon__list li .beyond-icon {
   padding: 15px;
   border-left-width: 8px;
   background: var(--color-yellow-30);
-  font-size: 1.2rem;
   color: var(--gray-darker);
   line-height: 1.8rem;
   margin: 30px 0;
@@ -214,7 +185,7 @@ ul.icon__list li .beyond-icon {
     grid-template-columns: 1fr 250px;
   }
   .page__main-container aside {
-    display: grid;
+    display: block;
   }
 }
 .page__main-container .beyond-element-image {

@@ -100,7 +100,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./controller', {
-    hash: 531389837,
+    hash: 1348900836,
     creator: function (require, exports) {
       "use strict";
 
@@ -119,7 +119,6 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
 
       class Controller extends _ts.PageReactWidgetController {
         createStore() {
-          console.log(1, window.performance.now() / 1000);
           return new _contents.Contents(this.body);
         }
 
@@ -137,7 +136,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./views/page', {
-    hash: 1869363560,
+    hash: 3711324016,
     creator: function (require, exports) {
       "use strict";
 
@@ -152,14 +151,13 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
 
       function Page({
         uri,
-        component
+        component,
+        store
       }) {
-        console.log(1.1, performance.now() / 1000);
         const propsContent = uri.vars.get('content');
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'what-is-beyond';
         const [hmrChanged, setHmr] = React.useState(performance.now());
-        console.log(2, performance.now() / 1000);
         React.useEffect(() => {
           const onChange = () => {
             setHmr(performance.now());

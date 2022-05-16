@@ -52,6 +52,7 @@
   highlight content
    */
   --app-insight-surface: var(--primary-light);
+  --app-link-hover-bg: rgba(255, 128, 86, 0.5);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -87,6 +88,7 @@
     --app-link-color: var(--primary);
     --app-link-hover-color: var(--primary-dark);
     --app-insight-surface: var(--secondary-light-light);
+    --app-link-hover-bg: rgba(255, 128, 86, 0.3);
   }
 }
 
@@ -126,6 +128,7 @@ html[data-beyond-mode=light] {
   highlight content
    */
   --app-insight-surface: var(--primary-light);
+  --app-link-hover-bg: rgba(255, 128, 86, 0.5);
 }
 
 html[data-beyond-mode=dark] {
@@ -161,6 +164,7 @@ html[data-beyond-mode=dark] {
   --app-link-color: var(--primary);
   --app-link-hover-color: var(--primary-dark);
   --app-insight-surface: var(--secondary-light-light);
+  --app-link-hover-bg: rgba(255, 128, 86, 0.3);
 }
 :root {
   --bynd-aside-width: 250px;
