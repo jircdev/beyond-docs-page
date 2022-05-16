@@ -1401,7 +1401,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   modules.set('./views/sections/solution', {
-    hash: 3160495218,
+    hash: 2333493906,
     creator: function (require, exports) {
       "use strict";
 
@@ -1435,7 +1435,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         }, "paquetes NPM"), " y proyectos ", React.createElement(_code.Elink, {
           href: "https://nodejs.org"
         }, "Node"), "."), React.createElement(_card.Card, {
-          title: "Desarrollo Isomorfico",
+          title: "Jamstack y SSR",
           href: "/docs/rendering"
         }, "Listo para publicar sitios est\u00E1ticos, ", React.createElement("strong", null, "SSR"), ", ", React.createElement("strong", null, "CSR"), " o arquitecturas ", React.createElement(_code.Elink, {
           href: "https://jamstack.org/"

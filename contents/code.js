@@ -427,7 +427,7 @@ class Auth {
   ***************************************/
 
   modules.set('./basic/rendering/intro', {
-    hash: 558845526,
+    hash: 3255851720,
     creator: function (require, exports) {
       "use strict";
 
@@ -455,7 +455,7 @@ class Auth {
           href: "https://developer.mozilla.org/en-US/docs/Web/Web_Components"
         }, "web components"), " con ", React.createElement(_code.Elink, {
           href: "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM"
-        }, "shadow DOM"), ", por tanto, las estrategias de renderizado en ", React.createElement(_beyond.BeyondName, null), " son hibridas y siempre requieren de ejecuci\u00F3n de c\u00F3digo javascript en el cliente. Este c\u00F3digo es \u00FAnicamente para la utilizaci\u00F3n de los componentes web y no afecta la posibilidad de implementar SSR."), React.createElement("p", null, "El programador puede entonces, definir para ", React.createElement("strong", null, "cada widget"), " el tipo de renderizaci\u00F3n que considere m\u00E1s conveniente. A continuaci\u00F3n se listan las formas de renderizaci\u00F3n disponibles:"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_code.Link, {
+        }, "shadow DOM"), ", por tanto, las estrategias de renderizado en ", React.createElement(_beyond.BeyondName, null), " son hibridas y siempre requieren de ejecuci\u00F3n de c\u00F3digo javascript en el cliente."), React.createElement("p", null, "El programador puede entonces, definir para ", React.createElement("strong", null, "cada widget"), " el tipo de renderizaci\u00F3n que considere m\u00E1s conveniente. A continuaci\u00F3n se listan las formas de renderizaci\u00F3n disponibles:"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_code.Link, {
           href: "/docs/rendering#ssr-rendering"
         }, "Server Side Rendering")), React.createElement("li", null, React.createElement(_code.Link, {
           href: "/docs/rendering#csr-rendering"
@@ -1077,12 +1077,61 @@ $media-large: 1025px;
       }
     }
   });
+  /*************************************
+  INTERNAL MODULE: ./basic/widgets/pages
+  *************************************/
+
+  modules.set('./basic/widgets/pages', {
+    hash: 89309804,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Pages = Pages;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _typeProperty = require("../../views/type-property");
+
+      function Pages() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", null, "P\u00E1ginas"), React.createElement(_code.Code, {
+          language: "json"
+        }, tplPage), React.createElement("p", null, "Las p\u00E1ginas se configuran igual que cualquier widget, pero tienen los siguientes parametros adicionales para su configuraci\u00F3n:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "route:"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), ": Representa la ruta con la que deseas poder acceder a tu componente"), React.createElement("li", null, React.createElement("strong", null, "layout"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string",
+          optional: true
+        }), ": y define si quieres usar un layout o no en tu p\u00E1gina."), React.createElement("li", null, React.createElement("strong", null, "vdir"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string",
+          optional: true
+        }), ": Permite definir si quieres manejar alg\u00FAn valor din\u00E1mico en la url")), React.createElement("h3", {
+          id: "route-pattern"
+        }, "Patr\u00F3n de rutas"), React.createElement("p", null, " Se pueden definir urls con valores din\u00E1micos agregando las variables a la propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "route"), " utilizando una sintaxis similar a la de las template strings."), React.createElement("p", null, "Para ejemplificarlo, supongamos que se tiene una p\u00E1gina de m\u00F3dificaci\u00F3n de datos de un usuario y se necesita manejar el id por medio de la url. La propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "route"), " del widget tendr\u00EDa el siguiente valor"), React.createElement(_code.Code, {
+          language: "json"
+        }, '/user/edit/${userId}'), React.createElement("p", null, "Con esto, podremos acceder a nuestra variable userId desde nuestro widget accediendo al mapa ", React.createElement("span", {
+          className: "inline-code"
+        }, "vars"), " disponible en el objeto uri que recibe nuestro widget."), React.createElement("h2", {
+          id: "layouts"
+        }, "Layouts"), React.createElement("p", null, "Los layouts representan la estructura general de un sitio web, que puede ser compartida entre varias p\u00E1ginas internas."), React.createElement(_code.Code, {
+          language: "json"
+        }, tplLayout));
+      }
+    }
+  });
   /***************************************
   INTERNAL MODULE: ./basic/widgets/widgets
   ***************************************/
 
   modules.set('./basic/widgets/widgets', {
-    hash: 2521637460,
+    hash: 3115054404,
     creator: function (require, exports) {
       "use strict";
 
@@ -1233,31 +1282,7 @@ class Controller extends ReactWidgetController {
           href: "/docs/api/IwidgetStore"
         }, React.createElement("span", {
           className: "inline"
-        }, "IWidgetStore")))), React.createElement("h2", null, "P\u00E1ginas"), React.createElement(_code2.Code, {
-          language: "json"
-        }, tplPage), React.createElement("p", null, "Las p\u00E1ginas se configuran igual que cualquier widget, pero tienen los siguientes parametros adicionales para su configuraci\u00F3n:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "route:"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), ": Representa la ruta con la que deseas poder acceder a tu componente"), React.createElement("li", null, React.createElement("strong", null, "layout"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": y define si quieres usar un layout o no en tu p\u00E1gina."), React.createElement("li", null, React.createElement("strong", null, "vdir"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": Permite definir si quieres manejar alg\u00FAn valor din\u00E1mico en la url")), React.createElement("h3", {
-          id: "route-pattern"
-        }, "Patr\u00F3n de rutas"), React.createElement("p", null, " Se pueden definir urls con valores din\u00E1micos agregando las variables a la propiedad ", React.createElement("span", {
-          className: "inline"
-        }, "route"), " utilizando una sintaxis similar a la de las template strings."), React.createElement("p", null, "Para ejemplificarlo, supongamos que se tiene una p\u00E1gina de m\u00F3dificaci\u00F3n de datos de un usuario y se necesita manejar el id por medio de la url. La propiedad ", React.createElement("span", {
-          className: "inline"
-        }, "route"), " del widget tendr\u00EDa el siguiente valor"), React.createElement(_code2.Code, {
-          language: "json"
-        }, '/user/edit/${userId}'), React.createElement("p", null, "Con esto, podremos acceder a nuestra variable userId desde nuestro widget accediendo al mapa ", React.createElement("span", {
-          className: "inline-code"
-        }, "vars"), " disponible en el objeto uri que recibe nuestro widget."), React.createElement("h2", {
-          id: "layouts"
-        }, "Layouts"), React.createElement("p", null, "Los layouts representan la estructura general de un sitio web, que puede ser compartida entre varias p\u00E1ginas internas."), React.createElement(_code2.Code, {
-          language: "json"
-        }, tplLayout));
+        }, "IWidgetStore")))));
       }
     }
   });
