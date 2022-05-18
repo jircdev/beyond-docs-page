@@ -2312,7 +2312,7 @@ class Controller extends ReactWidgetController {
   **********************************************/
 
   modules.set('./views/concepts/module/config', {
-    hash: 1516985785,
+    hash: 4007997915,
     creator: function (require, exports) {
       "use strict";
 
@@ -2328,6 +2328,8 @@ class Controller extends ReactWidgetController {
       var _code = require("@beyond/ui/link/code");
 
       var _code2 = require("@beyond/docs/code/code");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
 
       const tpl = `"platforms": [
     "backend",
@@ -2358,7 +2360,9 @@ class Controller extends ReactWidgetController {
 `;
 
       function ModuleConfig() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", null, "Configuracion de m\u00F3dulos "), React.createElement("p", null, "El archivo de configuracion de m\u00F3dulos es el ", React.createElement("code", {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "config"
+        }, "Configuracion de m\u00F3dulos "), React.createElement("p", null, "El archivo de configuracion de m\u00F3dulos es el ", React.createElement("code", {
           className: "inline-code"
         }, "module.json")), React.createElement(_code2.Code, {
           language: "json"
@@ -2373,7 +2377,9 @@ class Controller extends ReactWidgetController {
         }, tpl)), React.createElement("li", null, React.createElement("strong", null, "[bundle]"), " ", React.createElement(_typeProperty.TypeProperty, {
           type: "bundle",
           href: "/module#bundle"
-        }), ": Refiere al nombre identificador del tipo de bundle que se desea agregar en el m\u00F3dulo. Un m\u00F3dulo puede poseer uno o varios bundles. Cada bundle recibe un objeto de configurac\u00ED\u00F3n con los procesadores que utiliza y alguna variaci\u00F3n inherita del tipo de bundle agregado.")));
+        }), ": Refiere al nombre identificador del tipo de bundle que se desea agregar en el m\u00F3dulo. Un m\u00F3dulo puede poseer uno o varios bundles. Cada bundle recibe un objeto de configurac\u00ED\u00F3n con los procesadores que utiliza y alguna variaci\u00F3n inherita del tipo de bundle agregado.")), React.createElement(_code3.NextLinks, {
+          items: [["Bundles", "/docs/bundles"], ["Widgets", '/docs/widgets']]
+        }));
       }
     }
   });
@@ -2382,7 +2388,7 @@ class Controller extends ReactWidgetController {
   ****************************************************/
 
   modules.set('./views/concepts/module/module-intro', {
-    hash: 2931588705,
+    hash: 1931527981,
     creator: function (require, exports) {
       "use strict";
 
@@ -2412,7 +2418,7 @@ export /*bundle*/ class Auth {
         }, "BeyondJS"), " los m\u00F3dulos representan la unidad b\u00E1sica de desarrollo y tienen ", React.createElement("strong", null, "caracter\u00EDsticas"), " que es necesario tener presente. Para poder entender bien las diferencias y ventajas del ecosistema de m\u00F3dulos de Beyond, es necesario antes repasar como funcionan los m\u00F3dulos de Javascript y como se integran en el proceso de desarrollo en la actualidad."), React.createElement("p", null, "Un", React.createElement("a", {
           href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules",
           target: "_blank"
-        }, "m\u00F3dulo javascript"), "hoy es representado por un \u00FAnico archivo, con tareas independientes y un scope propio, Este m\u00F3dulo puede exportar elementos y ser importado por otros m\u00F3dulos que consumen las variables, objetos o funciones que este provee."), React.createElement("p", null, "Los empaquetadores por su parte, suelen utilizar una sintaxis compatible con las imports de ecmascript 6, pero son ellos quienes se encargan de analizar el arbol de dependencias, quitando aquellos elementos que no son utilizados en el codigo y", React.createElement("strong", null, " generando un \u201Cbundle\u201D"), " que es a su vez, un contenedor de todos los m\u00F3dulos utilizados por el equipo de desarrollo."), React.createElement("p", null, "En ", React.createElement("span", {
+        }, "m\u00F3dulo javascript"), " hoy es representado por un \u00FAnico archivo, con tareas independientes y un scope propio, Este m\u00F3dulo puede exportar elementos y ser importado por otros m\u00F3dulos que consumen las variables, objetos o funciones que este provee."), React.createElement("p", null, "Los empaquetadores por su parte, suelen utilizar una sintaxis compatible con las imports incluidos en EcmaScript 6, pero son ellos quienes se encargan de analizar el arbol de dependencias, quitando aquellos elementos que no son utilizados en el codigo y", React.createElement("strong", null, " generando un \u201Cbundle\u201D"), " que es a su vez, un contenedor de todos los m\u00F3dulos utilizados por el equipo de desarrollo."), React.createElement("p", null, "En ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), ", el concepto de m\u00F3dulo es un poco m\u00E1s abarcativo y se divide en dos: M\u00F3dulos y M\u00F3dulos Internos. "), React.createElement("h2", {
           id: "internal-modules"
