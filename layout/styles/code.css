@@ -68,10 +68,6 @@ h3, .h3 {
   font-size: 2rem;
 }
 
-* {
-  color: var(--text-color);
-}
-
 h1, .h1, h2, .h2 {
   color: var(--text-title-color);
 }

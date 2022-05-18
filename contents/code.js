@@ -24,12 +24,100 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
 
   bundle.styles.mode = 'external';
   const modules = new Map();
+  /*************************
+  INTERNAL MODULE: ./api/uri
+  *************************/
+
+  modules.set('./api/uri', {
+    hash: 3412746716,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.APIURI = APIURI;
+
+      var React = require("react");
+
+      var _typeProperty = require("../views/type-property");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function APIURI() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "routing-uri"
+        }, "URI ", React.createElement("div", {
+          className: "inline-code"
+        }, "rounting.uri")), React.createElement("p", null, "Debido a que el comportamiento del objeto ", React.createElement("span", {
+          className: "inline-code"
+        }, "window.location"), " var\u00EDa cuando se est\u00E1 trabajando con aplicaciones m\u00F3viles, ", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), " agrega el objeto ", React.createElement("span", {
+          className: "inline-code"
+        }, "URI")), React.createElement("p", null, "Es una instancia de un objeto", React.createElement(_typeProperty.TypeProperty, {
+          type: "URI",
+          href: "/api/uri"
+        }), " y representa a la URL actual. Tiene propiedades similares a las del objeto ", React.createElement("span", {
+          className: "inline-code"
+        }, "location"), " de la Api Web de ", React.createElement("span", {
+          className: "inline-code"
+        }, "Javascript"), ", pero agrega un tratamiento a las propiedades para unificar la manera de trabajar con javascript cuando se est\u00E1 desarrollando un proyecto m\u00F3vil."), React.createElement("h3", {
+          id: "uri-properties"
+        }, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "pathname"), React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), ": url actual, sin querystring ni hash"), React.createElement("li", null, React.createElement("strong", null, "uri"), React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), ": url completa."), React.createElement("li", null, React.createElement("strong", null, "qs"), React.createElement(_typeProperty.TypeProperty, {
+          type: "Map"
+        }), ": Mapa con la lista de variables pasadas por querystring."), React.createElement("li", null, React.createElement("strong", null, "hashtag"), React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), ": contiene el fragmento de la url posterior al '#'. Es equivalente a la propiedad ", React.createElement("div", {
+          className: "inline-code"
+        }, "hash"), " del objeto ", React.createElement("div", {
+          className: "inline-code"
+        }, "location"), " de la API Web."), React.createElement("li", null, React.createElement("strong", null, "vars"), React.createElement(_typeProperty.TypeProperty, {
+          type: "Map"
+        }), ": Mapa contenedor de las variables dinamicas agregadas en la definici\u00F3n de la url del ", React.createElement(_code.Link, {
+          href: "/widgets#page"
+        }, "Widget Page."))), React.createElement("h3", {
+          id: "routing-history"
+        }, React.createElement("div", {
+          className: "inline-code"
+        }, "routing.history ", React.createElement(_typeProperty.TypeProperty, {
+          type: "BeyondHistory"
+        }))), React.createElement("p", null, "El objeto ", React.createElement("span", {
+          className: "inline-code"
+        }, "BeyondHistory"), " maneja toda la informaci\u00F3n asociada a la navegaci\u00F3n del usuario en la sesi\u00F3n actual."), React.createElement("h4", null, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "current:"), React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), " url de navegacion actual."), React.createElement("li", null, React.createElement("strong", null, "initial:"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "number"
+        }), " Hace referencia al indice asociado al historico de la api web del navegador sobre el cual comienza la navegacion adentro del proyecto ", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), ". Para este manejo, beyond hace uso del objeto ", React.createElement("span", {
+          className: "inline-code"
+        }, "SessionStorage"), " de la api web, donde registra dos propiedades:", React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline-code"
+        }, "__beyond_navigation_position")), React.createElement("li", null, React.createElement("span", {
+          className: "inline-code"
+        }, "__beyond_navigation_records")))), React.createElement("li", null, React.createElement("strong", null, "position"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "HistoryPosition"
+        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "value"), React.createElement(_typeProperty.TypeProperty, {
+          type: "number"
+        }), "valor de la posici\u00F3n actual de navegaci\u00F3n en el historico propio de", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), "."))), React.createElement("li", null, React.createElement("strong", null, "records"), React.createElement(_typeProperty.TypeProperty, {
+          type: "HistoryRecords"
+        }), ": Objeto de tipo Map que contiene todas las entradas de navegaci\u00F3n del usuario en la sesi\u00F3n actual.")));
+      }
+    }
+  });
   /*******************************
   INTERNAL MODULE: ./basic/backend
   *******************************/
 
   modules.set('./basic/backend', {
-    hash: 973429991,
+    hash: 1772956516,
     creator: function (require, exports) {
       "use strict";
 
@@ -52,7 +140,6 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   }`;
       const tplBridge = `\rexport /*actions*//*bundle*/
 class Auth {
-
     async login(user: string, password: string) {
         if (user !== data.user || password !== data.password) {
             return {status: true, error: 'Invalid data'};
@@ -392,7 +479,7 @@ class Auth {
   ***************************************/
 
   modules.set('./basic/rendering/index', {
-    hash: 763092214,
+    hash: 1270539989,
     creator: function (require, exports) {
       "use strict";
 
@@ -538,7 +625,7 @@ class Auth {
   *******************************/
 
   modules.set('./basic/routing', {
-    hash: 3849058520,
+    hash: 2200929542,
     creator: function (require, exports) {
       "use strict";
 
@@ -567,15 +654,11 @@ class Auth {
           id: "routing"
         }, "Enrutamiento"), React.createElement("p", null, React.createElement("span", {
           className: "beyond"
-        }, "BeyondJS"), " tiene un manejo de rutas bastante simple y potente. Para la mayoria de los casos, las urls de acceso pueden ser definidas en la configuraci\u00F3n de los ", React.createElement(_code.Link, {
-          href: "/widgets#pages"
+        }, "BeyondJS"), " tiene un manejo de rutas simple y potente al mismo tiempo. Para la mayoria de los casos, las urls pueden ser definidas en la configuraci\u00F3n de los ", React.createElement(_code.Link, {
+          href: "/widgets/pages"
         }, "widgets de tipo page"), ", por medio de la propiedad ", React.createElement("span", {
           className: "inline-code"
-        }, "url"), "."), React.createElement("p", null, "Asimismo, ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " provee un objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "routing"), " que sirve para trabajar con todo lo asociado a la navegaci\u00F3n cliente y ofrece algunas mejoras con respecto a la api web de los navegadores."), React.createElement("h2", {
+        }, "url"), ", pero pueden existir casos donde se requiera alguna configuraci\u00F3n m\u00E1s avanzada."), React.createElement("h2", {
           id: "object-routing"
         }, " Objeto ", React.createElement("div", {
           className: "inline-code"
@@ -595,9 +678,11 @@ class Auth {
           className: "beyond"
         }, "BeyondJS"), " por su parte, maneja un historico detallado."), React.createElement("li", null, "Debido a que las aplicaciones hibridas realizadas con javascript, resuelven el manejo de archivos por meido de un protocolo distinto a las aplicaciones accedidas desde un navegador, ", React.createElement("span", {
           className: "beyond"
-        }, "BeyondJS"), " realiza un tratamiento del mismo para abstraer al programador de ello y garantizar el mismo comportamiento sin importar la plataforma en que se trabaje.")), React.createElement("h2", null, "Navegaci\u00F3n"), React.createElement("p", null, "Con la finalidad de mantener compatibilidad con las APIs Conocidas, beyond tiene m\u00E9todos homologos a los de la API del historial del navegador, los cuales cubren las mismas funcionalidades con el plus de unificar los comportamientos entre las plataformas y actualizar los elementos del historico de ", React.createElement("span", {
+        }, "BeyondJS"), " realiza un tratamiento del mismo para abstraer al programador de ello y garantizar el mismo comportamiento sin importar la plataforma en que se trabaje.")), React.createElement("h2", null, "Navegaci\u00F3n"), React.createElement("p", null, "Con la finalidad de mantener compatibilidad con las APIs Conocidas, el objeto ", React.createElement("span", {
+          className: "inline"
+        }, "Routing"), " tiene m\u00E9todos hom\u00F3logos a los m\u00E9todos de la API del historial del navegador y b\u00E1sicamente cubren las mismas necesidades pero a la vez, se encargan de unificar los comportamientos entre las plataformas y actualizar los elementos del historico de ", React.createElement("span", {
           className: "beyond"
-        }, "BeyondJS.")), React.createElement("p", null, "Los m\u00E9todos disponible son:"), React.createElement("h4", null, React.createElement("span", {
+        }, "BeyondJS.")), React.createElement("p", null, "Los m\u00E9todos disponibles son:"), React.createElement("h4", null, React.createElement("span", {
           className: "inline-code"
         }, "routing.pushState")), React.createElement("p", null, " Registra un nuevo elemento en el historico"), React.createElement(_code2.Code, {
           language: "ts"
@@ -626,70 +711,7 @@ class Auth {
           language: "ts"
         }, tpl), React.createElement("p", null, "En el ejemplo anterior, cualquier ruta recibida es redireccionada a ", React.createElement("span", {
           className: "inline-code"
-        }, "/"), "."), React.createElement("h2", {
-          id: "routing-uri"
-        }, "URI ", React.createElement("div", {
-          className: "inline-code"
-        }, "rounting.uri")), React.createElement("p", null, "Debido a que el comportamiento del objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "window.location"), " var\u00EDa cuando se est\u00E1 trabajando con aplicaciones m\u00F3viles, ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " agrega el objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "URI")), React.createElement("p", null, "Es una instancia de un objeto", React.createElement(_typeProperty.TypeProperty, {
-          type: "URI",
-          href: "/api/uri"
-        }), " y representa a la URL actual. Tiene propiedades similares a las del objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "location"), " de la Api Web de ", React.createElement("span", {
-          className: "inline-code"
-        }, "Javascript"), ", pero agrega un tratamiento a las propiedades para unificar la manera de trabajar con javascript cuando se est\u00E1 desarrollando un proyecto m\u00F3vil."), React.createElement("h3", {
-          id: "uri-properties"
-        }, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "pathname"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), ": url actual, sin querystring ni hash"), React.createElement("li", null, React.createElement("strong", null, "uri"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), ": url completa."), React.createElement("li", null, React.createElement("strong", null, "qs"), React.createElement(_typeProperty.TypeProperty, {
-          type: "Map"
-        }), ": Mapa con la lista de variables pasadas por querystring."), React.createElement("li", null, React.createElement("strong", null, "hashtag"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), ": contiene el fragmento de la url posterior al '#'. Es equivalente a la propiedad ", React.createElement("div", {
-          className: "inline-code"
-        }, "hash"), " del objeto ", React.createElement("div", {
-          className: "inline-code"
-        }, "location"), " de la API Web."), React.createElement("li", null, React.createElement("strong", null, "vars"), React.createElement(_typeProperty.TypeProperty, {
-          type: "Map"
-        }), ": Mapa contenedor de las variables dinamicas agregadas en la definici\u00F3n de la url del ", React.createElement(_code.Link, {
-          href: "/widgets#page"
-        }, "Widget Page."))), React.createElement("h3", {
-          id: "routing-history"
-        }, React.createElement("div", {
-          className: "inline-code"
-        }, "routing.history ", React.createElement(_typeProperty.TypeProperty, {
-          type: "BeyondHistory"
-        }))), React.createElement("p", null, "El objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "BeyondHistory"), " maneja toda la informaci\u00F3n asociada a la navegaci\u00F3n del usuario en la sesi\u00F3n actual."), React.createElement("h4", null, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "current:"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), " url de navegacion actual."), React.createElement("li", null, React.createElement("strong", null, "initial:"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "number"
-        }), " Hace referencia al indice asociado al historico de la api web del navegador sobre el cual comienza la navegacion adentro del proyecto ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), ". Para este manejo, beyond hace uso del objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "SessionStorage"), " de la api web, donde registra dos propiedades:", React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
-          className: "inline-code"
-        }, "__beyond_navigation_position")), React.createElement("li", null, React.createElement("span", {
-          className: "inline-code"
-        }, "__beyond_navigation_records")))), React.createElement("li", null, React.createElement("strong", null, "position"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "HistoryPosition"
-        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "value"), React.createElement(_typeProperty.TypeProperty, {
-          type: "number"
-        }), "valor de la posici\u00F3n actual de navegaci\u00F3n en el historico propio de", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), "."))), React.createElement("li", null, React.createElement("strong", null, "records"), React.createElement(_typeProperty.TypeProperty, {
-          type: "HistoryRecords"
-        }), ": Objeto de tipo Map que contiene todas las entradas de navegaci\u00F3n del usuario en la sesi\u00F3n actual.")));
+        }, "/"), "."));
       }
     }
   });
@@ -1013,24 +1035,214 @@ $media-large: 1025px;
       exports.variablesTPL = variablesTPL;
     }
   });
-  /*************************************
-  INTERNAL MODULE: ./basic/widgets/index
-  *************************************/
+  /******************************************
+  INTERNAL MODULE: ./basic/widgets/controller
+  ******************************************/
 
-  modules.set('./basic/widgets/index', {
-    hash: 3883993119,
+  modules.set('./basic/widgets/controller', {
+    hash: 3059760243,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Name = Name;
+      exports.WidgetController = WidgetController;
 
       var React = require("react");
 
-      function Name() {
-        return React.createElement(React.Fragment, null);
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _typeProperty = require("../../views/type-property");
+
+      var _code3 = require("@beyond/ui/link/code");
+
+      const tplController = `\rimport {ReactWidgetController} from '@beyond-js/kernel/react-widget/ts';
+import {Page} from './views/page';
+export /*bundle*/
+class Controller extends ReactWidgetController {
+    get Widget() {
+        return Page;
+    }
+}`;
+
+      function WidgetController() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "controller"
+        }, "Definici\u00F3n del ", React.createElement("span", {
+          className: "inline"
+        }, "Controller")), React.createElement("p", null, "Todo widget debe exponer una clase ", React.createElement("span", {
+          className: "inline"
+        }, "Controller"), " definida. El objeto Controller es el responsable de la declaraci\u00F3n y manejo del web-component que representa al widget y tiene una estructura como la siguiente:"), React.createElement(_code2.Code, {
+          language: "ts"
+        }, tplController), React.createElement("p", null, "En el c\u00F3digo anterior, la clase ", React.createElement("span", {
+          className: "inline"
+        }, "Controller"), " extiende del objeto ", React.createElement("span", {
+          className: "inline"
+        }, "ReactWidgetController"), " que es el controlador base disponibilizado para trabajar con React. ", React.createElement(_beyond.BeyondName, null), " tiene disponible un controlador para los distintos frameworks de vista. Los objetos son:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "ReactWidgetController"), ", ", React.createElement("span", {
+          className: "inline"
+        }, "ReactPageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "SvelteWidgetController"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "SveltePageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "VueWidgetController"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "VuePageWidgetController"), ".")), React.createElement("p", null, "Todos los controladores manejan la misma interfaz, pero estan a su vez enfocados en integrar y funcionar con el framework de vista que se est\u00E9 utilizando."), React.createElement("h3", {
+          id: "controller-properties"
+        }, React.createElement("small", null, "Propiedades")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "Widget")), React.createElement(_typeProperty.TypeProperty, {
+          type: "getter"
+        }), ": Se define como un getter y debe retornar el componente de vista principal."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "uri")), React.createElement(_typeProperty.TypeProperty, {
+          type: "URIObject",
+          optional: true,
+          href: "/docs/api/uri"
+        }), ": Objeto Uri con toda la informaci\u00F3n asociada a la url actual.")), React.createElement("h3", {
+          id: "controller-methods"
+        }, React.createElement("small", null, "M\u00E9todos")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "createStore")), React.createElement(_typeProperty.TypeProperty, {
+          type: "function",
+          optional: true
+        }), " Permite agregar l\u00F3gica para el manejo del Estado del widget, debe retornar un objeto con la interfaz ", React.createElement(_code3.Link, {
+          href: "/docs/api/IwidgetStore"
+        }, React.createElement("span", {
+          className: "inline"
+        }, "IWidgetStore"))), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "initialise")), React.createElement(_typeProperty.TypeProperty, {
+          type: "void",
+          optional: true
+        }), ": Permite agregar l\u00F3gica a ejecutarse previo al montado del componente web en el DOM HTML."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "hide")), React.createElement(_typeProperty.TypeProperty, {
+          type: "void",
+          optional: true
+        }), ": Se ejecuta cuando ha sido renderizada y se oculta, esto sucede cuando se navega de una url a otra."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+          className: "inline"
+        }, "show")), React.createElement(_typeProperty.TypeProperty, {
+          type: "void",
+          optional: true
+        }), ": Se ejecuta cada vez que se accede a la url y la p\u00E1gina se muestra en el navegador.")), React.createElement(_code.NextLinks, {
+          items: [['Creación de widgets', '/docs/widgets/creation'], ['Widgets de tipo Page', '/docs/widgets/page']]
+        }));
+      }
+    }
+  });
+  /****************************************
+  INTERNAL MODULE: ./basic/widgets/creation
+  ****************************************/
+
+  modules.set('./basic/widgets/creation', {
+    hash: 1330520622,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.WidgetCreation = WidgetCreation;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../views/beyond");
+
+      var _modalImage = require("../../views/modal-image");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
+
+      const tpl = `"widget": {
+    "element": {
+      "name": "web-login"
+    },
+    "ts": {
+      "path": "/widget/ts",
+      "files": [
+        "*"
+      ]
+    }
+  }`;
+
+      function WidgetCreation() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "creation"
+        }, "Creaci\u00F3n de widgets"), React.createElement("div", {
+          className: "block__note"
+        }, "Un widget es un tipo de ", React.createElement("span", {
+          className: "inline"
+        }, "bundle"), " y en ", React.createElement(_beyond.BeyondName, null), " tiene una filosof\u00EDa de carga modular y los bundles son la representaci\u00F3n de c\u00F3digo final a ser ejecutado en el entorno javascript. Si quieres leer acerca de todos los tipos de bundles existentes, puedes dirigirte a la ", React.createElement(_code.Link, {
+          href: "/docs/bundle"
+        }, "secci\u00F3n de bundles"), "."), React.createElement("p", null, "Los ", React.createElement("strong", null, "widgets"), " exponencian las ventajas ya existentes en los componentes web gracias al encapsulamiento. Permiten integrar con una ", React.createElement("i", null, "m\u00EDnima configuraci\u00F3n"), " diferentes tecnolog\u00EDas y ofrecen una api simple para gestionar sus propiedades, metodos e interacci\u00F3n con el resto de componentes de un proyecto web. Tambi\u00E9n, pueden ser disponibilizados como paquetes NPM y utilizados desde cualquier proyecto que utilice javascript ", React.createElement("strong", null, "sin necesidad de requerir"), " de ", React.createElement(_beyond.BeyondName, null), "."), React.createElement("p", null, "Existen tres tipos de widgets:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "page"), ": Dise\u00F1ados para crear las diferentes p\u00E1ginas del aplicativo, recibe parametros de configruaci\u00F3n asociados a la URL y al uso de layouts."), React.createElement("li", null, React.createElement("strong", null, "layout"), ": Representan a contenedores de p\u00E1ginas, permiten separar c\u00F3digo o l\u00F3gicas transversales a p\u00E1ginas. Un layout puede tambi\u00E9n contener otro layout."), React.createElement("li", null, React.createElement("strong", null, "default"), ": Exponen un componente web bajo el nombre definido y no requieren de ning\u00FAn tratamiento adicional de parte de ", React.createElement(_beyond.BeyondName, null), ".")), React.createElement("p", null, "Todos los widgets implementan un objeto ", React.createElement("span", {
+          className: "inline"
+        }, "Controller"), " quien es el encargado de manejar el ciclo de vida del componente web y permitir la definci\u00F3n de funcionalidades ", React.createElement(_code.Link, {
+          href: "docs/rendering"
+        }, "de renderizado"), ", estado y navegaci\u00F3n."), React.createElement("h3", null, React.createElement("small", null, "Creaci\u00F3n manual")), React.createElement("p", null, "La configuraci\u00F3n manual, se realiza agregando la definici\u00F3n del bundle de tipo widget en el ", React.createElement(_code.Link, {
+          href: "/module/config"
+        }, "module.json"), " del m\u00F3dulo."), React.createElement(_code2.Code, {
+          language: "json"
+        }, tpl), React.createElement("p", null, "El c\u00F3digo anterior, define un bundle de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "widget"), " con el nombre del web-component como ", React.createElement("span", {
+          className: "inline"
+        }, "web-login"), " y con typescript como procesador."), React.createElement("h3", {
+          id: "widget-dashboard"
+        }, "Creaci\u00F3n con el dashboard"), React.createElement(_modalImage.ModalImage, {
+          src: "/contents/static/create-module-widget.png",
+          alt: "create widget module beyond"
+        }), React.createElement("p", null, "Todos los bundles pueden crearse desde el formulario de creaci\u00F3n de m\u00F3dulos en el ", React.createElement(_code.Link, {
+          href: "/docs/dashboard"
+        }, "Dashboard"), " y de este modo, ", React.createElement(_beyond.BeyondName, null), " se encarga de generar la estructura de carpetas y los archivos necesarios, incluyendo la definici\u00F3n del ", React.createElement("span", {
+          className: "inline"
+        }, "Controller"), " y los archivos ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), " y ", React.createElement("span", {
+          className: "inline"
+        }, ".tsconfig"), "."), React.createElement("p", null, "Cuando los bundles son creados por medio del Dashboard, los archivos son generados y m\u00F3dificados por el servicio de desarrollo."), React.createElement(_code3.NextLinks, {
+          items: [['Widget Page', '/docs/widgets/page'], ['Widget Layout', '/docs/widgets/layout']]
+        }));
+      }
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./basic/widgets/index
+  *************************************/
+
+  modules.set('./basic/widgets/index', {
+    hash: 2645829472,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Widgets = Widgets;
+
+      var React = require("react");
+
+      var _intro = require("./intro");
+
+      var _viewFrameworks = require("./view-frameworks");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      function Widgets() {
+        return React.createElement(React.Fragment, null, React.createElement(_intro.Intro, null), React.createElement(_viewFrameworks.ViewFrameworks, null), React.createElement(_code.NextLinks, {
+          items: [['Crear un Widget', '/docs/widgets/creation'], ['Objeto Controller', '/docs/widgets/controller']]
+        }));
       }
     }
   });
@@ -1039,7 +1251,7 @@ $media-large: 1025px;
   *************************************/
 
   modules.set('./basic/widgets/intro', {
-    hash: 3988826666,
+    hash: 747109397,
     creator: function (require, exports) {
       "use strict";
 
@@ -1057,115 +1269,42 @@ $media-large: 1025px;
       function Intro() {
         return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "intro"
-        }, "Widgets"), React.createElement("p", null, "La arquitectura de desarrollo de ", React.createElement(_beyond.BeyondName, null), " en aplicaciones o proyectos webs, est\u00E1 dise\u00F1ada para trabajar con una estructura de ", React.createElement(_code.Elink, {
+        }, "Widgets"), React.createElement("p", null, "En ", React.createElement(_beyond.BeyondName, null), ", La arquitectura de desarrollo para aplicaciones o proyectos webs, est\u00E1 dise\u00F1ada para trabajar con una estructura de ", React.createElement(_code.Elink, {
           href: "https://micro-frontends.org/"
-        }, "Micro frontends"), ", brindando la posibilidad de poder integrar diferentes stacks tecnol\u00F3gicos en un mismo proyecto, lo que permite al desarrollador tener la posibilidad de evaluar que tecnolog\u00EDa es m\u00E1s conveniente para un modulo especifico, esto se logra por medio de la creaci\u00F3n de ", React.createElement("strong", null, "widgets"), "."), React.createElement("p", null, "Un ", React.createElement("strong", null, "Widget"), " es un tipo de ", React.createElement(_code.Link, {
+        }, "Micro frontends"), ", brindando la posibilidad de integrar diferentes stacks tecnol\u00F3gicos en un mismo proyecto, lo que permite evaluar que tecnolog\u00EDa es m\u00E1s conveniente para desarrollar funcionalidades espec\u00EDficas, esto se logra por medio de la creaci\u00F3n de ", React.createElement("strong", null, "widgets"), "."), React.createElement("p", null, "Un ", React.createElement("strong", null, "Widget"), " es un tipo de ", React.createElement(_code.Link, {
           href: "/docs/bundles"
         }, "bundle"), " disponible en ", React.createElement(_beyond.BeyondName, null), " y es implementado por medio de un ", React.createElement(_code.Elink, {
           href: "https://developer.mozilla.org/en-US/docs/Web/Web_Components"
-        }, "Componente Web"), " con shadow DOM para encapsular su contenido. Al ser un componente web, puede definir propiedades y m\u00E9todos, tambien ser accedido por medio de la Api Web de Javascript. Otra ventaja importante de los widgets, basado en la filosof\u00EDa de ", React.createElement(_beyond.BeyondName, null), ", es que realizan la carga de las dependencias a demanda, s\u00F3lo en el momento en que son requeridas, optimizando los tiempos de carga de los proyectos."), React.createElement("div", {
+        }, "Componente Web"), " con ", React.createElement(_code.Elink, {
+          href: "https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM"
+        }, "shadow DOM"), " para encapsular su contenido. Al ser un componente web, puede definir propiedades y m\u00E9todos y ser accedido por medio de la API del ", React.createElement(_code.Elink, {
+          href: "https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model"
+        }, "DOM"), ". Otra ventaja importante de los widgets, es que realizan la carga de dependencias a demanda y s\u00F3lo cuando son requeridas, optimizando as\u00ED los tiempos de carga de los componentes."), React.createElement("div", {
           className: "block__note"
         }, React.createElement(_beyond.BeyondName, null), " implementa las t\u00E9cnicas de renderizado sobre widgets, esto ofrece la posibilidad de integrar renderizados hibridos en un proyecto, puedes leer m\u00E1s sobre ello en la ", React.createElement(_code.Link, {
           href: "/docs/rendering"
-        }, "secci\u00F3n de renderizado.")), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " brinda soporte para trabajar con frameworks/librerias como ", React.createElement(_code.Elink, {
-          href: "https://reactjs.org"
-        }, "React"), ",\u00A0", React.createElement(_code.Elink, {
-          href: "https://vuejs.org/"
-        }, "Vue"), " y ", React.createElement(_code.Elink, {
-          href: "https://svelte.dev/"
-        }, "Svelte"), " y tiene disponible la posibilidad de integrar nuevas librerias o herramientas."));
+        }, "secci\u00F3n de renderizado.")));
       }
     }
   });
-  /*************************************
-  INTERNAL MODULE: ./basic/widgets/pages
-  *************************************/
+  /********************************************
+  INTERNAL MODULE: ./basic/widgets/types/layout
+  ********************************************/
 
-  modules.set('./basic/widgets/pages', {
-    hash: 89309804,
+  modules.set('./basic/widgets/types/layout', {
+    hash: 2107926101,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Pages = Pages;
+      exports.LayoutWidget = LayoutWidget;
 
       var React = require("react");
 
       var _code = require("@beyond/docs/code/code");
 
-      var _typeProperty = require("../../views/type-property");
-
-      function Pages() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", null, "P\u00E1ginas"), React.createElement(_code.Code, {
-          language: "json"
-        }, tplPage), React.createElement("p", null, "Las p\u00E1ginas se configuran igual que cualquier widget, pero tienen los siguientes parametros adicionales para su configuraci\u00F3n:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "route:"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string"
-        }), ": Representa la ruta con la que deseas poder acceder a tu componente"), React.createElement("li", null, React.createElement("strong", null, "layout"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": y define si quieres usar un layout o no en tu p\u00E1gina."), React.createElement("li", null, React.createElement("strong", null, "vdir"), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": Permite definir si quieres manejar alg\u00FAn valor din\u00E1mico en la url")), React.createElement("h3", {
-          id: "route-pattern"
-        }, "Patr\u00F3n de rutas"), React.createElement("p", null, " Se pueden definir urls con valores din\u00E1micos agregando las variables a la propiedad ", React.createElement("span", {
-          className: "inline"
-        }, "route"), " utilizando una sintaxis similar a la de las template strings."), React.createElement("p", null, "Para ejemplificarlo, supongamos que se tiene una p\u00E1gina de m\u00F3dificaci\u00F3n de datos de un usuario y se necesita manejar el id por medio de la url. La propiedad ", React.createElement("span", {
-          className: "inline"
-        }, "route"), " del widget tendr\u00EDa el siguiente valor"), React.createElement(_code.Code, {
-          language: "json"
-        }, '/user/edit/${userId}'), React.createElement("p", null, "Con esto, podremos acceder a nuestra variable userId desde nuestro widget accediendo al mapa ", React.createElement("span", {
-          className: "inline-code"
-        }, "vars"), " disponible en el objeto uri que recibe nuestro widget."), React.createElement("h2", {
-          id: "layouts"
-        }, "Layouts"), React.createElement("p", null, "Los layouts representan la estructura general de un sitio web, que puede ser compartida entre varias p\u00E1ginas internas."), React.createElement(_code.Code, {
-          language: "json"
-        }, tplLayout));
-      }
-    }
-  });
-  /***************************************
-  INTERNAL MODULE: ./basic/widgets/widgets
-  ***************************************/
-
-  modules.set('./basic/widgets/widgets', {
-    hash: 3115054404,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.WidgetsPage = WidgetsPage;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/docs/code/code");
-
-      var _modalImage = require("../../views/modal-image");
-
-      var _beyond = require("../../views/beyond");
-
-      var _intro = require("./intro");
-
-      var _typeProperty = require("../../views/type-property");
-
-      const tpl = `"widget": {
-    "hmr": true,
-    "element": {
-      "name": "web-login"
-    },
-    "ts": {
-      "path": "/widget/ts",
-      "files": [
-        "*"
-      ]
-    }
-  }`;
       const tplPage = `
 "widget": {
     "hmr": true,
@@ -1183,106 +1322,141 @@ $media-large: 1025px;
     },
 ...
 }`;
-      const tplController = `\rimport {ReactWidgetController} from '@beyond-js/kernel/react-widget/ts';
-import {Page} from './views/page';
-export /*bundle*/
-class Controller extends ReactWidgetController {
-    get Widget() {
-        return Page;
+
+      function LayoutWidget() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "layouts"
+        }, "Layouts"), React.createElement("p", null, "Los layouts representan la estructura general de un sitio web, que puede ser compartida entre varias p\u00E1ginas internas."), React.createElement(_code.Code, {
+          language: "json"
+        }, tplLayout));
+      }
     }
+  });
+  /******************************************
+  INTERNAL MODULE: ./basic/widgets/types/page
+  ******************************************/
+
+  modules.set('./basic/widgets/types/page', {
+    hash: 3190167342,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.PageWidget = PageWidget;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _typeProperty = require("../../../views/type-property");
+
+      var _beyond = require("../../../views/beyond");
+
+      var _code2 = require("@beyond/docs/components/next-links/code");
+
+      const tplPage = `
+"widget": {
+    "route": "login"
+    "layout: "main",
+    "element": {
+      "name": "login-page"
+    },
+....
 }`;
 
-      function WidgetsPage() {
-        return React.createElement(React.Fragment, null, React.createElement(_intro.Intro, null), React.createElement("h2", {
-          id: "creation"
-        }, "Creaci\u00F3n de widgets"), React.createElement("div", {
-          className: "block__note"
-        }, "Los widgets son un tipo de bundle, si quieres leer acerca de todos los tipos de bundles existentes, puedes dirigirte a la ", React.createElement(_code.Link, {
-          href: "/docs/bundle"
-        }, "secci\u00F3n de bundles"), "."), React.createElement("p", null, "Existen tres tipos de widgets:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "page"), ": representan p\u00E1ginas web"), React.createElement("li", null, React.createElement("strong", null, "layout"), ": son contenedores de p\u00E1ginas, permiten definir contenido que deba mantenerse en varias p\u00E1ginas."), React.createElement("li", null, React.createElement("strong", null, "default"), ": widgets generales que no requieren una especificaci\u00F3n de tipo, son manejados como web components igual.")), React.createElement("p", null, "Asimismo, requieren de caracter obligatorio disponibilizar una clase ", React.createElement("span", {
-          className: "inline"
-        }, "Controller"), ", la cual es descrita m\u00E1s adelante."), React.createElement("p", null, "Los widgets, siguen los l\u00EDnReamientos de cualquier bundle y pueden ser creados desde el dashboard o manualmente."), React.createElement("h3", null, React.createElement("small", null, "Creaci\u00F3n manual")), React.createElement("p", null, "La configuraci\u00F3n manual, se realiza agregando la definici\u00F3n del bundle de tipo widget en el ", React.createElement(_code.Link, {
-          href: "/module/config"
-        }, "module.json"), " del m\u00F3dulo."), React.createElement(_code2.Code, {
+      function PageWidget() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "widget.page"
+        }, "Widgets page"), React.createElement("p", null, "Los widgets de tipo ", React.createElement("span", {
+          className: "inlin"
+        }, "page"), " representan a una p\u00E1gina de un sitio o aplicativo web que puede ser accedido por medio de una URL. Cuando un proyecto web recibe una solicitud por url, ", React.createElement(_beyond.BeyondName, null), " se encarga de identificar al widget con esa url definida para inicializar el componente y dejarlo disponible en el DOM."), React.createElement(_code.Code, {
           language: "json"
-        }, tpl), React.createElement("p", null, "El c\u00F3digo anterior, define un bundle de tipo ", React.createElement("span", {
+        }, tplPage), React.createElement("p", null, "Las p\u00E1ginas requieren la misma estructura de configuraci\u00F3n que la de cualquier widget, pero aparte recieben los siguientes parametros de configuraci\u00F3n:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "route:"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }), ": Define la url o ruta de acceso al componente."), React.createElement("li", null, React.createElement("strong", null, "layout"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string",
+          optional: true
+        }), ": y define si quieres usar un layout o no en tu p\u00E1gina."), React.createElement("li", null, React.createElement("strong", null, "vdir"), " ", React.createElement(_typeProperty.TypeProperty, {
+          type: "string",
+          optional: true
+        }), ": Permite definir si quieres manejar alg\u00FAn valor din\u00E1mico en la url.")), React.createElement("h2", {
+          id: "route-pattern"
+        }, "Patr\u00F3n de rutas"), React.createElement("p", null, "Se pueden definir urls con valores din\u00E1micos agregando las variables a la propiedad ", React.createElement("span", {
           className: "inline"
-        }, "widget"), " con el nombre del web-component como ", React.createElement("span", {
+        }, "route"), " con una sintaxis similar a la de template strings."), React.createElement("p", null, "Para ejemplificarlo, supongamos que se tiene una p\u00E1gina de m\u00F3dificaci\u00F3n de datos de un usuario y se necesita manejar el id por medio de la url. La propiedad ", React.createElement("span", {
           className: "inline"
-        }, "web-login"), " y con typescript como procesador."), React.createElement("h3", {
-          id: "widget-dashboard"
-        }, "Creaci\u00F3n con el dashboard"), React.createElement(_modalImage.ModalImage, {
-          src: "/contents/static/create-module-widget.png",
-          alt: "create widget module beyond"
-        }), React.createElement("div", {
+        }, "route"), " del widget tendr\u00EDa el siguiente valor:\\"), React.createElement(_code.Code, {
+          language: "json"
+        }, '/user/edit/${userId}'), React.createElement("p", null, "Las siguientes urls coincirian con la ruta creada:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "/user/edit/1")), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "/user/edit/any-identifier"))), React.createElement("p", null, "Estas propiedades, quedan disponibles en el objeto `uri` disponible como propiedad en el ", React.createElement("span", {
+          className: "inline"
+        }, "controller"), " del widget y podria ser accedido desde el controlador de la siguiente forma:"), React.createElement(_code.Code, null, " this.uri.vars.get('userId');"), React.createElement("div", {
           className: "block__note"
-        }, "En el dashboard, todos los bundles se crean desde el formulario de m\u00F3dulos, y los archivos son actualizados autom\u00E1ticamente por ", React.createElement(_beyond.BeyondName, null), ". se puede conseguir m\u00E1s informaci\u00F3n al respecto en la secci\u00F3n del dashboard."), React.createElement("h3", {
+        }, "El objeto uri es pasado tambien a los componentes de vista. la forma de acceder a ellos depende de la implementaci\u00F3n de cada framework o herramienta."), React.createElement(_code2.NextLinks, {
+          items: [['Layouts', '/docs/widgets/layouts'], ['Enrutamiento', '/docs/routing']]
+        }));
+      }
+    }
+  });
+  /***********************************************
+  INTERNAL MODULE: ./basic/widgets/view-frameworks
+  ***********************************************/
+
+  modules.set('./basic/widgets/view-frameworks', {
+    hash: 3832537359,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ViewFrameworks = ViewFrameworks;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function ViewFrameworks() {
+        return React.createElement(React.Fragment, null, React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " brinda soporte para trabajar con frameworks/librerias como ", React.createElement(_code.Elink, {
+          href: "https://reactjs.org"
+        }, "React"), ",\u00A0", React.createElement(_code.Elink, {
+          href: "https://vuejs.org/"
+        }, "Vue"), " y ", React.createElement(_code.Elink, {
+          href: "https://svelte.dev/"
+        }, "Svelte"), " y tiene disponible la posibilidad de integrar nuevas librerias o herramientas."), React.createElement("h3", {
           id: "widget-react"
         }, "Usando ", React.createElement("span", {
           className: "inline"
         }, "React")), React.createElement("p", null, React.createElement("span", {
           className: "inline"
-        }, "React"), " tiene soporte autom\u00E1tico por medio de typescript en ", React.createElement(_beyond.BeyondName, null), ", que utiliza ", React.createElement(_code.Elink, {
-          href: "https://babeljs.io/"
-        }, "Babel"), " para convertir el c\u00F3digo. Por tanto, habiendo agregado el procesador ", React.createElement("span", {
+        }, "React"), " tiene soporte autom\u00E1tico motivado a que typescript interpreta el c\u00F3digo ", React.createElement("span", {
           className: "inline"
-        }, "ts"), " y teniendo instalada la dependencia de ", React.createElement("span", {
+        }, "tsx"), ". Por tanto, lo \u00FAnico necesario para poder usarlo es tener instalada la dependencia en ", React.createElement("span", {
           className: "inline"
-        }, "react"), ", tu modulo ya est\u00E1 listo para trabajar con ", React.createElement(_code.Elink, {
-          href: "https://reactjs.org"
-        }, " ReactJS"), "."), React.createElement("h3", null, "Usando ", React.createElement("span", {
+        }, "npm"), " y definir el procesador ", React.createElement("span", {
+          className: "inline"
+        }, "ts"), " en la configuraci\u00F3n del bundle en el ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "la configuraci\u00F3n de react se realiza por medio de los archivos ", React.createElement("span", {
+          className: "inline"
+        }, ".tsconfig"), ", cada m\u00F3dulo viene con un archivo configurado por defecto con compatibilidad para trabajar con react. puedes leer m\u00E1s sobre ello en la documentaci\u00F3n de typescript", React.createElement(_code.Elink, {
+          href: "https://www.typescriptlang.org/docs/handbook/jsx.html"
+        })), React.createElement("h3", null, "Usando ", React.createElement("span", {
           className: "inline"
         }, "Svelte"), " o ", React.createElement("span", {
           className: "inline"
         }, "Vue")), React.createElement("p", null, "Cada framework tiene su propio ", React.createElement(_code.Link, {
           href: "/docs/processors"
-        }, "procesador"), ". Si deseas integrar vue debes agregar en la configuraci\u00F3n del bundle el procesador ", React.createElement("span", {
-          className: "inline"
-        }, "vue"), ", si en cambio, deseas trabajar con svelte, debes agregar en la configuraci\u00F3n del bundle el procesador ", React.createElement("span", {
-          className: "inline"
-        }, "svelte"), "."), React.createElement("h2", {
-          id: "controller"
-        }, "Definici\u00F3n del ", React.createElement("span", {
-          className: "inline"
-        }, "Controller")), React.createElement("p", null, "Todo widget debe exponer una clase ", React.createElement("span", {
-          className: "inline"
-        }, "Controller"), " definida. El objeto Controller es el responsable de la declaraci\u00F3n y manejo del web-component que representa al widget. El controller tiene una estructura como la siguiente:"), React.createElement(_code2.Code, {
-          language: "ts"
-        }, tplController), React.createElement("p", null, "En el c\u00F3digo anterior, la clase ", React.createElement("span", {
-          className: "inline"
-        }, "Controller"), " extiende del objeto ", React.createElement("span", {
-          className: "inline"
-        }, "ReactWidgetController"), " que es el controlador base disponibilizado para trabajar con React. ", React.createElement(_beyond.BeyondName, null), " tiene disponible un controlador para los distintos frameworks de vista. Los objetos son:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "ReactWidgetController"), " y ", React.createElement("span", {
-          className: "inline"
-        }, "ReactPageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "SvelteWidgetController"), " y ", React.createElement("span", {
-          className: "inline"
-        }, "SveltePageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "VueWidgetController"), " y ", React.createElement("span", {
-          className: "inline"
-        }, "VuePageWidgetController"), ".")), React.createElement("p", null, "Todos los controladores manejan la misma interfaz, pero estan a su vez enfocados en integrar y funcionar con el framework de vista que se est\u00E9 utilizando."), React.createElement("h3", {
-          id: "controller-properties"
-        }, React.createElement("small", null, "Propiedades")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "get Widget")), React.createElement(_typeProperty.TypeProperty, {
-          type: "object",
-          optional: true
-        }), ": Se define como un getter y debe retornar el componente de vista principal.")), React.createElement("h3", {
-          id: "controller-methods"
-        }, React.createElement("small", null, "M\u00E9todos")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "createStore")), React.createElement(_typeProperty.TypeProperty, {
-          type: "function",
-          optional: true
-        }), " Permite agregar l\u00F3gica para el manejo del Estado del widget, debe retornar un objeto con la interfaz ", React.createElement(_code.Link, {
-          href: "/docs/api/IwidgetStore"
-        }, React.createElement("span", {
-          className: "inline"
-        }, "IWidgetStore")))));
+        }, "procesador"), " con el nombre de la libreria. para utilizarlos, solo es necesario incluir el procesador en la configuraci\u00F3n del bundle."));
       }
     }
   });
@@ -1413,7 +1587,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   modules.set('./db', {
-    hash: 1954408587,
+    hash: 1727552007,
     creator: function (require, exports) {
       "use strict";
 
@@ -1450,7 +1624,7 @@ class Controller extends ReactWidgetController {
 
       var _index = require("./views/concepts/server/index");
 
-      var _widgets = require("./basic/widgets/widgets");
+      var _widgets = require("./basic/widgets");
 
       var _fetching = require("./basic/fetching");
 
@@ -1480,6 +1654,16 @@ class Controller extends ReactWidgetController {
 
       var _processors = require("./fundamentals/processors");
 
+      var _controller = require("./basic/widgets/controller");
+
+      var _layout = require("./basic/widgets/types/layout");
+
+      var _page = require("./basic/widgets/types/page");
+
+      var _creation = require("./basic/widgets/creation");
+
+      var _uri = require("./api/uri");
+
       const getContent = (contentId, sub = undefined) => {
         const starting = {
           intro: _intro.Intro,
@@ -1493,7 +1677,13 @@ class Controller extends ReactWidgetController {
           projects: _intro.Projects,
           modules: _moduleIntro.ModuleIntro,
           bundles: _bundle.Bundle,
-          widgets: _widgets.WidgetsPage,
+          widgets: {
+            default: _widgets.Widgets,
+            creation: _creation.WidgetCreation,
+            controller: _controller.WidgetController,
+            layout: _layout.LayoutWidget,
+            page: _page.PageWidget
+          },
           stateManagement: _stateManagement.StateManagement,
           routing: _routing.RoutingPage,
           styles: _styles.StylesPage,
@@ -1507,9 +1697,15 @@ class Controller extends ReactWidgetController {
           hmr: _hmr.HMR,
           processors: _processors.Processors
         };
+        const api = {
+          api: {
+            uri: _uri.APIURI
+          }
+        };
         const contents = { ...starting,
           ...basics,
           ...foundations,
+          ...api,
           template: _template.TemplatePage,
           fetching: _fetching.FetchingDAtaPage,
           'what-is-beyond': _whatIs.WhatIs,
@@ -1530,15 +1726,25 @@ class Controller extends ReactWidgetController {
           },
           server: _index.Server
         };
-        let Control = contents.hasOwnProperty(contentId) ? contents[contentId] : contents.error404;
 
-        if (sub) {
-          Control = Control.hasOwnProperty(sub) ? Control[sub] : contents.error404;
+        if (!contents.hasOwnProperty(contentId) || sub && !contents[contentId].hasOwnProperty(sub)) {
+          return {
+            id: contentId,
+            control: contents.error404
+          };
+        } // the constructor is 'Object' when the contents[contentId] value is a plain object of subitems on contents.
+
+
+        if (contents[contentId].constructor.name === 'Object' && !sub) {
+          return {
+            id: contentId,
+            control: contents[contentId].default
+          };
         }
 
         return {
           id: contentId,
-          control: Control
+          control: sub ? contents[contentId][sub] : contents[contentId]
         };
       };
 

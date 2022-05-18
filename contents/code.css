@@ -136,6 +136,9 @@ ul.icon__list li .beyond-icon {
   list-style: none;
   border-left: 2px solid transparent;
 }
+.docs__aside-navbar ol li a, .docs__aside-navbar ul li a {
+  color: var(--text-color);
+}
 .docs__aside-navbar ol li.item--active, .docs__aside-navbar ol li:hover, .docs__aside-navbar ul li.item--active, .docs__aside-navbar ul li:hover {
   border-left: 2px solid var(--secondary-accent);
 }
@@ -162,7 +165,6 @@ ul.icon__list li .beyond-icon {
 
 [data-beyond-mode=dark] .block__note {
   background: var(--secondary-dark);
-  box-shadow: -5px -5px 30px 5px var(--secondary-darker), 5px 5px 30px 5px var(--secondary-darker);
   color: var(--text-color) !important;
   border: 1px solid var(--secondary-light);
   border-left-width: 8px;

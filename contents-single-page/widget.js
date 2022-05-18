@@ -137,7 +137,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   ****************************/
 
   modules.set('./views/page', {
-    hash: 2403562840,
+    hash: 1202050014,
     creator: function (require, exports) {
       "use strict";
 
@@ -155,6 +155,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
         component
       }) {
         const propsContent = uri.vars.get('content');
+        console.log(10, uri);
         const [hmrChanded, setHmr] = React.useState(performance.now());
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'intro';

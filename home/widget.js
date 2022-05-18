@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts", "react", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/manager/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
+define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts", "react", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -12,9 +12,9 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/sty
   dependencies.set('react', dependency_3);
   dependencies.set('@beyond/ui/link/code', dependency_4);
   dependencies.set('@beyond/ui/icons/code', dependency_5);
-  dependencies.set('@beyond/ui/image/code', dependency_6);
-  dependencies.set('@beyond/docs/components/theme-button/code', dependency_7);
-  dependencies.set('@beyond/docs/manager/code', dependency_8);
+  dependencies.set('@beyond/docs/manager/code', dependency_6);
+  dependencies.set('@beyond/ui/image/code', dependency_7);
+  dependencies.set('@beyond/docs/components/theme-button/code', dependency_8);
   dependencies.set('@beyond/docs/code/code', dependency_9);
   dependencies.set('@beyond/ui/swiper/code', dependency_10);
   const {
@@ -883,6 +883,37 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
+  /*********************************************
+  INTERNAL MODULE: ./views/header/header-content
+  *********************************************/
+
+  modules.set('./views/header/header-content', {
+    hash: 2271436274,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.HeaderContent = HeaderContent;
+
+      var React = require("react");
+
+      var _strongTittle = require("./strong-tittle");
+
+      function HeaderContent() {
+        return React.createElement("div", {
+          className: "header__content"
+        }, React.createElement("section", {
+          className: "main__title"
+        }, React.createElement("span", {
+          className: "pre__title"
+        }, "Welcome to BeyondJS"), React.createElement("h1", null, React.createElement("span", null, "The Full Stack universal ", React.createElement("br", null), "Typescript Framework"), React.createElement(_strongTittle.StrongTitle, null))), React.createElement("span", {
+          className: "header__description"
+        }, "Integra diferentes stacks de desarrollo y trabaja con ellos bajo el mismo paradigma, priorizando la experiencia de desarrollo y la carga modular, sin necesidad de empaquetadores."));
+      }
+    }
+  });
   /***********************************
   INTERNAL MODULE: ./views/header/icon
   ***********************************/
@@ -928,7 +959,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ************************************/
 
   modules.set('./views/header/index', {
-    hash: 804815119,
+    hash: 3851949519,
     creator: function (require, exports) {
       "use strict";
 
@@ -939,61 +970,24 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var React = require("react");
 
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/ui/image/code");
-
       var _icon = require("./icon");
 
       var _pulse = require("./pulse");
 
-      var _animationFunctions = require("./animation-functions");
-
-      var _strongTittle = require("./strong-tittle");
-
-      var _hamburger = require("./menu/hamburger");
-
       var _notice = require("./notice");
 
-      var _code3 = require("@beyond/docs/components/theme-button/code"); // import "@beyond/docs/header-animation/widget";
+      var _headerContent = require("./header-content");
 
+      var _topHeader = require("./top-header");
 
       function Header() {
         const container = React.useRef(null);
-        React.useEffect(() => {
-          const svgManager = new _animationFunctions.SVGEventsManager(container.current);
-          svgManager.addEvents();
-          return () => svgManager.removeEvents();
-        }, []);
-        return React.createElement(React.Fragment, null, React.createElement("div", null, React.createElement(_notice.Notice, null)), React.createElement("section", {
-          className: "top__header"
-        }, React.createElement("nav", {
-          className: "menu-container container flex-container flex-h-end"
-        }, React.createElement("div", {
-          className: "mobile__header"
-        }, React.createElement(_code2.BeyondImage, {
-          src: "/images/beyond-logo.png",
-          alt: "beyondjs"
-        }), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
-          className: "menu-list__container"
-        }, React.createElement("ul", {
-          className: "header__menu"
-        }, React.createElement("li", null, React.createElement(_code3.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_code.Link, {
-          href: "/docs/tutorial/web"
-        }, "Tutorial")), React.createElement("li", null, React.createElement(_code.Link, {
-          href: "/docs/intro"
-        }, "Documentation")), React.createElement("li", null, React.createElement(_code.Link, {
-          href: "/examples"
-        }, "Examples")))))), React.createElement("header", {
+        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement(_topHeader.TopHeader, null), React.createElement("header", {
           className: "home__header",
           ref: container
         }, React.createElement("div", {
           className: "container flex-container flex-center"
-        }, React.createElement("div", {
-          className: "header__content"
-        }, React.createElement("h1", null, React.createElement("span", null, "The Full Stack universal ", React.createElement("br", null), "Typescript Framework"), React.createElement(_strongTittle.StrongTitle, null)), React.createElement("span", {
-          className: "p2"
-        }, "Integra diferentes stacks de desarrollo y trabaja con ellos bajo el mismo paradigma, priorizando la experiencia de desarrollo y la carga modular, sin necesidad de empaquetadores.")), React.createElement(_icon.IconLogo, null)), React.createElement(_pulse.Pulse, null)));
+        }, React.createElement(_headerContent.HeaderContent, null), React.createElement(_icon.IconLogo, null)), React.createElement(_pulse.Pulse, null)));
       }
     }
   });
@@ -1032,6 +1026,27 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         }), React.createElement("label", {
           htmlFor: "hamburger__input"
         }, React.createElement("i", null), React.createElement("span", null)), React.createElement("em", null));
+      }
+    }
+  });
+  /******************************************
+  INTERNAL MODULE: ./views/header/menu/navbar
+  ******************************************/
+
+  modules.set('./views/header/menu/navbar', {
+    hash: 2148983120,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Navbar = Navbar;
+
+      var React = require("react");
+
+      function Navbar() {
+        return React.createElement(React.Fragment, null);
       }
     }
   });
@@ -1106,7 +1121,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ********************************************/
 
   modules.set('./views/header/strong-tittle', {
-    hash: 4195098479,
+    hash: 2609786063,
     creator: function (require, exports) {
       "use strict";
 
@@ -1138,9 +1153,56 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           }, 2000);
         }, []);
         return React.createElement("strong", {
-          className: "text-slg",
           ref: ref
         }, labels[current]);
+      }
+    }
+  });
+  /*****************************************
+  INTERNAL MODULE: ./views/header/top-header
+  *****************************************/
+
+  modules.set('./views/header/top-header', {
+    hash: 1616681787,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TopHeader = TopHeader;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/image/code");
+
+      var _hamburger = require("./menu/hamburger");
+
+      var _code2 = require("@beyond/docs/components/theme-button/code");
+
+      var _code3 = require("@beyond/ui/link/code");
+
+      function TopHeader() {
+        return React.createElement("section", {
+          className: "top__header"
+        }, React.createElement("nav", {
+          className: "menu-container container flex-container flex-h-end"
+        }, React.createElement("div", {
+          className: "mobile__header"
+        }, React.createElement(_code.BeyondImage, {
+          src: "/images/beyond-logo.png",
+          alt: "beyondjs"
+        }), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
+          className: "menu-list__container"
+        }, React.createElement("ul", {
+          className: "header__menu"
+        }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/docs/tutorial/web"
+        }, "Tutorial")), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/docs/intro"
+        }, "Documentation")), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/examples"
+        }, "Examples"))))));
       }
     }
   });
@@ -1189,7 +1251,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ****************************/
 
   modules.set('./views/page', {
-    hash: 4068279524,
+    hash: 1521293706,
     creator: function (require, exports) {
       "use strict";
 
@@ -1218,7 +1280,9 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         uri,
         component
       }) {
-        return React.createElement(React.Fragment, null, React.createElement(_header.Header, null), React.createElement("main", null, React.createElement(_solution.Solution, null), React.createElement(_technologies.Technologies, null), React.createElement("div", {
+        return React.createElement(React.Fragment, null, React.createElement(_header.Header, null), React.createElement("main", {
+          className: "main__home__content"
+        }, React.createElement(_solution.Solution, null), React.createElement(_technologies.Technologies, null), React.createElement("div", {
           className: "container"
         }, React.createElement(_configModule.ConfigModule, null), React.createElement(_realtime.Realtime, null), React.createElement(_dx.DX, null)), React.createElement(_footer.Footer, null)));
       }
@@ -1401,7 +1465,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   modules.set('./views/sections/solution', {
-    hash: 2333493906,
+    hash: 4170057658,
     creator: function (require, exports) {
       "use strict";
 
@@ -1418,12 +1482,6 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       function Solution() {
         return React.createElement("div", {
-          className: "container"
-        }, React.createElement("header", {
-          className: "header__section text-center"
-        }, React.createElement("h3", null, "Desarrollo universal"), React.createElement("span", {
-          className: "subtitle"
-        }, "Enfocado en hacer que las mismas herramientas y t\u00E9cnicas funcionen para m\u00FAltiples distribuciones  y tecnolog\u00EDas de manera simple y en  la creaci\u00F3n de micro servicios y micro frontends.")), React.createElement("div", {
           className: "container cards__container"
         }, React.createElement(_card.Card, {
           title: "Typescript Universal",
@@ -1450,7 +1508,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           href: "https://vuejs.org/"
         }, "Vue"), " y ", React.createElement(_code.Elink, {
           href: "https://svelte.dev/"
-        }, "Svelte"), ". Preparado para incluir otros frameworks o librerias de gestion de vistas.")));
+        }, "Svelte"), ". Preparado para incluir otros frameworks o librerias de gestion de vistas."));
       }
     }
   });
@@ -1459,7 +1517,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *********************************************/
 
   modules.set('./views/sections/technologies', {
-    hash: 1099844618,
+    hash: 2100616649,
     creator: function (require, exports) {
       "use strict";
 
@@ -1476,8 +1534,14 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       function Technologies() {
         return React.createElement("div", {
-          className: "container"
-        }, React.createElement("div", {
+          className: "container technologies__section"
+        }, React.createElement("section", {
+          className: ""
+        }, React.createElement("h3", null, React.createElement("span", {
+          className: "pre__title"
+        }, "A very simple way"), "Desarrollo universal"), React.createElement("span", {
+          className: "subtitle"
+        }, "Enfocado en hacer que las mismas herramientas y t\u00E9cnicas funcionen para m\u00FAltiples distribuciones  y tecnolog\u00EDas de manera simple y en  la creaci\u00F3n de micro servicios y micro frontends.")), React.createElement("div", {
           className: "banner__icons"
         }, React.createElement(_code.BeyondIcon, {
           icon: _icons.SVGS.typescript

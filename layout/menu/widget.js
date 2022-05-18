@@ -60,7 +60,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   **********************/
 
   modules.set('./data', {
-    hash: 2129689643,
+    hash: 2501927896,
     creator: function (require, exports) {
       "use strict";
 
@@ -72,7 +72,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         id: 'getting-start',
         label: 'Empezando',
         children: [{
-          id: '',
+          id: 'intro',
           label: 'Introducción'
         }, {
           id: 'install',
@@ -104,7 +104,23 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           label: 'Bundles'
         }, {
           id: 'widgets',
-          label: 'Páginas, layouts y widgets'
+          label: 'Widgets',
+          children: [{
+            id: "widgets",
+            label: "Intro"
+          }, {
+            id: "widgets/creation",
+            label: "Creando un widget"
+          }, {
+            id: "widgets/controller",
+            label: "Objeto Controller"
+          }, {
+            id: "widgets/page",
+            label: "Page"
+          }, {
+            id: "widgets/layout",
+            label: "Layout"
+          }]
         }, {
           id: 'routing',
           label: 'Enrutamiento'
@@ -156,6 +172,9 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         children: [{
           id: 'server',
           label: 'Server'
+        }, {
+          id: '/api/uri',
+          label: 'URI'
         }, {
           id: 'projects',
           label: 'Configuración de proyectos'
@@ -327,7 +346,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   ***************************/
 
   modules.set('./view/menu', {
-    hash: 3814178887,
+    hash: 3555915435,
     creator: function (require, exports) {
       "use strict";
 
@@ -361,16 +380,12 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           setSelected
         });
         const parent = React.useRef(null);
-        const openedLocal = typeof window !== undefined ? window.localStorage.getItem('__menu_opened') : true;
+        const openedLocal = typeof window !== undefined ? window?.localStorage.getItem('__menu_opened') : true;
         const [opened] = React.useState([true, 'true'].includes(openedLocal));
-        React.useEffect(() => {
-          setValue({ ...value,
-            container: parent?.current
-          });
-        }, []);
-        (0, _code2.useBinder)([_code.AppManager], () => {
-          parent.current.classList.toggle('docs__menu--opened'); // toggleMenu(!opened);
-        });
+        React.useEffect(() => setValue({ ...value,
+          container: parent?.current
+        }), []);
+        (0, _code2.useBinder)([_code.AppManager], () => parent.current.classList.toggle('docs__menu--opened'));
 
         const closeMenu = () => {
           const isOpened = parent.current.classList.contains('docs__menu--opened');
@@ -396,15 +411,11 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           className: "menu-mobile-container"
         }, React.createElement("header", {
           className: "aside__header"
-        }, React.createElement("div", {
-          className: ""
-        }, React.createElement("div", {
-          className: "mobile-only"
-        }, React.createElement(_code4.BeyondImage, {
+        }, React.createElement("div", null, React.createElement(_code4.BeyondImage, {
           src: "/images/beyond-logo.png",
-          className: "img-logo",
+          className: "img-logo mobile-only",
           alt: "Beyond the universal meta framework"
-        })), React.createElement("h4", null, "Contents")), React.createElement(_code3.BeyondIconButton, {
+        }), React.createElement("h4", null, "Contents")), React.createElement(_code3.BeyondIconButton, {
           onClick: close,
           className: "docs__menu__list__btn-close",
           icon: "close"
