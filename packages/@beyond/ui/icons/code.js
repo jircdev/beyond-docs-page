@@ -1,29 +1,28 @@
-define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.BeyondIconButton = _exports2.BeyondIcon = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('@beyond-js/kernel/routing/ts', dependency_1);
-  dependencies.set('prop-types', dependency_2);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_3);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/ui/icons/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/ui/icons/code").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0], ["prop-types", dependency_2]]));
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/ui/icons/code');
+
+  const ims = new Map();
   /************************************
   INTERNAL MODULE: ./beyond-icon-button
   ************************************/
 
-  modules.set('./beyond-icon-button', {
+  ims.set('./beyond-icon-button', {
     hash: 3151666248,
     creator: function (require, exports) {
       "use strict";
@@ -122,7 +121,7 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyo
   INTERNAL MODULE: ./icon
   **********************/
 
-  modules.set('./icon', {
+  ims.set('./icon', {
     hash: 3346117988,
     creator: function (require, exports) {
       "use strict";
@@ -194,7 +193,7 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyo
   INTERNAL MODULE: ./icons
   ***********************/
 
-  modules.set('./icons', {
+  ims.set('./icons', {
     hash: 3984459820,
     creator: function (require, exports) {
       "use strict";
@@ -273,11 +272,11 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyo
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

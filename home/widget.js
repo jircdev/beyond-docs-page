@@ -1,37 +1,39 @@
-define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts", "react", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts", "react", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_0);
-  dependencies.set('@beyond/docs/layout/styles/code', dependency_1);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_2);
-  dependencies.set('react', dependency_3);
-  dependencies.set('@beyond/ui/link/code', dependency_4);
-  dependencies.set('@beyond/ui/icons/code', dependency_5);
-  dependencies.set('@beyond/docs/manager/code', dependency_6);
-  dependencies.set('@beyond/ui/image/code', dependency_7);
-  dependencies.set('@beyond/docs/components/theme-button/code', dependency_8);
-  dependencies.set('@beyond/docs/code/code', dependency_9);
-  dependencies.set('@beyond/ui/swiper/code', dependency_10);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/home/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/home/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_4]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "home-page",
+    "id": "@beyond/docs/home/widget",
+    "is": "page",
+    "route": "/",
+    "layout": "home-layout"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/home/widget');
+
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 3629148824,
+  ims.set('./controller', {
+    hash: 2032867280,
     creator: function (require, exports) {
       "use strict";
 
@@ -40,7 +42,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/sty
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _page = require("./views/page");
 
@@ -66,7 +68,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/sty
   INTERNAL MODULE: ./icons
   ***********************/
 
-  modules.set('./icons', {
+  ims.set('./icons', {
     hash: 639138480,
     creator: function (require, exports) {
       "use strict";
@@ -557,7 +559,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./store
   ***********************/
 
-  modules.set('./store', {
+  ims.set('./store', {
     hash: 3768859075,
     creator: function (require, exports) {
       "use strict";
@@ -614,7 +616,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/block
   *****************************/
 
-  modules.set('./views/block', {
+  ims.set('./views/block', {
     hash: 2755651297,
     creator: function (require, exports) {
       "use strict";
@@ -664,7 +666,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/card
   ****************************/
 
-  modules.set('./views/card', {
+  ims.set('./views/card', {
     hash: 2161201478,
     creator: function (require, exports) {
       "use strict";
@@ -700,7 +702,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/context
   *******************************/
 
-  modules.set('./views/context', {
+  ims.set('./views/context', {
     hash: 2046522563,
     creator: function (require, exports) {
       "use strict";
@@ -725,7 +727,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/footer
   ******************************/
 
-  modules.set('./views/footer', {
+  ims.set('./views/footer', {
     hash: 3773956041,
     creator: function (require, exports) {
       "use strict";
@@ -748,7 +750,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/animation-functions
   **************************************************/
 
-  modules.set('./views/header/animation-functions', {
+  ims.set('./views/header/animation-functions', {
     hash: 1793319702,
     creator: function (require, exports) {
       "use strict";
@@ -887,7 +889,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/header-content
   *********************************************/
 
-  modules.set('./views/header/header-content', {
+  ims.set('./views/header/header-content', {
     hash: 2271436274,
     creator: function (require, exports) {
       "use strict";
@@ -918,7 +920,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/icon
   ***********************************/
 
-  modules.set('./views/header/icon', {
+  ims.set('./views/header/icon', {
     hash: 1463248823,
     creator: function (require, exports) {
       "use strict";
@@ -958,7 +960,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/index
   ************************************/
 
-  modules.set('./views/header/index', {
+  ims.set('./views/header/index', {
     hash: 3851949519,
     creator: function (require, exports) {
       "use strict";
@@ -995,7 +997,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/menu/hamburger
   *********************************************/
 
-  modules.set('./views/header/menu/hamburger', {
+  ims.set('./views/header/menu/hamburger', {
     hash: 1511364435,
     creator: function (require, exports) {
       "use strict";
@@ -1033,7 +1035,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/menu/navbar
   ******************************************/
 
-  modules.set('./views/header/menu/navbar', {
+  ims.set('./views/header/menu/navbar', {
     hash: 2148983120,
     creator: function (require, exports) {
       "use strict";
@@ -1054,7 +1056,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/notice
   *************************************/
 
-  modules.set('./views/header/notice', {
+  ims.set('./views/header/notice', {
     hash: 2514501766,
     creator: function (require, exports) {
       "use strict";
@@ -1077,7 +1079,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/pulse
   ************************************/
 
-  modules.set('./views/header/pulse', {
+  ims.set('./views/header/pulse', {
     hash: 436370280,
     creator: function (require, exports) {
       "use strict";
@@ -1120,7 +1122,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/strong-tittle
   ********************************************/
 
-  modules.set('./views/header/strong-tittle', {
+  ims.set('./views/header/strong-tittle', {
     hash: 2609786063,
     creator: function (require, exports) {
       "use strict";
@@ -1162,7 +1164,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/header/top-header
   *****************************************/
 
-  modules.set('./views/header/top-header', {
+  ims.set('./views/header/top-header', {
     hash: 1616681787,
     creator: function (require, exports) {
       "use strict";
@@ -1210,7 +1212,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/navigator-box
   *************************************/
 
-  modules.set('./views/navigator-box', {
+  ims.set('./views/navigator-box', {
     hash: 3401150443,
     creator: function (require, exports) {
       "use strict";
@@ -1250,7 +1252,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/page
   ****************************/
 
-  modules.set('./views/page', {
+  ims.set('./views/page', {
     hash: 1521293706,
     creator: function (require, exports) {
       "use strict";
@@ -1292,7 +1294,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/config-module
   **********************************************/
 
-  modules.set('./views/sections/config-module', {
+  ims.set('./views/sections/config-module', {
     hash: 2979428409,
     creator: function (require, exports) {
       "use strict";
@@ -1353,7 +1355,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/dx
   ***********************************/
 
-  modules.set('./views/sections/dx', {
+  ims.set('./views/sections/dx', {
     hash: 607679831,
     creator: function (require, exports) {
       "use strict";
@@ -1390,7 +1392,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/realtime-icon
   **********************************************/
 
-  modules.set('./views/sections/realtime-icon', {
+  ims.set('./views/sections/realtime-icon', {
     hash: 3453655079,
     creator: function (require, exports) {
       "use strict";
@@ -1411,7 +1413,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/realtime
   *****************************************/
 
-  modules.set('./views/sections/realtime', {
+  ims.set('./views/sections/realtime', {
     hash: 3427878090,
     creator: function (require, exports) {
       "use strict";
@@ -1464,7 +1466,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/solution
   *****************************************/
 
-  modules.set('./views/sections/solution', {
+  ims.set('./views/sections/solution', {
     hash: 4170057658,
     creator: function (require, exports) {
       "use strict";
@@ -1516,7 +1518,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   INTERNAL MODULE: ./views/sections/technologies
   *********************************************/
 
-  modules.set('./views/sections/technologies', {
+  ims.set('./views/sections/technologies', {
     hash: 2100616649,
     creator: function (require, exports) {
       "use strict";
@@ -1579,11 +1581,11 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

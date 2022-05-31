@@ -1,36 +1,37 @@
-define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_0);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_1);
-  dependencies.set('@beyond/docs/layout/styles/code', dependency_2);
-  dependencies.set('react', dependency_3);
-  dependencies.set('@beyond-js/kernel/routing/ts', dependency_4);
-  dependencies.set('@beyond/docs/ui/icons/code', dependency_5);
-  dependencies.set('@beyond/docs/manager/code', dependency_6);
-  dependencies.set('@beyond/docs/store/code', dependency_7);
-  dependencies.set('@beyond/ui/icons/code', dependency_8);
-  dependencies.set('@beyond/ui/image/code', dependency_9);
+  _exports2.hmr = _exports2.WidgetMenu = _exports2.Controller = void 0;
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/layout/menu/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/layout/menu/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_4]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/ui/icons/code"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "menu-layout",
+    "id": "@beyond/docs/layout/menu/widget",
+    "is": "layout"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/layout/menu/widget');
+
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 280007429,
+  ims.set('./controller', {
+    hash: 935680079,
     creator: function (require, exports) {
       "use strict";
 
@@ -39,11 +40,17 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
+
+      var _menu = require("./menu");
       /*bundle*/
 
 
       class Controller extends _ts.ReactWidgetController {
+        get Widget() {
+          return _menu.WidgetMenu;
+        }
+
         async fetch() {}
 
         createStore() {
@@ -55,41 +62,72 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
       exports.Controller = Controller;
     }
   });
-  /**********************
-  INTERNAL MODULE: ./data
-  **********************/
+  /**************************
+  INTERNAL MODULE: ./data/api
+  **************************/
 
-  modules.set('./data', {
-    hash: 2501927896,
+  ims.set('./data/api', {
+    hash: 291579804,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Menu = void 0;
-      const Menu = [{
-        id: 'getting-start',
-        label: 'Empezando',
+      exports.api = void 0;
+      const api = {
+        id: 'reference',
+        label: 'API',
         children: [{
-          id: 'intro',
-          label: 'Introducción'
+          id: 'server',
+          label: 'Server'
         }, {
-          id: 'install',
-          label: 'Instalación'
+          id: '/api/uri',
+          label: 'URI'
         }, {
-          id: 'tutorial/web',
-          label: "Tutorial"
+          id: "/api/BeyondWidget",
+          label: "Objeto widget"
         }, {
-          id: 'dashboard',
-          label: 'Dashboard'
+          id: 'projects',
+          label: 'Configuración de proyectos'
+        }, {
+          id: 'modules',
+          label: 'Modules'
+        }, {
+          id: 'bundles',
+          label: 'Bundles'
+        }, {
+          id: 'processors',
+          label: 'Processors'
         }]
-      }, {
+      };
+      exports.api = api;
+    }
+  });
+  /*****************************
+  INTERNAL MODULE: ./data/basics
+  *****************************/
+
+  ims.set('./data/basics', {
+    hash: 3409527411,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.basics = void 0;
+
+      var _structureItem = require("./structure-item");
+
+      const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto']];
+      const basics = {
         id: 'concepts',
         label: 'Conceptos Básicos',
         children: [{
           id: 'projects',
-          label: 'Projectos'
+          label: 'Proyectos',
+          children: (0, _structureItem.structureItems)(projects)
         }, {
           label: 'Módulos',
           children: [{
@@ -109,8 +147,8 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
             id: "widgets",
             label: "Intro"
           }, {
-            id: "widgets/creation",
-            label: "Creando un widget"
+            id: "widgets/definition",
+            label: "Definición"
           }, {
             id: "widgets/controller",
             label: "Objeto Controller"
@@ -125,7 +163,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           id: 'routing',
           label: 'Enrutamiento'
         }, {
-          id: 'state-management',
+          id: 'state/management',
           label: 'Manejo de Estados'
         }, {
           id: 'styles',
@@ -140,7 +178,48 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           id: 'ssr',
           label: 'Server side rendering'
         }]
-      }, {
+      };
+      exports.basics = basics;
+    }
+  });
+  /*****************************
+  INTERNAL MODULE: ./data/config
+  *****************************/
+
+  ims.set('./data/config', {
+    hash: 4150105189,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.config = void 0;
+      const config = {
+        id: 'configuration',
+        label: 'Configuracion',
+        children: [{
+          id: 'template',
+          label: 'Plantilla'
+        }]
+      };
+      exports.config = config;
+    }
+  });
+  /***********************************
+  INTERNAL MODULE: ./data/fundamentals
+  ***********************************/
+
+  ims.set('./data/fundamentals', {
+    hash: 737615441,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.fundamentals = void 0;
+      const fundamentals = {
         id: 'fundamentals',
         label: 'Fundamentos',
         children: [{
@@ -159,44 +238,94 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
           id: 'bee',
           label: 'BEE'
         }]
-      }, {
-        id: 'configuration',
-        label: 'Configuracion',
-        children: [{
-          id: 'template',
-          label: 'Plantilla'
-        }]
-      }, {
-        id: 'reference',
-        label: 'API',
-        children: [{
-          id: 'server',
-          label: 'Server'
-        }, {
-          id: '/api/uri',
-          label: 'URI'
-        }, {
-          id: 'projects',
-          label: 'Configuración de proyectos'
-        }, {
-          id: 'modules',
-          label: 'Modules'
-        }, {
-          id: 'bundles',
-          label: 'Bundles'
-        }, {
-          id: 'processors',
-          label: 'Processors'
-        }]
-      }];
+      };
+      exports.fundamentals = fundamentals;
+    }
+  });
+  /****************************
+  INTERNAL MODULE: ./data/index
+  ****************************/
+
+  ims.set('./data/index', {
+    hash: 882885426,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Menu = void 0;
+
+      var _starting = require("./starting");
+
+      var _basics = require("./basics");
+
+      var _fundamentals = require("./fundamentals");
+
+      var _config = require("./config");
+
+      var _api = require("./api");
+
+      const Menu = [_starting.starting, _basics.basics, _fundamentals.fundamentals, _config.config, _api.api];
       exports.Menu = Menu;
     }
   });
+  /*******************************
+  INTERNAL MODULE: ./data/starting
+  *******************************/
+
+  ims.set('./data/starting', {
+    hash: 1856001319,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.starting = void 0;
+
+      const obj = ([id, label]) => ({
+        id,
+        label
+      });
+
+      const items = [['intro', 'Introducción'], ['quick-start', 'Inicio rápido'], ['install', 'Instalación'], ['tutorial/web', 'Tutorial'], ['dashboard', 'Dashboard']];
+      const children = items.map(obj);
+      const starting = {
+        id: 'getting-start',
+        label: 'Empezando',
+        children
+      };
+      exports.starting = starting;
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./data/structure-item
+  *************************************/
+
+  ims.set('./data/structure-item', {
+    hash: 4019233650,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.structureItems = void 0;
+
+      const structureItems = data => data.map(([id, label]) => ({
+        id,
+        label
+      }));
+
+      exports.structureItems = structureItems;
+    }
+  });
   /******************************
-  INTERNAL MODULE: ./view/context
+  INTERNAL MODULE: ./menu/context
   ******************************/
 
-  modules.set('./view/context', {
+  ims.set('./menu/context', {
     hash: 313557389,
     creator: function (require, exports) {
       "use strict";
@@ -217,11 +346,95 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
       exports.useMenuContext = useMenuContext;
     }
   });
+  /****************************
+  INTERNAL MODULE: ./menu/index
+  ****************************/
+
+  ims.set('./menu/index', {
+    hash: 4228547397,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.WidgetMenu = WidgetMenu;
+
+      var React = require("react");
+
+      var _data = require("../data");
+
+      var _list = require("./list");
+
+      var _context = require("./context");
+
+      var _code = require("@beyond/docs/manager/code");
+
+      var _code2 = require("@beyond/docs/store/code");
+
+      var _code3 = require("@beyond/ui/icons/code");
+
+      var _code4 = require("@beyond/ui/image/code");
+      /*bundle*/
+
+
+      function WidgetMenu() {
+        const [selected, setSelected] = React.useState();
+        const [value, setValue] = React.useState({
+          selected,
+          setSelected
+        });
+        const parent = React.useRef(null);
+        const openedLocal = typeof window !== undefined ? window?.localStorage.getItem('__menu_opened') : true;
+        const [opened] = React.useState([true, 'true'].includes(openedLocal));
+        React.useEffect(() => setValue({ ...value,
+          container: parent?.current
+        }), []);
+        (0, _code2.useBinder)([_code.AppManager], () => parent.current.classList.toggle('docs__menu--opened'));
+
+        const closeMenu = () => {
+          const isOpened = parent.current.classList.contains('docs__menu--opened');
+          parent.current.classList.toggle('docs__menu--opened');
+          window.localStorage.setItem('__menu_opened', `${!isOpened}`);
+        };
+
+        const close = event => {
+          event.preventDefault();
+          closeMenu();
+        };
+
+        const cls = `docs__menu${opened ? ` docs__menu--opened` : ''}`;
+        return React.createElement(_context.MenuContext.Provider, {
+          value: {
+            container: value.container,
+            close: closeMenu
+          }
+        }, React.createElement("aside", {
+          ref: parent,
+          className: cls
+        }, React.createElement("div", {
+          className: "menu-mobile-container"
+        }, React.createElement("header", {
+          className: "aside__header"
+        }, React.createElement("div", null, React.createElement(_code4.BeyondImage, {
+          src: "/images/beyond-logo.png",
+          className: "img-logo mobile-only",
+          alt: "Beyond the universal meta framework"
+        }), React.createElement("h4", null, "Contents")), React.createElement(_code3.BeyondIconButton, {
+          onClick: close,
+          className: "docs__menu__list__btn-close",
+          icon: "close"
+        })), React.createElement(_list.List, {
+          items: _data.Menu
+        }))));
+      }
+    }
+  });
   /**********************************
-  INTERNAL MODULE: ./view/items/index
+  INTERNAL MODULE: ./menu/items/index
   **********************************/
 
-  modules.set('./view/items/index', {
+  ims.set('./menu/items/index', {
     hash: 1922908051,
     creator: function (require, exports) {
       "use strict";
@@ -305,10 +518,10 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
     }
   });
   /***************************
-  INTERNAL MODULE: ./view/list
+  INTERNAL MODULE: ./menu/list
   ***************************/
 
-  modules.set('./view/list', {
+  ims.set('./menu/list', {
     hash: 2630424517,
     creator: function (require, exports) {
       "use strict";
@@ -340,113 +553,29 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         }, output);
       }
     }
-  });
-  /***************************
-  INTERNAL MODULE: ./view/menu
-  ***************************/
-
-  modules.set('./view/menu', {
-    hash: 3555915435,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Widget = Widget;
-
-      var React = require("react");
-
-      var _data = require("../data");
-
-      var _list = require("./list");
-
-      var _context = require("./context");
-
-      var _code = require("@beyond/docs/manager/code");
-
-      var _code2 = require("@beyond/docs/store/code");
-
-      var _code3 = require("@beyond/ui/icons/code");
-
-      var _code4 = require("@beyond/ui/image/code");
-      /*bundle*/
-
-
-      function Widget() {
-        const [selected, setSelected] = React.useState();
-        const [value, setValue] = React.useState({
-          selected,
-          setSelected
-        });
-        const parent = React.useRef(null);
-        const openedLocal = typeof window !== undefined ? window?.localStorage.getItem('__menu_opened') : true;
-        const [opened] = React.useState([true, 'true'].includes(openedLocal));
-        React.useEffect(() => setValue({ ...value,
-          container: parent?.current
-        }), []);
-        (0, _code2.useBinder)([_code.AppManager], () => parent.current.classList.toggle('docs__menu--opened'));
-
-        const closeMenu = () => {
-          const isOpened = parent.current.classList.contains('docs__menu--opened');
-          parent.current.classList.toggle('docs__menu--opened');
-          window.localStorage.setItem('__menu_opened', `${!isOpened}`);
-        };
-
-        const close = event => {
-          event.preventDefault();
-          closeMenu();
-        };
-
-        const cls = `docs__menu${opened ? ` docs__menu--opened` : ''}`;
-        return React.createElement(_context.MenuContext.Provider, {
-          value: {
-            container: value.container,
-            close: closeMenu
-          }
-        }, React.createElement("aside", {
-          ref: parent,
-          className: cls
-        }, React.createElement("div", {
-          className: "menu-mobile-container"
-        }, React.createElement("header", {
-          className: "aside__header"
-        }, React.createElement("div", null, React.createElement(_code4.BeyondImage, {
-          src: "/images/beyond-logo.png",
-          className: "img-logo mobile-only",
-          alt: "Beyond the universal meta framework"
-        }), React.createElement("h4", null, "Contents")), React.createElement(_code3.BeyondIconButton, {
-          onClick: close,
-          className: "docs__menu__list__btn-close",
-          icon: "close"
-        })), React.createElement(_list.List, {
-          items: _data.Menu
-        }))));
-      }
-    }
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
     _exports.Controller = require('./controller').Controller;
-    _exports.Widget = require('./view/menu').Widget;
+    _exports.WidgetMenu = require('./menu/index').WidgetMenu;
   };
 
-  let Controller, Widget; // Module exports
+  let Controller, WidgetMenu; // Module exports
 
-  _exports2.Widget = Widget;
+  _exports2.WidgetMenu = WidgetMenu;
   _exports2.Controller = Controller;
 
   __pkg.exports.process = function (require) {
     _exports2.Controller = Controller = require('./controller').Controller;
-    _exports2.Widget = Widget = require('./view/menu').Widget;
+    _exports2.WidgetMenu = WidgetMenu = require('./menu/index').WidgetMenu;
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

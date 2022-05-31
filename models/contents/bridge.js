@@ -1,25 +1,30 @@
-define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0) {
+define(["exports", "@beyond-js/backend/client/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.BridgeModel = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_0);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/models/contents/bridge', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/models/contents/bridge").package();
 
-  const modules = new Map();
+  externals.register(new Map([]));
+
+  const {
+    ActionsBridge
+  } = require('@beyond-js/backend/client/ts');
+
+  const ims = new Map();
   /***********************
   INTERNAL MODULE: ./index
   ***********************/
 
-  modules.set('./index', {
+  ims.set('./index', {
     hash: 545566116,
     creator: function (require, exports) {
       "use strict";
@@ -29,15 +34,13 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
       });
       exports.BridgeModel = void 0;
 
-      var _ts = require("@beyond-js/kernel/core/ts");
-
       var _beyond_context = require("beyond_context");
       /*actions*/
 
       /*bundle*/
 
 
-      class BridgeModel extends _ts.ActionsBridge {
+      class BridgeModel extends ActionsBridge {
         async get() {
           return await this.execute("index//BridgeModel//get", ...arguments);
         }
@@ -47,7 +50,7 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
         }
 
         constructor() {
-          super(_beyond_context.module);
+          super("backend", _beyond_context.module);
         }
 
       }
@@ -69,11 +72,11 @@ define(["exports", "@beyond-js/kernel/core/ts"], function (_exports2, dependency
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

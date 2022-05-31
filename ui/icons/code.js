@@ -1,27 +1,28 @@
-define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
+define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.ICONS = _exports2.AppIconButton = _exports2.AppIcon = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('@beyond/ui/icons/code', dependency_1);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_2);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/ui/icons/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/ui/icons/code").package();
 
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/ui/icons/code"]));
+
+  const ims = new Map();
   /**********************
   INTERNAL MODULE: ./icon
   **********************/
 
-  modules.set('./icon', {
+  ims.set('./icon', {
     hash: 3768040567,
     creator: function (require, exports) {
       "use strict";
@@ -60,7 +61,7 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/core/ts"
   INTERNAL MODULE: ./icons
   ***********************/
 
-  modules.set('./icons', {
+  ims.set('./icons', {
     hash: 2054247707,
     creator: function (require, exports) {
       "use strict";
@@ -257,11 +258,11 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/core/ts"
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

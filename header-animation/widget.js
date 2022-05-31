@@ -1,30 +1,34 @@
-define(["exports", "svelte/internal", "@beyond-js/kernel/svelte-widget/ts", "svelte", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "svelte/internal", "@beyond-js/svelte-widgets/controllers/ts", "svelte", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('svelte/internal', dependency_0);
-  dependencies.set('@beyond-js/kernel/svelte-widget/ts', dependency_1);
-  dependencies.set('svelte', dependency_2);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_3);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/header-animation/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/header-animation/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["svelte/internal", dependency_2], ["svelte", dependency_4]]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "header-animation",
+    "id": "@beyond/docs/header-animation/widget"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/header-animation/widget');
+
+  const ims = new Map();
   /*******************************
   INTERNAL MODULE: ./widget.svelte
   *******************************/
 
-  modules.set('./widget.svelte', {
-    hash: 1841726493,
+  ims.set('./widget.svelte', {
+    hash: 2308024034,
     creator: function (require, exports) {
       "use strict";
 
@@ -184,7 +188,6 @@ define(["exports", "svelte/internal", "@beyond-js/kernel/svelte-widget/ts", "sve
         const onMouseLeave = event => {
           const getAngle = value => {
             if (value === 'none') {
-              console.log(10, "nope");
               return;
             }
 
@@ -246,8 +249,8 @@ define(["exports", "svelte/internal", "@beyond-js/kernel/svelte-widget/ts", "sve
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 2355993110,
+  ims.set('./controller', {
+    hash: 1479799381,
     creator: function (require, exports) {
       "use strict";
 
@@ -256,7 +259,7 @@ define(["exports", "svelte/internal", "@beyond-js/kernel/svelte-widget/ts", "sve
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/svelte-widget/ts");
+      var _ts = require("@beyond-js/svelte-widgets/controllers/ts");
 
       var _widget = require("./widget.svelte");
       /*bundle*/
@@ -286,11 +289,11 @@ define(["exports", "svelte/internal", "@beyond-js/kernel/svelte-widget/ts", "sve
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

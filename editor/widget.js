@@ -1,31 +1,37 @@
-define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/models/contents/bridge", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
+define(["exports", "@beyond-js/widgets/render/ts", "slate-react", "slate", "react", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/models/contents/bridge", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('slate-react', dependency_0);
-  dependencies.set('slate', dependency_1);
-  dependencies.set('react', dependency_2);
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_3);
-  dependencies.set('@beyond/docs/models/contents/bridge', dependency_4);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_5);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/editor/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/editor/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["slate-react", dependency_1], ["slate", dependency_2], ["react", dependency_3]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/models/contents/bridge"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "editor-page",
+    "id": "@beyond/docs/editor/widget",
+    "is": "page",
+    "route": "/editor"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/editor/widget');
+
+  const ims = new Map();
   /**********************************
   INTERNAL MODULE: ./actions/add-link
   **********************************/
 
-  modules.set('./actions/add-link', {
+  ims.set('./actions/add-link', {
     hash: 3982620758,
     creator: function (require, exports) {
       "use strict";
@@ -121,7 +127,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./actions/load-image
   ************************************/
 
-  modules.set('./actions/load-image', {
+  ims.set('./actions/load-image', {
     hash: 2616347421,
     creator: function (require, exports) {
       "use strict";
@@ -186,7 +192,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/code-block
   ***************************************/
 
-  modules.set('./components/code-block', {
+  ims.set('./components/code-block', {
     hash: 609086643,
     creator: function (require, exports) {
       "use strict";
@@ -208,7 +214,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/default
   ************************************/
 
-  modules.set('./components/default', {
+  ims.set('./components/default', {
     hash: 76960024,
     creator: function (require, exports) {
       "use strict";
@@ -232,7 +238,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/functions
   **************************************/
 
-  modules.set('./components/functions', {
+  ims.set('./components/functions', {
     hash: 747232234,
     creator: function (require, exports) {
       "use strict";
@@ -291,7 +297,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/image
   **********************************/
 
-  modules.set('./components/image', {
+  ims.set('./components/image', {
     hash: 2025666612,
     creator: function (require, exports) {
       "use strict";
@@ -320,7 +326,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/leaf
   *********************************/
 
-  modules.set('./components/leaf', {
+  ims.set('./components/leaf', {
     hash: 573008225,
     creator: function (require, exports) {
       "use strict";
@@ -368,7 +374,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./components/link
   *********************************/
 
-  modules.set('./components/link', {
+  ims.set('./components/link', {
     hash: 1193168384,
     creator: function (require, exports) {
       "use strict";
@@ -398,8 +404,8 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./controller/controller
   ***************************************/
 
-  modules.set('./controller/controller', {
-    hash: 2955136810,
+  ims.set('./controller/controller', {
+    hash: 2139825335,
     creator: function (require, exports) {
       "use strict";
 
@@ -408,13 +414,13 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _bridge = require("@beyond/docs/models/contents/bridge");
       /*bundle*/
 
 
-      class Controller extends _ts.ReactWidgetController {
+      class Controller extends _ts.PageReactWidgetController {
         constructor(props) {
           super(props);
           const model = new _bridge.BridgeModel();
@@ -431,7 +437,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./header
   ************************/
 
-  modules.set('./header', {
+  ims.set('./header', {
     hash: 638721065,
     creator: function (require, exports) {
       "use strict";
@@ -489,7 +495,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./page
   **********************/
 
-  modules.set('./page', {
+  ims.set('./page', {
     hash: 1665923359,
     creator: function (require, exports) {
       "use strict";
@@ -602,7 +608,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./title
   ***********************/
 
-  modules.set('./title', {
+  ims.set('./title', {
     hash: 3943764264,
     creator: function (require, exports) {
       "use strict";
@@ -653,7 +659,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./utils/escape-html
   ***********************************/
 
-  modules.set('./utils/escape-html', {
+  ims.set('./utils/escape-html', {
     hash: 1428005928,
     creator: function (require, exports) {
       /*!
@@ -742,7 +748,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./utils/hotkeys
   *******************************/
 
-  modules.set('./utils/hotkeys', {
+  ims.set('./utils/hotkeys', {
     hash: 3640514213,
     creator: function (require, exports) {
       "use strict";
@@ -970,7 +976,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./utils/render
   ******************************/
 
-  modules.set('./utils/render', {
+  ims.set('./utils/render', {
     hash: 666283649,
     creator: function (require, exports) {
       "use strict";
@@ -1025,7 +1031,7 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   INTERNAL MODULE: ./utils/serialize
   *********************************/
 
-  modules.set('./utils/serialize', {
+  ims.set('./utils/serialize', {
     hash: 4253800247,
     creator: function (require, exports) {
       "use strict";
@@ -1090,11 +1096,11 @@ define(["exports", "slate-react", "slate", "react", "@beyond-js/kernel/react-wid
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

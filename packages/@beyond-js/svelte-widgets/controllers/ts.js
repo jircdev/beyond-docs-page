@@ -1,27 +1,26 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/widgets/controller/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.SvelteWidgetController = _exports2.PageSvelteWidgetController = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_0);
-  dependencies.set('@beyond-js/kernel/routing/ts', dependency_1);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond-js/kernel/svelte-widget/ts', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond-js/svelte-widgets/controllers/ts").package();
 
-  const modules = new Map();
+  externals.register(new Map([]));
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 3478298819,
+  ims.set('./controller', {
+    hash: 1451036233,
     creator: function (require, exports) {
       "use strict";
 
@@ -30,15 +29,16 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
       });
       exports.SvelteWidgetController = void 0;
 
-      var _ts = require("@beyond-js/kernel/core/ts");
+      var _ts = require("@beyond-js/widgets/controller/ts");
       /*bundle*/
 
 
-      class SvelteWidgetController extends _ts.BeyondWidgetController {
+      class SvelteWidgetController extends _ts.WidgetClientController {
         _mount(props) {
-          const hydrate = this.hydratable;
+          const root = this.widget.shadowRoot;
+          const hydrate = !!root.children.length;
           new this.Widget({
-            target: this.body,
+            target: root,
             hydrate,
             props
           });
@@ -46,7 +46,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
 
         mount() {
           this._mount({
-            component: this.component,
+            widget: this.widget,
+            attributes: this.attributes,
+            component: this.widget,
             store: this.store
           });
         }
@@ -62,8 +64,8 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
   INTERNAL MODULE: ./page
   **********************/
 
-  modules.set('./page', {
-    hash: 3282113093,
+  ims.set('./page', {
+    hash: 523105472,
     creator: function (require, exports) {
       "use strict";
 
@@ -72,9 +74,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
       });
       exports.PageSvelteWidgetController = void 0;
 
-      var _ts = require("@beyond-js/kernel/routing/ts");
-
       var _controller = require("./controller");
+
+      var _ts = require("@beyond-js/widgets/controller/ts");
       /*bundle*/
 
 
@@ -92,7 +94,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
         mount() {
           this._mount({
             uri: this.uri,
-            component: this.component,
+            widget: this.widget,
+            attributes: this.attributes,
+            component: this.widget,
             store: this.store
           });
         }
@@ -100,8 +104,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
         unmount() {}
 
         async initialise() {
-          const child = this.component.getAttribute('data-child-id');
-          this.#uri = child ? _ts.routing.manager.pages.find(child).uri : void 0;
+          this.#uri = new _ts.PageURI({
+            widget: this.widget
+          });
           await super.initialise();
         }
 
@@ -127,11 +132,11 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"],
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

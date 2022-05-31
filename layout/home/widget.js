@@ -1,30 +1,37 @@
-define(["exports", "@beyond-js/kernel/react-widget/ts", "react", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_0);
-  dependencies.set('react', dependency_1);
-  dependencies.set('@beyond/docs/layout/styles/code', dependency_2);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_3);
+  _exports2.hmr = _exports2.Controller = void 0;
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/layout/home/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/layout/home/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_3]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "home-layout",
+    "id": "@beyond/docs/layout/home/widget",
+    "is": "layout"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/layout/home/widget');
+
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 2355814033,
+  ims.set('./controller', {
+    hash: 4014179243,
     creator: function (require, exports) {
       "use strict";
 
@@ -33,12 +40,16 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "react", "@beyond/docs/l
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
+
+      var _layout = require("./layout");
       /*bundle*/
 
 
       class Controller extends _ts.ReactWidgetController {
-        async fetch() {}
+        get Widget() {
+          return _layout.default;
+        }
 
       }
 
@@ -49,55 +60,46 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "react", "@beyond/docs/l
   INTERNAL MODULE: ./layout
   ************************/
 
-  modules.set('./layout', {
-    hash: 1638357078,
+  ims.set('./layout', {
+    hash: 1592059221,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Layout = Layout;
-      exports.Widget = void 0;
+      exports.default = _default;
 
       var React = require("react");
 
-      function Layout() {
+      function _default() {
         return React.createElement("div", {
           className: "main-widget"
         }, React.createElement("div", {
           className: "home-page"
         }, React.createElement("main", null, React.createElement("beyond-layout-children", null))));
       }
-      /*bundle*/
-
-
-      const Widget = Layout;
-      exports.Widget = Widget;
     }
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
     _exports.Controller = require('./controller').Controller;
-    _exports.Widget = require('./layout').Widget;
   };
 
-  let Controller, Widget; // Module exports
+  let Controller; // Module exports
 
-  _exports2.Widget = Widget;
   _exports2.Controller = Controller;
 
   __pkg.exports.process = function (require) {
     _exports2.Controller = Controller = require('./controller').Controller;
-    _exports2.Widget = Widget = require('./layout').Widget;
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

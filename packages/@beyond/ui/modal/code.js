@@ -1,28 +1,28 @@
-define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "react-dom", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Control = _exports2.BeyondModal = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('react-dom', dependency_1);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_2);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/ui/modal/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/ui/modal/code").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_1], ["react-dom", dependency_2]]));
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/ui/modal/code');
+
+  const ims = new Map();
   /**************************
   INTERNAL MODULE: ./children
   **************************/
 
-  modules.set('./children', {
+  ims.set('./children', {
     hash: 363183501,
     creator: function (require, exports) {
       "use strict";
@@ -77,7 +77,7 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts"], function 
   INTERNAL MODULE: ./context
   *************************/
 
-  modules.set('./context', {
+  ims.set('./context', {
     hash: 1625331510,
     creator: function (require, exports) {
       "use strict";
@@ -102,7 +102,7 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts"], function 
   INTERNAL MODULE: ./control
   *************************/
 
-  modules.set('./control', {
+  ims.set('./control', {
     hash: 1583137179,
     creator: function (require, exports) {
       "use strict";
@@ -125,7 +125,7 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts"], function 
   INTERNAL MODULE: ./modal
   ***********************/
 
-  modules.set('./modal', {
+  ims.set('./modal', {
     hash: 4022191343,
     creator: function (require, exports) {
       "use strict";
@@ -234,11 +234,11 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts"], function 
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

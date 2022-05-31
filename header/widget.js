@@ -1,35 +1,36 @@
-define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/ts", "react", "@beyond/docs/manager/code", "@beyond/docs/ui/icons/code", "@beyond/ui/link/code", "@beyond/docs/layout/styles/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "react", "@beyond/docs/manager/code", "@beyond/docs/ui/icons/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_0);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_1);
-  dependencies.set('react', dependency_2);
-  dependencies.set('@beyond/docs/manager/code', dependency_3);
-  dependencies.set('@beyond/docs/ui/icons/code', dependency_4);
-  dependencies.set('@beyond/ui/link/code', dependency_5);
-  dependencies.set('@beyond/docs/layout/styles/code', dependency_6);
-  dependencies.set('@beyond/ui/image/code', dependency_7);
-  dependencies.set('@beyond/docs/components/theme-button/code', dependency_8);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/header/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/header/widget").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_3]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/manager/code", "@beyond/docs/ui/icons/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "beyond-docs-header",
+    "id": "@beyond/docs/header/widget"
+  }]);
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/header/widget');
+
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 3550501828,
+  ims.set('./controller', {
+    hash: 1079634450,
     creator: function (require, exports) {
       "use strict";
 
@@ -38,9 +39,11 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _ts2 = require("@beyond-js/kernel/core/ts");
+
+      var _widget = require("./view/widget");
 
       class Store extends _ts2.Events {
         async fetch() {//code
@@ -63,6 +66,10 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
 
 
       class Controller extends _ts.ReactWidgetController {
+        get Widget() {
+          return _widget.Widget;
+        }
+
         async fetch() {}
 
         createStore() {
@@ -78,8 +85,8 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   INTERNAL MODULE: ./view/hamburger
   ********************************/
 
-  modules.set('./view/hamburger', {
-    hash: 2056600686,
+  ims.set('./view/hamburger', {
+    hash: 4264092710,
     creator: function (require, exports) {
       "use strict";
 
@@ -98,7 +105,6 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
         const showMenu = event => {
           event.preventDefault();
           _code.AppManager.menuOpened = !_code.AppManager.menuOpened;
-          console.log(1, _code.AppManager.menuOpened);
         };
 
         return React.createElement("button", {
@@ -118,7 +124,7 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   INTERNAL MODULE: ./view/notice
   *****************************/
 
-  modules.set('./view/notice', {
+  ims.set('./view/notice', {
     hash: 2514501766,
     creator: function (require, exports) {
       "use strict";
@@ -141,8 +147,8 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   INTERNAL MODULE: ./view/widget
   *****************************/
 
-  modules.set('./view/widget', {
-    hash: 3167345406,
+  ims.set('./view/widget', {
+    hash: 2347806452,
     creator: function (require, exports) {
       "use strict";
 
@@ -210,11 +216,11 @@ define(["exports", "@beyond-js/kernel/react-widget/ts", "@beyond-js/kernel/core/
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

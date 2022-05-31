@@ -1,34 +1,135 @@
-define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
+define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/ui/image/code", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.useContent = _exports2.hmr = _exports2.SR = _exports2.RightAside = _exports2.RenderingPage = _exports2.Page = _exports2.Controller = _exports2.ContentsPage = _exports2.CSR = _exports2.BeyondName = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('@beyond/ui/link/code', dependency_1);
-  dependencies.set('@beyond/docs/code/code', dependency_2);
-  dependencies.set('@beyond/docs/components/next-links/code', dependency_3);
-  dependencies.set('@beyond/ui/image/code', dependency_4);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_5);
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_6);
-  dependencies.set('@beyond/docs/ui/icons/code', dependency_7);
-  dependencies.set('@beyond/ui/modal/code', dependency_8);
+  _exports2.useContent = _exports2.hmr = _exports2.SR = _exports2.RightAside = _exports2.RenderingPage = _exports2.Page = _exports2.NodeWidget = _exports2.Controller = _exports2.ContentsPage = _exports2.CSR = _exports2.BeyondName = void 0;
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/contents/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/contents-data/code").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/ui/image/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code"]));
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/contents-data/code');
+
+  const ims = new Map();
+  /***************************************
+  INTERNAL MODULE: ./api/beyond-widget-api
+  ***************************************/
+
+  ims.set('./api/beyond-widget-api', {
+    hash: 1548355071,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BeyondWidgetApi = BeyondWidgetApi;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      var _beyond = require("../views/beyond");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      var _objectProperty = require("../views/object-property");
+
+      function BeyondWidgetApi() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "controller"
+        }, "Objeto ", React.createElement("span", {
+          className: "inline"
+        }, "BeyondWidget")), React.createElement("p", null, "El objeto ", React.createElement("span", {
+          className: "inline"
+        }, "BeyondWidget"), " es el objeto padre de los widgets y hereda directamente del objeto ", React.createElement(_code2.Elink, {
+          href: "https://developer.mozilla.org/es/docs/Web/API/HTMLElement"
+        }, "HTMLElement"), " y ofrece una api que permite interactuar con el arbol de widgets de ", React.createElement(_beyond.BeyondName, null)), React.createElement("h3", {
+          id: "properties"
+        }, "Propiedades"), React.createElement("ul", {
+          className: "properties-list"
+        }, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "NodeWidget",
+          href: "/docs/api/NodeWidget"
+        }, "wnode"), "Nodo html del widget."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "(BeyondWidget)[]",
+          href: "/docs/api/BeyondWidget"
+        }, "wchildren"), "Lista de widgets contenidos"), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "BeyondWidget",
+          href: "/docs/api/BeyondWidget"
+        }, "parent"), "Widget contenedor, retorna ", React.createElement("span", {
+          className: "inline"
+        }, "undefined"), " sino existe un widget como contenedor.")), React.createElement(_code.NextLinks, {
+          items: [['Creación de widgets', '/docs/widgets/creation'], ['Widgets de tipo Page', '/docs/widgets/page']]
+        }));
+      }
+    }
+  });
+  /************************************
+  INTERNAL MODULE: ./api/i-widget-store
+  ************************************/
+
+  ims.set('./api/i-widget-store', {
+    hash: 2672136294,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.IWidgetStore = IWidgetStore;
+
+      var React = require("react");
+
+      function IWidgetStore() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "controller"
+        }, "Interfaz ", React.createElement("span", {
+          className: "inline"
+        }, "IwidgetStore")));
+      }
+    }
+  });
+  /*********************************
+  INTERNAL MODULE: ./api/node-widget
+  *********************************/
+
+  ims.set('./api/node-widget', {
+    hash: 3885588253,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.NodeWidget = NodeWidget;
+
+      var React = require("react");
+      /*bundle*/
+
+
+      function NodeWidget() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "node-widget",
+          className: "inline"
+        }, "NodeWidget"));
+      }
+    }
+  });
   /*************************
   INTERNAL MODULE: ./api/uri
   *************************/
 
-  modules.set('./api/uri', {
+  ims.set('./api/uri', {
     hash: 3412746716,
     creator: function (require, exports) {
       "use strict";
@@ -116,7 +217,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   INTERNAL MODULE: ./basic/backend
   *******************************/
 
-  modules.set('./basic/backend', {
+  ims.set('./basic/backend', {
     hash: 1772956516,
     creator: function (require, exports) {
       "use strict";
@@ -192,7 +293,7 @@ class Auth {
   INTERNAL MODULE: ./basic/deployment
   **********************************/
 
-  modules.set('./basic/deployment', {
+  ims.set('./basic/deployment', {
     hash: 3579229949,
     creator: function (require, exports) {
       "use strict";
@@ -215,7 +316,7 @@ class Auth {
   INTERNAL MODULE: ./basic/fetching
   ********************************/
 
-  modules.set('./basic/fetching', {
+  ims.set('./basic/fetching', {
     hash: 232764040,
     creator: function (require, exports) {
       "use strict";
@@ -238,8 +339,8 @@ class Auth {
   INTERNAL MODULE: ./basic/install
   *******************************/
 
-  modules.set('./basic/install', {
-    hash: 584830888,
+  ims.set('./basic/install', {
+    hash: 578589587,
     creator: function (require, exports) {
       "use strict";
 
@@ -250,24 +351,12 @@ class Auth {
 
       var React = require("react");
 
-      var _code = require("@beyond/docs/code/code");
-
-      var _code2 = require("@beyond/docs/components/next-links/code");
+      var _code = require("@beyond/docs/components/next-links/code");
 
       function Install() {
         return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "install"
-        }, "Instalaci\u00F3n"), React.createElement("h4", {
-          id: "requirement"
-        }, "Prerequisitos"), React.createElement("ul", null, React.createElement("li", null, "Node ", React.createElement("span", {
-          className: "inline"
-        }, "^14.17.4"), "."), React.createElement("li", null, "Estar familiarizado con manejadores de dependencias como npm o yarn.")), React.createElement("p", null, "Instalamos Beyond:"), React.createElement(_code.Code, {
-          language: "bash"
-        }, `> npm i -g  beyond`), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " se instala de forma global y puede ser ejecutado en cualquier directorio. Para utilizarlo, s\u00F3lo necesitas ir a la carpeta en la cual desees trabajar, abrir la consola de comandos y ejecutar \"beyond\"."), React.createElement(_code.Code, {
-          language: "bash"
-        }, ` > beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendote que beyond se est\u00E1 ejecutando y el puerto de acceso para ir al Dashboard."), React.createElement("p", null, "\u00A1Y ya est\u00E1! \u00BFSimple verdad? Puedes empezar con tu proyecto utilizando el dashboard y tu IDE de preferencia."), React.createElement(_code2.NextLinks, {
+        }, "Instalaci\u00F3n"), React.createElement("p", null, "\u00A1Y ya est\u00E1! \u00BFSimple verdad? Puedes empezar con tu proyecto utilizando el dashboard y tu IDE de preferencia."), React.createElement(_code.NextLinks, {
           items: [['Dashboard', '/docs/dashboard'], ['Tutorial', '/docs/tutorial/web']]
         }));
       }
@@ -277,7 +366,7 @@ class Auth {
   INTERNAL MODULE: ./basic/intro/features
   **************************************/
 
-  modules.set('./basic/intro/features', {
+  ims.set('./basic/intro/features', {
     hash: 2707795296,
     creator: function (require, exports) {
       "use strict";
@@ -311,8 +400,8 @@ class Auth {
   INTERNAL MODULE: ./basic/intro/index
   ***********************************/
 
-  modules.set('./basic/intro/index', {
-    hash: 3768975187,
+  ims.set('./basic/intro/index', {
+    hash: 853967293,
     creator: function (require, exports) {
       "use strict";
 
@@ -333,7 +422,7 @@ class Auth {
 
       function Intro() {
         return React.createElement(React.Fragment, null, React.createElement(_universal.Universal, null), React.createElement(_overview.Overview, null), React.createElement(_features.Features, null), React.createElement(_code.NextLinks, {
-          items: [['Instalación', '/docs/install'], ['Widgets', '/docs/widgets']]
+          items: [['Comienzo rápido', '/docs/quick-start'], ['Widgets', '/docs/widgets']]
         }));
       }
     }
@@ -342,8 +431,8 @@ class Auth {
   INTERNAL MODULE: ./basic/intro/overview
   **************************************/
 
-  modules.set('./basic/intro/overview', {
-    hash: 2754075598,
+  ims.set('./basic/intro/overview', {
+    hash: 2624339286,
     creator: function (require, exports) {
       "use strict";
 
@@ -365,7 +454,11 @@ class Auth {
           href: "/docs/modules"
         }, "m\u00F3dulos"), ", estos representan la unidad m\u00EDnima de desarrollo en Beyond y tienen la capacidad de definir sobre que plataforma funcionan. dato que es interpretado por las ", React.createElement(_code.Link, {
           href: "/docs/distributions"
-        }, "distribuciones"), " configuradas en el entorno de desarrollo y al momento de realizar deploy de un proyecto."));
+        }, "distribuciones"), " configuradas en el entorno de desarrollo y al momento de realizar deploy de un proyecto."), React.createElement("div", {
+          className: "block__note note-info"
+        }, "Si quieres conocer m\u00E1s en detalle acerca de esto y sobre c\u00F3mo crear proyectos en ", React.createElement(_beyond.BeyondName, null), "te recomendamos ir a la ", React.createElement(_code.Link, {
+          href: "/docs/projects/intro"
+        }, "secci\u00F3n de Proyectos")));
       }
     }
   });
@@ -373,8 +466,8 @@ class Auth {
   INTERNAL MODULE: ./basic/intro/universal
   ***************************************/
 
-  modules.set('./basic/intro/universal', {
-    hash: 1418103305,
+  ims.set('./basic/intro/universal', {
+    hash: 1240228415,
     creator: function (require, exports) {
       "use strict";
 
@@ -387,9 +480,7 @@ class Auth {
 
       var _beyond = require("../../views/beyond");
 
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/ui/image/code");
+      var _code = require("@beyond/ui/image/code");
 
       const tpl = `
 {
@@ -401,14 +492,500 @@ class Auth {
 }`;
 
       function Universal() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "\u00BFQue es ", React.createElement(_beyond.BeyondName, null), "?"), React.createElement(_code2.BeyondImage, {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "\u00BFQue es ", React.createElement(_beyond.BeyondName, null), "?"), React.createElement(_code.BeyondImage, {
           src: "/images/tutorials/beyond-environments.png",
           alt: "Beyond environments"
-        }), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " es un ", React.createElement("strong", null, "meta-framework"), " basado en typescript, dise\u00F1ado para crear proyectos que funcionen en diferentes entornos de ejecuci\u00F3n Javascript, manteniendo el foco en garantizar al programador una experiencia universal de desarrollo. Lo hace manteniendose agn\u00F3stico a las librerias y tecnolog\u00EDas existentes, buscando dejar un camino estandarizado que permita su integraci\u00F3n."), React.createElement("p", null, "Los factores que garantizan una experiencia de desarrollo homog\u00E9nea, sin importar el entorno para el que se trabaje son:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "HMR en c\u00F3digo cliente y c\u00F3digo Node"), ": de forma autom\u00E1tica, sin configuraciones adicionales. Adem\u00E1s, brinda una api al desarrollador que permite definir cuando y que desea actualizar."), React.createElement("li", null, React.createElement("strong", null, "Desarrollo modular"), ": ", React.createElement(_beyond.BeyondName, null), " tiene una filosofia de generaci\u00F3n de bundles peque\u00F1os que son cargados a demanda en el momento en que son requeridos. No trabaja con un arbol de dependencias y por tanto ", React.createElement("strong", null, "no requiere de empaquetadores"), " c\u00F3mo webpack o parcel."), React.createElement("li", null, React.createElement("strong", null, "Gesti\u00F3n de distribuciones"), ": ", React.createElement(_beyond.BeyondName, null), " permite definir distribuciones para las plataformas de desarrollo que desean utilizarse y gestiona la disponibilizaci\u00F3n del c\u00F3digo final en base a ello.")), React.createElement("div", {
+        }), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " es un ", React.createElement("strong", null, "meta-framework"), " basado en typescript, dise\u00F1ado para crear proyectos que funcionen en diferentes entornos de ejecuci\u00F3n Javascript, manteniendo el foco en garantizar al programador una experiencia universal de desarrollo. Lo hace manteniendose agn\u00F3stico a las librerias y tecnolog\u00EDas existentes, buscando dejar un camino estandarizado que permita su integraci\u00F3n."), React.createElement("p", null, "Los factores que garantizan una experiencia de desarrollo homog\u00E9nea, sin importar el entorno para el que se trabaje son:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "HMR en c\u00F3digo cliente y c\u00F3digo Node"), ": de forma autom\u00E1tica, sin configuraciones adicionales. Adem\u00E1s, brinda una api al desarrollador que permite definir cuando y que desea actualizar."), React.createElement("li", null, React.createElement("strong", null, "Desarrollo modular"), ": ", React.createElement(_beyond.BeyondName, null), " tiene una filosofia de generaci\u00F3n de bundles peque\u00F1os que son cargados a demanda en el momento en que son requeridos. No trabaja con un arbol de dependencias y por tanto ", React.createElement("strong", null, "no requiere de empaquetadores"), " c\u00F3mo webpack o parcel."), React.createElement("li", null, React.createElement("strong", null, "Gesti\u00F3n de distribuciones"), ": ", React.createElement(_beyond.BeyondName, null), " permite definir distribuciones para las plataformas de desarrollo que desean utilizarse y gestiona la disponibilizaci\u00F3n del c\u00F3digo final en base a ello.")));
+      }
+    }
+  });
+  /*****************************************
+  INTERNAL MODULE: ./basic/projects/import-2
+  *****************************************/
+
+  ims.set('./basic/projects/import-2', {
+    hash: 420611915,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ImportProject2 = ImportProject2;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      const tpl = `  "libraries": {
+    "imports": [
+      "@beyond-js/kernel"
+    ]
+  },`;
+
+      function ImportProject2() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Importaci\u00F3n de proyectos"), React.createElement("p", null, "Es com\u00FAn tener m\u00F3dulos que se reutilicen en distintos proyectos o soluciones. ", React.createElement(_beyond.BeyondName, null), " permite agregar este tipo de m\u00F3dulos en proyectos independientes que pueden ser incluidos en otro proyecto para que funcionen como librerias. T\u00E9cnicamente cualquier proyecto en ", React.createElement(_beyond.BeyondName, null), " puede ser importado por otro."), React.createElement("p", null, "Para ejemplificarlo, podemos hablar de una soluci\u00F3n que maneja una p\u00E1gina web, una aplicaci\u00F3n movil y un panel administrativo, todos como proyectos independientes que alimentan una misma fuente de datos. La importaci\u00F3n de proyectos permite que se maneje toda la l\u00F3gica de datos en un proyecto independiente que es utilizado por los tres aplicativos, permitiendo as\u00ED reutilizar el c\u00F3digo."), React.createElement("p", null, "La importaci\u00F3n de proyectos se realiza desde el ", React.createElement(_code.Link, {
+          href: "/docs/projects/json",
+          className: "inline"
+        }, "project.json"), "."), React.createElement("p", null, "Siguiendo el caso de ejemplo, el proyecto con los m\u00F3dulos que gestionan los datos y se conectan a la base de datos podr\u00EDa llamarse ", React.createElement("span", {
+          className: "inline"
+        }, "models"), " y para importarlo en los otros proyectos, tendr\u00EDa que agregarse el siguiente c\u00F3digo en el ", React.createElement("span", {
+          className: "inline"
+        }, "project.json")), React.createElement(_code2.Code, {
+          language: "json"
+        }, tpl));
+      }
+    }
+  });
+  /***************************************
+  INTERNAL MODULE: ./basic/projects/import
+  ***************************************/
+
+  ims.set('./basic/projects/import', {
+    hash: 2926595709,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ImportProject = ImportProject;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
+
+      const tpl = `
+"libraries": {
+    "imports": [
+      "@project/models"
+    ]
+}`;
+
+      function ImportProject() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Importaci\u00F3n de proyectos"), React.createElement(_code2.CodeBox, {
+          language: "json",
+          title: "project.json"
+        }, tpl), React.createElement("p", null, "En ", React.createElement(_beyond.BeyondName, null), " un proyecto puede ser importado por otro y funcionar como una libreria, brindando al proyecto principal acceso a los m\u00F3dulos de este. Esta funcionalidad es clave para pensar en soluciones con estructuras de microservicios interconectados entre s\u00ED o de librerias que contengan c\u00F3digo reutilizable."), React.createElement("p", null, "Para ejemplificarlo, podemos hablar de una soluci\u00F3n que maneja una p\u00E1gina web, una aplicaci\u00F3n movil y un panel administrativo, todos como proyectos independientes que alimentan una misma fuente de datos. La importaci\u00F3n de proyectos permite que se maneje toda la l\u00F3gica de datos en un proyecto independiente que es utilizado por los tres aplicativos, permitiendo as\u00ED reutilizar el c\u00F3digo."), React.createElement("p", null, "La importaci\u00F3n de proyectos se realiza desde el ", React.createElement(_code.Link, {
+          href: "/docs/projects/json",
+          className: "inline"
+        }, "project.json"), " y es necesario que los proyectos se encuentren agregados en la entrada ", React.createElement("span", {
+          className: "inline"
+        }, "projects"), " del ", React.createElement("span", {
+          className: "inline"
+        }, "beyond.json"), "."), React.createElement("div", {
           className: "block__note"
-        }, "Puedes leer m\u00E1s sobre los features de beyond ", React.createElement(_code.Link, {
-          href: "/docs"
-        }, "aqu\u00ED")));
+        }, "Si los proyectos se crean por medio del Dashboard, el archivo ", React.createElement("div", {
+          className: "inline"
+        }, "beyond.json"), " se m\u00F3difica de forma autom\u00E1tica."), React.createElement("p", null, "Siguiendo el ejemplo mencionado, el proyecto con los m\u00F3dulos que gestionan los datos y se conectan a la base de datos podr\u00EDa llamarse ", React.createElement("span", {
+          className: "inline"
+        }, "models"), " y para importarlo en los otros proyectos, tendr\u00EDa que agregarse el siguiente c\u00F3digo en el ", React.createElement("span", {
+          className: "inline"
+        }, "project.json")), React.createElement(_code2.Code, {
+          language: "json"
+        }, tpl), React.createElement("p", null, "La propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "imports"), " recibe un arreglo de items, lo que permite importar m\u00FAltiples proyectos en caso de ser requerido."), React.createElement(_code3.NextLinks, {
+          items: [['Crear un módulo', '/docs/modules/indroduction'], ['Tutorial', '/docs/tutorial/web']]
+        }));
+      }
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./basic/projects/index
+  **************************************/
+
+  ims.set('./basic/projects/index', {
+    hash: 1526358247,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ProjectsPage = ProjectsPage;
+
+      var React = require("react");
+
+      var _intro = require("./intro");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      function ProjectsPage() {
+        return React.createElement(React.Fragment, null, React.createElement(_intro.Intro, null), React.createElement(_code.NextLinks, {
+          items: [['Crear un proyecto', '/docs/projects/create'], ['Distribuciones', '/docs/projects/distributions'], ['project.json', '/docs/projects/json']]
+        }));
+      }
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./basic/projects/intro
+  **************************************/
+
+  ims.set('./basic/projects/intro', {
+    hash: 1651145728,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Intro = Intro;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      function Intro() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "projects"
+        }, "Proyectos"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece una arquitectura enfocada en proveer una forma eficiente de implementar soluciones basadas en microservicios interconectados con otros microservicios en el backend y con aplicativos con estructuras de microfrontends si hablamos del cliente, esto sin dejar de lado la posibilidad de crear proyectos m\u00E1s sencillos en pocos pasos."), React.createElement("p", null, "Para explicar el concepto, se puede pensar en un servicio que ofrece la gesti\u00F3n de autenticaci\u00F3n en aplicaciones. Es natural pensar que pueden existir desarrolladores que requieran consumir el servicio desde un proyecto web, con c\u00F3digo cliente y desarrolladores que esten trabajando en el backend y tambi\u00E9n puedan consumir el servicio para validar la sesi\u00F3n previo a determinada acci\u00F3n."), React.createElement("p", null, "Desde la \u00F3ptica de ", React.createElement(_beyond.BeyondName, null), " el servicio de Auth puede ser visto como un proyecto que contiene dos distribuciones, una para generar el c\u00F3digo cliente y una para generar el c\u00F3digo backend, ambas con un \u00FAnico c\u00F3digo fuente. El c\u00F3digo desplegado de las distribuciones podr\u00EDa disponibilizarse en las dos distribuciones como paquete ", React.createElement("strong", null, "NPM"), " y quedar disponible para ser usados por cualquier programador en proyectos hechos o no con ", React.createElement(_beyond.BeyondName, null), "."), React.createElement("p", null, "Asimismo, si los proyectos que consumen ", React.createElement("span", {
+          className: "inline"
+        }, "Auth"), " son proyectos ", React.createElement(_beyond.BeyondName, null), " tambien podr\u00EDan importar a ", React.createElement("span", {
+          className: "inline"
+        }, "auth"), " por medio del sistema de importaci\u00F3n de m\u00F3dulos de ", React.createElement(_beyond.BeyondName, null), "."));
+      }
+    }
+  });
+  /***************************************
+  INTERNAL MODULE: ./basic/projects/manage
+  ***************************************/
+
+  ims.set('./basic/projects/manage', {
+    hash: 2048067783,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ManageProject = ManageProject;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      var _code3 = require("@beyond/ui/image/code");
+
+      var _code4 = require("@beyond/docs/ui/icons/code");
+
+      function ManageProject() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "project-management"
+        }, "Gesti\u00F3n de un proyecto"), React.createElement("p", null, "Los proyectos pueden crearse de dos maneras, por medio de la interfaz gr\u00E1fica del dashboard o manualmente."), React.createElement("h2", {
+          id: "using-dashboard"
+        }, "Usando el Dashboard"), React.createElement("p", null, "Para crear un proyecto desde el dashboard, en primer lugar debe asegurarse de que ", React.createElement(_beyond.BeyondName, null), " est\u00E9 ejecutandose en la carpeta donde desee trabajar sus proyectos. Como se explica en la ", React.createElement(_code2.Link, {
+          href: "/docs/projects/intro"
+        }, "introducci\u00F3n"), ", ", React.createElement(_beyond.BeyondName, null), " est\u00E1 hecho para manejar proyectos en simult\u00E1neo, por lo que es importante tener presente que el directorio de ejecuci\u00F3n puede ser uno donde se deseen agregar \"varios\" proyectos."), React.createElement("p", null, "Iniciamos ", React.createElement(_beyond.BeyondName, null), ":"), React.createElement(_code.Code, {
+          language: "json"
+        }, `> beyond`), React.createElement("p", null, "Luego accedemos al dashboard el cual estar\u00E1 disponible en ", React.createElement(_code2.Elink, {
+          href: "http://localhost:4000"
+        }, "http://localhost:4000")), React.createElement("p", null, "El dashboard posee tres maneras de acceder al proceso de creaci\u00F3n de proyectos"), React.createElement(_code3.BeyondImage, {
+          src: "/images/dashboard/empty.png",
+          alt: "beyond creating projects"
+        }), React.createElement("ul", null, React.createElement("li", null, "En el ", React.createElement(_code2.Link, {
+          href: "/docs/dashboard#preaside"
+        }, "Preaside"), " por medio del icono ", React.createElement(_code4.AppIcon, {
+          icon: "apps"
+        })), React.createElement("li", null, "En el ", React.createElement(_code2.Link, {
+          href: "/docs/dashboard#preaside"
+        }, "Board"), " de proyectos, en la parte superior derecha, la opci\u00F3n \"crear proyecto\""), React.createElement("li", null, "Cuando no existe ning\u00FAn proyecto creado, se muestra un mensaje invitando a crearlo como se ve en la imagen de referencia.")), React.createElement("p", null, "Al hacer click en alguna de las opciones mencionadas, se mostrar\u00E1 un modal que permite seleccionar el tipo de proyecto a crear, dando oportunidad de comenzar con un proyecto en blanco o de usar una plantilla creada. Las opciones actuales son:"), React.createElement("h3", {
+          id: "type-projects"
+        }, "Tipos de Proyectos en blanco"), React.createElement(_code3.BeyondImage, {
+          alt: "dashboard beyondjs  new project",
+          src: "/images/dashboard/new-project.png"
+        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Web"), ": Listo para comenzar un proyecto web que pueda ser distribuido en internet o como aplicaci\u00F3n m\u00F3vil."), React.createElement("li", null, React.createElement("strong", null, "Node"), " Listo para distribuir como un proyecto a ejecutar en un entorno node."), React.createElement("li", null, React.createElement("strong", null, "Backend"), " Proyecto node que disponibiliza interfaces que puedan ser consumidas en real-time con web sockets desde otro proyecto node o desde un proyecto cliente."), React.createElement("li", null, React.createElement("strong", null, "Library"), " Ideal para crear proyectos que esten pensados para ser distribuidos como paquetes ", React.createElement("strong", null, "NPM"), ".")), React.createElement("h3", {
+          id: "template-types"
+        }, "Tipos de plantillas"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "React, vue y svelte"), " apps, proyectos para empezar a trabajar con la libreria de framework de preferencia."), React.createElement("li", null, React.createElement("strong", null, "Express"), ": Proyecto con una estructura inicial para crear un servidor express."), React.createElement("li", null, React.createElement("strong", null, "Template web"), ": Proyecto con una estructura cliente y backend comunicados por medio de web socket.")), React.createElement("div", {
+          className: "block__note note-info"
+        }, "Se puede trabajar con diferentes librerias/Frameworks de vistas en un mismo proyecto gracias a la estructura de micro-frontends que ofrece ", React.createElement(_beyond.BeyondName, null), ". Puede leerse m\u00E1s al respecto en ", React.createElement(_code2.Link, {
+          href: "/docs/widgets/intro"
+        }, "La secci\u00F3n de widgets")), React.createElement("h3", null, "Datos del Proyecto"), React.createElement(_code3.BeyondImage, {
+          alt: "dashboard beyondjs  new project",
+          src: "/images/dashboard/create-form-project.png"
+        }), React.createElement("p", null, "Luego de la selecci\u00F3n del tipo de proyecto, aparece un formulario que solicita el scope y nombre del proyecto, el puerto sobre el c\u00FAal correr\u00E1, y un titulo y descripci\u00F3n opcionales. Luego de llenar los datos, el Dashboard se encarga de crear el proyecto con la estructura de archivos necesaria de forma autom\u00E1tica."), React.createElement("div", {
+          className: "block__note"
+        }, "Todos los proyectos tienen dependencias de paquetes npm que pueden opcionalmente ser instalados desde el dashboard. En caso de no haberlo hecho, para que el proyecto funcione es necesario instalar las dependencias manualmente."));
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/projects/project-json
+  *********************************************/
+
+  ims.set('./basic/projects/project-json', {
+    hash: 1183574062,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ProjectJson = ProjectJson;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _objectProperty = require("../../views/object-property");
+
+      function ProjectJson() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "distributions"
+        }, "Distribuciones"), React.createElement("h2", {
+          id: "properties"
+        }, "Propiedades ", React.createElement("span", {
+          className: "file__element"
+        }, "project.json")), React.createElement("ul", {
+          className: "list__elements-doc"
+        }, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "string",
+          optional: true
+        }, "name"), "string Es el nombre para identificar el proyecto, sigue el estandar de npm, por tanto s\u00F3lo puede contener caracteres seguros para urls, sin puntos o guiones bajos."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "string",
+          optional: true
+        }, "scope"), "Al igual que en npm, sirve para agrupar paquetes y como los proyectos pueden ser publicados como paquetes npm, en caso de agregarse un scope, este debe ser \u00FAnico y s\u00F3lo puede ser manejado por la organizaci\u00F3n o usuario que lo utiliza. La validaci\u00F3n de unicidad del scope es hecha por npm, s\u00F3lo si el programador intenta publicar su proyecto como paquete."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "string",
+          optional: true
+        }, "title"), "Titulo descriptivo del proyecto, no debe poseer m\u00E1s de 100 caracteres."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "string",
+          optional: true
+        }, "description"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EOC",
+          href: "/glossary#eoc"
+        }, "template"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EOC",
+          href: "/glossary#eoc"
+        }, "layout"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EOC",
+          href: "/glossary#eoc"
+        }, "params"), "Objeto que permite agregar parametros generales que se requieran utilizar en todo el proyecto, tiene la posibilidad de definir valores por entorno. Para entender m\u00E1s, puedes dirigirte a la", React.createElement(_code.Link, {
+          href: "/project/params"
+        }, "secci\u00F3n Parametros del proyecto.")), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EOC",
+          href: "/glossary#eoc"
+        }, "modules"), "Recibe un objeto con una entrada ", React.createElement("span", {
+          className: "inline-code"
+        }, "path"), "que permite definir el directorio de los m\u00F3dulos, por defecto es \"module\""), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EOC",
+          href: "/glossary#eoc"
+        }, "deployment"), "Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada deployment"), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "EAC",
+          href: "/glossary#eac"
+        }, "Deployment"), "Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada ", React.createElement("strong", null, "distributions"), ". Las distribuciones pueden agregarse desde la funcionalidad del dashboard para ello o de forma manual. Para entender como funcionan pudes dirigirte a la ", React.createElement(_code.Link, {
+          href: "/project/distributions"
+        }, "Secci\u00F3n de distribuciones"), "."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: " object",
+          optional: true
+        }, "libraries"), "Define la importacion de proyectos a ser usados como librerias en el proyecto definido.", React.createElement("ul", null, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: " string"
+        }, "imports"), "Cada entrada representa un proyecto importado, la importaci\u00F3n se hace agregando el scope y nombre del proyecto importado.")))));
+      }
+    }
+  });
+  /********************************************************
+  INTERNAL MODULE: ./basic/quick-start/create-first-project
+  ********************************************************/
+
+  ims.set('./basic/quick-start/create-first-project', {
+    hash: 189749015,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.CreateFirstProject = CreateFirstProject;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      const PROJECT_NAME = 'beyond-first-project';
+
+      function CreateFirstProject() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          className: "inline"
+        }, PROJECT_NAME), React.createElement("p", null, "La forma m\u00E1s simple de empezar un proyecto en ", React.createElement(_beyond.BeyondName, null), " es por medio del ", React.createElement("span", {
+          className: "inline"
+        }, "beyond-first-project"), "."), React.createElement(_code.Code, null, "npx github:beyondjs/first-app [folderName]"), React.createElement("p", null, "Este comando se encarga de realizar la instalaci\u00F3n de un proyecto ", React.createElement(_beyond.BeyondName, null), " y la inicializaci\u00F3n del servidor de desarrollo de forma autom\u00E1tica. Cu\u00E1ndo la ejecuci\u00F3n del comando finaliza, el servidor de desarrollo queda levantado y se puede acceder al Dashboard en ", React.createElement(_code2.Elink, {
+          href: "http://localhost:4000"
+        }, "http://localhost:4000"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "El Dashboard es un sistema que ", React.createElement(_beyond.BeyondName, null), " provee para brindar al desarrollador una mejor experiencia de usuario. Puedes leer m\u00E1s sobre el ", React.createElement(_code2.Link, {
+          href: "/docs/dashboard"
+        }, "aqu\u00ED"), "."), React.createElement("p", null, "Por defecto se crea un proyecto de tipo web, si se desea especificar otro tipo de proyecto, se puede pasar el flag ", React.createElement("span", {
+          className: "inline"
+        }, "--type"), " con el valor que se desee."), React.createElement("div", {
+          className: "block__note"
+        }, "Luego de tener ", React.createElement(_beyond.BeyondName, null), " instalado de forma global, los proyectos pueden crearse directamente desde el Dashboard, solo se necesita ejecutar el comando ", React.createElement("span", {
+          className: "inline"
+        }, "beyond"), " desde la l\u00EDnea de comandos en la carpeta en la que se desee trabajar."), React.createElement("h3", null, "Opciones del comando"), React.createElement("p", null, "A continuaci\u00F3n se listan las banderas que pueden ser utilizadas al instalar ", React.createElement("span", {
+          className: "inline"
+        }, ".beyond-first-project"), "."), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-name"), ": Permite definir el ", React.createElement("strong", null, "scope"), " y ", React.createElement("strong", null, "nombre"), " del proyecto."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-type"), ": permite identificar el tipo de proyecto a crear, los valores aceptados son:", React.createElement("ul", null, React.createElement("li", null, "web"), React.createElement("li", null, "node"), React.createElement("li", null, "backend"), React.createElement("li", null, "library"), React.createElement("li", null, "web-backend")), React.createElement("div", null, "Puedes leer m\u00E1s informaci\u00F3n sobre los tipos de proyecto ", React.createElement(_code2.Link, {
+          href: "/docs/projects/types"
+        }, "aqu\u00ED"), ".")), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-container"), ": Permite especificar si se desea agregar una carpeta contenedora de proyectos. Recuerde que ", React.createElement(_beyond.BeyondName, null), " soporta la posibilidad de manejar m\u00FAltiples proyectos en simult\u00E1neo.")), React.createElement("p", null, "Para ejemplificar, imaginemos que se desea crear un proyecto ", React.createElement("span", {
+          className: "inline"
+        }, "login"), " de tipo web, lo podriamos crear con el siguiente comando:"), React.createElement(_code.Code, null, "npx github:beyondjs/first-app --name login --d web"), React.createElement("h3", null, "Estructura"), React.createElement("p", null, "Este comando crea la siguiente estructura:"), React.createElement("ul", null, React.createElement("li", null, "Un archivo ", React.createElement(_code2.Link, {
+          className: "inline",
+          href: "/docs/project/json"
+        }, "project.json"), ", con la configuraci\u00F3n del proyecto."), React.createElement("li", null, "Un archivo ", React.createElement(_code2.Link, {
+          className: "inline",
+          href: "/docs/beyond/json"
+        }, "beyond.json"), " que permite gestionar configuraciones para el servidor de desarrollo."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "modules/"), " Carpeta en donde se encuentran los m\u00F3dulos del proyecto. La ubicaci\u00F3n de los m\u00F3dulos es configurable en el ", React.createElement(_code2.Link, {
+          href: "/docs/projects/json",
+          className: "inline"
+        }, "project.json"), " del proyecto.")), React.createElement("p", null, "Ahora solo es necesario ejecutar el siguiente comando asegurandose de estar en la carpeta del proyecto"), React.createElement(_code.Code, {
+          language: "json"
+        }, `> beyond`), React.createElement("p", null, "\u00A1Listo! ya podemos navegar nuestro primer proyecto web con ", React.createElement(_beyond.BeyondName, null), " accediendo a ", React.createElement(_code2.Elink, {
+          href: "http://localhost:3000"
+        }, "http://localhost:4000"), " y al ", React.createElement(_code2.Link, {
+          href: "/docs/dashboard"
+        }, "Dashboard"), " accediendo a ", React.createElement(_code2.Elink, {
+          href: "http://localhost:4000"
+        }, "http://localhost:4000")));
+      }
+    }
+  });
+  /******************************************************
+  INTERNAL MODULE: ./basic/quick-start/global-instalation
+  ******************************************************/
+
+  ims.set('./basic/quick-start/global-instalation', {
+    hash: 4216096914,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.GlobalInstalation = GlobalInstalation;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      const PROJECT_NAME = 'beyond-first-project';
+
+      function GlobalInstalation() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "global-install"
+        }, "Instalaci\u00F3n global"), React.createElement("p", null, "Para instalar beyond de forma global es necesario ejecutar el siguiente comando"), React.createElement(_code.Code, null, `> npm i -g beyond`), "A partir de la instalaci\u00F3n, se puede arrancar un nuevo proyecto de dos formas:", React.createElement("ul", null, React.createElement("li", null, "Por medio del Dashboard"), React.createElement("li", null, "Por medio de ", React.createElement("span", {
+          className: "inline"
+        }, PROJECT_NAME))), React.createElement("p", null, React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), " se instala de forma global y puede ser ejecutado en cualquier directorio. Para utilizarlo, s\u00F3lo necesitas ir a la carpeta en la cual desees trabajar, abrir la consola de comandos y ejecutar \"beyond\"."), React.createElement(_code.Code, {
+          language: "bash"
+        }, ` > beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendo que ", React.createElement(_beyond.BeyondName, null), " se est\u00E1 ejecutando y que puedes acceder al dashboard en ", React.createElement(_code2.Elink, {
+          href: "http://localhost:4000"
+        }, "http://localhost:4000")));
+      }
+    }
+  });
+  /******************************************
+  INTERNAL MODULE: ./basic/quick-start/global
+  ******************************************/
+
+  ims.set('./basic/quick-start/global', {
+    hash: 2660163120,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.GlobalCommand = GlobalCommand;
+
+      var React = require("react");
+
+      function GlobalCommand() {
+        return React.createElement(React.Fragment, null);
+      }
+    }
+  });
+  /*****************************************
+  INTERNAL MODULE: ./basic/quick-start/index
+  *****************************************/
+
+  ims.set('./basic/quick-start/index', {
+    hash: 2408152119,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.QuickStart = QuickStart;
+
+      var React = require("react");
+
+      var _createFirstProject = require("./create-first-project");
+
+      var _globalInstalation = require("./global-instalation");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      var _prerequisites = require("./prerequisites");
+
+      function QuickStart() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Comienzo r\u00E1pido"), React.createElement(_prerequisites.Prerequisites, null), React.createElement(_globalInstalation.GlobalInstalation, null), React.createElement(_createFirstProject.CreateFirstProject, null), React.createElement(_code.NextLinks, {
+          items: [['Crear un proyecto', '/docs/project/create'], ['Tutorial', '/docs/tutorial/web']]
+        }));
+      }
+    }
+  });
+  /*************************************************
+  INTERNAL MODULE: ./basic/quick-start/prerequisites
+  *************************************************/
+
+  ims.set('./basic/quick-start/prerequisites', {
+    hash: 3722834198,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Prerequisites = Prerequisites;
+
+      var React = require("react");
+
+      function Prerequisites() {
+        return React.createElement(React.Fragment, null, React.createElement("h4", {
+          id: "requirement"
+        }, "Prerequisitos"), React.createElement("ul", null, React.createElement("li", null, "Node ", React.createElement("span", {
+          className: "inline"
+        }, "^14.17.4"), "."), React.createElement("li", null, "Estar familiarizado con manejadores de dependencias como npm o yarn.")));
       }
     }
   });
@@ -416,7 +993,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/controllers
   *********************************************/
 
-  modules.set('./basic/rendering/controllers', {
+  ims.set('./basic/rendering/controllers', {
     hash: 2033296105,
     creator: function (require, exports) {
       "use strict";
@@ -437,7 +1014,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/csr
   *************************************/
 
-  modules.set('./basic/rendering/csr', {
+  ims.set('./basic/rendering/csr', {
     hash: 3197281268,
     creator: function (require, exports) {
       "use strict";
@@ -478,7 +1055,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/index
   ***************************************/
 
-  modules.set('./basic/rendering/index', {
+  ims.set('./basic/rendering/index', {
     hash: 1270539989,
     creator: function (require, exports) {
       "use strict";
@@ -513,7 +1090,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/intro
   ***************************************/
 
-  modules.set('./basic/rendering/intro', {
+  ims.set('./basic/rendering/intro', {
     hash: 3255851720,
     creator: function (require, exports) {
       "use strict";
@@ -556,7 +1133,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/sr
   ************************************/
 
-  modules.set('./basic/rendering/sr', {
+  ims.set('./basic/rendering/sr', {
     hash: 2053681406,
     creator: function (require, exports) {
       "use strict";
@@ -583,7 +1160,7 @@ class Auth {
   INTERNAL MODULE: ./basic/rendering/ssr
   *************************************/
 
-  modules.set('./basic/rendering/ssr', {
+  ims.set('./basic/rendering/ssr', {
     hash: 1540005932,
     creator: function (require, exports) {
       "use strict";
@@ -624,7 +1201,7 @@ class Auth {
   INTERNAL MODULE: ./basic/routing
   *******************************/
 
-  modules.set('./basic/routing', {
+  ims.set('./basic/routing', {
     hash: 2200929542,
     creator: function (require, exports) {
       "use strict";
@@ -715,12 +1292,12 @@ class Auth {
       }
     }
   });
-  /****************************************
-  INTERNAL MODULE: ./basic/state-management
-  ****************************************/
+  /**********************************************
+  INTERNAL MODULE: ./basic/state-management/index
+  **********************************************/
 
-  modules.set('./basic/state-management', {
-    hash: 3055829169,
+  ims.set('./basic/state-management/index', {
+    hash: 1497776413,
     creator: function (require, exports) {
       "use strict";
 
@@ -731,8 +1308,26 @@ class Auth {
 
       var React = require("react");
 
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/ui/link/code");
+
       function StateManagement() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Manejo de Estados"));
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "state-management"
+        }, "Manejo de Estados"), React.createElement("p", null, "El estado es la representaci\u00F3n de los valores renderizados de un componente o widget en pantalla. Este puede mutar y variar por diversos factores, tales como la actualizaci\u00F3n de datos desde un servidor o la interacci\u00F3n del usuario."), React.createElement("p", null, "Existen numerosas librerias para la gesti\u00F3n de estado de un proyecto, generalmente asociadas al ", React.createElement(_code.Link, {
+          href: "/docs/widgets"
+        }, "Framework de vista"), " que se est\u00E9 utilizando. ", React.createElement(_beyond.BeyondName, null), " permite integrar la herramienta para manejo de estados que se desee, siempre que esta este preparada para el funcionamiento modular."), React.createElement("div", {
+          className: "block__note"
+        }, "Puedes ver un ejemplo funcional de un contador que comparte el manejo de estado entre un componente creado con ", React.createElement("strong", null, "React"), ", uno creado con ", React.createElement("strong", null, "Svelte"), " y otro con ", React.createElement("strong", null, "Vue"), " en ", React.createElement(_code.Link, {
+          href: "/examples/sm/counter"
+        }, "Este ejemplo"), "."), React.createElement("p", null, "Asimismo, ", React.createElement(_beyond.BeyondName, null), " Define una estructura para el manejo de estado. El objeto que maneja el estado, debe ser disponibilizado por medio del m\u00E9todo ", React.createElement("span", {
+          className: "inline"
+        }, "createWidgetStore"), " del controlador del widget. Este m\u00E9todo debe retornar un objeto que implemente la interfaz ", React.createElement(_code.Link, {
+          href: "/api/IWidgetStore"
+        }, "IWidgetStore"), ", esencialmente si se espera trabajar con ", React.createElement("span", {
+          className: "inline"
+        }, "ssr"), "."));
       }
     }
   });
@@ -740,8 +1335,8 @@ class Auth {
   INTERNAL MODULE: ./basic/styles/styles
   *************************************/
 
-  modules.set('./basic/styles/styles', {
-    hash: 4264514980,
+  ims.set('./basic/styles/styles', {
+    hash: 3617052601,
     creator: function (require, exports) {
       "use strict";
 
@@ -758,6 +1353,8 @@ class Auth {
 
       var _variables = require("./tpl/variables");
 
+      var _beyond = require("../../views/beyond");
+
       const tplProcessor = `\r{
     ...
     "sass": {
@@ -771,25 +1368,19 @@ class Auth {
       function StylesPage() {
         return React.createElement("div", {
           className: "content"
-        }, React.createElement("h1", null, "Manejo de estilos"), React.createElement("p", null, "El manejo de estilos es parte esencial de todo proyecto con tecnolog\u00EDa web. ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " maneja varias definiciones a nivel de estructura, que pueden resultar interesantes para el desarrollador. A continuaci\u00F3n y c\u00F3mo introducci\u00F3n, se mencionan los puntos a tener en cuenta."), React.createElement("h2", {
+        }, React.createElement("h1", null, "Manejo de estilos"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece diversas formas de integrar archivos de estilos, teniendo siempre en cuenta su arquitectura modular. A continuaci\u00F3n se explican las diferentes maneeras de trabajar con archivos de estilos."), React.createElement("h2", {
           id: "module-styles"
-        }, "Estilos en el m\u00F3dulo"), React.createElement("p", null, "Se puede definir estilos en cada m\u00F3dulo/bundle creado. Para esto debe agregarse el procesador de estilo ", React.createElement("code", {
+        }, "Estilos en el m\u00F3dulo"), React.createElement("p", null, "Para agregar estilos en un m\u00F3dulo/bundle creado, debe agregarse el ", React.createElement(_code2.Link, {
+          href: "/docs/processors"
+        }, "procesador"), " ", React.createElement("code", {
           className: "inline"
-        }, "SASS"), ", el cual viene incluido por defecto en los bundles de tipo ", React.createElement(_code2.Link, {
-          href: "/bundles#page"
-        }, React.createElement("span", {
+        }, "SASS"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "Si se usa el dashboard para la creaci\u00F3n de proyectos, el procesador ", React.createElement("span", {
           className: "inline"
-        }, "widget")), " y", React.createElement(_code2.Link, {
-          href: "/bundles#code"
-        }, React.createElement("span", {
+        }, "sass"), " es incluido por defecto en los bundles de tipo ", React.createElement("strong", null, "code"), " y ", React.createElement("strong", null, "widget"), " de cualquier tipo."), React.createElement("p", null, "la configuraci\u00F3n estandar de un procesador ", React.createElement("span", {
           className: "inline"
-        }, "code")), " si son creados desde el", React.createElement(_code2.Link, {
-          href: "/dashboard"
-        }, "Dashboard"), "."), React.createElement("p", null, "Si la configuraci\u00F3n del bundle se hace de forma manual, el programador debe asegurarse de agregar el procesador en el ", React.createElement(_code2.Link, {
-          href: "/module/config"
-        }, "archivo de configuraci\u00F3n"), ", con una estructura como la siguiente:"), React.createElement(_code.Code, null, tplProcessor), React.createElement("p", null, "En la configuraci\u00F3n anterior, se est\u00E1 definiendo que en el m\u00F3dulo existe una carpeta sass, con ubicaci\u00F3n relativa al archivo ", React.createElement("span", {
+        }, "sass"), " es la siguiente:"), React.createElement(_code.Code, null, tplProcessor), React.createElement("p", null, "En la configuraci\u00F3n anterior, se est\u00E1 definiendo que en el m\u00F3dulo existe una carpeta sass, con ubicaci\u00F3n relativa al archivo ", React.createElement("span", {
           className: "inline"
         }, "module.json"), " y que todos los archivos de esta carpeta deben ser tomados en cuenta como archivos de estilo. De esta forma, ", React.createElement("strong", null, "no es requerido hacer imports con sem\u00E1ntica de javascript de archivos externos en nuestro c\u00F3digo"), "."), React.createElement("h2", {
           id: "template-styles"
@@ -872,7 +1463,7 @@ class Auth {
   INTERNAL MODULE: ./basic/styles/template
   ***************************************/
 
-  modules.set('./basic/styles/template', {
+  ims.set('./basic/styles/template', {
     hash: 3833229047,
     creator: function (require, exports) {
       "use strict";
@@ -917,7 +1508,7 @@ class Auth {
   INTERNAL MODULE: ./basic/styles/themes
   *************************************/
 
-  modules.set('./basic/styles/themes', {
+  ims.set('./basic/styles/themes', {
     hash: 1007160550,
     creator: function (require, exports) {
       "use strict";
@@ -940,7 +1531,7 @@ class Auth {
   INTERNAL MODULE: ./basic/styles/tpl/sass-variables
   *************************************************/
 
-  modules.set('./basic/styles/tpl/sass-variables', {
+  ims.set('./basic/styles/tpl/sass-variables', {
     hash: 3165851846,
     creator: function (require, exports) {
       "use strict";
@@ -998,7 +1589,7 @@ $media-large: 1025px;
   INTERNAL MODULE: ./basic/styles/tpl/variables
   ********************************************/
 
-  modules.set('./basic/styles/tpl/variables', {
+  ims.set('./basic/styles/tpl/variables', {
     hash: 4216222769,
     creator: function (require, exports) {
       "use strict";
@@ -1039,8 +1630,8 @@ $media-large: 1025px;
   INTERNAL MODULE: ./basic/widgets/controller
   ******************************************/
 
-  modules.set('./basic/widgets/controller', {
-    hash: 3059760243,
+  ims.set('./basic/widgets/controller', {
+    hash: 3775766025,
     creator: function (require, exports) {
       "use strict";
 
@@ -1061,7 +1652,9 @@ $media-large: 1025px;
 
       var _code3 = require("@beyond/ui/link/code");
 
-      const tplController = `\rimport {ReactWidgetController} from '@beyond-js/kernel/react-widget/ts';
+      var _objectProperty = require("../../views/object-property");
+
+      const tplController = `\rimport {ReactWidgetController} from '@beyond-js/react-widgets/controllers/ts';
 import {Page} from './views/page';
 export /*bundle*/
 class Controller extends ReactWidgetController {
@@ -1087,48 +1680,39 @@ class Controller extends ReactWidgetController {
           className: "inline"
         }, "ReactWidgetController"), ", ", React.createElement("span", {
           className: "inline"
-        }, "ReactPageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
+        }, "PageReactWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
           className: "inline"
         }, "SvelteWidgetController"), " y ", React.createElement("span", {
           className: "inline"
-        }, "SveltePageWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
+        }, "PageSvelteWidgetController"), "."), React.createElement("li", null, React.createElement("span", {
           className: "inline"
         }, "VueWidgetController"), " y ", React.createElement("span", {
           className: "inline"
-        }, "VuePageWidgetController"), ".")), React.createElement("p", null, "Todos los controladores manejan la misma interfaz, pero estan a su vez enfocados en integrar y funcionar con el framework de vista que se est\u00E9 utilizando."), React.createElement("h3", {
+        }, "PageVueWidgetController"), ".")), React.createElement("p", null, "Todos los controladores manejan la misma interfaz, pero estan a su vez enfocados en integrar y funcionar con el framework de vista que se est\u00E9 utilizando."), React.createElement("h3", {
           id: "controller-properties"
-        }, React.createElement("small", null, "Propiedades")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "Widget")), React.createElement(_typeProperty.TypeProperty, {
+        }, React.createElement("small", null, "Propiedades")), React.createElement("ul", null, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "getter"
-        }), ": Se define como un getter y debe retornar el componente de vista principal."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "uri")), React.createElement(_typeProperty.TypeProperty, {
+        }, "Widget"), "Se define como un getter y debe retornar el componente de vista principal."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "URIObject",
           optional: true,
           href: "/docs/api/uri"
-        }), ": Objeto Uri con toda la informaci\u00F3n asociada a la url actual.")), React.createElement("h3", {
+        }, "uri"), " Objeto Uri con toda la informaci\u00F3n asociada a la url actual."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "String",
+          href: "/docs/api/uri"
+        }, "layout"), "Nombre del objeto Layout contenedor.")), React.createElement("h3", {
           id: "controller-methods"
-        }, React.createElement("small", null, "M\u00E9todos")), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "createStore")), React.createElement(_typeProperty.TypeProperty, {
+        }, React.createElement("small", null, "M\u00E9todos")), React.createElement("ul", null, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "function",
           optional: true
-        }), " Permite agregar l\u00F3gica para el manejo del Estado del widget, debe retornar un objeto con la interfaz ", React.createElement(_code3.Link, {
+        }, "createStore"), "Permite agregar l\u00F3gica para el manejo del Estado del widget, debe retornar un objeto con la interfaz ", React.createElement(_code3.Link, {
           href: "/docs/api/IwidgetStore"
         }, React.createElement("span", {
           className: "inline"
-        }, "IWidgetStore"))), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "initialise")), React.createElement(_typeProperty.TypeProperty, {
-          type: "void",
-          optional: true
-        }), ": Permite agregar l\u00F3gica a ejecutarse previo al montado del componente web en el DOM HTML."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
-          className: "inline"
-        }, "hide")), React.createElement(_typeProperty.TypeProperty, {
-          type: "void",
-          optional: true
-        }), ": Se ejecuta cuando ha sido renderizada y se oculta, esto sucede cuando se navega de una url a otra."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
+        }, "IWidgetStore"))), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "void"
+        }, "initialise"), "Permite agregar l\u00F3gica a ejecutarse previo al montado del componente web en el DOM HTML."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
+          type: "void"
+        }, "hide"), "Se ejecuta cuando ha sido renderizada y se oculta, esto sucede cuando se navega de una url a otra."), React.createElement("li", null, React.createElement("strong", null, React.createElement("span", {
           className: "inline"
         }, "show")), React.createElement(_typeProperty.TypeProperty, {
           type: "void",
@@ -1143,7 +1727,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/creation
   ****************************************/
 
-  modules.set('./basic/widgets/creation', {
+  ims.set('./basic/widgets/creation', {
     hash: 1330520622,
     creator: function (require, exports) {
       "use strict";
@@ -1221,7 +1805,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/index
   *************************************/
 
-  modules.set('./basic/widgets/index', {
+  ims.set('./basic/widgets/index', {
     hash: 2645829472,
     creator: function (require, exports) {
       "use strict";
@@ -1250,7 +1834,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/intro
   *************************************/
 
-  modules.set('./basic/widgets/intro', {
+  ims.set('./basic/widgets/intro', {
     hash: 747109397,
     creator: function (require, exports) {
       "use strict";
@@ -1291,8 +1875,8 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/types/layout
   ********************************************/
 
-  modules.set('./basic/widgets/types/layout', {
-    hash: 2107926101,
+  ims.set('./basic/widgets/types/layout', {
+    hash: 2294420950,
     creator: function (require, exports) {
       "use strict";
 
@@ -1303,17 +1887,10 @@ class Controller extends ReactWidgetController {
 
       var React = require("react");
 
+      var _beyond = require("../../../views/beyond");
+
       var _code = require("@beyond/docs/code/code");
 
-      const tplPage = `
-"widget": {
-    "hmr": true,
-    "route": "login"
-    "element": {
-      "name": "login-page"
-    },
-....
-}`;
       const tplLayout = `
 "widget": {
     "is": "layout",
@@ -1324,11 +1901,43 @@ class Controller extends ReactWidgetController {
 }`;
 
       function LayoutWidget() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "layouts"
-        }, "Layouts"), React.createElement("p", null, "Los layouts representan la estructura general de un sitio web, que puede ser compartida entre varias p\u00E1ginas internas."), React.createElement(_code.Code, {
+        }, "Layouts"), React.createElement("p", null, "Un layout es un widget que tiene la capacidad de servir como contenedor de otros widgets de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "page"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "layout"), ". A diferencia del resto de widgets, que son expuestos como componentes web y pueden ser consumidos como un selector HTML cualquiera, los ", React.createElement("span", {
+          className: "inline"
+        }, "layouts"), " suministran a ", React.createElement(_beyond.BeyondName, null), " informaci\u00F3n que define el comportamiento del enrutamiento de un proyecto."), React.createElement("p", null, "Los widget de tipo layout y de tipo page funcionan muy similar, ambos influyen en el enrutamiento y comparten el mismo proceso de renderizado. Sin embargo, tienen una diferencia importante al momento de ser usados: un widget de tipo page solo puede ser incluido una vez por URL, mientras que el widget de tipo layout puede ser utilizado en m\u00FAltiples urls."), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " internamente maneja una estructura jerarquica de los layouts y p\u00E1ginas renderizados y las acciones de navegaci\u00F3n del usuario, en base a ello y a las propiedades definidas en la creaci\u00F3n del widget, se determina en que momento debe ser incluido un objeto de tipo ", React.createElement("span", {
+          className: "span"
+        }, "layout"), " en el DOM."), React.createElement("h3", {
+          id: "use-ways"
+        }, "\u00BFCu\u00E1ndo usarlos?"), React.createElement("p", null, "Si se necesita implementar l\u00F3gica de interfaz gr\u00E1fica o que deba encontrarse funcional en diversas pantallas. A continuaci\u00F3n se listan algunos ejemplos de uso:"), React.createElement("ul", null, React.createElement("li", null, "Definici\u00F3n de componentes gr\u00E1ficos que se puedan compartir entre pantallas, tales c\u00F3mo encabezados, pies de p\u00E1gina o un men\u00FA."), React.createElement("li", null, "Inclusi\u00F3n de funcionalidades generales como un gestor de mensajes y notificaciones."), React.createElement("li", null, "Scripts de terceros para manejo de m\u00E9tricas o un bot\u00F3n de contacto.")), React.createElement("h3", {
+          id: "definition"
+        }, "Definici\u00F3n"), React.createElement("p", null, "para definir un widget de tipo layout, debe especificarse la propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "is"), " con el valor ", React.createElement("span", {
+          className: "inline"
+        }, "layout"), "."), React.createElement(_code.Code, {
           language: "json"
-        }, tplLayout));
+        }, tplLayout), React.createElement("h3", {
+          id: "implementation"
+        }, "Implementaci\u00F3n"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " maneja la posibilidad de definir un layout general para el proyecto y un layout para cada widget de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "page"), " o ", React.createElement("span", {
+          className: "inline"
+        }, "layout"), " existente. En ambos casos, debe definirse una propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "layout"), " cuyo valor debe ser el nombre del layout que se desea utilizar."), React.createElement("p", null, "Para ejemplificar, imaginando que se tiene un bundle layout definido, cuyo nombre es ", React.createElement("span", {
+          className: "inline"
+        }, "main-layout"), ", se deberia agregar la siguiente propiedad y valor en el objeto del archivo ", React.createElement("span", {
+          className: "inlin"
+        }, "project.json"), " si espera definirse a nivel de proyecto, o en el archivo ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), " si desea agregarse en un m\u00F3dulo."), React.createElement(_code.Code, {
+          language: "json"
+        }, "\"layout\": \"main-layout\""));
       }
     }
   });
@@ -1336,7 +1945,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/types/page
   ******************************************/
 
-  modules.set('./basic/widgets/types/page', {
+  ims.set('./basic/widgets/types/page', {
     hash: 3190167342,
     creator: function (require, exports) {
       "use strict";
@@ -1407,7 +2016,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./basic/widgets/view-frameworks
   ***********************************************/
 
-  modules.set('./basic/widgets/view-frameworks', {
+  ims.set('./basic/widgets/view-frameworks', {
     hash: 3832537359,
     creator: function (require, exports) {
       "use strict";
@@ -1464,7 +2073,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./contents
   **************************/
 
-  modules.set('./contents', {
+  ims.set('./contents', {
     hash: 3942993331,
     creator: function (require, exports) {
       "use strict";
@@ -1550,8 +2159,8 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 3395732354,
+  ims.set('./controller', {
+    hash: 1060623683,
     creator: function (require, exports) {
       "use strict";
 
@@ -1560,7 +2169,7 @@ class Controller extends ReactWidgetController {
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _contents = require("./contents");
 
@@ -1586,8 +2195,8 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./db
   ********************/
 
-  modules.set('./db', {
-    hash: 1727552007,
+  ims.set('./db', {
+    hash: 3797914831,
     creator: function (require, exports) {
       "use strict";
 
@@ -1610,13 +2219,11 @@ class Controller extends ReactWidgetController {
 
       var _concepts = require("./views/concepts/concepts");
 
-      var _install = require("./basic/install");
-
       var _error = require("./views/error-404");
 
       var _config = require("./views/concepts/module/config");
 
-      var _projectJson = require("./views/concepts/projects/project-json");
+      var _projectJson = require("./basic/projects/project-json");
 
       var _npmPackages = require("./fundamentals/npm-packages");
 
@@ -1652,6 +2259,8 @@ class Controller extends ReactWidgetController {
 
       var _intro = require("./basic/intro");
 
+      var _projects = require("./basic/projects");
+
       var _processors = require("./fundamentals/processors");
 
       var _controller = require("./basic/widgets/controller");
@@ -1664,27 +2273,42 @@ class Controller extends ReactWidgetController {
 
       var _uri = require("./api/uri");
 
+      var _beyondWidgetApi = require("./api/beyond-widget-api");
+
+      var _quickStart = require("./basic/quick-start");
+
+      var _manage = require("./basic/projects/manage");
+
+      var _import = require("./basic/projects/import");
+
       const getContent = (contentId, sub = undefined) => {
         const starting = {
           intro: _intro.Intro,
-          install: _install.Install,
+          'quick-start': _quickStart.QuickStart,
           dashboard: _dashboard.DashboardPage,
           tutorial: {
             web: _tutorialPage.TutorialPage
           }
         };
         const basics = {
-          projects: _intro.Projects,
+          projects: {
+            intro: _projects.ProjectsPage,
+            create: _manage.ManageProject,
+            json: _projectJson.ProjectJson,
+            import: _import.ImportProject
+          },
           modules: _moduleIntro.ModuleIntro,
           bundles: _bundle.Bundle,
           widgets: {
             default: _widgets.Widgets,
-            creation: _creation.WidgetCreation,
+            definition: _creation.WidgetCreation,
             controller: _controller.WidgetController,
             layout: _layout.LayoutWidget,
             page: _page.PageWidget
           },
-          stateManagement: _stateManagement.StateManagement,
+          state: {
+            management: _stateManagement.StateManagement
+          },
           routing: _routing.RoutingPage,
           styles: _styles.StylesPage,
           themes: _themes.ThemesPage,
@@ -1699,7 +2323,8 @@ class Controller extends ReactWidgetController {
         };
         const api = {
           api: {
-            uri: _uri.APIURI
+            uri: _uri.APIURI,
+            BeyondWidget: _beyondWidgetApi.BeyondWidgetApi
           }
         };
         const contents = { ...starting,
@@ -1755,7 +2380,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./fundamentals/bee
   **********************************/
 
-  modules.set('./fundamentals/bee', {
+  ims.set('./fundamentals/bee', {
     hash: 955064689,
     creator: function (require, exports) {
       "use strict";
@@ -1808,7 +2433,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./fundamentals/hmr
   **********************************/
 
-  modules.set('./fundamentals/hmr', {
+  ims.set('./fundamentals/hmr', {
     hash: 942990439,
     creator: function (require, exports) {
       "use strict";
@@ -1831,7 +2456,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./fundamentals/npm-packages
   *******************************************/
 
-  modules.set('./fundamentals/npm-packages', {
+  ims.set('./fundamentals/npm-packages', {
     hash: 1697666332,
     creator: function (require, exports) {
       "use strict";
@@ -1863,7 +2488,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./fundamentals/processors
   *****************************************/
 
-  modules.set('./fundamentals/processors', {
+  ims.set('./fundamentals/processors', {
     hash: 3144798096,
     creator: function (require, exports) {
       "use strict";
@@ -1978,7 +2603,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./fundamentals/why
   **********************************/
 
-  modules.set('./fundamentals/why', {
+  ims.set('./fundamentals/why', {
     hash: 966932364,
     creator: function (require, exports) {
       "use strict";
@@ -2003,7 +2628,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./loading
   *************************/
 
-  modules.set('./loading', {
+  ims.set('./loading', {
     hash: 1741376517,
     creator: function (require, exports) {
       "use strict";
@@ -2028,7 +2653,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./page
   **********************/
 
-  modules.set('./page', {
+  ims.set('./page', {
     hash: 1603913855,
     creator: function (require, exports) {
       "use strict";
@@ -2087,7 +2712,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./quiz
   **********************/
 
-  modules.set('./quiz', {
+  ims.set('./quiz', {
     hash: 1769948551,
     creator: function (require, exports) {
       "use strict";
@@ -2122,7 +2747,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./use-content
   *****************************/
 
-  modules.set('./use-content', {
+  ims.set('./use-content', {
     hash: 2451320018,
     creator: function (require, exports) {
       "use strict";
@@ -2164,7 +2789,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/beyond
   ******************************/
 
-  modules.set('./views/beyond', {
+  ims.set('./views/beyond', {
     hash: 3491118623,
     creator: function (require, exports) {
       "use strict";
@@ -2189,7 +2814,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/concepts
   *****************************************/
 
-  modules.set('./views/concepts/concepts', {
+  ims.set('./views/concepts/concepts', {
     hash: 2461234051,
     creator: function (require, exports) {
       "use strict";
@@ -2210,7 +2835,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/features/index
   ***********************************************/
 
-  modules.set('./views/concepts/features/index', {
+  ims.set('./views/concepts/features/index', {
     hash: 3380790336,
     creator: function (require, exports) {
       "use strict";
@@ -2231,7 +2856,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/glossary/glossary
   **************************************************/
 
-  modules.set('./views/concepts/glossary/glossary', {
+  ims.set('./views/concepts/glossary/glossary', {
     hash: 2205492520,
     creator: function (require, exports) {
       "use strict";
@@ -2262,8 +2887,8 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/module/bundle
   **********************************************/
 
-  modules.set('./views/concepts/module/bundle', {
-    hash: 1267176536,
+  ims.set('./views/concepts/module/bundle', {
+    hash: 443219127,
     creator: function (require, exports) {
       "use strict";
 
@@ -2287,7 +2912,7 @@ class Controller extends ReactWidgetController {
           className: "inline"
         }, "ts"), " y ", React.createElement("code", {
           className: "inline"
-        }, "sass"), ", el primero genera c\u00F3digo javascript, el segundo genera c\u00F3digo css."), React.createElement("p", null, React.createElement("strong", null, "Un bundle"), " representa el o los archivos compilados ya listos para ser incluidos en el navegador. Estos archivos se componen por c\u00F3digo generado por los procesadores incluidos en la configuraci\u00F3n"), ".", React.createElement("p", null, "Como se explic\u00F3 anteriormente, la posibilidad de que un bundle genere uno o varios archivos finales, depende b\u00E1sicamente de los procesadores incluidos para su empaquetamiento, si es necesarario crear s\u00F3lo c\u00F3digo Javascript se genera un \u00FAnico archivo, si por el contrario se necesita tambien c\u00F3digo CSS se generan dos archivos."), React.createElement("p", null, "Los bundles estan compuestos por procesadores y ", React.createElement("span", {
+        }, "sass"), ", el primero genera c\u00F3digo javascript, el segundo genera c\u00F3digo css."), React.createElement("p", null, React.createElement("strong", null, "Un bundle"), " representa el o los archivos compilados ya listos para ser incluidos en el navegador. Estos archivos se componen por c\u00F3digo generado por los procesadores incluidos en la configuraci\u00F3n"), React.createElement("p", null, "Como se explic\u00F3 anteriormente, la posibilidad de que un bundle genere uno o varios archivos finales, depende b\u00E1sicamente de los procesadores incluidos para su empaquetamiento, si es necesarario crear s\u00F3lo c\u00F3digo Javascript se genera un \u00FAnico archivo, si por el contrario se necesita tambien c\u00F3digo CSS se generan dos archivos."), React.createElement("p", null, "Los bundles estan compuestos por procesadores y ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), " ofrece la posibilidad a los desarrolladores de poder crear sus propios bundles."), React.createElement("h2", {
           id: "transversal"
@@ -2311,7 +2936,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/module/config
   **********************************************/
 
-  modules.set('./views/concepts/module/config', {
+  ims.set('./views/concepts/module/config', {
     hash: 4007997915,
     creator: function (require, exports) {
       "use strict";
@@ -2387,7 +3012,7 @@ class Controller extends ReactWidgetController {
   INTERNAL MODULE: ./views/concepts/module/module-intro
   ****************************************************/
 
-  modules.set('./views/concepts/module/module-intro', {
+  ims.set('./views/concepts/module/module-intro', {
     hash: 1931527981,
     creator: function (require, exports) {
       "use strict";
@@ -2484,86 +3109,11 @@ export /*bundle*/ class Auth {
       }
     }
   });
-  /******************************************************
-  INTERNAL MODULE: ./views/concepts/projects/project-json
-  ******************************************************/
-
-  modules.set('./views/concepts/projects/project-json', {
-    hash: 3827378280,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.ProjectJson = ProjectJson;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _typeProperty = require("../../type-property");
-
-      function ProjectJson() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "distributions"
-        }, "Distribuciones"), React.createElement("h2", {
-          id: "properties"
-        }, "Propiedades ", React.createElement("span", {
-          className: "file__element"
-        }, "project.json")), React.createElement("ul", {
-          className: "list__elements-doc"
-        }, React.createElement("li", null, React.createElement("strong", null, "name"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": string Es el nombre para identificar el proyecto, sigue el estandar de npm, por tanto s\u00F3lo puede contener caracteres seguros para urls, sin puntos o guiones bajos."), React.createElement("li", null, React.createElement("strong", null, "scope: "), React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": Al igual que en npm, sirve para agrupar paquetes y como los proyectos pueden ser publicados como paquetes npm, en caso de agregarse un scope, este debe ser \u00FAnico y s\u00F3lo puede ser manejado por la organizaci\u00F3n o usuario que lo utiliza. La validaci\u00F3n de unicidad del scope es hecha por npm, s\u00F3lo si el programador intenta publicar su proyecto como paquete."), React.createElement("li", null, React.createElement("strong", null, "title"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": Titulo descriptivo del proyecto, no debe poseer m\u00E1s de 100 caracteres."), React.createElement("li", null, React.createElement("strong", null, "description"), React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), ": Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement("strong", null, "template"), ":", React.createElement(_typeProperty.TypeProperty, {
-          type: "EOC",
-          href: "/glossary#eoc"
-        }), ": Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement("strong", null, "layout"), ":", React.createElement(_typeProperty.TypeProperty, {
-          type: "EOC",
-          href: "/glossary#eoc"
-        }), ": Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement("strong", null, "params"), ":", React.createElement(_typeProperty.TypeProperty, {
-          type: "EOC",
-          href: "/glossary#eoc"
-        }), ": Objeto que permite agregar parametros generales que se requieran utilizar en todo el proyecto, tiene la posibilidad de definir valores por entorno. Para entender m\u00E1s, puedes dirigirte a la", React.createElement(_code.Link, {
-          href: "/project/params"
-        }, "secci\u00F3n Parametros del proyecto.")), React.createElement("li", null, React.createElement("strong", null, "modules"), React.createElement(_typeProperty.TypeProperty, {
-          type: "EOC",
-          href: "/glossary#eoc"
-        }), ": Recibe un objeto con una entrada ", React.createElement("span", {
-          className: "inline-code"
-        }, "path"), "que permite definir el directorio de los m\u00F3dulos, por defecto es \"module\""), React.createElement("li", null, React.createElement("strong", null, "deployment "), React.createElement(_typeProperty.TypeProperty, {
-          type: "EOC",
-          href: "/glossary#eoc"
-        }), ": Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada deployment"), React.createElement("li", null, React.createElement("strong", null, "Deployment: "), React.createElement(_typeProperty.TypeProperty, {
-          type: "EAC",
-          href: "/glossary#eac"
-        }), "Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada ", React.createElement("strong", null, "distributions"), ". Las distribuciones pueden agregarse desde la funcionalidad del dashboard para ello o de forma manual. Para entender como funcionan pudes dirigirte a la ", React.createElement(_code.Link, {
-          href: "/project/distributions"
-        }, "Secci\u00F3n de distribuciones"), "."), React.createElement("li", null, React.createElement("strong", null, "libraries "), " ", React.createElement(_typeProperty.TypeProperty, {
-          type: "object",
-          optional: true
-        }), ": Define la importacion de proyectos a ser usados como librerias en el proyecto definido.", React.createElement("ul", null, React.createElement("li", null, "imports: ", React.createElement(_typeProperty.TypeProperty, {
-          type: "string",
-          optional: true
-        }), "Cada entrada representa un proyecto importado, la importaci\u00F3n se hace agregando el scope y nombre del proyecto importado.")))));
-      }
-    }
-  });
   /*********************************************
   INTERNAL MODULE: ./views/concepts/server/index
   *********************************************/
 
-  modules.set('./views/concepts/server/index', {
+  ims.set('./views/concepts/server/index', {
     hash: 1323402758,
     creator: function (require, exports) {
       "use strict";
@@ -2618,7 +3168,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/content/content
   ***************************************/
 
-  modules.set('./views/content/content', {
+  ims.set('./views/content/content', {
     hash: 3068395046,
     creator: function (require, exports) {
       "use strict";
@@ -2637,7 +3187,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/content/highlight-code
   **********************************************/
 
-  modules.set('./views/content/highlight-code', {
+  ims.set('./views/content/highlight-code', {
     hash: 3356208120,
     creator: function (require, exports) {
       // import * as React from 'react';
@@ -2674,7 +3224,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/content/note
   ************************************/
 
-  modules.set('./views/content/note', {
+  ims.set('./views/content/note', {
     hash: 3233131723,
     creator: function (require, exports) {
       "use strict";
@@ -2699,7 +3249,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/dashboard/dashboard
   *******************************************/
 
-  modules.set('./views/dashboard/dashboard', {
+  ims.set('./views/dashboard/dashboard', {
     hash: 2187614819,
     creator: function (require, exports) {
       "use strict";
@@ -2775,7 +3325,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/error-404
   *********************************/
 
-  modules.set('./views/error-404', {
+  ims.set('./views/error-404', {
     hash: 2553778734,
     creator: function (require, exports) {
       "use strict";
@@ -3076,7 +3626,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/error
   *****************************/
 
-  modules.set('./views/error', {
+  ims.set('./views/error', {
     hash: 1897032991,
     creator: function (require, exports) {
       "use strict";
@@ -3097,7 +3647,7 @@ export /*bundle*/ class Auth {
   INTERNAL MODULE: ./views/example
   *******************************/
 
-  modules.set('./views/example', {
+  ims.set('./views/example', {
     hash: 2531964526,
     creator: function (require, exports) {
       "use strict";
@@ -3130,7 +3680,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/intro
   *****************************/
 
-  modules.set('./views/intro', {
+  ims.set('./views/intro', {
     hash: 2953808781,
     creator: function (require, exports) {
       "use strict";
@@ -3178,7 +3728,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/modal-image
   ***********************************/
 
-  modules.set('./views/modal-image', {
+  ims.set('./views/modal-image', {
     hash: 2633656181,
     creator: function (require, exports) {
       "use strict";
@@ -3215,11 +3765,43 @@ console.log(1, 'ejemplo');
       }
     }
   });
+  /***************************************
+  INTERNAL MODULE: ./views/object-property
+  ***************************************/
+
+  ims.set('./views/object-property', {
+    hash: 3992404776,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ObjectProperty = ObjectProperty;
+
+      var React = require("react");
+
+      var _typeProperty = require("./type-property");
+
+      function ObjectProperty({
+        children,
+        type,
+        href = undefined,
+        optional = undefined
+      }) {
+        return React.createElement(React.Fragment, null, React.createElement("strong", null, children), " ", React.createElement(_typeProperty.TypeProperty, {
+          optional: true,
+          type: type,
+          href: href
+        }), ": \u00A0");
+      }
+    }
+  });
   /****************************
   INTERNAL MODULE: ./views/page
   ****************************/
 
-  modules.set('./views/page', {
+  ims.set('./views/page', {
     hash: 1672448433,
     creator: function (require, exports) {
       "use strict";
@@ -3242,7 +3824,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/right-aside/index
   *****************************************/
 
-  modules.set('./views/right-aside/index', {
+  ims.set('./views/right-aside/index', {
     hash: 438530438,
     creator: function (require, exports) {
       "use strict";
@@ -3314,7 +3896,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/right-aside/item
   ****************************************/
 
-  modules.set('./views/right-aside/item', {
+  ims.set('./views/right-aside/item', {
     hash: 231098808,
     creator: function (require, exports) {
       "use strict";
@@ -3363,7 +3945,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/ssr
   ***************************/
 
-  modules.set('./views/ssr', {
+  ims.set('./views/ssr', {
     hash: 3280070000,
     creator: function (require, exports) {
       "use strict";
@@ -3386,7 +3968,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/starting/before
   ***************************************/
 
-  modules.set('./views/starting/before', {
+  ims.set('./views/starting/before', {
     hash: 3019937656,
     creator: function (require, exports) {
       "use strict";
@@ -3409,7 +3991,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/starting/project
   ****************************************/
 
-  modules.set('./views/starting/project', {
+  ims.set('./views/starting/project', {
     hash: 587958769,
     creator: function (require, exports) {
       "use strict";
@@ -3438,7 +4020,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/starting/starting
   *****************************************/
 
-  modules.set('./views/starting/starting', {
+  ims.set('./views/starting/starting', {
     hash: 4143092697,
     creator: function (require, exports) {
       "use strict";
@@ -3468,7 +4050,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tbd
   ***************************/
 
-  modules.set('./views/tbd', {
+  ims.set('./views/tbd', {
     hash: 830915190,
     creator: function (require, exports) {
       "use strict";
@@ -3626,7 +4208,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/bridge-section
   ***********************************************/
 
-  modules.set('./views/tutorial/bridge-section', {
+  ims.set('./views/tutorial/bridge-section', {
     hash: 2579859327,
     creator: function (require, exports) {
       "use strict";
@@ -3703,7 +4285,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/create-module
   **********************************************/
 
-  modules.set('./views/tutorial/create-module', {
+  ims.set('./views/tutorial/create-module', {
     hash: 2254811738,
     creator: function (require, exports) {
       "use strict";
@@ -3726,7 +4308,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/create-project
   ***********************************************/
 
-  modules.set('./views/tutorial/create-project', {
+  ims.set('./views/tutorial/create-project', {
     hash: 254780513,
     creator: function (require, exports) {
       "use strict";
@@ -3764,7 +4346,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/dashboard
   ******************************************/
 
-  modules.set('./views/tutorial/dashboard', {
+  ims.set('./views/tutorial/dashboard', {
     hash: 1845012465,
     creator: function (require, exports) {
       "use strict";
@@ -3797,7 +4379,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/home-module
   ********************************************/
 
-  modules.set('./views/tutorial/home-module', {
+  ims.set('./views/tutorial/home-module', {
     hash: 2793847854,
     creator: function (require, exports) {
       "use strict";
@@ -3853,7 +4435,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/intro
   **************************************/
 
-  modules.set('./views/tutorial/intro', {
+  ims.set('./views/tutorial/intro', {
     hash: 2609424321,
     creator: function (require, exports) {
       "use strict";
@@ -3902,7 +4484,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/module-review
   **********************************************/
 
-  modules.set('./views/tutorial/module-review', {
+  ims.set('./views/tutorial/module-review', {
     hash: 173597333,
     creator: function (require, exports) {
       "use strict";
@@ -3957,7 +4539,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/t-routing
   ******************************************/
 
-  modules.set('./views/tutorial/t-routing', {
+  ims.set('./views/tutorial/t-routing', {
     hash: 3193990699,
     creator: function (require, exports) {
       "use strict";
@@ -4031,7 +4613,7 @@ console.log(1, 'ejemplo');
   INTERNAL MODULE: ./views/tutorial/templates/bridge
   *************************************************/
 
-  modules.set('./views/tutorial/templates/bridge', {
+  ims.set('./views/tutorial/templates/bridge', {
     hash: 2772175095,
     creator: function (require, exports) {
       "use strict";
@@ -4065,7 +4647,7 @@ class Auth {
   INTERNAL MODULE: ./views/tutorial/templates/module.json
   ******************************************************/
 
-  modules.set('./views/tutorial/templates/module.json', {
+  ims.set('./views/tutorial/templates/module.json', {
     hash: 4229489752,
     creator: function (require, exports) {
       "use strict";
@@ -4128,7 +4710,7 @@ class Auth {
   INTERNAL MODULE: ./views/tutorial/templates/page-code-started
   ************************************************************/
 
-  modules.set('./views/tutorial/templates/page-code-started', {
+  ims.set('./views/tutorial/templates/page-code-started', {
     hash: 2302254350,
     creator: function (require, exports) {
       "use strict";
@@ -4186,7 +4768,7 @@ function Page(): JSX.Element {
   INTERNAL MODULE: ./views/tutorial/templates/page-code
   ****************************************************/
 
-  modules.set('./views/tutorial/templates/page-code', {
+  ims.set('./views/tutorial/templates/page-code', {
     hash: 2100269388,
     creator: function (require, exports) {
       "use strict";
@@ -4260,7 +4842,7 @@ function Page(): JSX.Element {
   INTERNAL MODULE: ./views/tutorial/templates/page-styles
   ******************************************************/
 
-  modules.set('./views/tutorial/templates/page-styles', {
+  ims.set('./views/tutorial/templates/page-styles', {
     hash: 2057643850,
     creator: function (require, exports) {
       "use strict";
@@ -4341,7 +4923,7 @@ function Page(): JSX.Element {
   INTERNAL MODULE: ./views/tutorial/tutorial-page
   **********************************************/
 
-  modules.set('./views/tutorial/tutorial-page', {
+  ims.set('./views/tutorial/tutorial-page', {
     hash: 1717046378,
     creator: function (require, exports) {
       "use strict";
@@ -4378,8 +4960,8 @@ function Page(): JSX.Element {
   INTERNAL MODULE: ./views/type-property
   *************************************/
 
-  modules.set('./views/type-property', {
-    hash: 130317734,
+  ims.set('./views/type-property', {
+    hash: 2257894405,
     creator: function (require, exports) {
       "use strict";
 
@@ -4399,12 +4981,12 @@ function Page(): JSX.Element {
       }) {
         const output = href ? React.createElement(_code.Link, {
           href: href
-        }, `<${type}>`, " ") : `<${type}> `;
+        }, `${type}`, " ") : `${type} `;
         return React.createElement("span", {
           className: "type__property"
         }, output, optional && React.createElement("span", {
           className: "type__optional"
-        }, "[optional] ", " "));
+        }, "optional", " "));
       }
     }
   });
@@ -4412,7 +4994,7 @@ function Page(): JSX.Element {
   INTERNAL MODULE: ./views/what-is/what-is
   ***************************************/
 
-  modules.set('./views/what-is/what-is', {
+  ims.set('./views/what-is/what-is', {
     hash: 1657592843,
     creator: function (require, exports) {
       "use strict";
@@ -4433,6 +5015,7 @@ function Page(): JSX.Element {
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
+    _exports.NodeWidget = require('./api/node-widget').NodeWidget;
     _exports.CSR = require('./basic/rendering/csr').CSR;
     _exports.RenderingPage = require('./basic/rendering/index').RenderingPage;
     _exports.SR = require('./basic/rendering/sr').SR;
@@ -4444,7 +5027,7 @@ function Page(): JSX.Element {
     _exports.RightAside = require('./views/right-aside/index').RightAside;
   };
 
-  let CSR, RenderingPage, SR, Controller, ContentsPage, useContent, BeyondName, Page, RightAside; // Module exports
+  let NodeWidget, CSR, RenderingPage, SR, Controller, ContentsPage, useContent, BeyondName, Page, RightAside; // Module exports
 
   _exports2.RightAside = RightAside;
   _exports2.Page = Page;
@@ -4455,8 +5038,10 @@ function Page(): JSX.Element {
   _exports2.SR = SR;
   _exports2.RenderingPage = RenderingPage;
   _exports2.CSR = CSR;
+  _exports2.NodeWidget = NodeWidget;
 
   __pkg.exports.process = function (require) {
+    _exports2.NodeWidget = NodeWidget = require('./api/node-widget').NodeWidget;
     _exports2.CSR = CSR = require('./basic/rendering/csr').CSR;
     _exports2.RenderingPage = RenderingPage = require('./basic/rendering/index').RenderingPage;
     _exports2.SR = SR = require('./basic/rendering/sr').SR;
@@ -4469,11 +5054,11 @@ function Page(): JSX.Element {
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

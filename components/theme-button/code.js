@@ -1,27 +1,28 @@
-define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.ThemeToggleButton = _exports2.Control = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_1);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/components/theme-button/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/components/theme-button/code").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_1]]));
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/components/theme-button/code');
+
+  const ims = new Map();
   /*************************
   INTERNAL MODULE: ./control
   *************************/
 
-  modules.set('./control', {
+  ims.set('./control', {
     hash: 1583137179,
     creator: function (require, exports) {
       "use strict";
@@ -44,7 +45,7 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   INTERNAL MODULE: ./svg
   *********************/
 
-  modules.set('./svg', {
+  ims.set('./svg', {
     hash: 3948986861,
     creator: function (require, exports) {
       "use strict";
@@ -135,8 +136,8 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   INTERNAL MODULE: ./switch
   ************************/
 
-  modules.set('./switch', {
-    hash: 2588030458,
+  ims.set('./switch', {
+    hash: 4142291809,
     creator: function (require, exports) {
       "use strict";
 
@@ -149,7 +150,7 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
 
       var _svg = require("./svg");
 
-      var _ts = require("@beyond-js/kernel/core/ts");
+      var _ts = require("@beyond-js/widgets/render/ts");
 
       const key = '__beyond-mode';
       /*bundle*/
@@ -167,7 +168,7 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
           const another = `btn-theme--${theme === 'dark' ? 'light' : 'dark'}`;
           ref?.current.classList.add(current);
 
-          _ts.beyond.widgets.attributes.add('data-beyond-mode', theme);
+          _ts.widgets.attributes.add('data-beyond-mode', theme);
 
           if (ref?.current.classList.contains(another)) ref?.current.classList.remove(another);
         };
@@ -218,11 +219,11 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

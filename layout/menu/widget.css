@@ -83,9 +83,6 @@
   /* IE6-9 */
 }
 
-.docs__menu__list li > ul, .docs__menu__sublist li > ul {
-  display: none;
-}
 .docs__menu__list li.item--opened > ul, .docs__menu__sublist li.item--opened > ul {
   list-style: none;
   padding: 0;

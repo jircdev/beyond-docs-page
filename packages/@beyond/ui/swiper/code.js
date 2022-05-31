@@ -1,29 +1,30 @@
-define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.useBeyondSwiperContext = _exports2.hmr = _exports2.BeyondSwiperSlider = _exports2.BeyondSwiperContext = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('swiper', dependency_1);
-  dependencies.set('@beyond/ui/reactive-model/ts', dependency_2);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_3);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/ui/swiper/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/ui/swiper/code").package();
 
-  bundle.styles.mode = 'external';
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0], ["swiper", dependency_1]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/ui/reactive-model/ts"]));
+
+  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/ui/swiper/code');
+
+  const ims = new Map();
   /*************************
   INTERNAL MODULE: ./context
   *************************/
 
-  modules.set('./context', {
+  ims.set('./context', {
     hash: 3642848773,
     creator: function (require, exports) {
       "use strict";
@@ -51,7 +52,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
+  ims.set('./controller', {
     hash: 427607520,
     creator: function (require, exports) {
       "use strict";
@@ -122,7 +123,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   INTERNAL MODULE: ./slide
   ***********************/
 
-  modules.set('./slide', {
+  ims.set('./slide', {
     hash: 2634860187,
     creator: function (require, exports) {
       "use strict";
@@ -145,7 +146,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   INTERNAL MODULE: ./swiper-slider
   *******************************/
 
-  modules.set('./swiper-slider', {
+  ims.set('./swiper-slider', {
     hash: 233480944,
     creator: function (require, exports) {
       "use strict";
@@ -254,11 +255,11 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

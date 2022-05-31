@@ -91,6 +91,10 @@ ul.icon__list li .beyond-icon {
     max-width: 90%;
   }
 }
+.type__property .type__optional {
+  padding: 2px;
+  background: var(--app-opacity-bg);
+}
 .content__quiz {
   margin-top: 4rem;
   border-top: var(--color-gray-20) 1px solid;

@@ -1,29 +1,26 @@
-define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/routing/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.ReactWidgetController = _exports2.PageReactWidgetController = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('react-dom', dependency_1);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_2);
-  dependencies.set('@beyond-js/kernel/routing/ts', dependency_3);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond-js/kernel/react-widget/ts', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond-js/react-widgets/controllers/ts").package();
 
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0], ["react-dom", dependency_1]]));
+  const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 3610802844,
+  ims.set('./controller', {
+    hash: 4113868022,
     creator: function (require, exports) {
       "use strict";
 
@@ -38,35 +35,51 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
 
       var _retargetEvents = require("./retarget-events");
 
-      var _ts = require("@beyond-js/kernel/core/ts");
+      var _ts = require("@beyond-js/widgets/controller/ts");
+
+      var _widget = require("./widget");
       /*bundle*/
 
 
-      class ReactWidgetController extends _ts.BeyondWidgetController {
+      class ReactWidgetController extends _ts.WidgetClientController {
         _mount(props) {
-          const method = this.hydratable ? 'hydrate' : 'render'; // Render the widget
+          if (!this.Widget) {
+            return {
+              errors: [`Widget "${this.element}" does not export a Widget class`]
+            };
+          }
+
+          const root = this.widget.shadowRoot;
+          const method = root.children.length ? 'hydrate' : 'render'; // Render the widget
 
           try {
-            ReactDOM[method](React.createElement(this.Widget, props), this.body);
+            const p = {
+              Widget: this.Widget,
+              props,
+              styles: this.styles
+            };
+            ReactDOM[method](React.createElement(_widget.default, p), root);
           } catch (exc) {
-            console.log(`Error rendering widget "${this.bundle.id}":`);
+            console.log(`Error rendering widget "${this.widget.localName}":`);
             console.log(exc.stack);
           }
         }
 
         mount() {
           this._mount({
-            component: this.component,
+            widget: this.widget,
+            attributes: this.attributes,
+            component: this.widget,
             store: this.store
           });
         }
 
         unmount() {
-          ReactDOM.unmountComponentAtNode(this.body);
+          ReactDOM.unmountComponentAtNode(this.widget.shadowRoot);
         }
 
         async initialise() {
-          this.component.localName === 'main-layout' && (0, _retargetEvents.retargetEvents)(this.component.shadowRoot);
+          this.widget.localName === 'main-layout' && (0, _retargetEvents.retargetEvents)(this.widget.shadowRoot);
           await super.initialise();
         }
 
@@ -79,8 +92,8 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
   INTERNAL MODULE: ./page
   **********************/
 
-  modules.set('./page', {
-    hash: 3426493260,
+  ims.set('./page', {
+    hash: 2401805357,
     creator: function (require, exports) {
       "use strict";
 
@@ -89,11 +102,9 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
       });
       exports.PageReactWidgetController = void 0;
 
-      var _ts = require("@beyond-js/kernel/routing/ts");
-
       var _controller = require("./controller");
 
-      var ReactDOM = require("react-dom");
+      var _ts = require("@beyond-js/widgets/controller/ts");
       /*bundle*/
 
 
@@ -111,18 +122,17 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
         mount() {
           this._mount({
             uri: this.uri,
-            component: this.component,
+            widget: this.widget,
+            attributes: this.attributes,
+            component: this.widget,
             store: this.store
           });
         }
 
-        unmount() {
-          ReactDOM.unmountComponentAtNode(this.body);
-        }
-
         async initialise() {
-          const child = this.component.getAttribute('data-child-id');
-          this.#uri = child ? _ts.routing.manager.pages.find(child).uri : void 0;
+          this.#uri = new _ts.PageURI({
+            widget: this.widget
+          });
           await super.initialise();
         }
 
@@ -135,8 +145,8 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
   INTERNAL MODULE: ./retarget-events
   *********************************/
 
-  modules.set('./retarget-events', {
-    hash: 2415263902,
+  ims.set('./retarget-events', {
+    hash: 223808602,
     creator: function (require, exports) {
       "use strict";
 
@@ -270,6 +280,73 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
         }
       }
     }
+  });
+  /************************
+  INTERNAL MODULE: ./widget
+  ************************/
+
+  ims.set('./widget', {
+    hash: 3471932044,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.default = _default;
+
+      var React = require("react");
+
+      var _ts = require("@beyond-js/kernel/core/ts");
+
+      function _default({
+        Widget,
+        props,
+        styles
+      }) {
+        const {
+          elements
+        } = styles;
+
+        const head = (() => {
+          const head = [];
+          elements.forEach(styles => {
+            head.push(React.createElement("link", {
+              key: styles.href,
+              href: styles.href,
+              rel: 'stylesheet'
+            }));
+          });
+          return head;
+        })();
+
+        head.unshift(React.createElement("link", {
+          key: "global-styles",
+          href: `${_ts.beyond.baseUrl}/global.css`,
+          rel: 'stylesheet'
+        }));
+        return React.createElement(React.Fragment, null, head, React.createElement(Widget, { ...props
+        }));
+      }
+      /*
+          // @TODO: Remove this method as it is not required anymore
+          css(): HTMLStyleElement {
+              if (this.#mode !== 'external') {
+                  throw new Error(`Styles of bundle "${this.#bundle}" are not defined as external`);
+              }
+      
+              const css = document.createElement('link');
+              css.rel = 'stylesheet';
+              css.type = 'text/css';
+              css.href = `${beyond.baseDir}${this.#bundle}.css`;
+      
+              css.setAttribute('bundle', this.#bundle);
+      
+              return css;
+          }
+       */
+
+    }
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
@@ -288,11 +365,11 @@ define(["exports", "react", "react-dom", "@beyond-js/kernel/core/ts", "@beyond-j
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

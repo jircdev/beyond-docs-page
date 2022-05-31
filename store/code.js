@@ -1,26 +1,25 @@
-define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.useModel = _exports2.useBinder = _exports2.hmr = _exports2.Control = void 0;
-  const dependencies = new Map();
-  dependencies.set('react', dependency_0);
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_1);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/store/code', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/store/code").package();
 
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_0]]));
+  const ims = new Map();
   /*************************
   INTERNAL MODULE: ./control
   *************************/
 
-  modules.set('./control', {
+  ims.set('./control', {
     hash: 1583137179,
     creator: function (require, exports) {
       "use strict";
@@ -43,7 +42,7 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   INTERNAL MODULE: ./use-binder
   ****************************/
 
-  modules.set('./use-binder', {
+  ims.set('./use-binder', {
     hash: 2595080040,
     creator: function (require, exports) {
       "use strict";
@@ -82,7 +81,7 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   INTERNAL MODULE: ./use-model
   ***************************/
 
-  modules.set('./use-model', {
+  ims.set('./use-model', {
     hash: 3232899855,
     creator: function (require, exports) {
       "use strict";
@@ -143,11 +142,11 @@ define(["exports", "react", "@beyond-js/kernel/core/ts"], function (_exports2, d
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });

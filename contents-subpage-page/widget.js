@@ -1,29 +1,36 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/contents/code"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/contents-data/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
   _exports2.hmr = _exports2.Controller = void 0;
-  const dependencies = new Map();
-  dependencies.set('@beyond-js/kernel/core/ts', dependency_0);
-  dependencies.set('@beyond-js/kernel/react-widget/ts', dependency_1);
-  dependencies.set('@beyond/docs/layout/styles/code', dependency_2);
-  dependencies.set('react', dependency_3);
-  dependencies.set('@beyond/docs/contents/code', dependency_4);
+
   const {
-    beyond
-  } = globalThis;
-  const bundle = beyond.bundles.obtain('@beyond/docs/contents-single-page/widget', false, {}, dependencies);
+    Bundle: __Bundle,
+    externals
+  } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = bundle.package();
+  const __pkg = new __Bundle("@beyond/docs/contents-subpage-page/widget").package();
 
-  const modules = new Map();
+  externals.register(new Map([["react", dependency_3]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/contents-data/code"]));
+
+  require('@beyond-js/widgets/render/ts').widgets.register([{
+    "name": "contents-subpage-page",
+    "id": "@beyond/docs/contents-subpage-page/widget",
+    "is": "page",
+    "route": "/docs/${content}",
+    "layout": "main-layout"
+  }]);
+
+  const ims = new Map();
   /**************************
   INTERNAL MODULE: ./contents
   **************************/
 
-  modules.set('./contents', {
+  ims.set('./contents', {
     hash: 2811480227,
     creator: function (require, exports) {
       "use strict";
@@ -100,8 +107,8 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   INTERNAL MODULE: ./controller
   ****************************/
 
-  modules.set('./controller', {
-    hash: 1348900836,
+  ims.set('./controller', {
+    hash: 1060623683,
     creator: function (require, exports) {
       "use strict";
 
@@ -110,7 +117,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
       });
       exports.Controller = void 0;
 
-      var _ts = require("@beyond-js/kernel/react-widget/ts");
+      var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _contents = require("./contents");
 
@@ -136,8 +143,8 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   INTERNAL MODULE: ./views/page
   ****************************/
 
-  modules.set('./views/page', {
-    hash: 1202050014,
+  ims.set('./views/page', {
+    hash: 3984434729,
     creator: function (require, exports) {
       "use strict";
 
@@ -148,32 +155,28 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
 
       var React = require("react");
 
-      var _code = require("@beyond/docs/contents/code");
+      var _code = require("@beyond/docs/contents-data/code");
 
       function Page({
         uri,
         component
       }) {
         const propsContent = uri.vars.get('content');
-        console.log(10, uri);
-        const [hmrChanded, setHmr] = React.useState(performance.now());
+        const [hmrChanged, setHmr] = React.useState(performance.now());
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'intro';
         React.useEffect(() => {
-          const onChange = () => {
-            setHmr(performance.now());
-          };
+          const onChange = () => setHmr(performance.now());
 
           _code.hmr.on('change', onChange);
 
           return () => _code.hmr.off('change', onChange);
-        }, []); // @ts-ignore
-
+        }, []);
         return React.createElement(_code.ContentsPage, {
           component: component,
           contentId: contentId,
           sub: sub,
-          hmrChanged: hmrChanded
+          hmrChanged: hmrChanged
         });
       }
     }
@@ -192,11 +195,11 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/react-widget/
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports2.hmr = hmr;
 
-  __pkg.initialise(modules);
+  __pkg.initialise(ims);
 });
