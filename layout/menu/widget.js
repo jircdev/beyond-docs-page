@@ -109,7 +109,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *****************************/
 
   ims.set('./data/basics', {
-    hash: 3409527411,
+    hash: 1154674465,
     creator: function (require, exports) {
       "use strict";
 
@@ -120,7 +120,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       var _structureItem = require("./structure-item");
 
-      const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto']];
+      const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/structure", 'Estructura'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto']];
       const basics = {
         id: 'concepts',
         label: 'Conceptos Básicos',

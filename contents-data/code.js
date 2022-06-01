@@ -797,12 +797,54 @@ class Auth {
       }
     }
   });
+  /******************************************
+  INTERNAL MODULE: ./basic/projects/structure
+  ******************************************/
+
+  ims.set('./basic/projects/structure', {
+    hash: 1348970025,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ProjectStructure = ProjectStructure;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code = require("@beyond/ui/link/code");
+
+      const PROJECT_NAME = 'beyond-first-project';
+
+      function ProjectStructure() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "structure"
+        }, "Estructura de un proyecto"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " posee una arquitectura configurable que permite tener estructuras flexibles en los proyectos. Sin embargo, al crear un proyecto por medio del Dashboard o de ", React.createElement("span", {
+          className: "inline"
+        }, PROJECT_NAME), ", la estructura inicial creada es la siguiente:"), React.createElement("h3", null, "Estructura"), React.createElement("p", null, "Este comando crea la siguiente estructura:"), React.createElement("ul", null, React.createElement("li", null, "Un archivo ", React.createElement(_code.Link, {
+          className: "inline",
+          href: "/docs/project/json"
+        }, "project.json"), ", con la configuraci\u00F3n del proyecto."), React.createElement("li", null, "Un archivo ", React.createElement(_code.Link, {
+          className: "inline",
+          href: "/docs/beyond/json"
+        }, "beyond.json"), " que permite gestionar configuraciones para el servidor de desarrollo."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "modules/"), " Carpeta en donde se encuentran los m\u00F3dulos del proyecto. La ubicaci\u00F3n de los m\u00F3dulos es configurable en el ", React.createElement(_code.Link, {
+          href: "/docs/projects/json",
+          className: "inline"
+        }, "project.json"), " del proyecto.")));
+      }
+    }
+  });
   /********************************************************
   INTERNAL MODULE: ./basic/quick-start/create-first-project
   ********************************************************/
 
   ims.set('./basic/quick-start/create-first-project', {
-    hash: 189749015,
+    hash: 1717424397,
     creator: function (require, exports) {
       "use strict";
 
@@ -819,57 +861,28 @@ class Auth {
 
       var _code2 = require("@beyond/ui/link/code");
 
+      var _options = require("./npx/options");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
+
       const PROJECT_NAME = 'beyond-first-project';
 
       function CreateFirstProject() {
         return React.createElement(React.Fragment, null, React.createElement("h2", {
           className: "inline"
-        }, PROJECT_NAME), React.createElement("p", null, "La forma m\u00E1s simple de empezar un proyecto en ", React.createElement(_beyond.BeyondName, null), " es por medio del ", React.createElement("span", {
+        }, PROJECT_NAME), React.createElement("p", null, "Para empezar, posiblemente la manera m\u00E1s sencilla de arrancar un proyecto en ", React.createElement(_beyond.BeyondName, null), " sea por medio del ", React.createElement("span", {
           className: "inline"
-        }, "beyond-first-project"), "."), React.createElement(_code.Code, null, "npx github:beyondjs/first-app [folderName]"), React.createElement("p", null, "Este comando se encarga de realizar la instalaci\u00F3n de un proyecto ", React.createElement(_beyond.BeyondName, null), " y la inicializaci\u00F3n del servidor de desarrollo de forma autom\u00E1tica. Cu\u00E1ndo la ejecuci\u00F3n del comando finaliza, el servidor de desarrollo queda levantado y se puede acceder al Dashboard en ", React.createElement(_code2.Elink, {
+        }, "beyond-first-project"), "."), React.createElement(_code.Code, null, "npx beyond-first-project -name @scope/name [-type node] [-container folderName]"), React.createElement(_options.NPXOptions, null), React.createElement("p", null, "Al finalizar la ejecuci\u00F3n del comando, se debi\u00F3 crear la estructura del proyecto y ya estar\u00EDa listo para ser ejecutado."), React.createElement("p", null, "Para levantar el servidor de desarrollo, se ejecuta el siguiente comando:"), React.createElement(_code.Code, null, "npm start"), React.createElement("p", null, "\u00A1Listo! Ya se puede comenzar a programar y probar el proyecto. Se puede acceder al Dashboard desde ", React.createElement(_code2.Elink, {
           href: "http://localhost:4000"
-        }, "http://localhost:4000"), "."), React.createElement("div", {
+        }, "http://localhost:4000"), " y el proyecto creado se encuentra disponible en ", React.createElement(_code2.Elink, {
+          href: "http://localhost:6500"
+        }, "http://localhost:6500 ")), React.createElement("div", {
           className: "block__note"
         }, "El Dashboard es un sistema que ", React.createElement(_beyond.BeyondName, null), " provee para brindar al desarrollador una mejor experiencia de usuario. Puedes leer m\u00E1s sobre el ", React.createElement(_code2.Link, {
           href: "/docs/dashboard"
-        }, "aqu\u00ED"), "."), React.createElement("p", null, "Por defecto se crea un proyecto de tipo web, si se desea especificar otro tipo de proyecto, se puede pasar el flag ", React.createElement("span", {
-          className: "inline"
-        }, "--type"), " con el valor que se desee."), React.createElement("div", {
-          className: "block__note"
-        }, "Luego de tener ", React.createElement(_beyond.BeyondName, null), " instalado de forma global, los proyectos pueden crearse directamente desde el Dashboard, solo se necesita ejecutar el comando ", React.createElement("span", {
-          className: "inline"
-        }, "beyond"), " desde la l\u00EDnea de comandos en la carpeta en la que se desee trabajar."), React.createElement("h3", null, "Opciones del comando"), React.createElement("p", null, "A continuaci\u00F3n se listan las banderas que pueden ser utilizadas al instalar ", React.createElement("span", {
-          className: "inline"
-        }, ".beyond-first-project"), "."), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "-name"), ": Permite definir el ", React.createElement("strong", null, "scope"), " y ", React.createElement("strong", null, "nombre"), " del proyecto."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "-type"), ": permite identificar el tipo de proyecto a crear, los valores aceptados son:", React.createElement("ul", null, React.createElement("li", null, "web"), React.createElement("li", null, "node"), React.createElement("li", null, "backend"), React.createElement("li", null, "library"), React.createElement("li", null, "web-backend")), React.createElement("div", null, "Puedes leer m\u00E1s informaci\u00F3n sobre los tipos de proyecto ", React.createElement(_code2.Link, {
-          href: "/docs/projects/types"
-        }, "aqu\u00ED"), ".")), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "-container"), ": Permite especificar si se desea agregar una carpeta contenedora de proyectos. Recuerde que ", React.createElement(_beyond.BeyondName, null), " soporta la posibilidad de manejar m\u00FAltiples proyectos en simult\u00E1neo.")), React.createElement("p", null, "Para ejemplificar, imaginemos que se desea crear un proyecto ", React.createElement("span", {
-          className: "inline"
-        }, "login"), " de tipo web, lo podriamos crear con el siguiente comando:"), React.createElement(_code.Code, null, "npx github:beyondjs/first-app --name login --d web"), React.createElement("h3", null, "Estructura"), React.createElement("p", null, "Este comando crea la siguiente estructura:"), React.createElement("ul", null, React.createElement("li", null, "Un archivo ", React.createElement(_code2.Link, {
-          className: "inline",
-          href: "/docs/project/json"
-        }, "project.json"), ", con la configuraci\u00F3n del proyecto."), React.createElement("li", null, "Un archivo ", React.createElement(_code2.Link, {
-          className: "inline",
-          href: "/docs/beyond/json"
-        }, "beyond.json"), " que permite gestionar configuraciones para el servidor de desarrollo."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "modules/"), " Carpeta en donde se encuentran los m\u00F3dulos del proyecto. La ubicaci\u00F3n de los m\u00F3dulos es configurable en el ", React.createElement(_code2.Link, {
-          href: "/docs/projects/json",
-          className: "inline"
-        }, "project.json"), " del proyecto.")), React.createElement("p", null, "Ahora solo es necesario ejecutar el siguiente comando asegurandose de estar en la carpeta del proyecto"), React.createElement(_code.Code, {
-          language: "json"
-        }, `> beyond`), React.createElement("p", null, "\u00A1Listo! ya podemos navegar nuestro primer proyecto web con ", React.createElement(_beyond.BeyondName, null), " accediendo a ", React.createElement(_code2.Elink, {
-          href: "http://localhost:3000"
-        }, "http://localhost:4000"), " y al ", React.createElement(_code2.Link, {
-          href: "/docs/dashboard"
-        }, "Dashboard"), " accediendo a ", React.createElement(_code2.Elink, {
-          href: "http://localhost:4000"
-        }, "http://localhost:4000")));
+        }, "aqu\u00ED"), "."), React.createElement(_code3.NextLinks, {
+          items: [['Estructura de un proyecto', '/docs/projects/structure'], ['Modules', '/docs/modules/intro']]
+        }));
       }
     }
   });
@@ -878,7 +891,7 @@ class Auth {
   ******************************************************/
 
   ims.set('./basic/quick-start/global-instalation', {
-    hash: 4216096914,
+    hash: 610700581,
     creator: function (require, exports) {
       "use strict";
 
@@ -900,15 +913,11 @@ class Auth {
       function GlobalInstalation() {
         return React.createElement(React.Fragment, null, React.createElement("h2", {
           id: "global-install"
-        }, "Instalaci\u00F3n global"), React.createElement("p", null, "Para instalar beyond de forma global es necesario ejecutar el siguiente comando"), React.createElement(_code.Code, null, `> npm i -g beyond`), "A partir de la instalaci\u00F3n, se puede arrancar un nuevo proyecto de dos formas:", React.createElement("ul", null, React.createElement("li", null, "Por medio del Dashboard"), React.createElement("li", null, "Por medio de ", React.createElement("span", {
-          className: "inline"
-        }, PROJECT_NAME))), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " se instala de forma global y puede ser ejecutado en cualquier directorio. Para utilizarlo, s\u00F3lo necesitas ir a la carpeta en la cual desees trabajar, abrir la consola de comandos y ejecutar \"beyond\"."), React.createElement(_code.Code, {
-          language: "bash"
-        }, ` > beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendo que ", React.createElement(_beyond.BeyondName, null), " se est\u00E1 ejecutando y que puedes acceder al dashboard en ", React.createElement(_code2.Elink, {
+        }, "Instalaci\u00F3n global"), React.createElement("p", null, "Para instalar ", React.createElement(_beyond.BeyondName, null), " globalmente, se debe correr el siguiente comando:"), React.createElement(_code.Code, null, `> npm i -g beyond`), React.createElement("p", null, "A partir de la instalaci\u00F3n, s\u00F3lo es necesario ir a la carpeta en donde se desee crear el o los proyectos e inicializar ", React.createElement(_beyond.BeyondName, null), " desde la l\u00EDnea de comandos de la siguiente forma:"), React.createElement(_code.Code, null, `>  beyond`), React.createElement("p", null, "Si todo sale bien, aparecer\u00E1 un mensaje diciendo que ", React.createElement(_beyond.BeyondName, null), " se est\u00E1 ejecutando y que puedes acceder al dashboard en ", React.createElement(_code2.Elink, {
           href: "http://localhost:4000"
-        }, "http://localhost:4000")));
+        }, "http://localhost:4000"), ", desde donde se podr\u00E1 crear un proyecto por medio de la interfaz gr\u00E1fica del dashboard."), React.createElement("p", null, "Ya en el Dashboard, puedes crear un proyecto desde la interfaz gr\u00E1fica, puedes ver c\u00F3mo hacerlo ", React.createElement(_code2.Link, {
+          href: "/docs/projects/create"
+        }, "aqui"), "."));
       }
     }
   });
@@ -938,7 +947,7 @@ class Auth {
   *****************************************/
 
   ims.set('./basic/quick-start/index', {
-    hash: 2408152119,
+    hash: 1864263573,
     creator: function (require, exports) {
       "use strict";
 
@@ -958,9 +967,52 @@ class Auth {
       var _prerequisites = require("./prerequisites");
 
       function QuickStart() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Comienzo r\u00E1pido"), React.createElement(_prerequisites.Prerequisites, null), React.createElement(_globalInstalation.GlobalInstalation, null), React.createElement(_createFirstProject.CreateFirstProject, null), React.createElement(_code.NextLinks, {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Comienzo r\u00E1pido"), React.createElement(_prerequisites.Prerequisites, null), React.createElement(_createFirstProject.CreateFirstProject, null), React.createElement(_globalInstalation.GlobalInstalation, null), React.createElement(_code.NextLinks, {
           items: [['Crear un proyecto', '/docs/project/create'], ['Tutorial', '/docs/tutorial/web']]
         }));
+      }
+    }
+  });
+  /***********************************************
+  INTERNAL MODULE: ./basic/quick-start/npx/options
+  ***********************************************/
+
+  ims.set('./basic/quick-start/npx/options', {
+    hash: 2151717920,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.NPXOptions = NPXOptions;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _beyond = require("../../../views/beyond");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      function NPXOptions() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", null, "Opciones del comando"), React.createElement("p", null, "A continuaci\u00F3n se listan las banderas que pueden ser utilizadas al instalar ", React.createElement("span", {
+          className: "inline"
+        }, ".beyond-first-project"), "."), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-name"), ": Permite definir el ", React.createElement("strong", null, "scope"), " y ", React.createElement("strong", null, "nombre"), " del proyecto. Los proyectos, siguen el estandar de ", React.createElement("strong", null, "NPM"), ", puedes leer m\u00E1s sobre ello ", React.createElement(_code.Link, {
+          href: "/docs/intron#projects"
+        }, "aqu\u00ED"), "."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-type"), ": Permite definir el tipo de proyecto a crear, es opcional, sino se pasa se crea un proyecto de tipo web por defecto. Los valores aceptados son:", React.createElement("ul", null, React.createElement("li", null, "web"), React.createElement("li", null, "node"), React.createElement("li", null, "backend"), React.createElement("li", null, "library"), React.createElement("li", null, "web-backend")), React.createElement("div", {
+          className: "block__note"
+        }, "Puedes leer m\u00E1s informaci\u00F3n sobre los tipos de proyecto ", React.createElement(_code.Link, {
+          href: "/docs/projects/types"
+        }, "aqu\u00ED"), ".")), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "-container"), ": Permite especificar si se desea agregar una carpeta contenedora de proyectos. Recuerde que ", React.createElement(_beyond.BeyondName, null), " soporta la posibilidad de manejar m\u00FAltiples proyectos en simult\u00E1neo.")), React.createElement("p", null, "Para ejemplificar, se puede imaginar que se necesita crear un proyecto ", React.createElement("span", {
+          className: "inline"
+        }, "login"), " de tipo ", React.createElement("strong", null, "node"), ", lo podriamos crear con el siguiente comando:"), React.createElement(_code2.Code, null, `> npx create-first-project -name @scope/name -type node`));
       }
     }
   });
@@ -2196,7 +2248,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   ims.set('./db', {
-    hash: 3797914831,
+    hash: 2496400756,
     creator: function (require, exports) {
       "use strict";
 
@@ -2281,6 +2333,8 @@ class Controller extends ReactWidgetController {
 
       var _import = require("./basic/projects/import");
 
+      var _structure = require("./basic/projects/structure");
+
       const getContent = (contentId, sub = undefined) => {
         const starting = {
           intro: _intro.Intro,
@@ -2294,6 +2348,7 @@ class Controller extends ReactWidgetController {
           projects: {
             intro: _projects.ProjectsPage,
             create: _manage.ManageProject,
+            structure: _structure.ProjectStructure,
             json: _projectJson.ProjectJson,
             import: _import.ImportProject
           },
