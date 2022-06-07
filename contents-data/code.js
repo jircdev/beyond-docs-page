@@ -488,6 +488,35 @@ class Auth {
     }
   });
   /********************************************
+  INTERNAL MODULE: ./basic/modules/create/index
+  ********************************************/
+
+  ims.set('./basic/modules/create/index', {
+    hash: 2935003034,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ModulesCreate = ModulesCreate;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function ModulesCreate() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Crear un M\u00F3dulo"), React.createElement("div", {
+          className: "block__note info"
+        }, "Esta p\u00E1gina asume que ya se ley\u00F3 la ", React.createElement(_code.Link, {
+          href: "/modules/intro"
+        }, "introducci\u00F3n de m\u00F3dulos")), React.createElement("p", null, "Los m\u00F3dulos se crean y gestionan por medio de los archivos de configuraci\u00F3n ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), ", estos pueden ser creados de forma manual o a trav\u00E9s de la interfaz del Dashboard."));
+      }
+    }
+  });
+  /********************************************
   INTERNAL MODULE: ./basic/modules/intro/detail
   ********************************************/
 
@@ -629,7 +658,7 @@ export /*bundle*/ const B = {...};
   **************************************************/
 
   ims.set('./basic/modules/intro/introduction', {
-    hash: 3884337710,
+    hash: 1166629701,
     creator: function (require, exports) {
       "use strict";
 
@@ -651,7 +680,7 @@ export /*bundle*/ const B = {...};
           id: "es6-modules"
         }, "M\u00F3dulos EcmaScript"), React.createElement("p", null, "Un ", React.createElement(_code.Elink, {
           href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules"
-        }, "m\u00F3dulo javascript"), " hoy es representado por un \u00FAnico archivo, con tareas independientes y un scope propio, Este m\u00F3dulo puede exportar elementos y ser importado por otros m\u00F3dulos (archivos independientes) que consumen las variables, objetos o funciones que este provee."), React.createElement("p", null, "Los empaquetadores por su parte, utilizan una sintaxis compatible con las imports incluidos en EcmaScript, pero ellos intervienen encargandose de analizar el arbol de dependencias, quitando aquellos elementos que no son utilizados en el codigo (tree shaking) y", React.createElement("strong", null, " generando un \u201Cbundle\u201D"), " que es a su vez, un contenedor de todos los m\u00F3dulos utilizados por el equipo de desarrollo. Esta gesti\u00F3n agrega un conjunto de elementos no propios del lenguaje que en el tiempo, puede implicar en malas practicas y complicaciones en la escalabilidad de proyectos."));
+        }, "m\u00F3dulo javascript"), " hoy es representado por un \u00FAnico archivo, con tareas independientes y un scope propio, Este m\u00F3dulo puede exportar elementos y dichos elementos, ser importados por otros m\u00F3dulos (archivos independientes) que consumen las variables, objetos o funciones que este provee."), React.createElement("p", null, "Los empaquetadores por su parte, utilizan una sintaxis compatible con las imports incluidos en EcmaScript, pero ellos intervienen encargandose de analizar el arbol de dependencias, quitando aquellos elementos que no son utilizados en el codigo (tree shaking) y", React.createElement("strong", null, " generando un \u201Cbundle\u201D"), " que es a su vez, un contenedor de todos los m\u00F3dulos utilizados por el equipo de desarrollo. Esta gesti\u00F3n agrega un conjunto de elementos no propios del lenguaje que en el tiempo, puede implicar en malas practicas y complicaciones en la escalabilidad de proyectos."));
       }
     }
   });
@@ -660,7 +689,7 @@ export /*bundle*/ const B = {...};
   *********************************************/
 
   ims.set('./basic/modules/intro/modules', {
-    hash: 805410432,
+    hash: 2819716435,
     creator: function (require, exports) {
       "use strict";
 
@@ -678,7 +707,7 @@ export /*bundle*/ const B = {...};
           id: "modules"
         }, "M\u00F3dulos en ", React.createElement(_beyond.BeyondName, null)), React.createElement("p", null, "En ", React.createElement("span", {
           className: "beyond"
-        }, "BeyondJS"), ", el concepto de m\u00F3dulo es un poco m\u00E1s abarcativo y se estructura de la siguiente forma: Un m\u00F3dulo est\u00E1 compuesto por bundles, los bundles contienen procesadores y puede contener m\u00F3dulos internos. Repasemos los t\u00E9rminos."), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Bundle"), " Representa el o los archivos finales de c\u00F3digo disponibles para ser le\u00EDdos por el entorno en el c\u00FAal se ejecuten."), React.createElement("li", null, React.createElement("strong", null, "Procesadores"), ": son los encargados de interpretar, transpila o compilar (seg\u00FAn sea el caso) el c\u00F3digo de los lenguajes que pueden no ser soportados directamente por los entornos de ejecuci\u00F3n. Tambien se encargan de hacer tareas de optimizaci\u00F3n para el despliegue productivo.")), React.createElement("p", null, "La estructura mencionada, permite que el concepto de m\u00F3dulos utilizado en ", React.createElement(_beyond.BeyondName, null), " se acerque m\u00E1s a la definici\u00F3n de un m\u00F3dulo en la inform\u00E1tica general, donde representa a una funcionalidad dentro de un programa o sistema. Aunque los m\u00F3dulos javascript son compatibles con este concepto, en la pr\u00E1ctica un m\u00F3dulo (bajo el concepto inform\u00E1tico) de un proyecto, aplicaci\u00F3n o libreria contiene un conjunto de m\u00F3dulos javascript (m\u00F3dulos internos en ", React.createElement("span", {
+        }, "BeyondJS"), ", el concepto de m\u00F3dulo es un poco m\u00E1s abarcativo y se estructura de la siguiente forma: Un m\u00F3dulo est\u00E1 compuesto por bundles, los bundles contienen procesadores y puede contener m\u00F3dulos internos. Repasemos los t\u00E9rminos."), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Bundle"), " Representa el o los archivos finales de c\u00F3digo disponibles para ser le\u00EDdos por el entorno en el c\u00FAal se ejecuten."), React.createElement("li", null, React.createElement("strong", null, "Procesadores"), ": son los encargados de interpretar, transpila o compilar (seg\u00FAn sea el caso) el c\u00F3digo de los lenguajes que pueden no ser soportados directamente por los entornos de ejecuci\u00F3n. Tambien se encargan de hacer tareas de optimizaci\u00F3n para el despliegue productivo.")), React.createElement("p", null, "La estructura mencionada permite que el concepto de m\u00F3dulos utilizado en ", React.createElement(_beyond.BeyondName, null), " se acerque m\u00E1s a la definici\u00F3n usada en la inform\u00E1tica en general, donde este representa a una funcionalidad dentro de un programa o sistema. Aunque los m\u00F3dulos javascript son compatibles con este concepto, en la pr\u00E1ctica un m\u00F3dulo de un proyecto, aplicaci\u00F3n o libreria contiene una serie de m\u00F3dulos javascript (m\u00F3dulos internos en ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), "), en conjunto con el resto de herramientas y tecnolog\u00EDas que se requieran para componerlo, como estilos, imagenes o texto."), React.createElement("p", null, "En otras palabras, en ", React.createElement(_beyond.BeyondName, null), " un m\u00F3dulo es el contenedor de todas las herramientas y tecnolog\u00EDas necesarias para garantizar el funcionamiento completo de un proceso."));
       }
@@ -2399,7 +2428,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   ims.set('./db', {
-    hash: 3629735502,
+    hash: 3259713915,
     creator: function (require, exports) {
       "use strict";
 
@@ -2487,6 +2516,8 @@ class Controller extends ReactWidgetController {
       var _uri = require("./api/uri");
 
       var _beyondWidgetApi = require("./api/beyond-widget-api");
+
+      var _create = require("./basic/modules/create");
       /*starting*/
 
       /*basic*/
@@ -2518,7 +2549,11 @@ class Controller extends ReactWidgetController {
             import: _import.ImportProject,
             dependencies: _dependencies.ProjectDependencies
           },
-          modules: _intro2.ModuleIntro,
+          modules: {
+            introduction: _intro2.ModuleIntro,
+            create: _create.ModulesCreate,
+            json: _config.ModuleConfig
+          },
           bundles: _bundle.Bundle,
           widgets: {
             default: _widgets.Widgets,
@@ -2563,10 +2598,6 @@ class Controller extends ReactWidgetController {
             basics: _concepts.Concepts
           },
           error404: _error.Error404,
-          modules: {
-            introduction: _intro2.ModuleIntro,
-            config: _config.ModuleConfig
-          },
           project: {
             config: _projectJson.ProjectJson
           },

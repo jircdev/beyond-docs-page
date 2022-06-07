@@ -428,7 +428,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ***********************************/
 
   ims.set('./widget/attributes', {
-    hash: 2318048750,
+    hash: 1029410984,
     creator: function (require, exports) {
       "use strict";
 
@@ -444,24 +444,22 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
 
       class WidgetGlobalAttributes {
-        #widget;
+        #holder;
 
-        get widget() {
-          return this.#widget;
+        get holder() {
+          return this.#holder;
         }
 
         #set = (name, value) => {
-          this.#widget.setAttribute(name, value);
+          this.#holder.setAttribute(name, value);
         };
         #remove = name => {
-          this.#widget.removeAttribute(name);
+          this.#holder.removeAttribute(name);
         };
 
-        constructor(widget) {
-          this.#widget = widget;
-        }
+        initialise(holder) {
+          this.#holder = holder;
 
-        initialise() {
           _attributes.attributes.values.forEach((value, name) => this.#set(name, value));
 
           _attributes.attributes.on('add', this.#set);
@@ -670,7 +668,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ******************************/
 
   ims.set('./widget/index', {
-    hash: 1590359198,
+    hash: 3691267664,
     creator: function (require, exports) {
       "use strict";
 
@@ -720,6 +718,12 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
         get identifier() {
           return this.#identifier;
+        }
+
+        #holder;
+
+        get holder() {
+          return this.#holder;
         }
 
         #sr;
@@ -784,7 +788,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           this.attachShadow({
             mode: 'open'
           });
-          this.#attributes = new _attributes.WidgetGlobalAttributes(this);
+          this.#attributes = new _attributes.WidgetGlobalAttributes();
           this.#identifier = new _identifier.WidgetIdentifier(this);
           this.#sr = new _sr.WidgetSR(this);
           this.#ssr = new _ssr.WidgetSSR(this);
@@ -796,7 +800,10 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
         connectedCallback() {
           // Register the widget in the instances registry after connectedCallback is done
           this.#wnode = _instances.instances.register(this);
-          this.#attributes.initialise();
+          this.#holder = document.createElement('span');
+          this.#holder.style.display = 'none';
+          this.shadowRoot.append(this.#holder);
+          this.#attributes.initialise(this.#holder);
           this.#ssr.initialise().catch(exc => console.error(exc.stack));
           this.#sr.initialise().catch(exc => console.error(exc.stack));
           this.#csr.initialise();
@@ -820,7 +827,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   *********************************/
 
   ims.set('./widget/renderer', {
-    hash: 1312353661,
+    hash: 2807963612,
     creator: function (require, exports) {
       "use strict";
 
@@ -853,37 +860,24 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
 
           const {
-            shadowRoot,
+            holder,
             styles
           } = widget; // Check if already rendered by CSR
 
-          if (shadowRoot.children.length) return;
+          if (holder.children.length) return;
+          if (!sr.html) return '';
+          holder.innerHTML = sr.html.replace(/##_!baseUrl!_##/g, window.baseUrl); // Set the widget styles to be able to know when they are loaded to avoid FOUC (flash of unstyled content)
 
-          shadowRoot.innerHTML = (() => {
-            if (!sr.css) return '';
-            return sr.css.replace(/##_!baseUrl!_##/g, window.baseUrl);
-          })(); // Set the widget styles to be able to know when they are loaded to avoid FOUC (flash of unstyled content)
-
-
-          (() => {
-            const links = [];
-            const resources = [...shadowRoot.children];
-            resources.forEach(node => links.push(node.href));
-            links.length && styles.initialise(links);
-            resources.forEach(node => node.localName === 'link' && node.addEventListener('load', styles.onloaded));
-            return styles;
-          })(); // Wait for style sheets be ready
-
+          const links = [];
+          const resources = holder.querySelectorAll('link');
+          resources.forEach(node => links.push(node.href));
+          links.length && styles.initialise(links);
+          resources.forEach(node => node.localName === 'link' && node.addEventListener('load', styles.onloaded)); // Wait for style sheets be ready
 
           await styles?.ready;
-          if (this.#ct !== ct) return; // Once the styles are loaded, inject the html code
+          if (this.#ct !== ct) return; // Once the styles are loaded, show the content of the widget
 
-          (() => {
-            if (!sr.html) return;
-            const e = document.createElement('span');
-            e.innerHTML = sr.html;
-            [...e.children].forEach(child => shadowRoot.append(child));
-          })();
+          holder.style.display = '';
         }
 
       }

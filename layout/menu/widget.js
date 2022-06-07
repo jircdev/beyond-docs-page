@@ -109,7 +109,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *****************************/
 
   ims.set('./data/basics', {
-    hash: 882922734,
+    hash: 1651706865,
     creator: function (require, exports) {
       "use strict";
 
@@ -121,6 +121,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
       var _structureItem = require("./structure-item");
 
       const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/structure", 'Estructura'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto'], ["projects/dependencies", 'Dependencias']];
+      const modules = [['modules/introduction', 'Modulos en Beyond'], ['modules/create', 'Crear un módulo'], ['modules/json', 'Configuración']];
       const basics = {
         id: 'concepts',
         label: 'Conceptos Básicos',
@@ -130,13 +131,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           children: (0, _structureItem.structureItems)(projects)
         }, {
           label: 'Módulos',
-          children: [{
-            id: 'modules/introduction',
-            label: 'Modulos en Beyond'
-          }, {
-            id: 'modules/config',
-            label: 'Configuración'
-          }]
+          children: (0, _structureItem.structureItems)(modules)
         }, {
           id: 'bundles',
           label: 'Bundles'
