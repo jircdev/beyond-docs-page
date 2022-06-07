@@ -164,7 +164,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
   **************************/
 
   ims.set('./registry', {
-    hash: 4151534375,
+    hash: 2973103620,
     creator: function (require, exports) {
       "use strict";
 
@@ -181,6 +181,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
         #registry = new Map();
 
         register(bundle, value) {
+          if (this.#registry.has(bundle)) return;
           const styles = value ? new _legacy.default(bundle, value) : new _v.V1Styles(bundle);
           this.#registry.set(bundle, styles);
           return styles;
@@ -209,7 +210,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
   ********************/
 
   ims.set('./v1', {
-    hash: 1516045609,
+    hash: 877273885,
     creator: function (require, exports) {
       "use strict";
 
@@ -226,36 +227,61 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
         get engine() {
           return 'v1';
         }
+        /**
+         * The bundle id
+         * @type {string}
+         * @private
+         */
+
 
         #bundle;
 
         get bundle() {
           return this.#bundle;
         }
+        /**
+         * The autoincremental HMR version
+         * @type {number}
+         * @private
+         */
+
 
         #version = 0;
 
         get version() {
           return this.#version;
         }
+        /**
+         * The href without the version qs parameter
+         * @type {string}
+         * @private
+         */
 
-        #href;
+
+        #resource;
+
+        get resource() {
+          return this.#resource;
+        }
+        /**
+         * The url of the stylesheet including the HMR version qs parameter
+         *
+         * @return {string}
+         */
+
 
         get href() {
-          return this.#href;
+          const version = this.#version ? `?version=${this.#version}` : '';
+          return `${this.#resource}${version}`;
         }
 
         constructor(bundle) {
           super();
           this.#bundle = bundle;
-
-          this.#href = (() => {
-            const appPackage = `${_ts.beyond.application.package.id}/`;
-            const id = bundle.startsWith(appPackage) ? bundle.slice(appPackage.length) : `packages/${bundle}`;
-            const url = typeof window === 'object' ? _ts.beyond.baseUrl : '##_!baseUrl!_##';
-            const version = this.#version ? `?version=${this.#version}` : '';
-            return `${url}/${id}.css${version}`;
-          })();
+          const appPackage = `${_ts.beyond.application.package.id}/`;
+          const id = bundle.startsWith(appPackage) ? bundle.slice(appPackage.length) : `packages/${bundle}`;
+          const baseUrl = typeof window === 'object' ? _ts.beyond.baseUrl : '##_!baseUrl!_##';
+          this.#resource = `${baseUrl}/${id}.css`;
         }
         /**
          * Called by HMR in development environment

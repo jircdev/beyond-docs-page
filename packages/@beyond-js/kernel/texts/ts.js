@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
   *************************/
 
   ims.set('./current', {
-    hash: 1025406320,
+    hash: 331090471,
     creator: function (require, exports) {
       "use strict";
 
@@ -164,7 +164,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
   ***********************/
 
   ims.set('./texts', {
-    hash: 1255050264,
+    hash: 116824942,
     creator: function (require, exports) {
       "use strict";
 

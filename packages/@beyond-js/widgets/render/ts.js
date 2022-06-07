@@ -4,7 +4,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.widgets = _exports2.prerender = _exports2.hmr = _exports2.attributes = _exports2.WidgetCSR = _exports2.NodeWidget = _exports2.ListenerFunction = _exports2.IWidgetSpecs = _exports2.IBeyondWidgetController = _exports2.Events = _exports2.BeyondWidget = void 0;
+  _exports2.widgets = _exports2.prerender = _exports2.hmr = _exports2.attributes = _exports2.WidgetCSR = _exports2.StylesManager = _exports2.NodeWidget = _exports2.ListenerFunction = _exports2.IWidgetSpecs = _exports2.IBeyondWidgetController = _exports2.Events = _exports2.BeyondWidget = void 0;
   const amd_require = require;
 
   const {
@@ -16,6 +16,37 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
   externals.register(new Map([]));
   const ims = new Map();
+  /************************
+  INTERNAL MODULE: ./anchor
+  ************************/
+
+  ims.set('./anchor', {
+    hash: 592305348,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      typeof window === 'object' && customElements.define('beyond-link', class extends HTMLElement {
+        #routing;
+
+        constructor() {
+          super();
+          amd_require(['@beyond-js/kernel/routing/ts'], mod => this.#routing = mod.routing);
+        }
+
+        connectedCallback() {
+          this.addEventListener('click', () => {
+            if (!this.hasAttribute('data-url')) return;
+            const url = this.getAttribute('data-url');
+            this.#routing?.pushState(url);
+          });
+        }
+
+      });
+    }
+  });
   /****************************
   INTERNAL MODULE: ./attributes
   ****************************/
@@ -240,6 +271,37 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       });
     }
   });
+  /***********************
+  INTERNAL MODULE: ./hosts
+  ***********************/
+
+  ims.set('./hosts', {
+    hash: 489580606,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.default = void 0;
+      const config = globalThis.__beyond_config;
+      const ssr = config?.ssr;
+
+      var _default = new class extends Map {
+        constructor() {
+          super();
+          ssr?.forEach(([pkg, host]) => this.set(pkg, host));
+        }
+
+        register(pkg, host) {
+          this.set(pkg, host);
+        }
+
+      }();
+
+      exports.default = _default;
+    }
+  });
   /*********************************
   INTERNAL MODULE: ./instances/index
   *********************************/
@@ -332,7 +394,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ***********************************/
 
   ims.set('./prerendered/index', {
-    hash: 3513076231,
+    hash: 483738484,
     creator: function (require, exports) {
       "use strict";
 
@@ -352,7 +414,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
         find(element, attrs) {
           return this.#ssr.find(item => {
             if (item.element !== element) return false;
-            const iattrs = new Map(item.attrs);
+            const iattrs = new Map(item.attributes);
             return [...attrs].reduce((prev, [name, value]) => prev || iattrs.get(name) === value, true);
           });
         }
@@ -459,7 +521,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ****************************/
 
   ims.set('./widget/csr', {
-    hash: 1650913790,
+    hash: 927248549,
     creator: function (require, exports) {
       "use strict";
 
@@ -474,12 +536,6 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
       class WidgetCSR extends _events.Events {
         #widget;
-        #specs;
-
-        get specs() {
-          return this.#specs;
-        }
-
         #bundle;
 
         get bundle() {
@@ -560,8 +616,12 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           this.#controller.initialise().then(() => this.trigger('controller.initialised')).catch(exc => console.log(exc instanceof Error ? exc.stack : exc));
         };
 
-        attributeChangedCallback(name, old, value) {
-          this.#controller?.attributeChangedCallback(name, old, value);
+        disconnect() {
+          this.#controller?.disconnect?.();
+        }
+
+        attributeChanged(name, old, value) {
+          this.#controller?.attributeChanged(name, old, value);
         }
 
       }
@@ -610,7 +670,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ******************************/
 
   ims.set('./widget/index', {
-    hash: 1921531597,
+    hash: 1590359198,
     creator: function (require, exports) {
       "use strict";
 
@@ -629,7 +689,9 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
       var _identifier = require("./identifier");
 
-      var _attributes = require("./attributes"); // In SSR environment HTMLElement is not defined
+      var _attributes = require("./attributes");
+
+      var _styles = require("./styles"); // In SSR environment HTMLElement is not defined
 
 
       const Element = typeof HTMLElement === 'undefined' ? null : HTMLElement;
@@ -682,7 +744,13 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           return this.#ssr;
         }
 
-        #attributes; // To identify where the widget is in the widgets tree
+        #attributes;
+        #styles;
+
+        get styles() {
+          return this.#styles;
+        } // To identify where the widget is in the widgets tree
+
 
         #wnode;
 
@@ -722,19 +790,24 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           this.#ssr = new _ssr.WidgetSSR(this);
           this.#csr = new _csr.WidgetCSR(this);
           this.#csr?.on('controller.initialised', this.#oncontroller);
+          this.#styles = new _styles.StylesManager();
         }
 
         connectedCallback() {
           // Register the widget in the instances registry after connectedCallback is done
           this.#wnode = _instances.instances.register(this);
           this.#attributes.initialise();
-          this.#ssr.initialise();
+          this.#ssr.initialise().catch(exc => console.error(exc.stack));
           this.#sr.initialise().catch(exc => console.error(exc.stack));
           this.#csr.initialise();
         }
 
+        disconnectedCallback() {
+          this.#csr.disconnect();
+        }
+
         attributeChangedCallback(name, old, value) {
-          this.#csr.attributeChangedCallback(name, old, value);
+          this.#csr.attributeChanged(name, old, value);
         }
 
       }
@@ -742,12 +815,88 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       exports.BeyondWidget = BeyondWidget;
     }
   });
+  /*********************************
+  INTERNAL MODULE: ./widget/renderer
+  *********************************/
+
+  ims.set('./widget/renderer', {
+    hash: 1312353661,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Renderer = void 0;
+
+      class Renderer {
+        #widget;
+
+        constructor(widget) {
+          this.#widget = widget;
+        } // Cancellation token
+
+
+        #ct = 0;
+
+        async render(sr) {
+          const ct = ++this.#ct;
+          const widget = this.#widget;
+          const {
+            specs
+          } = widget;
+
+          if (sr.errors?.length) {
+            console.error(`Error fetching static rendered widget "${specs.name}":`, sr.errors);
+            return;
+          } // Append css code
+
+
+          const {
+            shadowRoot,
+            styles
+          } = widget; // Check if already rendered by CSR
+
+          if (shadowRoot.children.length) return;
+
+          shadowRoot.innerHTML = (() => {
+            if (!sr.css) return '';
+            return sr.css.replace(/##_!baseUrl!_##/g, window.baseUrl);
+          })(); // Set the widget styles to be able to know when they are loaded to avoid FOUC (flash of unstyled content)
+
+
+          (() => {
+            const links = [];
+            const resources = [...shadowRoot.children];
+            resources.forEach(node => links.push(node.href));
+            links.length && styles.initialise(links);
+            resources.forEach(node => node.localName === 'link' && node.addEventListener('load', styles.onloaded));
+            return styles;
+          })(); // Wait for style sheets be ready
+
+
+          await styles?.ready;
+          if (this.#ct !== ct) return; // Once the styles are loaded, inject the html code
+
+          (() => {
+            if (!sr.html) return;
+            const e = document.createElement('span');
+            e.innerHTML = sr.html;
+            [...e.children].forEach(child => shadowRoot.append(child));
+          })();
+        }
+
+      }
+
+      exports.Renderer = Renderer;
+    }
+  });
   /***************************
   INTERNAL MODULE: ./widget/sr
   ***************************/
 
   ims.set('./widget/sr', {
-    hash: 295951095,
+    hash: 4076547343,
     creator: function (require, exports) {
       "use strict";
 
@@ -758,11 +907,15 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
       var _checksum = require("./checksum");
 
+      var _renderer = require("./renderer");
+
       class WidgetSR {
         #widget;
+        #renderer;
 
         constructor(widget) {
           this.#widget = widget;
+          this.#renderer = new _renderer.Renderer(widget);
         }
 
         #initialised = false;
@@ -775,10 +928,9 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           } = this.#widget; // Check if SR is enabled for this widget
 
           if (!specs.render.sr) return;
-          void this;
 
           try {
-            let language = (() => {
+            const language = (() => {
               const {
                 multilanguage
               } = specs.render;
@@ -798,7 +950,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
               resource = (0, _checksum.default)(`${language}${specs.name}`);
             } else {
               const compute = new Map();
-              specs.attrs.forEach(attr => {
+              specs.attrs?.forEach(attr => {
                 const value = this.#widget.getAttribute(attr);
                 value && compute.set(attr, value);
               });
@@ -816,17 +968,9 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
               return;
             }
 
-            const sr = await response.json();
+            const sr = await response.json(); // Finally render the widget
 
-            if (sr.errors) {
-              console.error(`Error fetching static rendered widget "${specs.name}":`, sr.errors);
-              return;
-            }
-
-            this.#widget.shadowRoot.innerHTML = (() => {
-              if (!sr.html) return '';
-              return sr.html.replace('##_!baseUrl!_##', window.baseUrl);
-            })();
+            await this.#renderer.render(sr);
           } catch (exc) {
             console.error('Widget static content fetch error:', exc.message);
           }
@@ -842,7 +986,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   ****************************/
 
   ims.set('./widget/ssr', {
-    hash: 3177629896,
+    hash: 4169569284,
     creator: function (require, exports) {
       "use strict";
 
@@ -853,8 +997,13 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
       var _prerendered = require("../prerendered");
 
+      var _renderer = require("./renderer");
+
+      var _hosts = require("../hosts");
+
       class WidgetSSR {
         #widget;
+        #renderer;
         #prerender;
 
         get prerender() {
@@ -863,6 +1012,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
         constructor(widget) {
           this.#widget = widget;
+          this.#renderer = new _renderer.Renderer(widget);
         }
 
         #initialised = false;
@@ -870,7 +1020,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
          * Check if widget is already pre-rendered (index.html makes a page ssr fetch)
          */
 
-        initialise() {
+        async initialise() {
           // Check if SSR is enabled for this widget
           if (!this.#widget.specs.render.ssr) return;
           if (this.#initialised) throw new Error('Widget SSR already initialised');
@@ -881,44 +1031,73 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
           } = widget;
           const attrs = new Map(specs.attrs ? specs.attrs.map(attr => [attr, widget.getAttribute(attr)]) : void 0);
 
-          const found = _prerendered.prerender.find(specs.name, attrs);
+          const found = _prerendered.prerender.find(specs.name, attrs); // If the widget has not been loaded by routing SSR, then load the widget alone
 
-          if (!found) return;
-          this.#prerender = found;
 
-          if (found.errors?.length) {
-            console.log(`Error found on widget ssr "${widget.localName}"`, found.errors);
+          if (!found) {
+            return await this.#load();
+          }
+
+          this.#prerender = found; // Finally render the widget
+
+          await this.#renderer.render(found);
+        }
+
+        async #load() {
+          const {
+            specs
+          } = this.#widget;
+          const {
+            id,
+            name
+          } = specs;
+          const split = id.split('/');
+          const pkg = split[0].startsWith('@') ? `${split.shift()}/${split.shift()}` : split.shift();
+
+          if (!_hosts.default.has(pkg)) {
+            console.error(`SSR host of widget "${name}" not found`, pkg, _hosts.default);
             return;
           }
 
-          widget.shadowRoot.innerHTML = (() => {
-            if (!found.html) return '';
-            return found.html.replace('##_!baseUrl!_##', window.baseUrl);
+          const host = _hosts.default.get(pkg);
+
+          const language = (() => {
+            const {
+              multilanguage
+            } = specs.render;
+            if (!multilanguage) return '';
+            let language = localStorage.__beyond_language;
+            language = language ? language : navigator.language;
+            language = language.slice(0, 2);
+            return `&language=${language}`;
           })();
-        }
 
-        #resolve;
-        #promise = new Promise(resolve => this.#resolve = resolve);
+          let attrs = (() => {
+            if (!specs.attrs?.length) return '';
+            let attrs = '&attrs=' + specs.attrs.join(',');
+            specs.attrs.forEach(attr => {
+              const value = this.#widget.getAttribute(attr);
+              if (!value) return;
+              attrs += `&attr.${attr}=${value}`;
+            });
+          })();
 
-        render() {
-          if (!this.#promise) return this.#promise;
-          const xhr = new XMLHttpRequest();
-          const url = 'http://localhost:5000/widget?widget=hello-world';
-          xhr.open("GET", url, true); // function execute after request is successful
+          const url = `${host}/widget?name=${name}${language}${attrs}`;
 
-          const widget = this.#widget;
-          const resolve = this.#resolve;
+          try {
+            const response = await fetch(url);
 
-          xhr.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-              widget.shadowRoot.innerHTML = this.responseText;
-              resolve();
+            if (response.status !== 200) {
+              console.error(`Error fetching SSR of widget "${specs.name}". Status code: ${response.status}`);
+              return;
             }
-          }; // Sending our request
 
+            const sr = await response.json(); // Finally render the widget
 
-          xhr.send();
-          return this.#promise;
+            await this.#renderer.render(sr);
+          } catch (exc) {
+            console.error(exc.stack);
+          }
         }
 
       }
@@ -926,12 +1105,210 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       exports.WidgetSSR = WidgetSSR;
     }
   });
+  /*************************************
+  INTERNAL MODULE: ./widget/styles/index
+  *************************************/
+
+  ims.set('./widget/styles/index', {
+    hash: 3180663925,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesManager = void 0;
+
+      var _events = require("../../events");
+
+      var _link = require("./link");
+      /*bundle*/
+
+
+      class StylesManager extends Set {
+        #events = new _events.Events();
+        on = (event, listener) => this.#events.on(event, listener);
+        off = (event, listener) => this.#events.off(event, listener);
+        #loaded = new Map();
+        #version = 0;
+
+        get version() {
+          return this.#version;
+        }
+
+        #changed() {
+          this.#version++;
+          this.#resolved && this.#events.trigger('change');
+        }
+
+        get resources() {
+          return new Set([...this.#loaded.keys()]);
+        }
+
+        get loaded() {
+          this.#check();
+          return this.#resolved;
+        }
+
+        #promise;
+        #resolved = false;
+        #resolve;
+
+        get ready() {
+          this.#check();
+          return this.#promise;
+        }
+
+        onloaded = event => {
+          const href = typeof event === 'string' ? event : event.currentTarget.href;
+
+          if (!this.#loaded.has(href)) {
+            console.warn(`Link href="${href}" not registered`);
+            return;
+          }
+
+          this.#loaded.set(href, true);
+          this.#check();
+          const changed = this.#purge();
+          changed && this.#changed();
+          return true;
+        };
+
+        #check() {
+          if (this.#resolved) return true; // Check if all links are loaded
+
+          const loaded = [...this.#loaded.values()].reduce((prev, loaded) => prev && loaded, true);
+          loaded && this.#resolve();
+          return this.#resolved = loaded;
+        }
+        /**
+         * Remove style sheets that have been supplanted by newer hmr versions
+         * @private
+         */
+
+
+        #purge() {
+          const versions = {
+            last: new Map(),
+            values: new Map(),
+            lastLoaded: new Map()
+          };
+          [...this.#loaded.keys()].forEach(href => {
+            const link = new _link.default(href);
+            const prevLast = versions.last.get(link.resource);
+            const last = prevLast && prevLast > link.version ? prevLast : link.version;
+            versions.last.set(link.resource, last);
+
+            if (this.#loaded.get(link.href)) {
+              const prevLastLoaded = versions.lastLoaded.get(link.resource);
+              const lastLoaded = prevLastLoaded && prevLastLoaded > link.version ? prevLastLoaded : link.version;
+              versions.lastLoaded.set(link.resource, lastLoaded);
+            }
+
+            const values = versions.values.has(link.resource) ? versions.values.get(link.resource) : new Set();
+            values.add(link.version);
+            versions.values.set(link.resource, values);
+          }); // Just keep the last loaded version and the loading versions
+
+          const purge = [];
+          [...this.#loaded.keys()].forEach(href => {
+            const link = new _link.default(href);
+            const lastLoaded = versions.lastLoaded.get(link.resource);
+            link.version < lastLoaded && purge.push(link);
+          });
+          purge.forEach(link => this.#loaded.delete(link.href));
+          return !!purge.length;
+        }
+
+        #update(links) {
+          let changed = false; // Add the new style sheets
+
+          links.forEach(link => {
+            if (this.#loaded.has(link.href)) return;
+            this.#loaded.set(link.href, false);
+            changed = true;
+          });
+          return changed;
+        }
+
+        update(links) {
+          const changed = this.#update(links.map(link => new _link.default(link)));
+          changed && this.#changed();
+        }
+
+        constructor() {
+          super();
+          this.#promise = new Promise(resolve => this.#resolve = resolve);
+        }
+
+        #initialised = false;
+
+        get initialised() {
+          return this.#initialised;
+        }
+
+        initialise(links) {
+          if (this.#initialised) throw new Error(`Widget styles already initialised`);
+          this.#initialised = true;
+          this.#update(links.map(link => new _link.default(link)));
+        }
+
+      }
+
+      exports.StylesManager = StylesManager;
+    }
+  });
+  /************************************
+  INTERNAL MODULE: ./widget/styles/link
+  ************************************/
+
+  ims.set('./widget/styles/link', {
+    hash: 3219871066,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.default = void 0;
+
+      class _default {
+        #href;
+
+        get href() {
+          return this.#href;
+        }
+
+        #resource;
+
+        get resource() {
+          return this.#resource;
+        }
+
+        #version;
+
+        get version() {
+          return this.#version;
+        }
+
+        constructor(href) {
+          this.#href = href;
+          const iv = href.split('?version=');
+          this.#resource = iv[0];
+          this.#version = iv[1] ? parseInt(iv[1]) : 0;
+        }
+
+      }
+
+      exports.default = _default;
+    }
+  });
   /*************************
   INTERNAL MODULE: ./widgets
   *************************/
 
   ims.set('./widgets', {
-    hash: 3771563911,
+    hash: 658523285,
     creator: function (require, exports) {
       "use strict";
 
@@ -945,6 +1322,10 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       var _instances = require("./instances");
 
       var _attributes = require("./attributes");
+
+      require("./anchor");
+
+      var _hosts = require("./hosts");
       /*bundle*/
 
 
@@ -953,6 +1334,10 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
         get ssr() {
           return this.#ssr;
+        }
+
+        get hosts() {
+          return _hosts.default;
         }
 
         constructor() {
@@ -1018,12 +1403,14 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
     _exports.WidgetCSR = require('./widget/csr').WidgetCSR;
     _exports.IWidgetSpecs = require('./widget/index').IWidgetSpecs;
     _exports.BeyondWidget = require('./widget/index').BeyondWidget;
+    _exports.StylesManager = require('./widget/styles/index').StylesManager;
     _exports.widgets = require('./widgets').widgets;
   };
 
-  let attributes, Events, ListenerFunction, NodeWidget, prerender, IBeyondWidgetController, WidgetCSR, IWidgetSpecs, BeyondWidget, widgets; // Module exports
+  let attributes, Events, ListenerFunction, NodeWidget, prerender, IBeyondWidgetController, WidgetCSR, IWidgetSpecs, BeyondWidget, StylesManager, widgets; // Module exports
 
   _exports2.widgets = widgets;
+  _exports2.StylesManager = StylesManager;
   _exports2.BeyondWidget = BeyondWidget;
   _exports2.IWidgetSpecs = IWidgetSpecs;
   _exports2.WidgetCSR = WidgetCSR;
@@ -1044,6 +1431,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
     _exports2.WidgetCSR = WidgetCSR = require('./widget/csr').WidgetCSR;
     _exports2.IWidgetSpecs = IWidgetSpecs = require('./widget/index').IWidgetSpecs;
     _exports2.BeyondWidget = BeyondWidget = require('./widget/index').BeyondWidget;
+    _exports2.StylesManager = StylesManager = require('./widget/styles/index').StylesManager;
     _exports2.widgets = widgets = require('./widgets').widgets;
   };
 

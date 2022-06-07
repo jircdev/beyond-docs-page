@@ -152,7 +152,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", 
   *************************/
 
   ims.set('./manager', {
-    hash: 1402228574,
+    hash: 2716961058,
     creator: function (require, exports) {
       "use strict";
 
@@ -239,7 +239,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", 
           } = route;
 
           if (!element) {
-            console.error(`Pathname "${uri.pathname}" does not have a element associated to it`);
+            console.error(`Pathname "${uri.pathname}" does not have a page widget associated to it`);
             return done();
           }
 
