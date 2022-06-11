@@ -397,7 +397,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
   ******************************/
 
   ims.set('./socket/index', {
-    hash: 2509215701,
+    hash: 3123572995,
     creator: function (require, exports) {
       "use strict";
 
@@ -443,14 +443,10 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
           const {
             host
           } = this.#backend;
-          this.#socket = io(host, {
+          return this.#socket = io(host, {
             transports: ['websocket'],
             'query': query
           });
-          this.#socket.on('error', error => console.error('Socket error:', id, host, error));
-          this.#socket.on('connect_error', error => console.error('Socket connection error:', id, host, error));
-          this.#socket.on('connect_timeout', error => console.error('Socket connection timeout:', id, host, error));
-          return this.#socket;
         }
 
       }

@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/core/ts", "react", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
   externals.register(new Map([["react", dependency_4]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/ui/link/code", "@beyond/ui/icons/code", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "home-page",
@@ -33,7 +33,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ****************************/
 
   ims.set('./controller', {
-    hash: 2032867280,
+    hash: 2354464607,
     creator: function (require, exports) {
       "use strict";
 
@@ -560,7 +560,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ***********************/
 
   ims.set('./store', {
-    hash: 3768859075,
+    hash: 1449678072,
     creator: function (require, exports) {
       "use strict";
 
@@ -596,9 +596,18 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           return this.#container;
         }
 
+        get ready() {}
+
+        #texts;
+
+        get texts() {
+          return this.#texts.value;
+        }
+
         constructor(container) {
           super();
-          this.#container = container;
+          this.#container = container; // this.#texts = new CurrentTexts(module.resource, true);
+          // this.#texts.bind('change', this.triggerEvent);
         }
 
         async fetch() {}
@@ -916,6 +925,155 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
+  /************************************************
+  INTERNAL MODULE: ./views/header/header-menu/index
+  ************************************************/
+
+  ims.set('./views/header/header-menu/index', {
+    hash: 445097988,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TopHeader = TopHeader;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/image/code");
+
+      var _hamburger = require("../menu/hamburger");
+
+      var _code2 = require("@beyond/docs/components/theme-button/code");
+
+      var _code3 = require("@beyond/ui/link/code");
+
+      var _languageAction = require("./language-action");
+
+      function TopHeader() {
+        return React.createElement("section", {
+          className: "top__header"
+        }, React.createElement("nav", {
+          className: "menu-container container flex-container flex-h-end"
+        }, React.createElement("div", {
+          className: "mobile__header"
+        }, React.createElement(_code.BeyondImage, {
+          src: "/images/beyond-logo.png",
+          alt: "beyondjs"
+        }), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
+          className: "menu-list__container"
+        }, React.createElement("ul", {
+          className: "header__menu"
+        }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/docs/tutorial/web"
+        }, "Tutorial")), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/docs/intro"
+        }, "Documentation")), React.createElement("li", null, React.createElement(_code3.Link, {
+          href: "/examples"
+        }, "Examples"))))));
+      }
+    }
+  });
+  /**********************************************************
+  INTERNAL MODULE: ./views/header/header-menu/language-action
+  **********************************************************/
+
+  ims.set('./views/header/header-menu/language-action', {
+    hash: 3291368258,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.LanguageAction = LanguageAction;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/ui/icons/code");
+
+      var _modal = require("./modal");
+
+      function LanguageAction() {
+        const [toggle, setToggle] = React.useState(false);
+
+        const onClick = event => {
+          event.preventDefault();
+          setToggle(!toggle);
+        };
+
+        return React.createElement(React.Fragment, null, React.createElement(_code.AppIcon, {
+          className: "language-icon",
+          icon: "languages",
+          onClick: onClick
+        }), toggle && React.createElement(_modal.LanguagesModal, {
+          onClose: () => setToggle(false)
+        }));
+      }
+    }
+  });
+  /************************************************
+  INTERNAL MODULE: ./views/header/header-menu/modal
+  ************************************************/
+
+  ims.set('./views/header/header-menu/modal', {
+    hash: 1034134135,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.LanguagesModal = LanguagesModal;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/modal/code");
+
+      function LanguagesModal({
+        onClose
+      }) {
+        const [selected, setSelected] = React.useState(undefined);
+
+        const onConfirm = event => {
+          onClose();
+        };
+
+        const onClick = event => {
+          const lang = event.currentTarget.dataset.language;
+          setSelected(lang);
+        };
+
+        const disabled = {};
+        if (!selected) disabled.disabled = true;
+        return React.createElement(React.Fragment, null, React.createElement(_code.BeyondModal, {
+          show: true,
+          className: "modal-languages",
+          onClose: onClose
+        }, React.createElement("ul", {
+          className: "languages-list"
+        }, React.createElement("li", {
+          onClick: onClick,
+          className: `${selected === 'en' ? ' item-selected' : ''}`,
+          "data-language": "en"
+        }, React.createElement("span", {
+          className: "current-name"
+        }, "English"), "English"), React.createElement("li", {
+          onClick: onClick,
+          className: `${selected === 'es' ? ' item-selected' : ''}`,
+          "data-language": "es"
+        }, React.createElement("span", {
+          className: "current-name"
+        }, "Spanish"), "Espa\u00F1ol")), React.createElement("div", {
+          className: "actions"
+        }, React.createElement("button", { ...disabled,
+          onClick: onConfirm,
+          className: "btn btn-primary "
+        }, "Confirm"))));
+      }
+    }
+  });
   /***********************************
   INTERNAL MODULE: ./views/header/icon
   ***********************************/
@@ -961,7 +1119,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ************************************/
 
   ims.set('./views/header/index', {
-    hash: 3851949519,
+    hash: 2155869239,
     creator: function (require, exports) {
       "use strict";
 
@@ -980,11 +1138,11 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _headerContent = require("./header-content");
 
-      var _topHeader = require("./top-header");
+      require("@beyond/docs/header-menu/widget");
 
       function Header() {
         const container = React.useRef(null);
-        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement(_topHeader.TopHeader, null), React.createElement("header", {
+        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement("docs-header-menu", null), React.createElement("header", {
           className: "home__header",
           ref: container
         }, React.createElement("div", {
@@ -1160,54 +1318,6 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
-  /*****************************************
-  INTERNAL MODULE: ./views/header/top-header
-  *****************************************/
-
-  ims.set('./views/header/top-header', {
-    hash: 1616681787,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.TopHeader = TopHeader;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/image/code");
-
-      var _hamburger = require("./menu/hamburger");
-
-      var _code2 = require("@beyond/docs/components/theme-button/code");
-
-      var _code3 = require("@beyond/ui/link/code");
-
-      function TopHeader() {
-        return React.createElement("section", {
-          className: "top__header"
-        }, React.createElement("nav", {
-          className: "menu-container container flex-container flex-h-end"
-        }, React.createElement("div", {
-          className: "mobile__header"
-        }, React.createElement(_code.BeyondImage, {
-          src: "/images/beyond-logo.png",
-          alt: "beyondjs"
-        }), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
-          className: "menu-list__container"
-        }, React.createElement("ul", {
-          className: "header__menu"
-        }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_code3.Link, {
-          href: "/docs/tutorial/web"
-        }, "Tutorial")), React.createElement("li", null, React.createElement(_code3.Link, {
-          href: "/docs/intro"
-        }, "Documentation")), React.createElement("li", null, React.createElement(_code3.Link, {
-          href: "/examples"
-        }, "Examples"))))));
-      }
-    }
-  });
   /*************************************
   INTERNAL MODULE: ./views/navigator-box
   *************************************/
@@ -1253,7 +1363,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ****************************/
 
   ims.set('./views/page', {
-    hash: 1521293706,
+    hash: 1607691665,
     creator: function (require, exports) {
       "use strict";
 
@@ -1278,10 +1388,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _solution = require("./sections/solution");
 
-      function Page({
-        uri,
-        component
-      }) {
+      function Page() {
         return React.createElement(React.Fragment, null, React.createElement(_header.Header, null), React.createElement("main", {
           className: "main__home__content"
         }, React.createElement(_solution.Solution, null), React.createElement(_technologies.Technologies, null), React.createElement("div", {

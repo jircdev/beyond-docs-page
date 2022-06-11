@@ -290,7 +290,7 @@ define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@b
   ************************/
 
   ims.set('./styles', {
-    hash: 992657226,
+    hash: 665555243,
     creator: function (require, exports) {
       "use strict";
 
@@ -304,12 +304,14 @@ define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@b
       function _default({
         styles
       }) {
-        const rs = React.useState(0);
+        const rs = React.useState(0); // Listen for .css bundle changes
 
-        const refresh = () => rs[1](rs[0] + 1); // Listen for .css bundle changes
+        React.useEffect(() => {
+          const refresh = () => rs[1](rs[0] + 1);
 
-
-        styles.on('change', refresh);
+          styles.on('change', refresh);
+          return () => styles.off('change', refresh) && void 0;
+        }, []);
         const head = [...styles.resources].map(url => {
           return React.createElement("link", {
             key: url,

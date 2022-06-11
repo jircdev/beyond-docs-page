@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/layout/styles/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -14,8 +14,6 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   const __pkg = new __Bundle("@beyond/docs/layout/main/widget").package();
 
   externals.register(new Map([["react", dependency_3]]));
-
-  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "main-layout",
@@ -63,7 +61,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   ************************/
 
   ims.set('./layout', {
-    hash: 3817817328,
+    hash: 551316928,
     creator: function (require, exports) {
       "use strict";
 

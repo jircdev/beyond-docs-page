@@ -67,7 +67,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   **************************/
 
   ims.set('./data/api', {
-    hash: 291579804,
+    hash: 3470403212,
     creator: function (require, exports) {
       "use strict";
 
@@ -75,31 +75,14 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         value: true
       });
       exports.api = void 0;
+
+      var _structureItem = require("./structure-item");
+
+      const children = [['api/uri', 'URI'], ["api/BeyondWidget", "Objeto widget"], ["api/IWidgetStore", "IWidgetStore"]];
       const api = {
         id: 'reference',
         label: 'API',
-        children: [{
-          id: 'server',
-          label: 'Server'
-        }, {
-          id: '/api/uri',
-          label: 'URI'
-        }, {
-          id: "/api/BeyondWidget",
-          label: "Objeto widget"
-        }, {
-          id: 'projects',
-          label: 'Configuración de proyectos'
-        }, {
-          id: 'modules',
-          label: 'Modules'
-        }, {
-          id: 'bundles',
-          label: 'Bundles'
-        }, {
-          id: 'processors',
-          label: 'Processors'
-        }]
+        children: (0, _structureItem.structureItems)(children)
       };
       exports.api = api;
     }
@@ -109,7 +92,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *****************************/
 
   ims.set('./data/basics', {
-    hash: 1651706865,
+    hash: 163841201,
     creator: function (require, exports) {
       "use strict";
 
@@ -122,57 +105,13 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/structure", 'Estructura'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto'], ["projects/dependencies", 'Dependencias']];
       const modules = [['modules/introduction', 'Modulos en Beyond'], ['modules/create', 'Crear un módulo'], ['modules/json', 'Configuración']];
+      const styles = [["styles/template", "Template"], ["styles/modules", "Modulos"], ["styles/themes", "Light & Dark theme"], ["styles/imports", "Importación"]];
+      const widgets = [["widgets", "Intro"], ["widgets/definition", "Definición"], ["widgets/controller", "Objeto Controller"], ["widgets/page", "Page"], ["widgets/layout", "Layout"]];
+      const general = (0, _structureItem.structureItems)([['projects', 'Proyectos', (0, _structureItem.structureItems)(projects)], [undefined, 'Módulos', (0, _structureItem.structureItems)(modules)], ['bundles', 'Bundles'], ['processors', 'Processors'], ['template', 'Sistema de Plantillas'], ['widgets', 'Widgets', (0, _structureItem.structureItems)(widgets)], ['routing', 'Enrutamiento'], ['state/management', 'Manejo de Estados'], ['backend', 'Backend'], ['styles', 'Estilos', (0, _structureItem.structureItems)(styles)]]);
       const basics = {
         id: 'concepts',
         label: 'Conceptos Básicos',
-        children: [{
-          id: 'projects',
-          label: 'Proyectos',
-          children: (0, _structureItem.structureItems)(projects)
-        }, {
-          label: 'Módulos',
-          children: (0, _structureItem.structureItems)(modules)
-        }, {
-          id: 'bundles',
-          label: 'Bundles'
-        }, {
-          id: 'widgets',
-          label: 'Widgets',
-          children: [{
-            id: "widgets",
-            label: "Intro"
-          }, {
-            id: "widgets/definition",
-            label: "Definición"
-          }, {
-            id: "widgets/controller",
-            label: "Objeto Controller"
-          }, {
-            id: "widgets/page",
-            label: "Page"
-          }, {
-            id: "widgets/layout",
-            label: "Layout"
-          }]
-        }, {
-          id: 'routing',
-          label: 'Enrutamiento'
-        }, {
-          id: 'state/management',
-          label: 'Manejo de Estados'
-        }, {
-          id: 'styles',
-          label: 'Estilos'
-        }, {
-          id: 'themes',
-          label: 'Light & Dark Theme'
-        }, {
-          id: 'backend',
-          label: 'Backend'
-        }, {
-          id: 'ssr',
-          label: 'Server side rendering'
-        }]
+        children: general
       };
       exports.basics = basics;
     }
@@ -206,7 +145,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ***********************************/
 
   ims.set('./data/fundamentals', {
-    hash: 577168515,
+    hash: 2993847269,
     creator: function (require, exports) {
       "use strict";
 
@@ -214,28 +153,13 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         value: true
       });
       exports.fundamentals = void 0;
+
+      var _structureItem = require("./structure-item");
+
       const fundamentals = {
         id: 'fundamentals',
         label: 'Fundamentos',
-        children: [{
-          id: 'why-beyond',
-          label: '¿Porque Beyond?'
-        }, {
-          id: 'npm-packages',
-          label: 'Paquetes Npm'
-        }, {
-          id: 'hmr',
-          label: 'HMR'
-        }, {
-          id: "processors",
-          label: "Procesadores"
-        }, {
-          id: 'bee',
-          label: 'BEE'
-        }, {
-          id: 'dev-server',
-          label: "Servidor de desarrollo"
-        }]
+        children: (0, _structureItem.structureItems)([['dev-server', "Servidor de desarrollo"], ['distributions', 'Distribuciones'], ["processors", "Procesadores"], ['hmr', 'HMR'], ['bee', 'BEE'], ['ssr', 'SSR'], ['multilanguage', 'Multilenguaje'], ['glossary', 'Glosario']])
       };
       exports.fundamentals = fundamentals;
     }
@@ -302,7 +226,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *************************************/
 
   ims.set('./data/structure-item', {
-    hash: 4019233650,
+    hash: 2146397657,
     creator: function (require, exports) {
       "use strict";
 
@@ -311,9 +235,10 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
       });
       exports.structureItems = void 0;
 
-      const structureItems = data => data.map(([id, label]) => ({
+      const structureItems = data => data.map(([id, label, children = undefined]) => ({
         id,
-        label
+        label,
+        children
       }));
 
       exports.structureItems = structureItems;

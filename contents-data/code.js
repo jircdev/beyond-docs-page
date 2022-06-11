@@ -1,4 +1,4 @@
-define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/ui/image/code", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
+define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
 
   externals.register(new Map([["react", dependency_0]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/ui/image/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/components/next-links/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"]));
 
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/contents-data/code');
 
@@ -130,7 +130,7 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
   *************************/
 
   ims.set('./api/uri', {
-    hash: 3412746716,
+    hash: 1763537243,
     creator: function (require, exports) {
       "use strict";
 
@@ -145,41 +145,34 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
 
       var _code = require("@beyond/ui/link/code");
 
+      var _code2 = require("@beyond/docs/code/code");
+
       function APIURI() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "routing-uri"
-        }, "URI ", React.createElement("div", {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Objeto ", React.createElement("span", {
+          className: "inline"
+        }, "URI")), React.createElement("h5", null, "Importaci\u00F3n"), React.createElement(_code2.Code, {
+          language: "js"
+        }, `import {routing: {uri}} from "@beyond-js/kernel/routing/ts";`), React.createElement("p", null, "El objeto ", React.createElement("span", {
+          className: "inline"
+        }, "uri"), " provee una api equivalente a la del objeto", React.createElement("span", {
           className: "inline-code"
-        }, "rounting.uri")), React.createElement("p", null, "Debido a que el comportamiento del objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "window.location"), " var\u00EDa cuando se est\u00E1 trabajando con aplicaciones m\u00F3viles, ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " agrega el objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "URI")), React.createElement("p", null, "Es una instancia de un objeto", React.createElement(_typeProperty.TypeProperty, {
-          type: "URI",
-          href: "/api/uri"
-        }), " y representa a la URL actual. Tiene propiedades similares a las del objeto ", React.createElement("span", {
-          className: "inline-code"
-        }, "location"), " de la Api Web de ", React.createElement("span", {
-          className: "inline-code"
-        }, "Javascript"), ", pero agrega un tratamiento a las propiedades para unificar la manera de trabajar con javascript cuando se est\u00E1 desarrollando un proyecto m\u00F3vil."), React.createElement("h3", {
+        }, "window.location"), ", pero con funcionalidades agregadas que aseguran el comportamiento correcto en el entorno web y m\u00F3vil."), React.createElement("h3", {
           id: "uri-properties"
-        }, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "pathname"), React.createElement(_typeProperty.TypeProperty, {
+        }, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "string"
-        }), ": url actual, sin querystring ni hash"), React.createElement("li", null, React.createElement("strong", null, "uri"), React.createElement(_typeProperty.TypeProperty, {
+        }, "pathname"), "url actual, sin querystring ni hash"), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "string"
-        }), ": url completa."), React.createElement("li", null, React.createElement("strong", null, "qs"), React.createElement(_typeProperty.TypeProperty, {
+        }, "uri"), " url completa."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "Map"
-        }), ": Mapa con la lista de variables pasadas por querystring."), React.createElement("li", null, React.createElement("strong", null, "hashtag"), React.createElement(_typeProperty.TypeProperty, {
+        }, "qs"), " Mapa con la lista de variables pasadas por querystring."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "string"
-        }), ": contiene el fragmento de la url posterior al '#'. Es equivalente a la propiedad ", React.createElement("div", {
+        }, "hashtag"), " contiene el fragmento de la url posterior al '#'. Es equivalente a la propiedad ", React.createElement("div", {
           className: "inline-code"
         }, "hash"), " del objeto ", React.createElement("div", {
           className: "inline-code"
-        }, "location"), " de la API Web."), React.createElement("li", null, React.createElement("strong", null, "vars"), React.createElement(_typeProperty.TypeProperty, {
+        }, "location"), " de la API Web."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "Map"
-        }), ": Mapa contenedor de las variables dinamicas agregadas en la definici\u00F3n de la url del ", React.createElement(_code.Link, {
+        }, "vars"), " Mapa contenedor de las variables dinamicas agregadas en la definici\u00F3n de la url del ", React.createElement(_code.Link, {
           href: "/widgets#page"
         }, "Widget Page."))), React.createElement("h3", {
           id: "routing-history"
@@ -213,25 +206,48 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
       }
     }
   });
-  /*******************************
-  INTERNAL MODULE: ./basic/backend
-  *******************************/
+  /***************************************
+  INTERNAL MODULE: ./basic/backend/backend
+  ***************************************/
 
-  ims.set('./basic/backend', {
-    hash: 1772956516,
+  ims.set('./basic/backend/backend', {
+    hash: 2065235755,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Backend = Backend;
+      exports.BackendBackend = BackendBackend;
+
+      var React = require("react");
+
+      function BackendBackend() {
+        return React.createElement(React.Fragment, null);
+      }
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./basic/backend/bridge
+  **************************************/
+
+  ims.set('./basic/backend/bridge', {
+    hash: 1509166847,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BackendBridge = BackendBridge;
 
       var React = require("react");
 
       var _code = require("@beyond/ui/link/code");
 
       var _code2 = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../views/beyond");
 
       const tpl = `\r"bridge": {
     "path": "bridge",
@@ -249,19 +265,26 @@ class Auth {
         return {status: true, data: {valid: true}}
     }
 }`;
+      const tplStart = `
+import {listen} from '@beyond-js/backend/listen/ts';
 
-      function Backend() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "C\u00F3digo ", React.createElement("strong", null, "Backend")), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " disponibiliza un entorno seguro y eficiente pare crear c\u00F3digo backend, bien sea que se requiera para trabajar con servicios independientes, encargados de tareas espec\u00EDficas o que busque implementar una conexi\u00F3n de un proyecto cliente con una api backend."), React.createElement("p", null, "Para efectos de ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), ", podemos clasificar estas estructuras de c\u00F3digo en dos tipos:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Servicios Backend:"), " C\u00F3digo node que representa un servicio en ejecuci\u00F3n en el backend y s\u00F3lo puede ser utilizado por m\u00F3dulos que tambien se ejecuten en el backend."), React.createElement("li", null, React.createElement("strong", null, "Api backend"), ": permiten la conexi\u00F3n entre el c\u00F3digo backend y el c\u00F3digo cliente.")), React.createElement("h2", null, "Api ", React.createElement("strong", null, "Servidor"), " ", React.createElement("br", null), "Bundle ", React.createElement("code", {
+listen();
+`;
+
+      function BackendBridge() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", null, "Api ", React.createElement("strong", null, "Servidor"), " ", React.createElement("br", null), "Bundle ", React.createElement("code", {
           className: "inline"
         }, "bridge")), React.createElement("p", null, "Las APIs servidor en ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), " representan funciones que ejecutan c\u00F3digo en el servidor y pueden ser consumidas desde el c\u00F3digo cliente. Manejan la l\u00F3gica para conectarse a un backend y retornar data. Esto se l\u00F3gra de forma simple, con la creaci\u00F3n de un ", React.createElement(_code.Link, {
           href: "/bundles#bridge"
-        }, "Bundle Bridge"), "."), React.createElement(_code2.Code, null, tpl), React.createElement("p", null, "Al igual que cualquier m\u00F3dulo o bundle, este puede ser gestionado desde el ", React.createElement(_code.Link, {
+        }, "Bundle Bridge"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "Para que se pueda ejecutar c\u00F3digo Backend en ", React.createElement(_beyond.BeyondName, null), " es necesario tener configuradas las distribuciones necesarias. Si el proyecto se creo a partir del tipo de proyecto ", React.createElement("span", {
+          className: "inline"
+        }, "web-backend"), ", la misma ya se encuentra configurada. Puedes encontrar m\u00E1s informaci\u00F3n en ", React.createElement(_code.Link, {
+          href: "/docs/distributions"
+        }, "La secci\u00F3n de distribuciones"), "."), React.createElement(_code2.Code, null, tpl), React.createElement("p", null, "Al igual que cualquier m\u00F3dulo o bundle, este puede ser gestionado desde el ", React.createElement(_code.Link, {
           href: "/dashboard"
         }, "Dashboard"), " o de forma manual."), React.createElement("p", null, "C\u00F3mo su nombre lo indica, el bundle de tipo ", React.createElement("strong", null, "bridge"), ", sirve de puente entre la l\u00F3gica cliente y la l\u00F3gica servidor. Generalmente, en el servidor se impmenentan l\u00F3gicas asociadas al manejo de datos o manipulaci\u00F3n de archivos, el ", React.createElement("span", {
           className: "inline"
@@ -271,13 +294,98 @@ class Auth {
           className: "beyond"
         }, "BeyondJS"), " genera un objeto cliente que realiza la conexi\u00F3n ", React.createElement("code", {
           className: "inline"
-        }, "web-socket"), " al servidor, ejecuta el c\u00F3digo implementado por el desarrollador y deja disponible la respuesta en el c\u00F3digo cliente, abstrayendo al programador de la necesidad de procuparse por la conexi\u00F3n entre las capas cliente y servidor y permitiendo que el c\u00F3digo funcione como parte de un mismo ecosistema."), React.createElement("div", {
+        }, "web-socket"), " al servidor, ejecuta el c\u00F3digo implementado por el desarrollador y deja disponible la respuesta en el c\u00F3digo cliente, abstrayendo al programador de la necesidad de procuparse por la conexi\u00F3n entre las capas cliente y servidor y permitiendo que el c\u00F3digo funcione como parte de un mismo ecosistema."), React.createElement("p", null, "Ahora s\u00F3lo es necesario inicializar el servidor. Para ello es necesario crear un m\u00F3dulo con un bundle ", React.createElement("span", {
+          className: "inline"
+        }, "start"), " que se encargue de iniciar el ", React.createElement(_code.Link, {
+          href: "/docs/bee"
+        }, "BEE"), ". El c\u00F3digo del bundle ", React.createElement("span", {
+          className: "inline"
+        }, "start"), " es el siguiente:"), React.createElement(_code2.Code, null, tplStart), React.createElement("div", {
           className: "block__note"
         }, "En el ", React.createElement(_code.Link, {
           href: "/tutorial/web"
         }, "Tutorial Web"), " disponible, se implementa un bridge que permite ver en acci\u00F3n el funcionamiento de las ", React.createElement("strong", null, "apis backend"), " de ", React.createElement("div", {
           className: "beyond"
-        }, "BeyondJS.")), React.createElement("h3", null, "Comentarios m\u00E1gicos"), React.createElement("h2", null, "bundle ", React.createElement("code", {
+        }, "BeyondJS.")));
+      }
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./basic/backend/index
+  *************************************/
+
+  ims.set('./basic/backend/index', {
+    hash: 2415458009,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Backend = Backend;
+
+      var React = require("react");
+
+      var _intro = require("./intro");
+
+      var _bridge = require("./bridge");
+
+      var _magicComments = require("./magic-comments");
+
+      var _backend = require("./backend");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      function Backend() {
+        return React.createElement(React.Fragment, null, React.createElement(_intro.BackendIntro, null), React.createElement(_bridge.BackendBridge, null), React.createElement(_magicComments.BackendMagicComments, null), React.createElement(_backend.BackendBackend, null), React.createElement(_code.NextLinks, {
+          items: [['Crear un módulo', '/docs/modules/create'], ['Bundles', '/docs/bundles']]
+        }));
+      }
+    }
+  });
+  /*************************************
+  INTERNAL MODULE: ./basic/backend/intro
+  *************************************/
+
+  ims.set('./basic/backend/intro', {
+    hash: 432876454,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BackendIntro = BackendIntro;
+
+      var React = require("react");
+
+      function BackendIntro() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "C\u00F3digo ", React.createElement("strong", null, "Backend")), React.createElement("p", null, React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), " disponibiliza un entorno seguro y eficiente pare crear c\u00F3digo backend, bien sea que se requiera para trabajar con servicios independientes, encargados de tareas espec\u00EDficas o que busque implementar una conexi\u00F3n de un proyecto cliente con una api backend."), React.createElement("p", null, "Para efectos de ", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), ", podemos clasificar estas estructuras de c\u00F3digo en dos tipos:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Servicios Backend:"), " C\u00F3digo node que representa un servicio en ejecuci\u00F3n en el backend y s\u00F3lo puede ser utilizado por m\u00F3dulos que tambien se ejecuten en el backend."), React.createElement("li", null, React.createElement("strong", null, "Api backend"), ": permiten la conexi\u00F3n entre el c\u00F3digo backend y el c\u00F3digo cliente.")));
+      }
+    }
+  });
+  /**********************************************
+  INTERNAL MODULE: ./basic/backend/magic-comments
+  **********************************************/
+
+  ims.set('./basic/backend/magic-comments', {
+    hash: 4221304696,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BackendMagicComments = BackendMagicComments;
+
+      var React = require("react");
+
+      function BackendMagicComments() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", null, "Comentarios m\u00E1gicos"), React.createElement("h2", null, "bundle ", React.createElement("code", {
           className: "inline"
         }, "backend")), React.createElement("p", null, "Los bundles ", React.createElement("code", {
           className: "inline"
@@ -340,7 +448,7 @@ class Auth {
   *******************************/
 
   ims.set('./basic/install', {
-    hash: 578589587,
+    hash: 2640426071,
     creator: function (require, exports) {
       "use strict";
 
@@ -362,43 +470,168 @@ class Auth {
       }
     }
   });
-  /**************************************
-  INTERNAL MODULE: ./basic/modules/bundle
-  **************************************/
+  /***********************************************
+  INTERNAL MODULE: ./basic/modules/bundles/example
+  ***********************************************/
 
-  ims.set('./basic/modules/bundle', {
-    hash: 2173129432,
+  ims.set('./basic/modules/bundles/example', {
+    hash: 1171012771,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Bundle = Bundle;
+      exports.BundlesExample = BundlesExample;
 
       var React = require("react");
 
-      var _code = require("@beyond/ui/link/code");
+      function BundlesExample() {
+        return React.createElement(React.Fragment, null);
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/modules/bundles/index
+  *********************************************/
 
-      var _beyond = require("../../views/beyond");
+  ims.set('./basic/modules/bundles/index', {
+    hash: 4045292621,
+    creator: function (require, exports) {
+      "use strict";
 
-      function Bundle() {
-        return React.createElement("div", {
-          className: "content"
-        }, React.createElement("h1", null, "Bundles"), React.createElement("p", null, "Imagina que necesitas realizar la interfaz de un formulario de registro. El formulario de registro podr\u00EDa dividirse en dos capas:"), React.createElement("ul", null, React.createElement("li", null, "la interfaz de usuario basada en el c\u00F3digo HTML y los estilos de la pantalla."), React.createElement("li", null, "La l\u00F3gica asociada a validaciones y funcionalidades.")), React.createElement("p", null, " Para poder llevar a cabo el desarrollo, es necesario crear algunos archivos en Typescript, que incluyan la l\u00F3gica y elementos de la interfaz y otros archivos de estilo. En ", React.createElement("span", {
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Bundles = Bundles;
+
+      var React = require("react");
+
+      var _intro = require("./intro");
+
+      var _transversals = require("./transversals");
+
+      var _types = require("./types");
+
+      var _example = require("./example");
+
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      function Bundles() {
+        return React.createElement(React.Fragment, null, React.createElement(_intro.BundlesIntro, null), React.createElement(_transversals.BundlesTransversals, null), React.createElement(_types.BundlesTypes, null), React.createElement(_example.BundlesExample, null), React.createElement(_code.NextLinks, {
+          items: [['Crear módulos', '/docs/modules/create'], ['Tutorial', '/docs/tutorial/web']]
+        }));
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/modules/bundles/intro
+  *********************************************/
+
+  ims.set('./basic/modules/bundles/intro', {
+    hash: 1841362763,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BundlesIntro = BundlesIntro;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      const tpl = `
+{
+  "name": "icons",
+  "code": {
+    "ts": {
+      "path": "ts",
+      "files": [
+        "*"
+      ]
+    },
+    "sass": {
+      "path": "scss",
+      "files": [
+        "*"
+      ]
+    }
+  }
+}
+
+`;
+
+      function BundlesIntro() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "bundles"
+        }, "Bundles"), React.createElement("p", null, React.createElement("strong", null, "Un bundle"), " representa el o los archivos compilados ya listos para ser incluidos en el navegador. Estos archivos se componen por c\u00F3digo generado por los procesadores incluidos en la configuraci\u00F3n y son definidos como propiedades del objeto de configuraci\u00F3n de un m\u00F3dulo, el c\u00FAal se encuentra en el archivo ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), " de cada m\u00F3dulo creado."), React.createElement(_code.CodeBox, {
+          title: "module.json"
+        }, tpl), React.createElement("p", null, "El c\u00F3digo anterior, define un bundle de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "code"), ". Un modulo puede contener m\u00E1s de un bundle, para ello solo es necesario agregar otra propiedad con el nombre del bundle adicional. Es importante tener en cuenta que un m\u00F3dulo no puede contener dos bundles de un mismo tipo."), React.createElement("p", null, "Imagina que necesitas realizar la interfaz de un formulario de registro. El formulario de registro podr\u00EDa dividirse en dos capas:"), React.createElement("ul", null, React.createElement("li", null, "la interfaz de usuario basada en el c\u00F3digo HTML y los estilos de la pantalla."), React.createElement("li", null, "La l\u00F3gica asociada a validaciones y funcionalidades.")), React.createElement("p", null, " Para poder llevar a cabo el desarrollo, es necesario crear algunos archivos en Typescript, que incluyan la l\u00F3gica y elementos de la interfaz y otros archivos de estilo. En ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), " esto implica trabajar con al menos, dos procesadores b\u00E1sicos:", React.createElement("code", {
           className: "inline"
         }, "ts"), " y ", React.createElement("code", {
           className: "inline"
-        }, "sass"), ", el primero genera c\u00F3digo javascript, el segundo genera c\u00F3digo css."), React.createElement("p", null, React.createElement("strong", null, "Un bundle"), " representa el o los archivos compilados ya listos para ser incluidos en el navegador. Estos archivos se componen por c\u00F3digo generado por los procesadores incluidos en la configuraci\u00F3n"), React.createElement("p", null, "Como se explic\u00F3 anteriormente, la posibilidad de que un bundle genere uno o varios archivos finales, depende b\u00E1sicamente de los procesadores incluidos para su empaquetamiento, si es necesarario crear s\u00F3lo c\u00F3digo Javascript se genera un \u00FAnico archivo, si por el contrario se necesita tambien c\u00F3digo CSS se generan dos archivos."), React.createElement("p", null, "Los bundles estan compuestos por procesadores y ", React.createElement("span", {
+        }, "sass"), ", el primero genera c\u00F3digo javascript, el segundo genera c\u00F3digo css."), React.createElement("p", null, "Como se explic\u00F3 anteriormente, la posibilidad de que un bundle genere uno o varios archivos finales, depende b\u00E1sicamente de los procesadores incluidos para su empaquetamiento, si es necesarario crear s\u00F3lo c\u00F3digo Javascript se genera un \u00FAnico archivo, si por el contrario se necesita tambien c\u00F3digo CSS se generan dos archivos."), React.createElement("p", null, "Los bundles estan compuestos por procesadores y ", React.createElement("span", {
           className: "beyond"
-        }, "BeyondJS"), " ofrece la posibilidad a los desarrolladores de poder crear sus propios bundles."), React.createElement("h2", {
+        }, "BeyondJS"), " ofrece la posibilidad a los desarrolladores de poder crear sus propios bundles."));
+      }
+    }
+  });
+  /****************************************************
+  INTERNAL MODULE: ./basic/modules/bundles/transversals
+  ****************************************************/
+
+  ims.set('./basic/modules/bundles/transversals', {
+    hash: 2116535512,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BundlesTransversals = BundlesTransversals;
+
+      var React = require("react");
+
+      var _beyond = require("../../../views/beyond");
+
+      function BundlesTransversals() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
           id: "transversal"
         }, "Bundles Transversales"), React.createElement("p", null, "Los bundles transversales, se definen igual que el resto de bundles, pero tienen una particularidad que ofrece ventajas productivas: el c\u00F3digo de un bundle transversal es compilado en un archivo \u00FAnico."), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " los ubica, integra y unifica en un \u00FAnico bundle o archivo final. Los bundle de tipo ", React.createElement("span", {
           className: "inline-code"
-        }, "start"), " son un ejemplo claro de ello, permiten al programador definir l\u00F3gica que desea sea ejecutada en el arranque de la aplicaci\u00F3n."), React.createElement("h2", {
-          id: "id"
+        }, "start"), " son un ejemplo claro de ello, permiten al programador definir l\u00F3gica que desea sea ejecutada en el arranque de la aplicaci\u00F3n."));
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/modules/bundles/types
+  *********************************************/
+
+  ims.set('./basic/modules/bundles/types', {
+    hash: 238425562,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.BundlesTypes = BundlesTypes;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function BundlesTypes() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "types"
         }, "Tipos"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Widget"), ": Contienen el c\u00F3digo de un ", React.createElement("code", {
           className: "inline"
         }, "web-component"), ". Las p\u00E1ginas y los layouts son manejados como widgets. Puedes leer m\u00E1s acerca de este tipo de bundle en la secci\u00F3n de ", React.createElement(_code.Link, {
@@ -416,7 +649,7 @@ class Auth {
   **************************************/
 
   ims.set('./basic/modules/config', {
-    hash: 2853363044,
+    hash: 2494324898,
     creator: function (require, exports) {
       "use strict";
 
@@ -464,7 +697,7 @@ class Auth {
 `;
 
       function ModuleConfig() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "config"
         }, "Configuracion de m\u00F3dulos "), React.createElement("p", null, "El archivo de configuracion de m\u00F3dulos es el ", React.createElement("code", {
           className: "inline-code"
@@ -478,12 +711,67 @@ class Auth {
           href: "/concepts/platforms"
         }, " plataformas"), " soportadas por el m\u00F3dulo. Los valores soportados son los identificadores de las plataformas existentes.", React.createElement(_code2.Code, {
           language: "json"
-        }, tpl)), React.createElement("li", null, React.createElement("strong", null, "[bundle]"), " ", React.createElement(_typeProperty.TypeProperty, {
+        }, tpl)), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "bundle",
           href: "/module#bundle"
-        }), ": Refiere al nombre identificador del tipo de bundle que se desea agregar en el m\u00F3dulo. Un m\u00F3dulo puede poseer uno o varios bundles. Cada bundle recibe un objeto de configurac\u00ED\u00F3n con los procesadores que utiliza y alguna variaci\u00F3n inherita del tipo de bundle agregado.")), React.createElement(_code3.NextLinks, {
+        }, "bundle"), ": Refiere al nombre identificador del tipo de bundle que se desea agregar en el m\u00F3dulo. Un m\u00F3dulo puede poseer uno o varios bundles. Cada bundle recibe un objeto de configurac\u00ED\u00F3n con los procesadores que utiliza y alguna variaci\u00F3n inherita del tipo de bundle agregado.")), React.createElement(_code3.NextLinks, {
           items: [["Bundles", "/docs/bundles"], ["Widgets", '/docs/widgets']]
         }));
+      }
+    }
+  });
+  /************************************************
+  INTERNAL MODULE: ./basic/modules/create/dashboard
+  ************************************************/
+
+  ims.set('./basic/modules/create/dashboard', {
+    hash: 2808647492,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ModulesDashboardCreation = ModulesDashboardCreation;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/ui/icons/code");
+
+      var _modalImage = require("../../../views/modal-image");
+
+      var _typeProperty = require("../../../views/type-property");
+
+      function ModulesDashboardCreation() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "dashboard-creation"
+        }, "Creaci\u00F3n desde el Dashboard"), React.createElement("div", {
+          className: "block__note"
+        }, "Para crear un m\u00F3dulo debe haberse creado previamente un proyecto y estar activo en el Dashboard."), React.createElement("p", null, "La opci\u00F3n de crear proyectos es una funcionalidad disponible cuando un proyecto se encuentra activo en el Dashboard. Para poder verlas, es necesario abrir el proyecto accediendo al board de detalle del mismo."), React.createElement("p", null, "Cuando el proyecto se encuentra activo, se puede ver la opci\u00F3n ", React.createElement(_code.AppIconButton, {
+          icon: "add",
+          className: "border-icon"
+        }), " en el ", React.createElement("strong", null, "PreAside"), ", al hacer click en ella, aparecce un modal que da la opci\u00F3n de crear un m\u00F3dulo en blanco o seleccionar una plantilla."), React.createElement(_modalImage.ModalImage, {
+          src: "/images/dashboard/create-module-1.png",
+          alt: "BeyondJS - create module form"
+        }), React.createElement("p", null, "Posteriormente, aparece un formulario que solicita el resto de datos necesarios, asociados al tipo de bundle que se agregar\u00E1 en el m\u00F3dulo y los procesadores que contendr\u00E1."), React.createElement(_modalImage.ModalImage, {
+          src: "/images/dashboard/create-module-1.png",
+          alt: "BeyondJS - create module form"
+        }), React.createElement("h3", {
+          id: "form-fields"
+        }, "Datos del m\u00F3dulo"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }, "Nombre del M\u00F3dulo"), " Corresponde al nombre con el cual podra ser importado o utilizado el m\u00F3dulo a crear."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "string"
+        }, "Nombre Web Component"), " Aplica para los bundles de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "widget"), ". Debe seguir el estandar de nombres de componentes web, todo en minusculas y con un gui\u00F3n."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "url",
+          optional: true
+        }, "Url"), " Aplica a m\u00F3dulos con un bundle de tipo widget page. Define la url de acceso."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "boolean"
+        }, "Vue"), " Agrega el procesador Vue."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "boolean"
+        }, "Svelte"), " Agrega el procesador Svelte.")));
       }
     }
   });
@@ -492,7 +780,7 @@ class Auth {
   ********************************************/
 
   ims.set('./basic/modules/create/index', {
-    hash: 2935003034,
+    hash: 3389370633,
     creator: function (require, exports) {
       "use strict";
 
@@ -505,6 +793,10 @@ class Auth {
 
       var _code = require("@beyond/ui/link/code");
 
+      var _dashboard = require("./dashboard");
+
+      var _manual = require("./manual");
+
       function ModulesCreate() {
         return React.createElement(React.Fragment, null, React.createElement("h1", null, "Crear un M\u00F3dulo"), React.createElement("div", {
           className: "block__note info"
@@ -512,7 +804,79 @@ class Auth {
           href: "/modules/intro"
         }, "introducci\u00F3n de m\u00F3dulos")), React.createElement("p", null, "Los m\u00F3dulos se crean y gestionan por medio de los archivos de configuraci\u00F3n ", React.createElement("span", {
           className: "inline"
-        }, "module.json"), ", estos pueden ser creados de forma manual o a trav\u00E9s de la interfaz del Dashboard."));
+        }, "module.json"), ", estos pueden ser creados de forma manual o a trav\u00E9s de la interfaz del Dashboard."), React.createElement(_dashboard.ModulesDashboardCreation, null), React.createElement(_manual.ModulesManualCreation, null));
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/modules/create/manual
+  *********************************************/
+
+  ims.set('./basic/modules/create/manual', {
+    hash: 3127158183,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.ModulesManualCreation = ModulesManualCreation;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../../views/beyond");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
+
+      const tpl1 = `
+{
+    "name": "first-module",
+    "platforms": [
+        "web"
+    ]
+    "code" : {
+        "ts": {
+          "path": "ts",
+          "files": [
+            "*"
+          ]
+        },
+        "sass": {
+          "path": "scss",
+          "files": [
+            "*"
+          ]
+        }
+    }
+}
+`;
+
+      function ModulesManualCreation() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "dashboard-creation"
+        }, "Creaci\u00F3n manual"), React.createElement("p", null, "La configuraci\u00F3n de m\u00F3dulos sigue el mismo principio que el resto de elementos configurativos en ", React.createElement(_beyond.BeyondName, null), " y debe crearse en un archivo de nombre ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), "."), React.createElement("p", null, "El ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), " recibe c\u00F3mo m\u00EDnimo dos propiedades: El nombre del m\u00F3dulo y la configuraci\u00F3n de un bundle."), React.createElement(_code2.Code, {
+          language: "json"
+        }, tpl1), React.createElement("p", null, "En el ejemplo anterior, se est\u00E1 creando un m\u00F3dulo de nombre ", React.createElement("span", {
+          className: "inline"
+        }, "first-module"), ", con un bundle ", React.createElement("span", {
+          className: "inline"
+        }, "code"), " que contiene un procesador ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " y un procesador ", React.createElement("span", {
+          className: "inline"
+        }, "ts"), " que procesan c\u00F3digo Sass y Typescript respectivamente y que ser\u00E1 empaquetado para plataforma web."), React.createElement("p", null, "Un m\u00F3dulo puede contener varios bundles, estos se definen como propiedades del objeto de configuraci\u00F3n del m\u00F3dulo y un m\u00F3dulo pureciben como valor un objeto de configuraci\u00F3n que aparte de los procesadores, puede recibir algunas propiedades adicionales seg\u00FAn el tipo de bundle. Puedes leer m\u00E1s en detalle sobre esto en ", React.createElement(_code.Link, {
+          href: "/docs/bundles"
+        }, "La secci\u00F3n de bundles"), "."), React.createElement(_code3.NextLinks, {
+          items: [["Configuración de módulos", "/docs/modules/json"], ["Widgets", '/docs/widgets']]
+        }));
       }
     }
   });
@@ -718,7 +1082,7 @@ export /*bundle*/ const B = {...};
   *********************************************/
 
   ims.set('./basic/projects/dependencies', {
-    hash: 2771117151,
+    hash: 2856399925,
     creator: function (require, exports) {
       "use strict";
 
@@ -732,6 +1096,8 @@ export /*bundle*/ const B = {...};
       var _beyond = require("../../views/beyond");
 
       var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/components/next-links/code");
 
       function ProjectDependencies() {
         return React.createElement(React.Fragment, null, React.createElement("h1", null, "Dependencias ", React.createElement(_beyond.BeyondName, null)), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece un listado de dependencias requeridas seg\u00FAn el tipo de proyecto que se desee realizar."), React.createElement("h3", {
@@ -750,55 +1116,21 @@ export /*bundle*/ const B = {...};
           className: "inline"
         }, "@beyond/ssr")), React.createElement("p", null, "Se encarga de proveer las apis para poder acceder a la informaci\u00F3n de renderizado de los widgets y disponibilizar el renderizado servidor."), React.createElement("h3", {
           id: "beyond-kernel"
-        }, "Librerias para widgets"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece librerias que brindan soporte al manejo de widgets para `react`, `vue` y `svelte`. Son requeridas en la medida en que se desee trabajar con estas tecnolog\u00EDas. Las librerias son"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+        }, "Librerias para widgets"), React.createElement("p", null, "Para trabajar con widgets es necesario tener instalada la dependencia ", React.createElement("span", {
+          className: "inline"
+        }, "@beyond/widgets"), " y adicionalmente, seg\u00FAn el framework que se desee utilizar,", React.createElement(_beyond.BeyondName, null), " ofrece las siguientes librerias:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
           className: "inline"
         }, "@beyond/react-widget")), React.createElement("li", null, React.createElement("span", {
           className: "inline"
         }, "@beyond/vue-widget")), React.createElement("li", null, React.createElement("span", {
           className: "inline"
-        }, "@beyond/svelte-widget"))));
-      }
-    }
-  });
-  /*****************************************
-  INTERNAL MODULE: ./basic/projects/import-2
-  *****************************************/
-
-  ims.set('./basic/projects/import-2', {
-    hash: 420611915,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.ImportProject2 = ImportProject2;
-
-      var React = require("react");
-
-      var _beyond = require("../../views/beyond");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/docs/code/code");
-
-      const tpl = `  "libraries": {
-    "imports": [
-      "@beyond-js/kernel"
-    ]
-  },`;
-
-      function ImportProject2() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Importaci\u00F3n de proyectos"), React.createElement("p", null, "Es com\u00FAn tener m\u00F3dulos que se reutilicen en distintos proyectos o soluciones. ", React.createElement(_beyond.BeyondName, null), " permite agregar este tipo de m\u00F3dulos en proyectos independientes que pueden ser incluidos en otro proyecto para que funcionen como librerias. T\u00E9cnicamente cualquier proyecto en ", React.createElement(_beyond.BeyondName, null), " puede ser importado por otro."), React.createElement("p", null, "Para ejemplificarlo, podemos hablar de una soluci\u00F3n que maneja una p\u00E1gina web, una aplicaci\u00F3n movil y un panel administrativo, todos como proyectos independientes que alimentan una misma fuente de datos. La importaci\u00F3n de proyectos permite que se maneje toda la l\u00F3gica de datos en un proyecto independiente que es utilizado por los tres aplicativos, permitiendo as\u00ED reutilizar el c\u00F3digo."), React.createElement("p", null, "La importaci\u00F3n de proyectos se realiza desde el ", React.createElement(_code.Link, {
-          href: "/docs/projects/json",
+        }, "@beyond/svelte-widget"))), React.createElement("div", {
+          className: "block__note"
+        }, "Todas las librerias mencionadas se pueden instalar por medio del comando ", React.createElement("span", {
           className: "inline"
-        }, "project.json"), "."), React.createElement("p", null, "Siguiendo el caso de ejemplo, el proyecto con los m\u00F3dulos que gestionan los datos y se conectan a la base de datos podr\u00EDa llamarse ", React.createElement("span", {
-          className: "inline"
-        }, "models"), " y para importarlo en los otros proyectos, tendr\u00EDa que agregarse el siguiente c\u00F3digo en el ", React.createElement("span", {
-          className: "inline"
-        }, "project.json")), React.createElement(_code2.Code, {
-          language: "json"
-        }, tpl));
+        }, "npm i library"), " donde \"library\" ser\u00EDa el nombre de la libreria a instalar."), React.createElement(_code2.NextLinks, {
+          items: [['Widgets', '/docs/widgets'], ['Crear un módulo', '/docs/modules/create']]
+        }));
       }
     }
   });
@@ -867,7 +1199,7 @@ export /*bundle*/ const B = {...};
   **************************************/
 
   ims.set('./basic/projects/index', {
-    hash: 1526358247,
+    hash: 621421702,
     creator: function (require, exports) {
       "use strict";
 
@@ -884,7 +1216,7 @@ export /*bundle*/ const B = {...};
 
       function ProjectsPage() {
         return React.createElement(React.Fragment, null, React.createElement(_intro.Intro, null), React.createElement(_code.NextLinks, {
-          items: [['Crear un proyecto', '/docs/projects/create'], ['Distribuciones', '/docs/projects/distributions'], ['project.json', '/docs/projects/json']]
+          items: [['Crear un proyecto', '/docs/projects/create'], ['Estructura de un proyecto', '/docs/projects/structure'], ['project.json', '/docs/projects/json']]
         }));
       }
     }
@@ -923,7 +1255,7 @@ export /*bundle*/ const B = {...};
   *************************************************/
 
   ims.set('./basic/projects/manage/dashboard', {
-    hash: 1450374284,
+    hash: 207740921,
     creator: function (require, exports) {
       "use strict";
 
@@ -967,7 +1299,7 @@ export /*bundle*/ const B = {...};
         }, "Tipos de Proyectos en blanco"), React.createElement(_code3.BeyondImage, {
           alt: "dashboard beyondjs  new project",
           src: "/images/dashboard/new-project.png"
-        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Web"), ": Listo para comenzar un proyecto web que pueda ser distribuido en internet o como aplicaci\u00F3n m\u00F3vil."), React.createElement("li", null, React.createElement("strong", null, "Node"), " Listo para distribuir como un proyecto a ejecutar en un entorno node."), React.createElement("li", null, React.createElement("strong", null, "Backend"), " Proyecto node que disponibiliza interfaces que puedan ser consumidas en real-time con web sockets desde otro proyecto node o desde un proyecto cliente."), React.createElement("li", null, React.createElement("strong", null, "Library"), " Ideal para crear proyectos que esten pensados para ser distribuidos como paquetes ", React.createElement("strong", null, "NPM"), ".")), React.createElement("h3", {
+        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Web"), ": Listo para comenzar un proyecto web que pueda ser distribuido en internet o como aplicaci\u00F3n m\u00F3vil."), React.createElement("li", null, React.createElement("strong", null, "Node"), " Listo para distribuir como un proyecto a ejecutar en un entorno node."), React.createElement("li", null, React.createElement("strong", null, "Backend"), " Proyecto node que disponibiliza interfaces que puedan ser consumidas en real-time con web sockets desde otro proyecto node o desde un proyecto cliente."), React.createElement("li", null, React.createElement("strong", null, "Library"), " Ideal para crear proyectos que esten pensados para ser distribuidos como paquetes ", React.createElement("strong", null, "NPM"), "."), React.createElement("li", null, React.createElement("strong", null, "web - backend"), " Genera un proyecto web con una distribuci\u00F3n backend.")), React.createElement("h3", {
           id: "template-types"
         }, "Tipos de plantillas"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "React, vue y svelte"), " apps, proyectos para empezar a trabajar con la libreria de framework de preferencia."), React.createElement("li", null, React.createElement("strong", null, "Express"), ": Proyecto con una estructura inicial para crear un servidor express."), React.createElement("li", null, React.createElement("strong", null, "Template web"), ": Proyecto con una estructura cliente y backend comunicados por medio de web socket.")), React.createElement("div", {
           className: "block__note note-info"
@@ -987,7 +1319,7 @@ export /*bundle*/ const B = {...};
   *********************************************/
 
   ims.set('./basic/projects/manage/index', {
-    hash: 738037438,
+    hash: 2062537187,
     creator: function (require, exports) {
       "use strict";
 
@@ -1006,13 +1338,17 @@ export /*bundle*/ const B = {...};
 
       var _manual = require("./manual");
 
+      var _code2 = require("@beyond/docs/components/next-links/code");
+
       function ManageProject() {
         return React.createElement(React.Fragment, null, React.createElement("h2", {
           id: "project-management"
         }, "Gesti\u00F3n de un proyecto"), React.createElement("p", null, "Los proyectos, al igual que el resto de elementos de ", React.createElement(_beyond.BeyondName, null), ", se configuran por medio de objetos en archivos .json. Generalmente, los archivos de configuraci\u00F3n de proyectos llevan por nombre ", React.createElement(_code.Link, {
           href: "/docs/projects/json",
           className: "inline"
-        }, "project.json"), " como convenci\u00F3n y permiten una variedad amplia de configuraciones."), React.createElement("p", null, "Los proyectos se pueden configurar de dos formas: por medio de la interfaz del Dashboard y manualmente."), React.createElement(_dashboard.DashboardCreateProject, null), React.createElement(_manual.ManualCreation, null));
+        }, "project.json"), " como convenci\u00F3n y permiten una variedad amplia de configuraciones."), React.createElement("p", null, "Los proyectos se pueden configurar de dos formas: por medio de la interfaz del Dashboard y manualmente."), React.createElement(_dashboard.DashboardCreateProject, null), React.createElement(_manual.ManualCreation, null), React.createElement(_code2.NextLinks, {
+          items: [['Crear un proyecto', '/docs/projects/create'], ['Distribuciones', '/docs/projects/distributions'], ['project.json', '/docs/projects/json']]
+        }));
       }
     }
   });
@@ -1021,7 +1357,7 @@ export /*bundle*/ const B = {...};
   **********************************************/
 
   ims.set('./basic/projects/manage/manual', {
-    hash: 476362481,
+    hash: 81741699,
     creator: function (require, exports) {
       "use strict";
 
@@ -1059,9 +1395,7 @@ export /*bundle*/ const B = {...};
 {
   "applications": [
     "path-to-project/project.json"
-  ],
-  "bundles": {},
-  "libraries": []
+  ]
 }
 `;
 
@@ -1079,7 +1413,7 @@ export /*bundle*/ const B = {...};
         }, "applications"), " es un arreglo que puede contener una lista de rutas relativas a archivos de configuraci\u00F3n de proyectos."), React.createElement("div", {
           className: "block__note"
         }, "Puedes leer m\u00E1s sobre las opciones de configuraci\u00F3n de ", React.createElement(_beyond.BeyondName, null), " en entorno de desarrollo en la secci\u00F3n del ", React.createElement(_code2.Link, {
-          href: "/docs/fundamentals/dev-server"
+          href: "/docs/dev-server"
         }, "Servidor de desarrollo")));
       }
     }
@@ -1089,7 +1423,7 @@ export /*bundle*/ const B = {...};
   ***************************************************/
 
   ims.set('./basic/projects/project-json/index', {
-    hash: 3526350965,
+    hash: 1394864131,
     creator: function (require, exports) {
       "use strict";
 
@@ -1104,14 +1438,18 @@ export /*bundle*/ const B = {...};
 
       var _objectProperty = require("../../../views/object-property");
 
+      var _code2 = require("@beyond/docs/components/next-links/code");
+
+      var _beyond = require("../../../views/beyond");
+
       function ProjectJson() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "distributions"
-        }, "Distribuciones"), React.createElement("h2", {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "properties"
         }, "Propiedades ", React.createElement("span", {
           className: "file__element"
-        }, "project.json")), React.createElement("ul", {
+        }, "project.json")), React.createElement("p", null, "El ", React.createElement("span", {
+          className: "inline"
+        }, "project.json"), " es el archivo de configuraci\u00F3n de un proyecto, contiene toda la informaci\u00F3n necesaria para que ", React.createElement(_beyond.BeyondName, null), " pueda levantar el proyecto en entorno de desarrollo y realizar las tareas de compilaci\u00F3n para su despliegue. A continuaci\u00F3n se listan las propiedades de configuraci\u00F3n."), React.createElement("ul", {
           className: "list__elements-doc"
         }, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "string",
@@ -1127,23 +1465,23 @@ export /*bundle*/ const B = {...};
           optional: true
         }, "description"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EOC",
-          href: "/glossary#eoc"
+          href: "/docs/glossary#eoc"
         }, "template"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EOC",
-          href: "/glossary#eoc"
+          href: "/docs/glossary#eoc"
         }, "layout"), "Espacio para explicar de forma resumida cuales son las caracter\u00EDsticas del proyecto."), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EOC",
-          href: "/glossary#eoc"
+          href: "/docs/glossary#eoc"
         }, "params"), "Objeto que permite agregar parametros generales que se requieran utilizar en todo el proyecto, tiene la posibilidad de definir valores por entorno. Para entender m\u00E1s, puedes dirigirte a la", React.createElement(_code.Link, {
           href: "/project/params"
         }, "secci\u00F3n Parametros del proyecto.")), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EOC",
-          href: "/glossary#eoc"
+          href: "/docs/glossary#eoc"
         }, "modules"), "Recibe un objeto con una entrada ", React.createElement("span", {
           className: "inline-code"
         }, "path"), "que permite definir el directorio de los m\u00F3dulos, por defecto es \"module\""), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EOC",
-          href: "/glossary#eoc"
+          href: "/docs/glossary#eoc"
         }, "deployment"), "Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada deployment"), React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: "EAC",
           href: "/glossary#eac"
@@ -1154,7 +1492,9 @@ export /*bundle*/ const B = {...};
           optional: true
         }, "libraries"), "Define la importacion de proyectos a ser usados como librerias en el proyecto definido.", React.createElement("ul", null, React.createElement("li", null, React.createElement(_objectProperty.ObjectProperty, {
           type: " string"
-        }, "imports"), "Cada entrada representa un proyecto importado, la importaci\u00F3n se hace agregando el scope y nombre del proyecto importado.")))));
+        }, "imports"), "Cada entrada representa un proyecto importado, la importaci\u00F3n se hace agregando el scope y nombre del proyecto importado.")))), React.createElement(_code2.NextLinks, {
+          items: [["Widgets", '/docs/widgets'], ["Bundles", '/docs/bundles']]
+        }));
       }
     }
   });
@@ -1218,6 +1558,100 @@ export /*bundle*/ const B = {...};
         }, "project.json"), ", si esta propiedad se remueve, ", React.createElement(_beyond.BeyondName, null), " intentar\u00E1 encontrar los m\u00F3dulos en el directorio ra\u00EDz del proyecto, el c\u00FAal corresponde a el lugar en donde se encuentra el ", React.createElement("span", {
           className: "inline"
         }, "module.json")));
+      }
+    }
+  });
+  /*****************************************
+  INTERNAL MODULE: ./basic/projects/template
+  *****************************************/
+
+  ims.set('./basic/projects/template', {
+    hash: 3567474812,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports._TemplatePage = _TemplatePage;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _code2 = require("@beyond/ui/link/code");
+
+      const tplConfig = `
+"application": {
+    "processor": "sass",
+    "path": "application",
+    "files": [
+      "*"
+    ]
+  }
+`; //
+      // <p>Los proyectos en <span className="beyond">BeyondJS</span>, vienen con una estructura de plantilla por
+      //     defecto, la misma se puede encontrar en la carpeta <span className="inline">template</span> en la raiz
+      //     del mismo y que internamente tiene la siguiente estructura:</p>
+      //
+      // <ul className="filelist-path">
+      //     <li><strong>application/</strong>: carpeta con archivos de estilos a incluir en la hoja de estilos
+      //         general del proyecto.
+      //     </li>
+      //     <li><strong>global</strong>: Estilaaos globales definidos para ser incluidos en los módulos.</li>
+      //     <li><strong>overwrites</strong>: Más información de esto puede encontrarse en la sección dedicada
+      //         a <Link href="/template/overwrites">
+      //             sobreescritura de módulos
+      //         </Link>
+      //     </li>
+      //     <li><strong>sass</strong>: Archivos de estilos manejados con sass y de extensión <span
+      //         className="inline">.scss</span>.
+      //     </li>
+      //     <li><span className="inline">template.json</span>: Archivo de configuración de la plantilla.</li>
+      // </ul>
+
+      function _TemplatePage() {
+        return React.createElement("div", {
+          className: "content"
+        }, React.createElement("h1", null, "Plantilla de un protecto"), React.createElement("p", null, React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), " brinda una arquitectura simple pero robusta para el manejo de plantillas en los proyectos, la cual cuenta con las siguientes caracteristicas:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Estilos: "), " Soporte integrado de preprocesadores LESS y SASS."), React.createElement("li", null, React.createElement("strong", null, "Propiedades CSS"), ": estructura b\u00E1sica de variables que permite trabajar con los componentes web eficientemente."), React.createElement("li", null, React.createElement("strong", null, "Estilo global"), ": Hoja de estilo global para el proyecto."), React.createElement("li", null, React.createElement("strong", null, "Sobreescritura"), ": Esto es una caracter\u00EDstica especial que permite redefinir estilos y textos de m\u00F3dulos existentes sin necesidad de tocar el c\u00F3digo original."), React.createElement("li", null, React.createElement("strong", null, "Separaci\u00F3n de c\u00F3digo"), ": Manejo independiente de los archivos de estilos con proceso automatizado para la generaci\u00F3n de archivos finales independientes y optimizados."), React.createElement("li", null, React.createElement("strong", null, "Light & Dark Theme"), " integrados.")), React.createElement("h2", {
+          id: "config"
+        }, "Configuraci\u00F3n"), React.createElement("p", null, "La configuraci\u00F3n de la plantilla, al igual que todos los elementos en ", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), ", se maneja por medio de un archivo de configuraci\u00F3n, cuyo nombre, por convenci\u00F3n es ", React.createElement("span", {
+          className: "inline"
+        }, "template.json"), " y se ubica en la carpeta ", React.createElement("span", {
+          className: "inline"
+        }, "template"), " en la raiz del proyecto. Sin embargo, tanto el nombre como la ubicaci\u00F3n son valores configurables en el ", React.createElement(_code2.Link, {
+          href: "/project/config"
+        }, "project.json"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "La plantilla puede ser manejada desde el ", React.createElement(_code2.Link, {
+          href: "/docs/dashboard"
+        }, "Dashboard"), " y cuando se crea un proyecto ya viene configurada la estructura por defecto para su manejo."), React.createElement("p", null, "A continuaci\u00F3n se explican las propiedades de configuraci\u00F3n"), React.createElement("h2", {
+          id: "template-application"
+        }, "template.application"), React.createElement("p", null, "Las ", React.createElement("strong", null, "custom properties"), " juegan un papel importante en el manejo de los widgets. Los componentes webs con Shadow DOM no se ven afectados por los estilos generales del sitio web en donde est\u00E1n incluidos. Sin embargo, las propiedades css si pueden ser accedidas y utilizadas."), React.createElement("p", null, "La propiedad de configuraci\u00F3n ", React.createElement("span", {
+          className: "inline"
+        }, "application"), " representa al archivo de estilos generales del proyecto y tiene como foco principal ser el lugar en donde se definan las propiedades css personalizadas y cualquier estilo que se requiera aplicar al documento general, externo a los widgets."), React.createElement("div", {
+          className: "block__note"
+        }, "El manejo de estilos puede verse en detalle en la secci\u00F3n de ", React.createElement(_code2.Link, {
+          href: "/docs/styles/template"
+        }, "Estilos en la plantilla"), "."), React.createElement("p", null, "la configuraci\u00F3n de ", React.createElement("span", {
+          className: "inline"
+        }, "template.application"), " recibe un objeto con las siguientes propiedades: "), React.createElement(_code.Code, null, tplConfig), React.createElement("p", null, "C\u00F3mo se puede ver en el c\u00F3digo anterior, se puede definir tres propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "processor"), " Procesador a utilizar. Soporta ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "less")), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "path"), " Directorio donde se encuentran los archivos, sino se define se buscaran todos los archivos relativos a la ubicaci\u00F3n del archivo de configuraci\u00F3n."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "files"), ", el ", React.createElement("span", {
+          className: "inline"
+        }, "*"), " indica que se debe tomar en cuenta cualquier archivo adentro del path definido. Si se espec\u00EDfican archivos por nombre, s\u00F3lo se tomara en cuenta los archivos indicados.")));
       }
     }
   });
@@ -1434,7 +1868,7 @@ export /*bundle*/ const B = {...};
   *******************************/
 
   ims.set('./basic/routing', {
-    hash: 2200929542,
+    hash: 3150328319,
     creator: function (require, exports) {
       "use strict";
 
@@ -1514,7 +1948,13 @@ export /*bundle*/ const B = {...};
           href: "/api/uri"
         }), " que tiene una propiedad ", React.createElement("span", {
           className: "inline-code"
-        }, "pathname"), " la cual representa la ruta actual."), React.createElement("p", null, "La funci\u00F3n redirect puede retornar una ruta diferente, en cuyo caso ", React.createElement("span", {
+        }, "pathname"), " la cual representa la ruta actual."), React.createElement("div", {
+          className: "block__note"
+        }, "La definici\u00F3n del m\u00E9todo ", React.createElement("span", {
+          className: "inline"
+        }, "routing"), " debe hacerse en un bundle de tipo ", React.createElement("span", {
+          className: "inline"
+        }, "start"), " a fin de que pueda ejecutarse al comienzo del proyecto, antes de cualquier solicitud http."), React.createElement("p", null, "La funci\u00F3n redirect puede retornar una ruta diferente, en cuyo caso ", React.createElement("span", {
           className: "beyond"
         }, "BeyondJS"), " realizar\u00E1 la redirecci\u00F3n a la url devuelta o, puede no devolver nada, en cuyo caso se interpreta que el usuario tiene acceso a la ruta, el cual es el comportamiento por defecto."), React.createElement(_code2.Code, {
           language: "ts"
@@ -1563,117 +2003,26 @@ export /*bundle*/ const B = {...};
       }
     }
   });
-  /*************************************
-  INTERNAL MODULE: ./basic/styles/styles
-  *************************************/
+  /********************************************
+  INTERNAL MODULE: ./basic/styles/import-bundle
+  ********************************************/
 
-  ims.set('./basic/styles/styles', {
-    hash: 3617052601,
+  ims.set('./basic/styles/import-bundle', {
+    hash: 1477079750,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.StylesPage = StylesPage;
+      exports.StylesImportBundle = StylesImportBundle;
 
       var React = require("react");
 
       var _code = require("@beyond/docs/code/code");
 
-      var _code2 = require("@beyond/ui/link/code");
-
-      var _variables = require("./tpl/variables");
-
-      var _beyond = require("../../views/beyond");
-
-      const tplProcessor = `\r{
-    ...
-    "sass": {
-        "path": "sass",
-        "files": ["*"]
-    },
-    ...
-}
-`;
-
-      function StylesPage() {
-        return React.createElement("div", {
-          className: "content"
-        }, React.createElement("h1", null, "Manejo de estilos"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece diversas formas de integrar archivos de estilos, teniendo siempre en cuenta su arquitectura modular. A continuaci\u00F3n se explican las diferentes maneeras de trabajar con archivos de estilos."), React.createElement("h2", {
-          id: "module-styles"
-        }, "Estilos en el m\u00F3dulo"), React.createElement("p", null, "Para agregar estilos en un m\u00F3dulo/bundle creado, debe agregarse el ", React.createElement(_code2.Link, {
-          href: "/docs/processors"
-        }, "procesador"), " ", React.createElement("code", {
-          className: "inline"
-        }, "SASS"), "."), React.createElement("div", {
-          className: "block__note"
-        }, "Si se usa el dashboard para la creaci\u00F3n de proyectos, el procesador ", React.createElement("span", {
-          className: "inline"
-        }, "sass"), " es incluido por defecto en los bundles de tipo ", React.createElement("strong", null, "code"), " y ", React.createElement("strong", null, "widget"), " de cualquier tipo."), React.createElement("p", null, "la configuraci\u00F3n estandar de un procesador ", React.createElement("span", {
-          className: "inline"
-        }, "sass"), " es la siguiente:"), React.createElement(_code.Code, null, tplProcessor), React.createElement("p", null, "En la configuraci\u00F3n anterior, se est\u00E1 definiendo que en el m\u00F3dulo existe una carpeta sass, con ubicaci\u00F3n relativa al archivo ", React.createElement("span", {
-          className: "inline"
-        }, "module.json"), " y que todos los archivos de esta carpeta deben ser tomados en cuenta como archivos de estilo. De esta forma, ", React.createElement("strong", null, "no es requerido hacer imports con sem\u00E1ntica de javascript de archivos externos en nuestro c\u00F3digo"), "."), React.createElement("h2", {
-          id: "template-styles"
-        }, "Estilos en el ", React.createElement("span", {
-          className: "inline"
-        }, "template")), React.createElement("p", null, "las ", React.createElement("a", {
-          href: "https://developer.mozilla.org/en-US/docs/Web/CSS/--*",
-          target: "_blank"
-        }, " custom properties"), ", son el \u00FAnico medio para compartir valores css entre componentes web y beyond recomienda agregar estas en la estructura de archivos que generan el ", React.createElement("span", {
-          className: "inline"
-        }, "styles.css"), " general del proyecto, de hecho incorpora una serie de variables por defecto."), React.createElement("p", null, "La configuraci\u00F3n de la plantilla al igual que los m\u00F3dulos, funciona por medio de procesadores, pero b\u00E1sicamente permite configurar estilos para tres niveles:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "\"application\""), ": Estilos generales de la aplicaci\u00F3n"), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "\"global\""), ": Estilos que son incluidos y quedan disponibles en cualquier bundle que tenga el mismo procesador de estilos."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "\"processors\""), ": Dise\u00F1ado para agregar funcionalidades de preprocesadores que no impriman c\u00F3digo, como ", React.createElement("span", {
-          className: "inline"
-        }, "mixins"), ", ", React.createElement("span", {
-          className: "inline"
-        }, "funciones"), " o ", React.createElement("span", {
-          className: "inline"
-        }, "variables"))), React.createElement("p", null, "Los proyectos en ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), ", vienen con una estructura de plantilla por defecto, la misma se puede encontrar en la carpeta ", React.createElement("span", {
-          className: "inline"
-        }, "template"), " en la raiz del mismo y que internamente tiene la siguiente estructura:"), React.createElement("ul", {
-          className: "filelist-path"
-        }, React.createElement("li", null, React.createElement("strong", null, "application/"), ": carpeta con archivos de estilos a incluir en la hoja de estilos general del proyecto."), React.createElement("li", null, React.createElement("strong", null, "global"), ": Estilaaos globales definidos para ser incluidos en los m\u00F3dulos."), React.createElement("li", null, React.createElement("strong", null, "overwrites"), ": M\u00E1s informaci\u00F3n de esto puede encontrarse en la secci\u00F3n dedicada a ", React.createElement(_code2.Link, {
-          href: "/template/overwrites"
-        }, "sobreescritura de m\u00F3dulos")), React.createElement("li", null, React.createElement("strong", null, "sass"), ": Archivos de estilos manejados con sass y de extensi\u00F3n ", React.createElement("span", {
-          className: "inline"
-        }, ".scss"), "."), React.createElement("li", null, React.createElement("span", {
-          className: "inline"
-        }, "template.json"), ": Archivo de configuraci\u00F3n de la plantilla.")), React.createElement("h2", {
-          id: "custom-properties"
-        }, "Propiedades ", React.createElement("span", {
-          className: "inline"
-        }, "CSS")), React.createElement("p", null, "Las propiedades css incluidas por defecto son:"), React.createElement(_code.Code, {
-          language: "css"
-        }, _variables.variablesTPL), React.createElement("h2", {
-          id: "sass-variables"
-        }, "Variables ", React.createElement("span", {
-          className: "inline"
-        }, "SASS / SCSS")), React.createElement("p", null, "Se provee la misma lista de variables definidas como ", React.createElement("strong", null, "custom properties"), " como variables para sass. Estas por defecto, se encuentran disponibles a nivel de procesadores y no requieren ser importadas."), React.createElement("h3", {
-          id: "libraries-css"
-        }, "Node Modules"), React.createElement("p", null, "Si se requiere incluir un archivo de estilos de alguna libreria instalada en ", React.createElement("span", {
-          className: "path"
-        }, "node_modules"), ", se puede importar de forma no relativa, desde el archivo del m\u00F3dulo en el que se requiera, haciendo uso del caracter ", React.createElement("span", {
-          className: "inline"
-        }, "~"), " seguido de la ruta del paquete en la carpeta ", React.createElement("span", {
-          className: "path"
-        }, "node_modules")), React.createElement("p", null, "De esta forma, supongamos que se desea trabajar con ", React.createElement("span", {
-          className: "path"
-        }, "bootstrap"), ", podriamos importarlo de la siguiente forma:"), React.createElement(_code.Code, {
-          language: "scss"
-        }, "@import ~bootstrap/sass/bootstrap.scss;"), React.createElement("p", null, "De la misma forma, si se requiere importar un archivo especifico dentro de la libreria, como el de", React.createElement("span", {
-          className: "inline"
-        }, "_variables.scss"), ", puede importarse de forma directa:"), React.createElement(_code.Code, {
-          language: "scss"
-        }, "@import ~bootstrap/sass/variables.scss;"), React.createElement("h3", null, "Importaci\u00F3n de estilos de un ", React.createElement("span", {
+      function StylesImportBundle() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", null, "Importaci\u00F3n de estilos de un ", React.createElement("span", {
           className: "inline"
         }, "bundle")), React.createElement("p", null, "la importaci\u00F3n de m\u00F3dulos de estilo es considerada en ", React.createElement("span", {
           className: "beyond"
@@ -1691,48 +2040,265 @@ export /*bundle*/ const B = {...};
       }
     }
   });
-  /***************************************
-  INTERNAL MODULE: ./basic/styles/template
-  ***************************************/
+  /**************************************
+  INTERNAL MODULE: ./basic/styles/imports
+  **************************************/
 
-  ims.set('./basic/styles/template', {
-    hash: 3833229047,
+  ims.set('./basic/styles/imports', {
+    hash: 617590441,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.TemplatePage = TemplatePage;
+      exports.StylesImports = StylesImports;
+
+      var React = require("react");
+
+      var _nodeModules = require("./node-modules");
+
+      var _importBundle = require("./import-bundle");
+
+      function StylesImports() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Importaci\u00F3n de archivos de estilo"), React.createElement(_nodeModules.StylesNodeModules, null), React.createElement(_importBundle.StylesImportBundle, null));
+      }
+    }
+  });
+  /************************************
+  INTERNAL MODULE: ./basic/styles/index
+  ************************************/
+
+  ims.set('./basic/styles/index', {
+    hash: 1499891522,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesPage = StylesPage;
+
+      var React = require("react");
+
+      var _template = require("./template");
+
+      function StylesPage() {
+        return React.createElement(React.Fragment, null, React.createElement(_template.StylesTemplate, null));
+      }
+    }
+  });
+  /************************************
+  INTERNAL MODULE: ./basic/styles/intro
+  ************************************/
+
+  ims.set('./basic/styles/intro', {
+    hash: 1325648130,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesIntro = StylesIntro;
+
+      var React = require("react");
+
+      var _beyond = require("../../views/beyond");
+
+      function StylesIntro() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Manejo de estilos"), React.createElement("p", null, "En este documento, se detallan las diversas formas de integrar archivos de estilos en ", React.createElement(_beyond.BeyondName, null), "."));
+      }
+    }
+  });
+  /*******************************************
+  INTERNAL MODULE: ./basic/styles/node-modules
+  *******************************************/
+
+  ims.set('./basic/styles/node-modules', {
+    hash: 1675625782,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesNodeModules = StylesNodeModules;
 
       var React = require("react");
 
       var _code = require("@beyond/docs/code/code");
 
-      var _code2 = require("@beyond/ui/link/code");
+      function StylesNodeModules() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", {
+          id: "libraries-css"
+        }, "Node Modules"), React.createElement("p", null, "Si se requiere incluir un archivo de estilos de alguna libreria instalada en ", React.createElement("span", {
+          className: "path"
+        }, "node_modules"), ", se puede importar de forma no relativa, desde el archivo del m\u00F3dulo en el que se requiera, haciendo uso del caracter ", React.createElement("span", {
+          className: "inline"
+        }, "~"), " seguido de la ruta del paquete en la carpeta ", React.createElement("span", {
+          className: "path"
+        }, "node_modules")), React.createElement("p", null, "De esta forma, supongamos que se desea trabajar con ", React.createElement("span", {
+          className: "path"
+        }, "bootstrap"), ", podriamos importarlo de la siguiente forma:"), React.createElement(_code.Code, {
+          language: "scss"
+        }, "@import ~bootstrap/sass/bootstrap.scss;"), React.createElement("p", null, "De la misma forma, si se requiere importar un archivo especifico dentro de la libreria, como el de", React.createElement("span", {
+          className: "inline"
+        }, "_variables.scss"), ", puede importarse de forma directa:"), React.createElement(_code.Code, {
+          language: "scss"
+        }, "@import ~bootstrap/sass/variables.scss;"));
+      }
+    }
+  });
+  /***************************************************
+  INTERNAL MODULE: ./basic/styles/template/application
+  ***************************************************/
 
-      var _variables = require("./tpl/variables");
+  ims.set('./basic/styles/template/application', {
+    hash: 3449947004,
+    creator: function (require, exports) {
+      "use strict";
 
-      function TemplatePage() {
-        return React.createElement("div", {
-          className: "content"
-        }, React.createElement("h1", null, "Plantilla de un protecto"), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " brinda una arquitectura robusta para el manejo de plantillas en los proyectos, la cual cuenta con las siguientes caracteristicas:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Estilos: "), " Soporte integrado de preprocesadores LESS y SASS."), React.createElement("li", null, React.createElement("strong", null, "Propiedades CSS"), ": estructura b\u00E1sica de variables que permite trabajar con los componentes web eficientemente."), React.createElement("li", null, React.createElement("strong", null, "Estilo global"), ": Hoja de estilo global para el proyecto."), React.createElement("li", null, React.createElement("strong", null, "Sobreescritura"), ": Esto es una caracter\u00EDstica especial que permite redefinir estilos y textos de m\u00F3dulos existentes sin necesidad de tocar el c\u00F3digo original."), React.createElement("li", null, React.createElement("strong", null, "Separaci\u00F3n de c\u00F3digo"), ": Manejo independiente de los archivos de estilos con proceso automatizado para la generaci\u00F3n de archivos finales independientes y optimizados."), React.createElement("li", null, React.createElement("strong", null, "Light & Dark Theme"), " integrados.")), React.createElement("h2", {
-          id: "config"
-        }, "Configuraci\u00F3n"), React.createElement("p", null, "Los ", React.createElement("strong", null, "componentes web"), " proveen un modelo de encapsulamiento de estilos que hace que estos no tengan un alcance global y por tanto, no afecten otros componentes ni se vean afectadoss por estilos globales. Asimismo, todos comparten el acceso a las ", React.createElement("strong", null, "custom properties"), "."), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS")), React.createElement("p", null, "La configuraci\u00F3n de la plantilla, al igual que todos los elementos en ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), ", se maneja por medio de un archivo de configuraci\u00F3n, cuyo nombre y ubicaci\u00F3n es definido en el ", React.createElement(_code2.Link, {
-          href: "/project/config"
-        }, "project.json"), ". En general, por convenci\u00F3n el nombre suele ser ", React.createElement("span", {
-          className: "inline-code"
-        }, "template.json")), React.createElement("p", null, "La plantilla puede ser manejada desde el ", React.createElement("strong", null, "Dashboard"), " y cuando se crea un proyecto, ya viene configurada la estructura por defecto para su manejo."), React.createElement("h2", {
-          id: "template-application"
-        }, "template.project"), React.createElement("p", null, "Las ", React.createElement("strong", null, "custom properties"), " juegan un papel importante en el manejo de los componentes web. Por naturaleza, los componentes webs no se ven afectados por los estilos generales del sitio web. Sin embargo, las propiedades css si pueden ser accedidas y utilizadas. Esta estructura permite realizar componentes web que compartan los colores que necesiten de la aplicaci\u00F3n y puedan al mismo tiempo tener estilos propios sin preocuparse porque estos generen colisi\u00F3n con el c\u00F3digo de otros componentes."), React.createElement("p", null, "Es la configuraci\u00F3n para elementos de estilo generales que apliquen a todo el proyecto. Teniendo en cuenta que ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " trabaja con ", React.createElement("strong", null, "Componentes Web"), ", el uso de ", React.createElement("i", null, "custom properties"), " es esencial y este suele ser el lugar apropiado para definirlas, de hecho, por defecto vienen definidas algunas con soporte b\u00E1sico para definir el tema de un proyecto y su impplementaci\u00F3n en modo oscuro."), React.createElement(_code.Code, null, _variables.variablesTPL));
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesTemplateApplication = StylesTemplateApplication;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function StylesTemplateApplication() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", {
+          id: "styles.css"
+        }, React.createElement("span", {
+          className: "inline"
+        }, "template.application")), React.createElement("p", null, "La propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "application"), " representa al archivo ", React.createElement("span", {
+          className: "inline"
+        }, "styles.css"), " incluido en los proyectos con plataforma web. Est\u00E1 contemplada para agregar alg\u00FAn estilo general del documento y la definici\u00F3n de", React.createElement(_code.Elink, {
+          href: "https://developer.mozilla.org/en-US/docs/Web/CSS/--*"
+        }, " propiedades personalizadas"), " para que esten disponibles en todos los widgets."), React.createElement("div", {
+          className: "block__note"
+        }, "Las ", React.createElement("strong", null, "propiedades personalizadas"), " son los \u00FAnicos valores de estilos que pueden ser compartidos entre los widgets ya que estos se incluyen por medio de Componentes Web con Shadow DOM."), React.createElement("p", null, "La configuraci\u00F3n por defecto de estilos para ", React.createElement("span", {
+          className: "inline"
+        }, "template.application"), ", incluye todos los archivos ", React.createElement("span", {
+          className: "inline"
+        }, "scss"), " que se encuentren en el directorio ", React.createElement("span", {
+          className: "inline"
+        }, "./template/application"), " adentro del proyecto. Estos son:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./variables.scss"), ": contiene una lista de variables ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " por defecto."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./styles.scss"), ": contiene estilos muy b\u00E1sicos para el ", React.createElement("span", {
+          className: "inline"
+        }, "body"), " del documento"), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./custom-properties/dark.scss"), ": provee un ", React.createElement("div", {
+          className: "inline"
+        }, "mixin"), " que define las variables a utilizar en el estilo en modo oscuro."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./custom-properties/light.scss"), ": provee un ", React.createElement("div", {
+          className: "inline"
+        }, "mixin"), " que define las variables a utilizar en el estilo en modo claro."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./custom-properties/material-design.scss"), ": incluye las propiedades css del sistema de colores de material design."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "./custom-properties/definition.scss"), ": incluye la definici\u00F3n de las propiedades personalizadas css que integra el uso de los ", React.createElement("span", {
+          className: "inline"
+        }, "mixins"), " definidos en los archivos ", React.createElement("span", {
+          className: "inline"
+        }, "dark.scss"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "light.scss"))), React.createElement("p", null, "El programador puede editar o agregar cualquier archivo adicional de estilos y este ser\u00E1 integrado de forma autom\u00E1tica debido a que en la configuraci\u00F3n se tiene agregado un \"*\" que indica que todos los archivos dentro de la carpeta deben ser procesados."));
+      }
+    }
+  });
+  /**********************************************
+  INTERNAL MODULE: ./basic/styles/template/global
+  **********************************************/
+
+  ims.set('./basic/styles/template/global', {
+    hash: 2988401954,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesTemplateGlobal = StylesTemplateGlobal;
+
+      var React = require("react");
+
+      function StylesTemplateGlobal() {
+        return React.createElement(React.Fragment, null, React.createElement("h3", {
+          id: "styles.css"
+        }, React.createElement("span", {
+          className: "inline"
+        }, "template.global")), React.createElement("p", null, "La propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "global"), " representa al archivo ", React.createElement("span", {
+          className: "inline"
+        }, "global.css"), " que a diferencia del ", React.createElement("span", {
+          className: "inline"
+        }, "styles.css"), ", tiene como finalidad compartir estilos que el desarrollador considere ", React.createElement("i", null, "globales"), " y por tanto deban poder ser compartidos por todos los widgets. Para lograr esto, el archivo final es incluido dentro de los estilos de cada widget."), React.createElement("p", null, "El igual que con la propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "application"), ", por defecto se incluyen todos los archivos que se encuentren adentro de la carpeta ", React.createElement("span", {
+          className: "inline"
+        }, "/global"), " y de base s\u00F3lo viene incluido un archivo ", React.createElement("span", {
+          className: "inline"
+        }, "styles.scss")));
+      }
+    }
+  });
+  /*********************************************
+  INTERNAL MODULE: ./basic/styles/template/index
+  *********************************************/
+
+  ims.set('./basic/styles/template/index', {
+    hash: 3846048342,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesTemplate = StylesTemplate;
+
+      var React = require("react");
+
+      var _beyond = require("../../../views/beyond");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _template = require("../tpl/template");
+
+      var _application = require("./application");
+
+      var _global = require("./global");
+
+      var _code2 = require("@beyond/docs/components/next-links/code");
+
+      function StylesTemplate() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
+          id: "template-styles"
+        }, "Estilos en el ", React.createElement("span", {
+          className: "inline"
+        }, "template")), React.createElement("p", null, "El manejo de estilos en el sistema de Template de ", React.createElement(_beyond.BeyondName, null), " se realiza por medio de la configuraci\u00F3n del procesador de estilos ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), ", esta configuraci\u00F3n se realiza en dos niveles b\u00E1sicamente:"), React.createElement(_code.CodeBox, {
+          lang: "json",
+          title: "template.json"
+        }, _template.tplTepmplate), React.createElement("p", null, "El c\u00F3digo anterior, es la configuraci\u00F3n por defecto de la plantilla de los proyectos web. B\u00E1sicamente se est\u00E1 configurando el procesador ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " para las plantillas de aplicaci\u00F3n y global. A continuaci\u00F3n se describe la finalidad de ambas."), React.createElement("div", {
+          className: "block__note"
+        }, "En esta p\u00E1gina se asume que el template se encuentra en una carpeta con dicho nombre en la raiz del proyecto, si se hizo un cambio en la configuraci\u00F3n por defecto deber\u00E1 considerarse la ubicaci\u00F3n configurada."), React.createElement(_application.StylesTemplateApplication, null), React.createElement(_global.StylesTemplateGlobal, null), React.createElement(_code2.NextLinks, {
+          items: [['Estilo en los módulos', '/docs/estyles/modules'], ['Template', '/docs/template']]
+        }));
       }
     }
   });
@@ -1741,7 +2307,7 @@ export /*bundle*/ const B = {...};
   *************************************/
 
   ims.set('./basic/styles/themes', {
-    hash: 1007160550,
+    hash: 2966445026,
     creator: function (require, exports) {
       "use strict";
 
@@ -1752,10 +2318,118 @@ export /*bundle*/ const B = {...};
 
       var React = require("react");
 
-      var _tbd = require("../../views/tbd");
+      var _code = require("@beyond/docs/components/next-links/code");
+
+      var _beyond = require("../../views/beyond");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      const tpl = `
+@use 'dark';
+@use 'light';
+:root {
+  @include light.properties();
+  @media(prefers-color-scheme: dark) {
+    @include dark.properties();
+  }
+}
+
+html[data-beyond-mode="light"] {
+  @include light.properties();
+}
+
+html[data-beyond-mode="dark"] {
+  @include dark.properties();
+}
+
+`;
+      const tplHost = `
+:host-context(html[data-beyond-mode]) {
+    //styles here...
+}
+`;
+      const tplApi = `widgets.attributes.add('data-beyond-mode', 'dark');`;
 
       function ThemesPage() {
-        return React.createElement(React.Fragment, null, React.createElement(_tbd.TBD, null));
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Light & Dark theme"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " provee un mecanismo simple para brindar soporte al tema claro y oscuro, el cual consta de dos partes."), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "El template de estilos")), React.createElement("li", null, "Atributo ", React.createElement("span", {
+          className: "inline"
+        }, "data-beyond-mode"))), React.createElement("h2", {
+          id: "template"
+        }, "Temas en el template."), React.createElement("p", null, "El template de aplicaci\u00F3n viene ya configurado para soportar el tema claro y oscuro y suministra un archivo de definici\u00F3n de propiedades personalizadas css para cada tema. Luego, en el archivo ", React.createElement("span", {
+          className: "inline"
+        }, "definition.scss"), " se tiene el siguiente c\u00F3digo:"), React.createElement(_code2.CodeBox, {
+          title: "definition.scss",
+          language: "sass"
+        }, tpl), React.createElement("p", null, "El c\u00F3digo anterior deja disponibles las variables configuradas en los archivos ", React.createElement("span", {
+          className: "inline"
+        }, "dark"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "light"), " para cada tema respectivo."), React.createElement("p", null, "En la mayor\u00EDa de los casos, si un widget requiere validar el tema que se est\u00E1 utilizando, puede bastar con usar el selector ", React.createElement("span", {
+          className: "inline"
+        }, "host-context"), " para definirlo desde un archivo de estilos, como se muestra en el siguiente ejemplo:"), React.createElement(_code2.Code, {
+          language: "scss"
+        }, tplHost), React.createElement("p", null, "Existen algunos casos, donde podr\u00EDa ser necesario que los widgets se enteren de forma din\u00E1mica del cambio de tema, para ello, se puede utilizar la api del objeto ", React.createElement("span", {
+          className: "inline"
+        }, "widgets")), React.createElement(_code2.Code, {
+          language: "js"
+        }, tplHost), React.createElement("p", null, "La l\u00EDnea anterior agrega a todos los widgets existentes el atributo ", React.createElement("span", {
+          className: "inline"
+        }, "data-beyond-mode"), " con el valor ", React.createElement("span", {
+          className: "inline"
+        }, "dark"), "."), React.createElement(_code.NextLinks, {
+          items: [['Plantilla', '/docs/template'], ['Servidor de desarrollo', '/docs/dev-server']]
+        }));
+      }
+    }
+  });
+  /******************************************
+  INTERNAL MODULE: ./basic/styles/tpl/modules
+  ******************************************/
+
+  ims.set('./basic/styles/tpl/modules', {
+    hash: 2453381117,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.StylesModules = StylesModules;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      const tplProcessor = `\r{
+    ...
+    "sass": {
+        "path": "sass",
+        "files": ["*"]
+    },
+    ...
+}
+`;
+
+      function StylesModules() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "module-styles"
+        }, "Estilos en el m\u00F3dulo"), React.createElement("p", null, "Para agregar estilos en un m\u00F3dulo/bundle creado, debe agregarse el ", React.createElement(_code.Link, {
+          href: "/docs/processors"
+        }, "procesador"), " ", React.createElement("code", {
+          className: "inline"
+        }, "SASS"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "Si se usa el dashboard para la creaci\u00F3n de proyectos, el procesador ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " es incluido por defecto en los bundles de tipo ", React.createElement("strong", null, "code"), " y ", React.createElement("strong", null, "widget"), " de cualquier tipo."), React.createElement("p", null, "la configuraci\u00F3n estandar de un procesador ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " es la siguiente:"), React.createElement(_code2.CodeBox, {
+          title: "module.json"
+        }, tplProcessor), React.createElement("p", null, "En la configuraci\u00F3n anterior, se est\u00E1 definiendo que en el m\u00F3dulo existe una carpeta sass, con ubicaci\u00F3n relativa al archivo ", React.createElement("span", {
+          className: "inline"
+        }, "module.json"), " y que todos los archivos de esta carpeta deben ser tomados en cuenta como archivos de estilo."), React.createElement("p", null, "El bundle contenedor del procesador se encarga de insertar los estilos en el DOM cuando el elemento es renderizado, de esta forma, ", React.createElement("strong", null, "no es requerido hacer imports con sem\u00E1ntica de javascript de archivos externos en nuestro c\u00F3digo"), "."));
       }
     }
   });
@@ -1817,6 +2491,41 @@ $media-large: 1025px;
       exports.SASSVAriables = SASSVAriables;
     }
   });
+  /*******************************************
+  INTERNAL MODULE: ./basic/styles/tpl/template
+  *******************************************/
+
+  ims.set('./basic/styles/tpl/template', {
+    hash: 4002286306,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.tplTepmplate = void 0;
+      const tplTepmplate = `
+{
+  "application": {
+    "processor": "sass",
+    "path": "application",
+    "files": [
+      "*"
+    ]
+  },
+  "global": {
+    "processor": "sass",
+    "path": "global",
+    "files": [
+      "*"
+    ]
+  }
+}
+
+`;
+      exports.tplTepmplate = tplTepmplate;
+    }
+  });
   /********************************************
   INTERNAL MODULE: ./basic/styles/tpl/variables
   ********************************************/
@@ -1856,6 +2565,210 @@ $media-large: 1025px;
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-lighter);`;
       exports.variablesTPL = variablesTPL;
+    }
+  });
+  /********************************************
+  INTERNAL MODULE: ./basic/template/application
+  ********************************************/
+
+  ims.set('./basic/template/application', {
+    hash: 162215853,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplateApplication = TemplateApplication;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      const tplConfig = `
+"application": {
+    "processor": "sass",
+    "path": "application",
+    "files": [
+      "*"
+    ]
+},
+"global": {
+    "processor": "sass",
+    "path": "application",
+    "files": [
+      "*"
+    ]
+  }
+`;
+
+      function TemplateApplication() {
+        return React.createElement(React.Fragment, null, React.createElement("p", null, "Las propiedades ", React.createElement("span", {
+          className: "inline"
+        }, "application"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "global"), " reciben los mismos parametros de configuraci\u00F3n, pero tienen fines distintos."), React.createElement("h4", {
+          className: "inline"
+        }, "template.application"), React.createElement("p", null, "La propiedad de configuraci\u00F3n ", React.createElement("span", {
+          className: "inline"
+        }, "application"), " representa al archivo de estilos generales del proyecto y tiene como foco principal ser el lugar en donde se definan las propiedades css personalizadas y cualquier estilo que se requiera aplicar al documento general, externo a los widgets."), React.createElement("p", null, "Las ", React.createElement("strong", null, "custom properties"), " juegan un papel importante en el manejo de los widgets. Los componentes webs con Shadow DOM no se ven afectados por los estilos generales del sitio web en donde est\u00E1n incluidos. Sin embargo, las propiedades css si pueden ser accedidas y utilizadas."), React.createElement("div", {
+          className: "block__note"
+        }, "El manejo de estilos puede verse en detalle en la secci\u00F3n de ", React.createElement(_code.Link, {
+          href: "/docs/styles/template"
+        }, "Estilos en la plantilla"), "."), React.createElement("h4", {
+          id: "template-global",
+          className: "inline"
+        }, "template.global"), React.createElement("p", null, "Tiene como finalidad suministrar al desarrollador la posibilidad de compartir c\u00F3digo entre widgets. Los archivos agregados en la configuraci\u00F3n de global, son compilados en un archivo de nombre ", React.createElement("span", {
+          className: "inline"
+        }, "global.css"), ", que es incluido en el shadow dom de cada widget para que tengan acceso a los estilos."), React.createElement("h3", null, "Parametros de configuraci\u00F3n"), React.createElement(_code2.Code, null, tplConfig), React.createElement("p", null, "C\u00F3mo se puede ver en el c\u00F3digo anterior, la configuraci\u00F3n de ambas propiedades funciona igual, reciben un objeto con las siguientes propiedades: "), React.createElement("p", null, "C\u00F3mo se puede ver en el c\u00F3digo anterior, se puede definir tres propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "processor"), " Procesador a utilizar. Soporta ", React.createElement("span", {
+          className: "inline"
+        }, "sass"), " y ", React.createElement("span", {
+          className: "inline"
+        }, "less")), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "path"), " Directorio donde se encuentran los archivos, sino se define se buscaran todos los archivos relativos a la ubicaci\u00F3n del archivo de configuraci\u00F3n."), React.createElement("li", null, React.createElement("span", {
+          className: "inline"
+        }, "files"), ", el ", React.createElement("span", {
+          className: "inline"
+        }, "*"), " indica que se debe tomar en cuenta cualquier archivo adentro del path definido. Si se espec\u00EDfican archivos por nombre, s\u00F3lo se tomara en cuenta los archivos indicados.")));
+      }
+    }
+  });
+  /***************************************
+  INTERNAL MODULE: ./basic/template/config
+  ***************************************/
+
+  ims.set('./basic/template/config', {
+    hash: 4271477781,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplateConfig = TemplateConfig;
+
+      var React = require("react");
+
+      var _code = require("@beyond/ui/link/code");
+
+      function TemplateConfig() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "config"
+        }, "Configuraci\u00F3n"), React.createElement("p", null, "La configuraci\u00F3n de la plantilla, al igual que todos los elementos en ", React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), ", se maneja por medio de un archivo de configuraci\u00F3n, cuyo nombre, por convenci\u00F3n es ", React.createElement("span", {
+          className: "inline"
+        }, "template.json"), " y se ubica en la carpeta ", React.createElement("span", {
+          className: "inline"
+        }, "template"), " en la raiz del proyecto. Sin embargo, tanto el nombre como la ubicaci\u00F3n son valores configurables en el ", React.createElement(_code.Link, {
+          href: "/project/config"
+        }, "project.json"), "."), React.createElement("div", {
+          className: "block__note"
+        }, "La plantilla puede ser manejada desde el ", React.createElement(_code.Link, {
+          href: "/docs/dashboard"
+        }, "Dashboard"), " y cuando se crea un proyecto ya viene configurada la estructura por defecto para su manejo."), React.createElement("p", null, "A continuaci\u00F3n se explican las propiedades de configuraci\u00F3n"));
+      }
+    }
+  });
+  /***************************************
+  INTERNAL MODULE: ./basic/template/global
+  ***************************************/
+
+  ims.set('./basic/template/global', {
+    hash: 3506004640,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplateGlobal = TemplateGlobal;
+
+      var React = require("react");
+
+      function TemplateGlobal() {
+        return React.createElement(React.Fragment, null, React.createElement("h2", {
+          id: "template-global"
+        }, "template.global"));
+      }
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./basic/template/index
+  **************************************/
+
+  ims.set('./basic/template/index', {
+    hash: 3730389370,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplatePage = TemplatePage;
+
+      var React = require("react");
+
+      var _intro = require("./intro");
+
+      var _config = require("./config");
+
+      var _application = require("./application");
+
+      var _overwrites = require("./overwrites");
+
+      function TemplatePage() {
+        return React.createElement(React.Fragment, null, React.createElement(_intro.TemplateIntro, null), React.createElement(_config.TemplateConfig, null), React.createElement(_application.TemplateApplication, null), React.createElement(_overwrites.TemplateOverwrites, null));
+      }
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./basic/template/intro
+  **************************************/
+
+  ims.set('./basic/template/intro', {
+    hash: 2655165194,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplateIntro = TemplateIntro;
+
+      var React = require("react");
+
+      function TemplateIntro() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Plantilla de un protecto"), React.createElement("p", null, React.createElement("span", {
+          className: "beyond"
+        }, "BeyondJS"), " brinda una arquitectura simple pero robusta para el manejo de plantillas en los proyectos, la cual cuenta con las siguientes caracteristicas:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Estilos: "), " Soporte integrado de preprocesadores LESS y SASS."), React.createElement("li", null, React.createElement("strong", null, "Propiedades CSS"), ": estructura b\u00E1sica de variables que permite trabajar con los componentes web eficientemente."), React.createElement("li", null, React.createElement("strong", null, "Estilo global"), ": Hoja de estilo global para el proyecto."), React.createElement("li", null, React.createElement("strong", null, "Sobreescritura"), ": Esto es una caracter\u00EDstica especial que permite redefinir estilos y textos de m\u00F3dulos existentes sin necesidad de tocar el c\u00F3digo original."), React.createElement("li", null, React.createElement("strong", null, "Separaci\u00F3n de c\u00F3digo"), ": Manejo independiente de los archivos de estilos con proceso automatizado para la generaci\u00F3n de archivos finales independientes y optimizados."), React.createElement("li", null, React.createElement("strong", null, "Light & Dark Theme"), " integrados.")));
+      }
+    }
+  });
+  /*******************************************
+  INTERNAL MODULE: ./basic/template/overwrites
+  *******************************************/
+
+  ims.set('./basic/template/overwrites', {
+    hash: 4172978664,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.TemplateOverwrites = TemplateOverwrites;
+
+      var React = require("react");
+
+      function TemplateOverwrites() {
+        return React.createElement(React.Fragment, null);
+      }
     }
   });
   /******************************************
@@ -2428,7 +3341,7 @@ class Controller extends ReactWidgetController {
   ********************/
 
   ims.set('./db', {
-    hash: 3259713915,
+    hash: 1935937668,
     creator: function (require, exports) {
       "use strict";
 
@@ -2437,15 +3350,7 @@ class Controller extends ReactWidgetController {
       });
       exports.getContent = void 0;
 
-      var _whatIs = require("./views/what-is/what-is");
-
-      var _concepts = require("./views/concepts/concepts");
-
       var _error = require("./views/error-404");
-
-      var _example = require("./views/example");
-
-      var _index = require("./views/concepts/server/index");
 
       var _intro = require("./starting/intro");
 
@@ -2471,7 +3376,7 @@ class Controller extends ReactWidgetController {
 
       var _config = require("./basic/modules/config");
 
-      var _bundle = require("./basic/modules/bundle");
+      var _bundles = require("./basic/modules/bundles");
 
       var _widgets = require("./basic/widgets");
 
@@ -2491,17 +3396,15 @@ class Controller extends ReactWidgetController {
 
       var _deployment = require("./basic/deployment");
 
-      var _template = require("./basic/styles/template");
+      var _template = require("./basic/template");
 
-      var _styles = require("./basic/styles/styles");
+      var _styles = require("./basic/styles");
 
       var _themes = require("./basic/styles/themes");
 
       var _stateManagement = require("./basic/state-management");
 
       var _rendering = require("./basic/rendering");
-
-      var _why = require("./fundamentals/why");
 
       var _bee = require("./fundamentals/bee");
 
@@ -2511,13 +3414,21 @@ class Controller extends ReactWidgetController {
 
       var _devServer = require("./fundamentals/dev-server");
 
-      var _npmPackages = require("./fundamentals/npm-packages");
-
       var _uri = require("./api/uri");
 
       var _beyondWidgetApi = require("./api/beyond-widget-api");
 
       var _create = require("./basic/modules/create");
+
+      var _imports = require("./basic/styles/imports");
+
+      var _modules = require("./basic/styles/tpl/modules");
+
+      var _glossary = require("./views/concepts/glossary/glossary");
+
+      var _iWidgetStore = require("./api/i-widget-store");
+
+      var _multilanguage = require("./fundamentals/multilanguage");
       /*starting*/
 
       /*basic*/
@@ -2525,8 +3436,6 @@ class Controller extends ReactWidgetController {
       // modules
       //widgets
       //styles
-
-      /*fundamentals*/
 
       /*API*/
 
@@ -2554,7 +3463,7 @@ class Controller extends ReactWidgetController {
             create: _create.ModulesCreate,
             json: _config.ModuleConfig
           },
-          bundles: _bundle.Bundle,
+          bundles: _bundles.Bundles,
           widgets: {
             default: _widgets.Widgets,
             definition: _creation.WidgetCreation,
@@ -2565,9 +3474,14 @@ class Controller extends ReactWidgetController {
           state: {
             management: _stateManagement.StateManagement
           },
+          styles: {
+            template: _styles.StylesPage,
+            module: _modules.StylesModules,
+            imports: _imports.StylesImports,
+            themes: _themes.ThemesPage
+          },
           routing: _routing.RoutingPage,
-          styles: _styles.StylesPage,
-          themes: _themes.ThemesPage,
+          template: _template.TemplatePage,
           backend: _backend.Backend,
           rendering: _rendering.RenderingPage,
           deployment: _deployment.DeploymentPage
@@ -2576,32 +3490,23 @@ class Controller extends ReactWidgetController {
           bee: _bee.BEE,
           hmr: _hmr.HMR,
           processors: _processors.Processors,
-          'dev-server': _devServer.DevServer
+          'dev-server': _devServer.DevServer,
+          glossary: _glossary.Glossary,
+          multilanguage: _multilanguage.MultiLanguage
         };
         const api = {
           api: {
             uri: _uri.APIURI,
-            BeyondWidget: _beyondWidgetApi.BeyondWidgetApi
+            BeyondWidget: _beyondWidgetApi.BeyondWidgetApi,
+            iWidgetStore: _iWidgetStore.IWidgetStore
           }
         };
         const contents = { ...starting,
           ...basics,
           ...foundations,
           ...api,
-          template: _template.TemplatePage,
           fetching: _fetching.FetchingDAtaPage,
-          'what-is-beyond': _whatIs.WhatIs,
-          'why-beyond': _why.WhyBeyond,
-          default: _example.Example,
-          'npm-packages': _npmPackages.NpmPackages,
-          concepts: {
-            basics: _concepts.Concepts
-          },
-          error404: _error.Error404,
-          project: {
-            config: _projectJson.ProjectJson
-          },
-          server: _index.Server
+          error404: _error.Error404
         };
 
         if (!contents.hasOwnProperty(contentId) || sub && !contents[contentId].hasOwnProperty(sub)) {
@@ -2609,6 +3514,11 @@ class Controller extends ReactWidgetController {
             id: contentId,
             control: contents.error404
           };
+        }
+
+        if (!contents[contentId]) {
+          console.log('error', contents[contentId], contentId, contents);
+          return _error.Error404;
         } // the constructor is 'Object' when the contents[contentId] value is a plain object of subitems on contents.
 
 
@@ -2686,7 +3596,7 @@ class Controller extends ReactWidgetController {
   ***********************************************/
 
   ims.set('./fundamentals/dev-server/index', {
-    hash: 3555708793,
+    hash: 1406245891,
     creator: function (require, exports) {
       "use strict";
 
@@ -2701,6 +3611,16 @@ class Controller extends ReactWidgetController {
 
       var _code = require("@beyond/ui/link/code");
 
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _typeProperty = require("../../views/type-property");
+
+      const tpl1 = `{
+  "applications": "projects.json",
+  "bundles": {},
+  "libraries": []
+}`;
+
       function DevServer() {
         return React.createElement(React.Fragment, null, React.createElement("h1", null, "Servidor de desarrollo"), React.createElement("p", null, "El servidor de desarrollo de ", React.createElement(_beyond.BeyondName, null), " se inicia cuando se ejecuta el comando ", React.createElement("span", {
           className: "inline"
@@ -2710,7 +3630,46 @@ class Controller extends ReactWidgetController {
           href: "http://localhost:4000"
         }, "http://localhost:4000"), " y este genera y edita el archivo ", React.createElement("span", {
           className: "inline"
-        }, "beyond.json"), " cuando se crea, edita o elimina alg\u00FAn proyecto."));
+        }, "beyond.json"), " cuando se crea, edita o elimina alg\u00FAn proyecto."), React.createElement("h2", null, React.createElement("code", {
+          className: "inline-code"
+        }, "beyond.json")), React.createElement(_code2.Code, {
+          language: "json"
+        }, tpl1), React.createElement("h3", null, "Propiedades"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "AOC",
+          href: "/aoc"
+        }, "applications"), "Recibe un arreglo con la lista de proyectos o aplicaciones configuradas para que ", React.createElement("span", {
+          className: "beyond"
+        }, "Beyond"), " pueda leearlas y levantarlas. Este archivo, es gestionado por ", React.createElement("span", {
+          className: "beyond"
+        }, "Beyond"), " si se hace uso del dashboard."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "object"
+        }, "bundles"), " Permite configurar la inclusi\u00F3n de bundles creados por el programador."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
+          type: "AOC",
+          href: "/aoc"
+        }, "libraries"), " Arreglo de configuraci\u00F3n de librerias ", React.createElement("span", {
+          className: "beyond"
+        }, "Beyond"), " a utilizar.")));
+      }
+    }
+  });
+  /**************************************************
+  INTERNAL MODULE: ./fundamentals/distributions/index
+  **************************************************/
+
+  ims.set('./fundamentals/distributions/index', {
+    hash: 1691860758,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Distributions = Distributions;
+
+      var React = require("react");
+
+      function Distributions() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Distribuciones"));
       }
     }
   });
@@ -2719,7 +3678,7 @@ class Controller extends ReactWidgetController {
   **********************************/
 
   ims.set('./fundamentals/hmr', {
-    hash: 942990439,
+    hash: 148003523,
     creator: function (require, exports) {
       "use strict";
 
@@ -2733,7 +3692,63 @@ class Controller extends ReactWidgetController {
       function HMR() {
         return React.createElement("div", {
           className: "content"
-        }, React.createElement("h1", null, "HMR"), React.createElement("p", null, "Todos los bundles exponen de forma autom\u00E1tica un objeto hmr que le permite al desarrollador suscribirse a los cambios de c\u00F3digo y persistir de esta forma el estado de la aplicaci\u00F3n en el cual se encuentra la misma, optimizando as\u00ED el proceso de desarrollo al evitar tener que realizar un flujo completo nuevamente para volver al estadio en el proyecto sobre el cual se est\u00E1 desarrollando."), React.createElement("p", null, "Para explicarlo mejor, supongamos que se est\u00E1 realizando una l\u00F3gica de filtrado de elementos de una base de datos en un m\u00F3dulo backend, este m\u00F3dulo realiza los siguientes pasos:"), React.createElement("ul", null, React.createElement("li", null, "Realiza el login contra la base de datos."), React.createElement("li", null, "Realiza dos consultas a base de datos."), React.createElement("li", null, "Retorna la informaci\u00F3n disponible para que el programador trabaje con ella."), React.createElement("li", null, "Genera una estructura de datos en la cual se integra toda la informaci\u00F3n consultada para que esta sea devuelta al cliente.")), React.createElement("p", null, "La suscripci\u00F3n de cambios de parte del desarrollador con hmr, permite a este enfocarse en el \u00FAltimo punto sin necesidad de repetir por cada cambio los primeros tres, lo cual significa una optimizaci\u00F3n en tiempo de pruebas bastante alta."), React.createElement("p", null, "La implementaci\u00F3n de hmr se encarga de forma autom\u00E1tica de realizar el reemplazo de contenido de un archivo en el mismo momento en el que este es cambiado, dejando disponible de manera inmediata la actualizaci\u00F3n del mismo, sin necesidad de realizar ninguna acci\u00F3n adicional y adem\u00E1s, el programador puede suscribirse a estos cambios para definir que desea hacer a partir de ellos, ofreciendole la versatilidad de ejecutar funciones de manera autom\u00E1tica ante cada cambio."), React.createElement("h2", null, "Eventos"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "change")), React.createElement("li", null, React.createElement("strong", null, "change:[nombre-procesador]"))));
+        }, React.createElement("h1", null, "HMR"), React.createElement("p", null, "Todos los bundles exponen de forma autom\u00E1tica un objeto ", React.createElement("span", {
+          className: "inline"
+        }, "hmr"), " que le permite que el desarrollador pueda suscribirse a los cambios de c\u00F3digo y persistir de esta forma el estado del proyecto en el que se encuentre, optimizando el proceso de desarrollo, pues se evita la necesidad de repetir nuevamente los flujos para llegar al estado actual."), React.createElement("p", null, "Para explicarlo mejor, supongamos que se est\u00E1 realizando una l\u00F3gica de filtrado de elementos de una base de datos en un m\u00F3dulo backend, este m\u00F3dulo realiza los siguientes pasos:"), React.createElement("ul", null, React.createElement("li", null, "Realiza el login contra la base de datos."), React.createElement("li", null, "Realiza dos consultas a base de datos."), React.createElement("li", null, "Retorna la informaci\u00F3n disponible para que el programador trabaje con ella."), React.createElement("li", null, "Genera una estructura de datos en la cual se integra toda la informaci\u00F3n consultada para que esta sea devuelta al cliente.")), React.createElement("p", null, "La suscripci\u00F3n de cambios de parte del desarrollador con hmr, permite a este enfocarse en el \u00FAltimo punto sin necesidad de repetir por cada cambio los primeros tres, lo cual significa una optimizaci\u00F3n en tiempo de pruebas bastante alta."), React.createElement("p", null, "La implementaci\u00F3n de hmr se encarga de forma autom\u00E1tica de realizar el reemplazo de contenido de un archivo en el mismo momento en el que este es cambiado, dejando disponible de manera inmediata la actualizaci\u00F3n del mismo, sin necesidad de realizar ninguna acci\u00F3n adicional y adem\u00E1s, el programador puede suscribirse a estos cambios para definir que desea hacer a partir de ellos, ofreciendole la versatilidad de ejecutar funciones de manera autom\u00E1tica ante cada cambio."), React.createElement("h2", null, "Eventos"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "change")), React.createElement("li", null, React.createElement("strong", null, "change:[nombre-procesador]"))));
+      }
+    }
+  });
+  /**************************************************
+  INTERNAL MODULE: ./fundamentals/multilanguage/index
+  **************************************************/
+
+  ims.set('./fundamentals/multilanguage/index', {
+    hash: 1528421413,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.MultiLanguage = MultiLanguage;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/code/code");
+
+      var _beyond = require("../../views/beyond");
+
+      const tpl = `
+//....
+"languages": {
+    "default": "en",
+    "supported": [
+      "en",
+      "es"
+    ]
+},
+//....
+`;
+      const tpl2 = `
+import {module} from "beyond_context";
+
+/**
+resource: module.resource // nombre del modulo como recurso
+multilanguage: boolean
+*/
+this.#texts = new CurrentTexts(module.resource, true);
+this.#texts.bind('change', this.triggerEvent);
+`;
+
+      function MultiLanguage() {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Multilenguaje"), React.createElement("p", null, "El manejo de lenguajes en un proyecto se define por medio de la propiedad ", React.createElement("span", {
+          className: "inline"
+        }, "languages"), " en el ", React.createElement("span", {
+          className: "inline"
+        }, "project.json"), ". Esta propiedad permite definir los lenguajes soportados y el idioma por defecto."), React.createElement("p", null, "Los idiomas se manejan por medio de identificadores de dos letras. A continuaci\u00F3n se muestra un ejemplo donde se define que el proyecto soporta espa\u00F1ol e ingles y se define el ingles como idioma por defecto."), React.createElement(_code.CodeBox, {
+          title: "project.json",
+          language: "json"
+        }, tpl), React.createElement("h2", null, "Bundles de Texto"), React.createElement("p", null, React.createElement(_beyond.BeyondName, null)), React.createElement(_code.Code, null, tpl2));
       }
     }
   });
@@ -2774,7 +3789,7 @@ class Controller extends ReactWidgetController {
   *****************************************/
 
   ims.set('./fundamentals/processors', {
-    hash: 3144798096,
+    hash: 1546253831,
     creator: function (require, exports) {
       "use strict";
 
@@ -2792,6 +3807,8 @@ class Controller extends ReactWidgetController {
       var _typeProperty = require("../views/type-property");
 
       var _code2 = require("@beyond/docs/code/code");
+
+      var _code3 = require("@beyond/docs/components/next-links/code");
 
       const tpl = `
 {
@@ -2815,13 +3832,11 @@ class Controller extends ReactWidgetController {
 `;
 
       function Processors() {
-        return React.createElement("div", {
-          className: "content"
-        }, React.createElement("h1", {
+        return React.createElement(React.Fragment, null, React.createElement("h1", {
           id: "processors"
-        }, "Procesadores"), React.createElement("p", null, "Muchas de las herramientas o lenguajes utilizados en el entorno web no son soportados de forma directa en los navegadores y requieren ser procesadas para poder ser integradas en un sitio web, este es el trabajo que realizan los procesadores. ", React.createElement(_beyond.BeyondName, null), " ofrece una serie de procesadores integrados, que permiten utilizar las principales tecnolog\u00EDas de la industria web. Asimismo, ofrece la posibilidad de crear nuevos procesadores, en caso de que se desee integrar una herramienta que no este soportada por los procesadores existentes."), React.createElement("div", {
+        }, "Procesadores"), React.createElement("p", null, "Muchas de las herramientas o lenguajes utilizados en el entorno web requieren un procesamiento previo para ser interpretados por los navegadores o entornos de ejecuci\u00F3n, este es el trabajo que realizan los procesadores."), React.createElement("p", null, React.createElement(_beyond.BeyondName, null), " ofrece una serie de procesadores integrados, que permiten utilizar las principales tecnolog\u00EDas de la industria web y brinda soporte para que puedan integrarse nuevos procesadores en caso de que se requiera."), React.createElement("div", {
           className: "block__note"
-        }, React.createElement(_beyond.BeyondName, null), " no funciona como los empaquetadores como Webpack o parcel. No necesita evaluar grafo de dependencias ni aplicar t\u00E9cnicas para separaci\u00F3n de c\u00F3digo o tree shaking. Gracias a su naturaleza m\u00F3dular y por medio de los procesadores, el empaquetado de c\u00F3digo se hace a nivel de bundles."), React.createElement("p", null, " Los procesadores son componentes de ", React.createElement(_beyond.BeyondName, null), " que permiten interpretar, parsear, transpilar o compilar c\u00F3digo (seg\u00FAn sea el caso) de los lenguajes o tecnolog\u00EDas utilizadas en un", React.createElement(_code.Link, {
+        }, React.createElement(_beyond.BeyondName, null), " trabaja distinto a empaquetadores como Webpack o Parcel. No necesita evaluar el arbol de dependencias de un proyecto, ni aplicar t\u00E9cnicas para separaci\u00F3n de c\u00F3digo o tree shaking. Gracias a su naturaleza m\u00F3dular y por medio de los procesadores, el empaquetado de c\u00F3digo se hace a nivel de bundles."), React.createElement("p", null, " Los procesadores son componentes de ", React.createElement(_beyond.BeyondName, null), " que permiten interpretar, parsear, transpilar o compilar c\u00F3digo (seg\u00FAn sea el caso) de los lenguajes o tecnolog\u00EDas utilizadas en un", React.createElement(_code.Link, {
           href: "/docs/bundles"
         }, "Bundle"), "."), React.createElement("h2", {
           id: "processors-list"
@@ -2839,17 +3854,17 @@ class Controller extends ReactWidgetController {
           className: "inline"
         }, "svelte"))), React.createElement("h3", {
           id: "properties"
-        }, "Propiedades"), React.createElement("p", null, "Todos los procesadores cuentan con las siguientes propiedades:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "path: "), React.createElement(_typeProperty.TypeProperty, {
+        }, "Propiedades"), React.createElement("p", null, "Todos los procesadores cuentan con las siguientes propiedades:"), React.createElement("ul", null, React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "string",
           optional: true
-        }), ": Permite definir el ", React.createElement("span", {
+        }, "path "), " Permite definir el ", React.createElement("span", {
           className: "inline"
         }, "directorio"), " en donde se encuentran los archivos del procesador. Si se agrega un valor, el mismo es interpretado como un directorio de posici\u00F3n relativa a la ubicaci\u00F3n del ", React.createElement("span", {
           className: "inline"
-        }, "module.json"), " definido."), React.createElement("li", null, React.createElement("strong", null, "files: "), React.createElement(_typeProperty.TypeProperty, {
+        }, "module.json"), " definido."), React.createElement("li", null, React.createElement(_typeProperty.TypeProperty, {
           type: "array",
           optional: true
-        }), ": Permite definir la lista de archivos o carpetas incluidos en el procesador. Si la propiedad ", React.createElement("span", {
+        }, "files"), " Permite definir la lista de archivos o carpetas incluidos en el procesador. Si la propiedad ", React.createElement("span", {
           className: "inline"
         }, "path"), " se encuentra definida, los archivos ser\u00E1n buscados adentro del directorio especificado, caso contrario, ser\u00E1n buscados de forma relativa a la ubicaci\u00F3n del ", React.createElement("span", {
           className: "inline"
@@ -2880,7 +3895,9 @@ class Controller extends ReactWidgetController {
         }, "module.json")))), React.createElement(_code2.CodeBox, {
           language: "json",
           title: "module.json"
-        }, tpl)));
+        }, tpl)), React.createElement(_code3.NextLinks, {
+          items: [['Crear un módulo', '/docs/modules/create'], ['Bundles', '/docs/bundles']]
+        }));
       }
     }
   });
@@ -4455,33 +5472,12 @@ function Page(): JSX.Element {
       }
     }
   });
-  /***********************************************
-  INTERNAL MODULE: ./views/concepts/features/index
-  ***********************************************/
-
-  ims.set('./views/concepts/features/index', {
-    hash: 3380790336,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Features = Features;
-
-      var React = require("react");
-
-      function Features() {
-        return React.createElement(React.Fragment, null);
-      }
-    }
-  });
   /**************************************************
   INTERNAL MODULE: ./views/concepts/glossary/glossary
   **************************************************/
 
   ims.set('./views/concepts/glossary/glossary', {
-    hash: 2205492520,
+    hash: 698363967,
     creator: function (require, exports) {
       "use strict";
 
@@ -4494,16 +5490,12 @@ function Page(): JSX.Element {
 
       var _code = require("@beyond/ui/link/code");
 
+      var _beyond = require("../../beyond");
+
       function Glossary() {
-        return React.createElement("section", {
-          className: "content content__glossary"
-        }, React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "EAC "), "(\"External Array Configuration\") Los objetos cuyas propiedades son EAC pueden esperar dos valores, Un arreglo o una cadena de texto. Si se pasa una cadena de texto, ", React.createElement("span", {
-          className: "beyond"
-        }, "Beyond"), " toma el valor como una ruta relativa para la ubicaci\u00F3n del archivo externo de configuraci\u00F3n. Arreglo de configuraci\u00F3n que puede encontrarse en un archivo independiente y cuyos elementos son de tipo", React.createElement(_code.Link, {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Glosario de t\u00E9rminos"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "EAC "), "(\"External Array Configuration\") Los objetos cuyas propiedades son EAC pueden esperar dos valores, Un arreglo o una cadena de texto. Si se pasa una cadena de texto, ", React.createElement(_beyond.BeyondName, null), " toma el valor como una ruta relativa para la ubicaci\u00F3n del archivo externo de configuraci\u00F3n. Arreglo de configuraci\u00F3n que puede encontrarse en un archivo independiente y cuyos elementos son de tipo", React.createElement(_code.Link, {
           href: "/glossary#eoc"
-        }, "EOC.")), React.createElement("li", null, React.createElement("strong", null, "EOC "), "(\"External Object Configuration\") Objeto de configuraci\u00F3n que puede ser includo de forma directa como valor o ser referenciado como un archivo externo. Los objetos cuyas propiedades son EOC pueden esperar dos valores: un objeto o una cadena de texto. Si la propiedad tiene definido como valor una cadena de texto, ", React.createElement("span", {
-          className: "beyond"
-        }, " Beyond"), "toma el valor como una ruta relativa para la ubicaci\u00F3n del archivo externo de configuraci\u00F3n.")));
+        }, "EOC.")), React.createElement("li", null, React.createElement("strong", null, "EOC "), "(\"External Object Configuration\") Objeto de configuraci\u00F3n que puede ser includo de forma directa como valor o ser referenciado como un archivo externo. Los objetos cuyas propiedades son EOC pueden esperar dos valores: un objeto o una cadena de texto. Si la propiedad tiene definido como valor una cadena de texto, ", React.createElement(_beyond.BeyondName, null), " toma el valor como una ruta relativa para la ubicaci\u00F3n del archivo externo de configuraci\u00F3n.")));
       }
     }
   });
@@ -5092,7 +6084,7 @@ console.log(1, 'ejemplo');
   ***************************************/
 
   ims.set('./views/object-property', {
-    hash: 3992404776,
+    hash: 802035498,
     creator: function (require, exports) {
       "use strict";
 
@@ -5115,7 +6107,7 @@ console.log(1, 'ejemplo');
           optional: true,
           type: type,
           href: href
-        }), ": \u00A0");
+        }));
       }
     }
   });
@@ -5449,7 +6441,7 @@ console.log(1, 'ejemplo');
   *************************************/
 
   ims.set('./views/type-property', {
-    hash: 2257894405,
+    hash: 3230708797,
     creator: function (require, exports) {
       "use strict";
 
@@ -5463,6 +6455,7 @@ console.log(1, 'ejemplo');
       var _code = require("@beyond/ui/link/code");
 
       function TypeProperty({
+        children,
         type,
         href = false,
         optional = false
@@ -5470,11 +6463,11 @@ console.log(1, 'ejemplo');
         const output = href ? React.createElement(_code.Link, {
           href: href
         }, `${type}`, " ") : `${type} `;
-        return React.createElement("span", {
+        return React.createElement(React.Fragment, null, children && React.createElement("strong", null, children), " ", React.createElement("span", {
           className: "type__property"
-        }, output, optional && React.createElement("span", {
+        }, output), optional && React.createElement("span", {
           className: "type__optional"
-        }, "optional", " "));
+        }, ` optional`, " "), ":");
       }
     }
   });
