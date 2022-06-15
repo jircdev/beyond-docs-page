@@ -15,14 +15,14 @@ define(["@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/transversals/ts", "@be
   } = require('@beyond-js/widgets/render/ts');
 
   widgets.register([{
-    "name": "contents-subpage-page",
-    "id": "@beyond/docs/contents-subpage-page/widget",
+    "name": "contents-page",
+    "id": "@beyond/docs/contents-page/widget",
     "is": "page",
     "route": "/docs/${content}",
     "layout": "main-layout"
   }, {
-    "name": "contents-page",
-    "id": "@beyond/docs/contents/widget",
+    "name": "contents-subpage",
+    "id": "@beyond/docs/contents-subpage/widget",
     "is": "page",
     "route": "/docs/${content}/${sub}",
     "layout": "main-layout"
@@ -52,6 +52,7 @@ define(["@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/transversals/ts", "@be
     "is": "layout"
   }, {
     "name": "menu-layout",
+    "attrs": ["opened"],
     "id": "@beyond/docs/layout/menu/widget",
     "is": "layout"
   }, {

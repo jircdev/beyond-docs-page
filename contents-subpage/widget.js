@@ -11,15 +11,15 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
     externals
   } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = new __Bundle("@beyond/docs/contents/widget").package();
+  const __pkg = new __Bundle("@beyond/docs/contents-subpage/widget").package();
 
   externals.register(new Map([["react", dependency_4]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/contents-data/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
-    "name": "contents-page",
-    "id": "@beyond/docs/contents/widget",
+    "name": "contents-subpage",
+    "id": "@beyond/docs/contents-subpage/widget",
     "is": "page",
     "route": "/docs/${content}/${sub}",
     "layout": "main-layout"
@@ -107,7 +107,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
   ****************************/
 
   ims.set('./controller', {
-    hash: 3185182179,
+    hash: 3184022356,
     creator: function (require, exports) {
       "use strict";
 
@@ -128,7 +128,6 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
         createStore() {
           //Todo: @julio @felix question  new Contents(this.body)
           const contents = new _contents.Contents(this.body);
-          console.log(0.1, contents);
           return contents;
         }
 

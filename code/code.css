@@ -2,36 +2,26 @@
   border: 1 ps solid var(--color-gray-80);
   display: grid;
   background: var(--color-gray-80);
-  box-shadow: var(--shadow-1);
   border-radius: var(--border-radius-base);
   overflow: hidden;
   grid-template-rows: auto 1fr;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .code__box header {
-  background: var(--color-gray-70);
-  border-radius: var(--border-radius-base);
+  background: var(--secondary-dark);
   display: flex;
-  padding: 0.6rem;
+  padding: 0;
   flex-grow: 1;
   gap: 1rem;
+}
+.code__box header .tab {
+  padding: 1rem;
+  background: var(--app-editor-bg);
+  color: var(--text-on-primary);
 }
 .code__box header .box__buttons {
   display: flex;
   gap: 8px;
-}
-.code__box header .box__buttons .circle {
-  border-radius: 50%;
-  aspect-ratio: 1/1;
-  height: 1rem;
-}
-.code__box header .box__buttons .circle.red {
-  background: red;
-}
-.code__box header .box__buttons .circle.blue {
-  background: var(--color-blue-50);
-}
-.code__box header .box__buttons .circle.green {
-  background: var(--color-green-80);
 }
 .code__box .box__code pre {
   height: 100%;
@@ -44,7 +34,7 @@
  * @author Rose Pritchard
  */
 code:not(.inline-code, .inline), pre {
-  background: #1a1a1a;
+  background: var(--app-editor-bg);
   padding: 15px;
 }
 

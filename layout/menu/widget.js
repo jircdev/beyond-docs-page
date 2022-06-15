@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/ui/link/code", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
   externals.register(new Map([["react", dependency_4]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/ui/link/code", "@beyond/docs/ui/icons/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond/docs/ui/icons/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "menu-layout",
@@ -249,7 +249,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ******************************/
 
   ims.set('./menu/context', {
-    hash: 313557389,
+    hash: 2111041036,
     creator: function (require, exports) {
       "use strict";
 
@@ -274,7 +274,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ****************************/
 
   ims.set('./menu/index', {
-    hash: 1751171208,
+    hash: 2687607315,
     creator: function (require, exports) {
       "use strict";
 
@@ -291,29 +291,29 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       var _context = require("./context");
 
-      var _code = require("@beyond/docs/manager/code");
+      var _code = require("@beyond/docs/store/code");
 
-      var _code2 = require("@beyond/docs/store/code");
+      var _code2 = require("@beyond/ui/icons/code");
 
-      var _code3 = require("@beyond/ui/icons/code");
+      var _code3 = require("@beyond/ui/image/code");
 
-      var _code4 = require("@beyond/ui/image/code");
+      var _beyond_context = require("beyond_context");
+
+      var _code4 = require("@beyond/docs/components/html/code");
       /*bundle*/
 
 
-      function WidgetMenu() {
-        const [selected, setSelected] = React.useState();
-        const [value, setValue] = React.useState({
-          selected,
-          setSelected
-        });
+      function WidgetMenu({
+        attributes
+      }) {
+        const [ready, texts] = (0, _code.useTexts)(_beyond_context.module.resource);
         const parent = React.useRef(null);
         const openedLocal = typeof window !== undefined ? window?.localStorage.getItem('__menu_opened') : true;
-        const [opened] = React.useState([true, 'true'].includes(openedLocal));
-        React.useEffect(() => setValue({ ...value,
-          container: parent?.current
-        }), []);
-        (0, _code2.useBinder)([_code.AppManager], () => parent.current.classList.toggle('docs__menu--opened'));
+        const [opened, setOpened] = React.useState([true, 'true'].includes(openedLocal));
+        (0, _code.useBinder)([attributes], () => {
+          const option = attributes.get('opened') === 'true';
+          if (option !== opened) setOpened(option);
+        });
 
         const closeMenu = () => {
           const isOpened = parent.current.classList.contains('docs__menu--opened');
@@ -327,9 +327,11 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         };
 
         const cls = `docs__menu${opened ? ` docs__menu--opened` : ''}`;
+        if (!ready) return React.createElement(_code4.Loading, null);
         return React.createElement(_context.MenuContext.Provider, {
           value: {
-            container: value.container,
+            ready,
+            texts,
             close: closeMenu
           }
         }, React.createElement("aside", {
@@ -339,11 +341,11 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           className: "menu-mobile-container"
         }, React.createElement("header", {
           className: "aside__header"
-        }, React.createElement("div", null, React.createElement(_code4.BeyondImage, {
+        }, React.createElement("div", null, React.createElement(_code3.BeyondImage, {
           src: "/images/beyond-logo.png",
           className: "img-logo mobile-only",
           alt: "Beyond the universal meta framework"
-        }), React.createElement("h4", null, "Contents")), React.createElement(_code3.BeyondIconButton, {
+        }), React.createElement("h4", null, "Contents")), React.createElement(_code2.BeyondIconButton, {
           onClick: close,
           className: "docs__menu__list__btn-close",
           icon: "close"
@@ -358,7 +360,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   **********************************/
 
   ims.set('./menu/items/index', {
-    hash: 943571729,
+    hash: 2902800005,
     creator: function (require, exports) {
       "use strict";
 
@@ -373,9 +375,9 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       var _context = require("../context");
 
-      var _code = require("@beyond/ui/link/code");
+      var _ts = require("@beyond-js/kernel/routing/ts");
 
-      var _code2 = require("@beyond/docs/ui/icons/code");
+      var _code = require("@beyond/docs/ui/icons/code");
 
       function List({
         items,
@@ -405,7 +407,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           onClick: onClick
         }, React.createElement("a", {
           href: ""
-        }, React.createElement("span", null, item.label)), React.createElement(_code2.AppIcon, {
+        }, React.createElement("span", null, item.label)), React.createElement(_code.AppIcon, {
           icon: "chevronRight"
         })), React.createElement(List, {
           items: item.children,
@@ -426,21 +428,24 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
         const onClick = event => {
           event.preventDefault();
-          const target = event.currentTarget;
+          const container = event.currentTarget.closest('aside');
+          const target = event.currentTarget.closest('li');
           const currentActive = container.querySelector('.active-item');
           if (currentActive) currentActive.classList.remove('active-item');
-          target.classList.toggle('active-item'); // routing.pushState(`/docs/${item.id}`);
+          target.classList.add('active-item');
+
+          _ts.routing.pushState(`/docs/${item.id}`);
 
           close();
         };
 
-        const cls = `item--opened`;
+        const cls = ``;
         return React.createElement("li", {
-          onClick: onClick,
           className: cls
-        }, React.createElement("section", null, React.createElement(_code.Link, {
-          href: `/docs/${item.id}`
-        }, React.createElement("span", null, item.label))));
+        }, React.createElement("a", {
+          href: `/docs/${item.id}`,
+          onClick: onClick
+        }, item.label));
       }
     }
   });

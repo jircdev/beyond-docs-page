@@ -11,15 +11,15 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
     externals
   } = require('@beyond-js/kernel/bundle/ts');
 
-  const __pkg = new __Bundle("@beyond/docs/contents-subpage-page/widget").package();
+  const __pkg = new __Bundle("@beyond/docs/contents-page/widget").package();
 
   externals.register(new Map([["react", dependency_3]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/contents-data/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
-    "name": "contents-subpage-page",
-    "id": "@beyond/docs/contents-subpage-page/widget",
+    "name": "contents-page",
+    "id": "@beyond/docs/contents-page/widget",
     "is": "page",
     "route": "/docs/${content}",
     "layout": "main-layout"
@@ -144,7 +144,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
   ****************************/
 
   ims.set('./views/page', {
-    hash: 3984434729,
+    hash: 4165151010,
     creator: function (require, exports) {
       "use strict";
 
@@ -165,13 +165,6 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
         const [hmrChanged, setHmr] = React.useState(performance.now());
         const sub = uri.vars.get('sub');
         const contentId = !['', undefined, null].includes(propsContent) ? propsContent : 'intro';
-        React.useEffect(() => {
-          const onChange = () => setHmr(performance.now());
-
-          _code.hmr.on('change', onChange);
-
-          return () => _code.hmr.off('change', onChange);
-        }, []);
         return React.createElement(_code.ContentsPage, {
           component: component,
           contentId: contentId,

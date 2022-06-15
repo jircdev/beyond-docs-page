@@ -61,7 +61,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   ************************/
 
   ims.set('./layout', {
-    hash: 551316928,
+    hash: 3480775152,
     creator: function (require, exports) {
       "use strict";
 
@@ -77,7 +77,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
       function Layout() {
         return React.createElement("div", {
           className: "main-widget"
-        }, React.createElement("beyond-docs-header", null), React.createElement("div", {
+        }, React.createElement("docs-header-menu", null), React.createElement("div", {
           className: "docs-page container"
         }, React.createElement("menu-layout", null), React.createElement("main", null, React.createElement("beyond-layout-children", null))));
       }

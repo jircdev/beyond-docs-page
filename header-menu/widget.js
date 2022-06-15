@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -13,9 +13,9 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
 
   const __pkg = new __Bundle("@beyond/docs/header-menu/widget").package();
 
-  externals.register(new Map([["react", dependency_3]]));
+  externals.register(new Map([["react", dependency_5]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "docs-header-menu",
@@ -30,7 +30,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   ****************************/
 
   ims.set('./controller', {
-    hash: 4026742518,
+    hash: 3776050092,
     creator: function (require, exports) {
       "use strict";
 
@@ -42,6 +42,8 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
       var _ts = require("@beyond-js/react-widgets/controllers/ts");
 
       var _views = require("./views");
+
+      var _store = require("./store");
       /*bundle*/
 
 
@@ -50,9 +52,129 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
           return _views.TopHeader;
         }
 
+        createStore() {
+          return new _store.Store(this.body);
+        }
+
       }
 
       exports.Controller = Controller;
+    }
+  });
+  /***********************
+  INTERNAL MODULE: ./store
+  ***********************/
+
+  ims.set('./store', {
+    hash: 1504520959,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Store = void 0;
+
+      var _ts = require("@beyond-js/kernel/core/ts");
+
+      var _ts2 = require("@beyond-js/kernel/texts/ts");
+
+      var _beyond_context = require("beyond_context");
+
+      class Store extends _ts.Events {
+        #loading = false;
+
+        get loading() {
+          return this.#loading;
+        }
+
+        #value = [];
+
+        get value() {
+          return this.#value;
+        }
+
+        #hydrated = false;
+
+        get hydrated() {
+          return this.#hydrated;
+        }
+
+        #container;
+
+        get container() {
+          return this.#container;
+        }
+
+        get ready() {
+          return this.#texts.ready;
+        }
+
+        #texts;
+
+        get texts() {
+          return this.#texts.value;
+        }
+
+        constructor(container) {
+          super();
+          this.#container = container;
+          this.#texts = new _ts2.CurrentTexts(_beyond_context.module.resource, true);
+          this.#texts.bind('change', this.triggerChange);
+        }
+
+        triggerChange = () => {
+          this.trigger('change');
+        };
+
+        async fetch() {}
+
+        hydrate(cached) {}
+
+        toJSON() {}
+
+      }
+
+      exports.Store = Store;
+    }
+  });
+  /**************************************
+  INTERNAL MODULE: ./views/hamburger-menu
+  **************************************/
+
+  ims.set('./views/hamburger-menu', {
+    hash: 776676798,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.HamburgerMenu = HamburgerMenu;
+
+      var React = require("react");
+
+      var _ts = require("@beyond-js/widgets/render/ts");
+
+      function HamburgerMenu() {
+        const showMenu = event => {
+          event.preventDefault();
+          const menu = [..._ts.widgets.instances].find(item => item.localName === 'menu-layout');
+          const option = menu.getAttribute('opened') === 'true' ? 'false' : 'true';
+          menu.setAttribute('opened', option);
+        };
+
+        return React.createElement("button", {
+          className: "hamburger-icon-container",
+          onClick: showMenu
+        }, React.createElement("input", {
+          id: "hamburger__input",
+          type: "checkbox",
+          className: "hamburger-icon"
+        }), React.createElement("label", {
+          htmlFor: "hamburger__input"
+        }, React.createElement("i", null), React.createElement("span", null)), React.createElement("em", null));
+      }
     }
   });
   /*********************************
@@ -98,7 +220,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   *****************************/
 
   ims.set('./views/index', {
-    hash: 3065767686,
+    hash: 460627773,
     creator: function (require, exports) {
       "use strict";
 
@@ -119,27 +241,45 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
 
       var _languageAction = require("./language-action");
 
-      function TopHeader() {
-        return React.createElement("section", {
+      var _code4 = require("@beyond/docs/store/code");
+
+      var _notice = require("./notice");
+
+      var _beyond_context = require("beyond_context");
+
+      var _hamburgerMenu = require("./hamburger-menu");
+
+      function TopHeader({
+        attributes,
+        widget,
+        store
+      }) {
+        const [ready, texts] = (0, _code4.useTexts)(_beyond_context.module.resource);
+        if (!ready) return null;
+        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, {
+          texts: texts
+        }), React.createElement("section", {
           className: "top__header"
         }, React.createElement("nav", {
           className: "menu-container container flex-container flex-h-end"
         }, React.createElement("div", {
           className: "mobile__header"
+        }, React.createElement(_hamburgerMenu.HamburgerMenu, null), React.createElement(_code3.Link, {
+          href: "/"
         }, React.createElement(_code.BeyondImage, {
           src: "/images/beyond-logo.png",
           alt: "beyondjs"
-        }), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
+        })), React.createElement(_hamburger.Hamburger, null)), React.createElement("div", {
           className: "menu-list__container"
         }, React.createElement("ul", {
           className: "header__menu"
         }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement(_code3.Link, {
           href: "/docs/tutorial/web"
-        }, "Tutorial")), React.createElement("li", null, React.createElement(_code3.Link, {
+        }, texts.tutorial)), React.createElement("li", null, React.createElement(_code3.Link, {
           href: "/docs/intro"
-        }, "Documentation")), React.createElement("li", null, React.createElement(_code3.Link, {
+        }, texts.documentation)), React.createElement("li", null, React.createElement(_code3.Link, {
           href: "/examples"
-        }, "Examples"))))));
+        }, texts.examples)))))));
       }
     }
   });
@@ -186,7 +326,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   *****************************/
 
   ims.set('./views/modal', {
-    hash: 1034134135,
+    hash: 4148985771,
     creator: function (require, exports) {
       "use strict";
 
@@ -199,12 +339,16 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
 
       var _code = require("@beyond/ui/modal/code");
 
+      var _ts = require("@beyond-js/kernel/core/ts");
+
       function LanguagesModal({
         onClose
       }) {
         const [selected, setSelected] = React.useState(undefined);
 
         const onConfirm = event => {
+          console.log(2, 'selected', selected);
+          _ts.beyond.languages.current = selected;
           onClose();
         };
 
@@ -243,23 +387,29 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
     }
   });
   /******************************
-  INTERNAL MODULE: ./views/navbar
+  INTERNAL MODULE: ./views/notice
   ******************************/
 
-  ims.set('./views/navbar', {
-    hash: 2148983120,
+  ims.set('./views/notice', {
+    hash: 2916186733,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Navbar = Navbar;
+      exports.Notice = Notice;
 
       var React = require("react");
 
-      function Navbar() {
-        return React.createElement(React.Fragment, null);
+      function Notice({
+        texts: {
+          notice
+        }
+      }) {
+        return React.createElement("section", {
+          className: "flex-container flex-center header-notice bg-primary-accent pd-5"
+        }, notice);
       }
     }
   }); // Exports managed by beyond bundle objects

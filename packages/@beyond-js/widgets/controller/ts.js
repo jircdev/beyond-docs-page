@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
   ****************************/
 
   ims.set('./attributes', {
-    hash: 1863105372,
+    hash: 1714489664,
     creator: function (require, exports) {
       "use strict";
 
@@ -37,7 +37,9 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
         // The reason why it is declared as HTMLElement is to avoid circular reference between controller and widget.
         #widget;
         #events = new _ts.Events();
-        on = (event, listener) => this.#events.on(event, listener);
+        on = (event, listener) => {
+          this.#events.on(event, listener);
+        };
         off = (event, listener) => this.#events.off(event, listener);
 
         constructor(widget) {
@@ -49,6 +51,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
 
         change(name, old, value) {
           this.set(name, value);
+          console.log(88, name, old, value);
           this.#events.trigger('change');
           this.#events.trigger(`${name}:change`, value);
         }

@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.useModel = _exports2.useBinder = _exports2.hmr = _exports2.Control = void 0;
+  _exports2.useTexts = _exports2.useModel = _exports2.useDocsContext = _exports2.useBinder = _exports2.hmr = _exports2.DocsContext = _exports2.Control = void 0;
 
   const {
     Bundle: __Bundle,
@@ -43,7 +43,7 @@ define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2,
   ****************************/
 
   ims.set('./use-binder', {
-    hash: 2595080040,
+    hash: 1067502534,
     creator: function (require, exports) {
       "use strict";
 
@@ -68,10 +68,12 @@ define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2,
       function useBinder(objects, onBinder, event = 'change') {
         React.useEffect(() => {
           objects.forEach(object => {
-            if (object) object.bind(event, onBinder);
+            if (object && object.bind) object.bind(event, onBinder);
+            if (object && object.on) object.on(event, onBinder);
           });
           return () => objects.forEach(object => {
-            if (object) object.unbind(event, onBinder);
+            if (object && object.unbind) object.unbind(event, onBinder);
+            if (object && object.off) object.off(event, onBinder);
           });
         }, [objects]);
       }
@@ -121,16 +123,75 @@ define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2,
         return [controller];
       }
     }
+  });
+  /***************************
+  INTERNAL MODULE: ./use-texts
+  ***************************/
+
+  ims.set('./use-texts', {
+    hash: 3708528764,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.useDocsContext = exports.DocsContext = void 0;
+      exports.useTexts = useTexts;
+
+      var React = require("react");
+
+      var _ts = require("@beyond-js/kernel/texts/ts");
+
+      const value = {};
+      /*bundle*/
+
+      const DocsContext = React.createContext(value);
+      exports.DocsContext = DocsContext;
+      /*bundle*/
+
+      const useDocsContext = () => React.useContext(DocsContext);
+
+      exports.useDocsContext = useDocsContext;
+      /*bundle*/
+
+      function useTexts(moduleId) {
+        const [ready, setReady] = React.useState(false);
+        const [texts, setTexts] = React.useState({});
+        React.useEffect(() => {
+          const modelTexts = new _ts.CurrentTexts(moduleId, true);
+
+          const triggerEvent = () => {
+            setReady(modelTexts.ready);
+            setTexts(modelTexts.value);
+          };
+
+          modelTexts.bind('change', triggerEvent);
+          triggerEvent();
+          return () => {
+            modelTexts.unbind('change', triggerEvent);
+          };
+        }, []);
+        const isReady = ready && texts;
+        return [isReady, texts];
+      }
+    }
   }); // Exports managed by beyond bundle objects
 
   __pkg.exports.managed = function (require, _exports) {
     _exports.Control = require('./control').Control;
     _exports.useBinder = require('./use-binder').useBinder;
     _exports.useModel = require('./use-model').useModel;
+    _exports.DocsContext = require('./use-texts').DocsContext;
+    _exports.useDocsContext = require('./use-texts').useDocsContext;
+    _exports.useTexts = require('./use-texts').useTexts;
   };
 
-  let Control, useBinder, useModel; // Module exports
+  let Control, useBinder, useModel, DocsContext, useDocsContext, useTexts; // Module exports
 
+  _exports2.useTexts = useTexts;
+  _exports2.useDocsContext = useDocsContext;
+  _exports2.DocsContext = DocsContext;
   _exports2.useModel = useModel;
   _exports2.useBinder = useBinder;
   _exports2.Control = Control;
@@ -139,6 +200,9 @@ define(["exports", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2,
     _exports2.Control = Control = require('./control').Control;
     _exports2.useBinder = useBinder = require('./use-binder').useBinder;
     _exports2.useModel = useModel = require('./use-model').useModel;
+    _exports2.DocsContext = DocsContext = require('./use-texts').DocsContext;
+    _exports2.useDocsContext = useDocsContext = require('./use-texts').useDocsContext;
+    _exports2.useTexts = useTexts = require('./use-texts').useTexts;
   };
 
   const hmr = new function () {

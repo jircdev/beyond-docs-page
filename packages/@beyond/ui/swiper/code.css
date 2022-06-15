@@ -2,7 +2,7 @@
   overflow: hidden;
 }
 /**
- * Swiper 7.3.1
+ * Swiper 7.4.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -10,7 +10,7 @@
  *
  * Released under the MIT License
  *
- * Released on: November 24, 2021
+ * Released on: December 24, 2021
  */
 @font-face {
   font-family: "swiper-icons";
@@ -35,7 +35,6 @@
 
 .swiper-vertical > .swiper-wrapper {
   flex-direction: column;
-  background: yellow !important;
 }
 
 .swiper-wrapper {

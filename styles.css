@@ -9363,7 +9363,200 @@ body.body-beyond-modal-opened {
   color: #000;
   background: #fff;
 }
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap");
+.swiper-modal .beyond-element-image {
+  max-height: 600px;
+  position: relative;
+}
+.swiper-modal .beyond-element-image img {
+  max-height: 100%;
+  height: 100%;
+  width: auto;
+  max-width: 800px;
+}
+@import url(https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap);
+:root {
+  --bynd-aside-width: 250px;
+  --shadow-0: 0 0 0 1px transparent;
+  --shadow-1: 0 0 0 1px rgba(0, 0, 0, .06);
+  --shadow-2: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .04);
+  --shadow-3: 0 2px 4px 0 rgba(0, 0, 0, .1), 0 0 2px 0 rgba(0, 0, 0, .06);
+  --shadow-4: 0 4px 8px 0 rgba(0, 0, 0, .1), 0 2px 4px 0 rgba(0, 0, 0, .06);
+  --shadow-5: 0 8px 16px 0 rgba(0, 0, 0, .08), 0 4px 8px 0 rgba(0, 0, 0, .06);
+  --shadow-6: 0 16px 32px -2px rgba(0, 0, 0, .1), 0 8px 16px -2px rgba(0, 0, 0, .08);
+  --shadow-7: 0 32px 64px -4px rgba(0, 0, 0, .12), 0 12px 24px -2px rgba(0, 0, 0, .06);
+  --shadow-8: 0 48px 96px -8px rgba(0, 0, 0, .16), 0 24px 48px -4px rgba(0, 0, 0, .08);
+  --duration-instantly: 0s;
+  --duration-quickly: 0.15s;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-blue-0: #f0f6ff;
+  --color-blue-10: #e3edff;
+  --color-blue-20: #cddfff;
+  --color-blue-30: #b2ceff;
+  --color-blue-40: #97bdff;
+  --color-blue-50: #7cabff;
+  --color-blue-60: #639bff;
+  --color-blue-70: #4d8dff;
+  --color-blue-80: #3880ff;
+  --color-blue-90: #1b6dff;
+  --color-blue-100: #0054e9;
+  --color-gray-0: #f3f3f3;
+  --color-gray-10: #e4e4e4;
+  --color-gray-20: #c8c8c8;
+  --color-gray-30: #aeaeae;
+  --color-gray-40: #959595;
+  --color-gray-50: #818181;
+  --color-gray-60: #6d6d6d;
+  --color-gray-70: #5f5f5f;
+  --color-gray-80: #474747;
+  --color-gray-90: #2f2f2f;
+  --color-gray-100: #141414;
+  --color-carbon-0: #eef1f3;
+  --color-carbon-10: #d7dde2;
+  --color-carbon-20: #b4bcc6;
+  --color-carbon-30: #98a2ad;
+  --color-carbon-40: #7d8894;
+  --color-carbon-50: #677483;
+  --color-carbon-60: #556170;
+  --color-carbon-70: #434f5e;
+  --color-carbon-80: #35404e;
+  --color-carbon-90: #222d3a;
+  --color-carbon-95: #19212a;
+  --color-carbon-100: #03060b;
+  --color-indigo-0: #fbfbfd;
+  --color-indigo-10: #f6f8fc;
+  --color-indigo-20: #e9edf3;
+  --color-indigo-30: #dee3ea;
+  --color-indigo-40: #ced6e0;
+  --color-indigo-50: #b2becd;
+  --color-indigo-60: #92a0b3;
+  --color-indigo-70: #73849a;
+  --color-indigo-80: #445b78;
+  --color-indigo-90: #2d4665;
+  --color-indigo-100: #001a3a;
+  --color-green-0: #f1fdf5;
+  --color-green-10: #deffe7;
+  --color-green-20: #c7fbd5;
+  --color-green-30: #a7f1bb;
+  --color-green-40: #80e89d;
+  --color-green-50: #62e085;
+  --color-green-60: #4ada71;
+  --color-green-70: #2dd55b;
+  --color-green-80: #17c948;
+  --color-green-90: #00ba33;
+  --color-green-100: #00a52d;
+  --color-lime-0: #f5fff0;
+  --color-lime-10: #ebfee3;
+  --color-lime-20: #ddfcd0;
+  --color-lime-30: #cffbbc;
+  --color-lime-40: #bbf9a2;
+  --color-lime-50: #a3f581;
+  --color-lime-60: #8bf35f;
+  --color-lime-70: #64ec44;
+  --color-lime-80: #4ddf2b;
+  --color-lime-90: #3ad515;
+  --color-lime-100: #27c100;
+  --color-lavender-0: #f7f8ff;
+  --color-lavender-10: #e6ebff;
+  --color-lavender-20: #ced9ff;
+  --color-lavender-30: #b6c6ff;
+  --color-lavender-40: #9fb5ff;
+  --color-lavender-50: #8aa4ff;
+  --color-lavender-60: #7493ff;
+  --color-lavender-70: #597eff;
+  --color-lavender-80: #3c67ff;
+  --color-lavender-90: #194bfd;
+  --color-lavender-100: #0033e8;
+  --color-purple-0: #f4f4ff;
+  --color-purple-10: #e9eaff;
+  --color-purple-20: #d0d2ff;
+  --color-purple-30: #b6b9f9;
+  --color-purple-40: #9a99fc;
+  --color-purple-50: #8482fb;
+  --color-purple-60: #786df9;
+  --color-purple-70: #6e5afd;
+  --color-purple-80: #6030ff;
+  --color-purple-90: #4712fb;
+  --color-purple-100: #3400e6;
+  --color-pink-0: #ffeff5;
+  --color-pink-10: #ffe3ed;
+  --color-pink-20: #ffd8e5;
+  --color-pink-30: #ffc9db;
+  --color-pink-40: #ffb6d0;
+  --color-pink-50: #ff99bd;
+  --color-pink-60: #ff80ac;
+  --color-pink-70: #ff6098;
+  --color-pink-80: #fb4082;
+  --color-pink-90: #ec216a;
+  --color-pink-100: #da0d56;
+  --color-red-0: #fff1f3;
+  --color-red-10: #ffe6e8;
+  --color-red-20: #ffcfd3;
+  --color-red-30: #feb7bc;
+  --color-red-40: #fc9aa2;
+  --color-red-50: #f9838c;
+  --color-red-60: #f56570;
+  --color-red-70: #f24c58;
+  --color-red-80: #ef3442;
+  --color-red-90: #e21827;
+  --color-red-100: #d0000f;
+  --color-orange-0: #fff5f0;
+  --color-orange-10: #ffede6;
+  --color-orange-20: #ffdfd1;
+  --color-orange-30: #ffd0bc;
+  --color-orange-40: #ffc0a5;
+  --color-orange-50: #ffaf8c;
+  --color-orange-60: #ff9b70;
+  --color-orange-70: #ff8753;
+  --color-orange-80: #ff7336;
+  --color-orange-90: #ff5b13;
+  --color-orange-100: #eb4700;
+  --color-yellow-0: #fffbef;
+  --color-yellow-10: #fff8e2;
+  --color-yellow-20: #fff4d1;
+  --color-yellow-30: #ffefbd;
+  --color-yellow-40: #ffe9a3;
+  --color-yellow-50: #ffe080;
+  --color-yellow-60: #ffd75a;
+  --color-yellow-70: #ffce31;
+  --color-yellow-80: #ffc409;
+  --color-yellow-90: #f4b100;
+  --color-yellow-100: #eaa100;
+  --color-aqua-0: #f0fff9;
+  --color-aqua-10: #e6fff6;
+  --color-aqua-20: #ceffed;
+  --color-aqua-30: #b7fce3;
+  --color-aqua-40: #93f9d5;
+  --color-aqua-50: #79f5c9;
+  --color-aqua-60: #59f0ba;
+  --color-aqua-70: #38e9aa;
+  --color-aqua-80: #1ae19a;
+  --color-aqua-90: #00d287;
+  --color-aqua-100: #00ba78;
+  --color-teal-0: #eefeff;
+  --color-teal-10: #dffdff;
+  --color-teal-20: #d0fdff;
+  --color-teal-30: #bbfcff;
+  --color-teal-40: #a2fcff;
+  --color-teal-50: #8bfbff;
+  --color-teal-60: #73f6fb;
+  --color-teal-70: #55ecf2;
+  --color-teal-80: #35e2e9;
+  --color-teal-90: #1bd2d9;
+  --color-teal-100: #00b9c0;
+  --color-cyan-0: #f3faff;
+  --color-cyan-10: #e8f5ff;
+  --color-cyan-20: #d3ecff;
+  --color-cyan-30: #bfe4ff;
+  --color-cyan-40: #a7daff;
+  --color-cyan-50: #8dcfff;
+  --color-cyan-60: #77c6ff;
+  --color-cyan-70: #62bdff;
+  --color-cyan-80: #46b1ff;
+  --color-cyan-90: #24a3ff;
+  --color-cyan-100: #0091fa;
+}
+
 :root {
   --font-family: "Rubik", sans-serif;
   --secondary-font-family: "Roboto", sans-serif;
@@ -9381,6 +9574,64 @@ body.body-beyond-modal-opened {
   --chat-online: #43fc22;
   --preload: $secondary;
   --border-radius-base: 8px;
+  ---alert-e4c888: #E4C888;
+  ---warning-eb8b6b: #EB8B6B;
+  ---acept-6aac7d: #6AAC7D;
+  ---acent-primary-color-edb2a3: #9E533E;
+  ---primary-light-color-e58165: #E58165;
+  ---primary-color-d9684a: #D9684A;
+  ---primary-dark-color-ce421a: #CE421A;
+  ---acent-secondary-color-acb6d4: #ACB6D4;
+  --secondary-light-color-49536e: #424F6E;
+  ---secondary-color-1f2940: #1F2940;
+  ---secondary-dark-color-030405: #030405;
+  ---g50: #FAFAFA;
+  ---g100-f5f5f5: #F5F5F5;
+  --g200-eeeeee: #EEEEEE;
+  --g300-e0e0e0: #E0E0E0;
+  --g400-d7d8cf: #BDBDBD;
+  --g500-9e9e9e: #9E9E9E;
+  --g600-82837f: #757575;
+  --g700-616161: #616161;
+  --g800-424242: #424242;
+  --g900-212121: #212121;
+  ---white-on-secondary-ffffff: #FFFFFF;
+  ---balck-on-primary-000000: #000000;
+  --unnamed-color-4d66a9: #4D66A9;
+  --unnamed-color-7590da: #7590DA;
+  /* Font/text values */
+  --unnamed-font-family-rubik: Rubik;
+  --unnamed-font-style-normal: normal;
+  --unnamed-font-weight-300: 300px;
+  --unnamed-font-weight-medium: medium;
+  --unnamed-font-weight-normal: normal;
+  --unnamed-font-size-12: 12px;
+  --unnamed-font-size-13: 13px;
+  --unnamed-font-size-14: 14px;
+  --unnamed-font-size-16: 16px;
+  --unnamed-font-size-18: 18px;
+  --unnamed-font-size-20: 20px;
+  --unnamed-font-size-22: 22px;
+  --unnamed-font-size-24: 24px;
+  --unnamed-font-size-26: 26px;
+  --unnamed-font-size-36: 36px;
+  --unnamed-font-size-43: 43px;
+  --unnamed-character-spacing-0: 0px;
+  --unnamed-character-spacing-1-04: 1.04px;
+  --unnamed-character-spacing--0-16: -0.16px;
+  --unnamed-character-spacing--0-22: -0.22px;
+  --unnamed-character-spacing--0-26: -0.26px;
+  --unnamed-character-spacing--0-24: -0.24px;
+  --unnamed-character-spacing--0-36: -0.36px;
+  --unnamed-character-spacing--0-43: -0.43px;
+  --unnamed-character-spacing-1-3: 1.3px;
+  --unnamed-character-spacing-0-28: 0.28px;
+  --unnamed-line-spacing-18: 18px;
+  --unnamed-line-spacing-23: 23px;
+  --unnamed-line-spacing-24: 24px;
+  --unnamed-line-spacing-30: 30px;
+  --unnamed-line-spacing-54: 54px;
+  --unnamed-text-transform-uppercase: uppercase;
   --primary-surface: #fff;
   --primary: #FF8056;
   --primary-dark: #E36152;
@@ -9391,11 +9642,11 @@ body.body-beyond-modal-opened {
   --secondary: #121F36;
   --secondary-dark: #121F36;
   --secondary-light: #313C50;
-  --secondary-accent: #F7C700;
+  --secondary-accent: #424F6E;
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: var(--color-gray-50);
+  --text-color: var(--color-gray-80);
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -9408,16 +9659,25 @@ body.body-beyond-modal-opened {
   --app-element-border-color-1: var(--color-gray-10);
   --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
   --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
-  --app-dark-text-gradient: linear-gradient(var(--color-carbon-50), var(--secondary));
+  --app-dark-text-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
   --app-animation-color: var(--gray-light);
-  --app-link-color: var(--secondary);
-  --app-link-hover-color: var(--secondary-dark);
+  --app-link-color: var(--primary);
+  --app-link-hover-color: var(--primary-dark);
+  --app-aside-link-selected: var(--text-color);
   /**
   highlight content
    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
   --app-opacity-bg: rgba(0, 0, 0, .3);
+  --app-editor-bg: #1D2B3D;
+  --app-surface-notes: var(--color-gray-10);
+  --app-icon-bg: var(--color-gray-10);
+  /**
+  scrollbar
+   */
+  --app-scrollbar-color: var(--color-gray-10);
+  --app-scrollbar-track: var(--color-gray-10);
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -9430,8 +9690,8 @@ body.body-beyond-modal-opened {
     --secondary: #121F36;
     --secondary-dark: #030405;
     --secondary-darker: #0C1525;
-    --secondary-light: #263451;
-    --secondary-accent: #F7C700;
+    --secondary-light: #617096;
+    --secondary-accent: #8E99BB;
     --text-on-secondary: #FFFFFF;
     --secondary-background: #000012;
     --background: #183045;
@@ -9442,12 +9702,13 @@ body.body-beyond-modal-opened {
     --bg-element: var(--secondary-dark);
     --element-border-color: var(--gray-light);
     --separator-color: var(--gray-lighter);
-    --primary-surface: #18253B;
-    --app-element-surface: rgba(3, 4, 5, 0.7);
+    --app-aside-link-selected: #fff;
+    --primary-surface: #101625;
+    --app-element-surface: rgba(0, 0, 0, 0.7);
     --app-element-hover-surface: rgba(3, 4, 5, 0.5);
     --app-element-border-color-1: var(--gray-darker);
     --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
-    --app-secondary-text-gradient: linear-gradient(to right, #4D66A9, var(--secondary-light));
+    --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
     --app-dark-text-gradient: var(--app-secondary-text-gradient);
     --app-icon-bg: #2b3853;
     --app-animation-color: #222d42;
@@ -9456,6 +9717,10 @@ body.body-beyond-modal-opened {
     --app-insight-surface: var(--secondary-light-light);
     --app-link-hover-bg: rgba(255, 128, 86, 0.3);
     --app-opacity-bg: rgba(0, 0, 0, .3);
+    --app-surface-notes: var(--app-opacity-bg);
+    --app-editor-bg: #1D2B3D;
+    --app-scrollbar-color: var(--secondary-light);
+    --app-scrollbar-track: var(--color-carbon-95);
   }
 }
 
@@ -9470,11 +9735,11 @@ html[data-beyond-mode=light] {
   --secondary: #121F36;
   --secondary-dark: #121F36;
   --secondary-light: #313C50;
-  --secondary-accent: #F7C700;
+  --secondary-accent: #424F6E;
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: var(--color-gray-50);
+  --text-color: var(--color-gray-80);
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -9487,16 +9752,25 @@ html[data-beyond-mode=light] {
   --app-element-border-color-1: var(--color-gray-10);
   --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
   --app-secondary-text-gradient: linear-gradient(to right, var(--primary), var(--secondary-light));
-  --app-dark-text-gradient: linear-gradient(var(--color-carbon-50), var(--secondary));
+  --app-dark-text-gradient: linear-gradient(to right, var(--primary-dark), var(--primary-light));
   --app-animation-color: var(--gray-light);
-  --app-link-color: var(--secondary);
-  --app-link-hover-color: var(--secondary-dark);
+  --app-link-color: var(--primary);
+  --app-link-hover-color: var(--primary-dark);
+  --app-aside-link-selected: var(--text-color);
   /**
   highlight content
    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
   --app-opacity-bg: rgba(0, 0, 0, .3);
+  --app-editor-bg: #1D2B3D;
+  --app-surface-notes: var(--color-gray-10);
+  --app-icon-bg: var(--color-gray-10);
+  /**
+  scrollbar
+   */
+  --app-scrollbar-color: var(--color-gray-10);
+  --app-scrollbar-track: var(--color-gray-10);
 }
 
 html[data-beyond-mode=dark] {
@@ -9509,8 +9783,8 @@ html[data-beyond-mode=dark] {
   --secondary: #121F36;
   --secondary-dark: #030405;
   --secondary-darker: #0C1525;
-  --secondary-light: #263451;
-  --secondary-accent: #F7C700;
+  --secondary-light: #617096;
+  --secondary-accent: #8E99BB;
   --text-on-secondary: #FFFFFF;
   --secondary-background: #000012;
   --background: #183045;
@@ -9521,12 +9795,13 @@ html[data-beyond-mode=dark] {
   --bg-element: var(--secondary-dark);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-lighter);
-  --primary-surface: #18253B;
-  --app-element-surface: rgba(3, 4, 5, 0.7);
+  --app-aside-link-selected: #fff;
+  --primary-surface: #101625;
+  --app-element-surface: rgba(0, 0, 0, 0.7);
   --app-element-hover-surface: rgba(3, 4, 5, 0.5);
   --app-element-border-color-1: var(--gray-darker);
   --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
-  --app-secondary-text-gradient: linear-gradient(to right, #4D66A9, var(--secondary-light));
+  --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
   --app-dark-text-gradient: var(--app-secondary-text-gradient);
   --app-icon-bg: #2b3853;
   --app-animation-color: #222d42;
@@ -9535,6 +9810,10 @@ html[data-beyond-mode=dark] {
   --app-insight-surface: var(--secondary-light-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.3);
   --app-opacity-bg: rgba(0, 0, 0, .3);
+  --app-surface-notes: var(--app-opacity-bg);
+  --app-editor-bg: #1D2B3D;
+  --app-scrollbar-color: var(--secondary-light);
+  --app-scrollbar-track: var(--color-carbon-95);
 }
 :root {
   --bynd-aside-width: 250px;
@@ -10129,10 +10408,12 @@ body.body-beyond-modal-opened {
   color: #000;
   background: #fff;
 }
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap");
 html, body {
   min-height: 100%;
   overflow-x: hidden;
   padding: 0;
+  font-weight: lighter;
   font-family: var(--font-family);
   color: var(--text-color);
   height: 100%;

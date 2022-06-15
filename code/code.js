@@ -23,7 +23,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
   **************************/
 
   ims.set('./code-box', {
-    hash: 1583187260,
+    hash: 3586710754,
     creator: function (require, exports) {
       "use strict";
 
@@ -46,14 +46,8 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
         return React.createElement("div", {
           className: "code__box"
         }, React.createElement("header", null, React.createElement("div", {
-          className: "box__buttons"
-        }, React.createElement("div", {
-          className: "circle red"
-        }), React.createElement("div", {
-          className: "circle blue"
-        }), React.createElement("div", {
-          className: "circle green"
-        })), title), React.createElement("section", {
+          className: "tab active"
+        }, title)), React.createElement("section", {
           className: "box__code"
         }, React.createElement(_code.Code, {
           language: language

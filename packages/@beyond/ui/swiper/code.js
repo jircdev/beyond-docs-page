@@ -53,7 +53,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   ****************************/
 
   ims.set('./controller', {
-    hash: 427607520,
+    hash: 227148912,
     creator: function (require, exports) {
       "use strict";
 
@@ -62,10 +62,11 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
       });
       exports.Controller = void 0;
 
-      var _swiper = require("swiper");
+      var Swiper = require("swiper");
 
-      var _ts = require("@beyond/ui/reactive-model/ts"); // const SwiperCasted: typeof Swiper.Swiper = (Swiper as unknown as typeof Swiper.default);
+      var _ts = require("@beyond/ui/reactive-model/ts");
 
+      const SwiperCasted = Swiper.Swiper;
 
       class Controller extends _ts.ReactiveModel {
         #swiper;
@@ -79,7 +80,8 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
         setSwiper = (element, props, ref) => {
           this.#props = props;
           const specs = Object.assign({
-            slidesPerView: props.slidesPerView ?? 1
+            slidesPerView: props.slidesPerView ?? 1,
+            modules: [Swiper.Navigation, Swiper.Pagination]
           }, props);
 
           if (props.pagination || props.footer) {
@@ -96,10 +98,13 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
             };
           }
 
-          this.#swiper = new _swiper.default(element, specs);
+          this.#swiper = new SwiperCasted(element, specs);
           this.#swiper.on("slideChange", () => {
             if (this.#swiper.isEnd) {
               this.#onEnd = true;
+              this.triggerEvent();
+            } else {
+              this.#onEnd = false;
               this.triggerEvent();
             }
           });
@@ -147,7 +152,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
   *******************************/
 
   ims.set('./swiper-slider', {
-    hash: 233480944,
+    hash: 2135895256,
     creator: function (require, exports) {
       "use strict";
 
@@ -181,7 +186,6 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
         }, slide));
         const footer = props.footer === true;
         const [state, setState] = React.useState({});
-        const [lastIndex, setLastIndex] = React.useState();
         React.useEffect(() => {
           const controller = new _controller.Controller();
 
@@ -193,16 +197,17 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
           });
 
           controller.bind("change", onChange);
-          controller.setSwiper(container.current, props, refs);
+          const config = props.config ?? {};
+          const specs = { ...props,
+            ...config
+          };
+          controller.setSwiper(container.current, specs, refs);
           onChange();
           return () => controller.unbind("change", onChange);
         }, []);
         const {
           controller
         } = state;
-        React.useEffect(() => {
-          setLastIndex(controller?.lastIndex);
-        }, [controller?.lastIndex]);
         const cls = props.className ? `${props.className} beyond-element-swiper-slider` : "beyond-element-swiper-slider";
         return React.createElement("div", {
           className: cls

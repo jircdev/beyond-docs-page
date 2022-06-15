@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/swiper/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16, dependency_17, dependency_18) {
   "use strict";
 
   Object.defineProperty(_exports2, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
   externals.register(new Map([["react", dependency_4]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/code/code", "@beyond/ui/swiper/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/swiper/code", "@beyond/docs/components/html/code"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "home-page",
@@ -560,7 +560,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ***********************/
 
   ims.set('./store', {
-    hash: 1449678072,
+    hash: 1388369058,
     creator: function (require, exports) {
       "use strict";
 
@@ -570,6 +570,10 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       exports.Store = void 0;
 
       var _ts = require("@beyond-js/kernel/core/ts");
+
+      var _ts2 = require("@beyond-js/kernel/texts/ts");
+
+      var _beyond_context = require("beyond_context");
 
       class Store extends _ts.Events {
         #loading = false;
@@ -596,7 +600,9 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           return this.#container;
         }
 
-        get ready() {}
+        get ready() {
+          return this.#texts.ready;
+        }
 
         #texts;
 
@@ -606,9 +612,14 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
         constructor(container) {
           super();
-          this.#container = container; // this.#texts = new CurrentTexts(module.resource, true);
-          // this.#texts.bind('change', this.triggerEvent);
+          this.#container = container;
+          this.#texts = new _ts2.CurrentTexts(_beyond_context.module.resource, true);
+          this.#texts.bind('change', this.triggerEvent);
         }
+
+        triggerEvent = (event = 'change') => {
+          this.trigger(event);
+        };
 
         async fetch() {}
 
@@ -626,7 +637,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************/
 
   ims.set('./views/block', {
-    hash: 2755651297,
+    hash: 2557111538,
     creator: function (require, exports) {
       "use strict";
 
@@ -637,7 +648,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var React = require("react");
 
-      var _navigatorBox = require("./navigator-box");
+      var _code = require("@beyond/docs/code/code");
 
       const tpl = `
 {
@@ -665,7 +676,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           className: "block__features two-columns gradient-one"
         }, React.createElement("div", {
           className: "conteint"
-        }), React.createElement(_navigatorBox.CodeBox, {
+        }), React.createElement(_code.CodeBox, {
           title: "module.json"
         }, tpl));
       }
@@ -676,7 +687,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ****************************/
 
   ims.set('./views/card', {
-    hash: 2161201478,
+    hash: 3306649181,
     creator: function (require, exports) {
       "use strict";
 
@@ -689,14 +700,19 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _code = require("@beyond/ui/link/code");
 
+      var _code2 = require("@beyond/ui/image/code");
+
       function Card({
         title,
         href,
-        children
+        children,
+        img
       }) {
         return React.createElement("article", {
           className: "docs__card"
-        }, React.createElement("header", null, React.createElement("h3", null, title)), React.createElement("section", null, React.createElement("p", {
+        }, React.createElement("header", null, img && React.createElement(_code2.BeyondImage, {
+          src: `/images/home/${img}.png`
+        }), React.createElement("h3", null, title)), React.createElement("section", null, React.createElement("p", {
           className: "p2"
         }, children)), React.createElement("section", {
           className: "card__action"
@@ -712,14 +728,14 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *******************************/
 
   ims.set('./views/context', {
-    hash: 2046522563,
+    hash: 5807337,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.useHeaderContext = exports.HeaderContext = void 0;
+      exports.useHomeContext = exports.useHeaderContext = exports.HomeContext = exports.HeaderContext = void 0;
 
       var React = require("react");
 
@@ -730,6 +746,15 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       const useHeaderContext = () => React.useContext(HeaderContext);
 
       exports.useHeaderContext = useHeaderContext;
+      const homeValue = {
+        ready: false
+      };
+      const HomeContext = React.createContext(homeValue);
+      exports.HomeContext = HomeContext;
+
+      const useHomeContext = () => React.useContext(HomeContext);
+
+      exports.useHomeContext = useHomeContext;
     }
   });
   /******************************
@@ -755,151 +780,12 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
-  /**************************************************
-  INTERNAL MODULE: ./views/header/animation-functions
-  **************************************************/
-
-  ims.set('./views/header/animation-functions', {
-    hash: 1793319702,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.SVGEventsManager = SVGEventsManager;
-
-      function SVGEventsManager(target) {
-        const svg = target.querySelector('svg');
-        const {
-          x,
-          y
-        } = svg.getBoundingClientRect();
-        const {
-          clientWidth
-        } = svg;
-        const middleX = clientWidth / 2 + x;
-        let originalMouseX = 0;
-        let originalMouseY = 0;
-        let mouseCurrentX = 0;
-        let mouseCurrentY = 0;
-
-        this.onMouseMove = event => {
-          const {
-            pageY,
-            pageX
-          } = event;
-          const yDirection = pageY > originalMouseY ? 'bottom' : originalMouseY === pageY ? 'same' : 'top';
-          const xDirection = pageX > originalMouseX ? 'right' : originalMouseX === pageX ? 'same' : 'left';
-          originalMouseX = pageX;
-          originalMouseY = pageY;
-          const adjacentLeg = pageX - middleX;
-          const oppositeLeg = pageY - y;
-          const tan = oppositeLeg / adjacentLeg;
-          const atan = Math.atan(tan) * (180 / Math.PI);
-          const xQuadrant = adjacentLeg > 0 ? 1 : 2;
-          const yQuadrant = oppositeLeg > 0 ? 2 : 1;
-          const quadrants = [{
-            x: 2,
-            y: 1,
-            method: () => atan - 360
-          }, {
-            x: 2,
-            y: 1,
-            method: () => -90 - oppositeLeg
-          }, {
-            x: 1,
-            y: 1,
-            method: () => atan - 360
-          }, {
-            x: 2,
-            y: 2,
-            method: () => -90 + 2 * atan
-          }, {
-            x: 1,
-            y: 2,
-            method: () => atan
-          }];
-          const index = quadrants.findIndex(item => item.x === xQuadrant && item.y === yQuadrant);
-
-          if (xDirection !== 'same') {
-            mouseCurrentX += xDirection === 'left' ? -5 : 5;
-            mouseCurrentX = mouseCurrentX > 70 ? 70 : mouseCurrentX < -70 ? -70 : mouseCurrentX;
-            svg.style.left = `${mouseCurrentX}px`;
-          }
-
-          if (yDirection !== 'same') {
-            mouseCurrentY += yDirection === 'top' ? -5 : 5;
-            mouseCurrentY = mouseCurrentY > 70 ? 70 : mouseCurrentY < -70 ? -70 : mouseCurrentY;
-            svg.style.top = `${mouseCurrentY}px`;
-          }
-
-          svg.style.transform = `rotate(${quadrants[index].method()}deg)`;
-        };
-
-        this.onMouseLeave = event => {
-          const svg = target.querySelector('svg');
-          if (!svg) return;
-
-          const getAngle = value => {
-            if (!value) {
-              console.log('there is no value');
-              return;
-            }
-
-            let values = value.split('(')[1];
-            values = values.split(')')[0];
-            values = values.split(',');
-            let a = values[0];
-            let b = values[1];
-            return Math.round(Math.atan2(b, a) * (180 / Math.PI));
-          };
-
-          let currentAngle = getAngle(window.getComputedStyle(svg, null).getPropertyValue('transform'));
-
-          if (!currentAngle) {
-            return;
-          }
-
-          const rollback = (position, current) => {
-            const interval = window.setInterval(() => {
-              current = current > 0 ? current - 1 : current + 1;
-              svg.style[position] = current;
-              if (current === 0) clearInterval(interval);
-            }, 0);
-          };
-
-          rollback('left', parseInt(svg.style.left.replace('px', '')));
-          rollback('top', parseInt(svg.style.top.replace('px', '')));
-          const interval = window.setInterval(() => {
-            currentAngle = currentAngle > 0 ? currentAngle - 1 : currentAngle + 1;
-            svg.style.transform = `rotate(${currentAngle}deg)`;
-
-            if (currentAngle === 0) {
-              clearInterval(interval);
-              return;
-            }
-          }, 0);
-        };
-
-        this.addEvents = () => {
-          target.addEventListener('mousemove', this.onMouseMove);
-          target.addEventListener('mouseleave', this.onMouseLeave);
-        };
-
-        this.removeEvents = () => {
-          target.removeEventListener('mousemove', this.onMouseMove);
-          target.removeEventListener('mouseleave', this.onMouseLeave);
-        };
-      }
-    }
-  });
   /*********************************************
   INTERNAL MODULE: ./views/header/header-content
   *********************************************/
 
   ims.set('./views/header/header-content', {
-    hash: 2271436274,
+    hash: 303129984,
     creator: function (require, exports) {
       "use strict";
 
@@ -912,16 +798,592 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _strongTittle = require("./strong-tittle");
 
+      var _context = require("../context");
+
       function HeaderContent() {
+        const {
+          texts: {
+            header: texts
+          }
+        } = (0, _context.useHomeContext)();
         return React.createElement("div", {
           className: "header__content"
         }, React.createElement("section", {
           className: "main__title"
         }, React.createElement("span", {
           className: "pre__title"
-        }, "Welcome to BeyondJS"), React.createElement("h1", null, React.createElement("span", null, "The Full Stack universal ", React.createElement("br", null), "Typescript Framework"), React.createElement(_strongTittle.StrongTitle, null))), React.createElement("span", {
-          className: "header__description"
-        }, "Integra diferentes stacks de desarrollo y trabaja con ellos bajo el mismo paradigma, priorizando la experiencia de desarrollo y la carga modular, sin necesidad de empaquetadores."));
+        }, texts.pretitle), React.createElement("h1", null, React.createElement("span", {
+          dangerouslySetInnerHTML: {
+            __html: texts.h1
+          }
+        }), React.createElement(_strongTittle.StrongTitle, null))), React.createElement("span", {
+          className: "p1"
+        }, texts.description));
+      }
+    }
+  });
+  /*******************************************
+  INTERNAL MODULE: ./views/header/header-image
+  *******************************************/
+
+  ims.set('./views/header/header-image', {
+    hash: 2583010732,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.HeaderImage = HeaderImage;
+
+      var React = require("react");
+
+      function HeaderImage() {
+        return React.createElement(React.Fragment, null, React.createElement("svg", {
+          className: "header__animation__front",
+          xmlns: "http://www.w3.org/2000/svg",
+          width: "504",
+          height: "360.369",
+          viewBox: "0 0 504 360.369"
+        }, React.createElement("defs", null, React.createElement("linearGradient", {
+          id: "linear-gradient",
+          x1: "0.5",
+          x2: "0.5",
+          y2: "1",
+          gradientUnits: "objectBoundingBox"
+        }, React.createElement("stop", {
+          offset: "0"
+        }), React.createElement("stop", {
+          offset: "1"
+        }))), React.createElement("g", {
+          id: "Ilustration",
+          transform: "translate(-711.685 -148)"
+        }, React.createElement("g", {
+          id: "Ilustration.Background.Square",
+          transform: "translate(794.245 243.225)"
+        }, React.createElement("path", {
+          id: "Trazado_3888",
+          "data-name": "Trazado 3888",
+          d: "M840.628,285.411c0,3.953-2.377,7.724-7.253,10.53L669.713,390.424c-10.756,6.229-29.563,5.429-41.976-1.741l-157.641-91c-6.781-3.913-10.265-8.952-10.265-13.7,0-3.953,2.377-7.724,7.253-10.53l163.663-94.5c10.756-6.209,29.562-5.431,41.978,1.741l157.641,91.02c6.779,3.913,10.263,8.952,10.263,13.7",
+          transform: "translate(-459.831 -151.777)",
+          fill: "#acb6d4",
+          opacity: "0.254"
+        }), React.createElement("path", {
+          id: "Trazado_3889",
+          "data-name": "Trazado 3889",
+          d: "M840.628,285.411c0,3.953-2.377,7.724-7.253,10.53L669.713,390.424c-10.756,6.229-29.563,5.429-41.976-1.741l-157.641-91c-6.781-3.913-10.265-8.952-10.265-13.7,0-3.953,2.377-7.724,7.253-10.53l163.663-94.5c10.756-6.209,29.562-5.431,41.978,1.741l157.641,91.02c6.779,3.913,10.263,8.952,10.263,13.7",
+          transform: "translate(-459.831 -174.754)",
+          fill: "#acb6d4",
+          opacity: "0.254"
+        })), React.createElement("g", {
+          id: "Server",
+          transform: "translate(822.053 246.56)"
+        }, React.createElement("path", {
+          id: "Trazado_3910",
+          "data-name": "Trazado 3910",
+          d: "M288.159,102.8a1.171,1.171,0,0,1-1.171-1.171V77.608a1.171,1.171,0,1,1,2.341,0v24.017a1.171,1.171,0,0,1-1.171,1.171",
+          transform: "translate(-213.238 -22.9)",
+          fill: "#3a3a3a"
+        }), React.createElement("g", {
+          id: "Grupo_7422",
+          "data-name": "Grupo 7422",
+          transform: "translate(0 36.05)"
+        }, React.createElement("path", {
+          id: "Trazado_3836",
+          "data-name": "Trazado 3836",
+          d: "M211.687,82.6a1.16,1.16,0,0,1-.585-.157l-18.03-10.411a1.171,1.171,0,0,1,0-2.028l27.389-15.818a1.17,1.17,0,1,1,1.171,2.027L196,71.02l16.274,9.4a1.171,1.171,0,0,1-.586,2.184",
+          transform: "translate(-192.487 -54.03)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3837",
+          "data-name": "Trazado 3837",
+          d: "M283.7,114.766a1.169,1.169,0,0,1-.585-.156l-15.833-9.14a1.171,1.171,0,1,1,1.171-2.028l15.248,8.8,71.416-41.225-25.634-14.8a1.17,1.17,0,1,1,1.171-2.027l27.39,15.819a1.17,1.17,0,0,1,0,2.027L284.289,114.61a1.171,1.171,0,0,1-.585.156",
+          transform: "translate(-208.783 -54.03)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3844",
+          "data-name": "Trazado 3844",
+          d: "M256.647,113.006a1.16,1.16,0,0,1-.585-.157L216.176,89.824a1.171,1.171,0,0,1,1.171-2.028l39.886,23.025a1.171,1.171,0,0,1-.586,2.184",
+          transform: "translate(-197.56 -61.41)",
+          fill: "#acb6d4"
+        })), React.createElement("path", {
+          id: "Trazado_3911",
+          "data-name": "Trazado 3911",
+          d: "M334.855,52.92V67.658L288.488,94.423V70.406l46.367-26.765Z",
+          transform: "translate(-213.568 -15.698)",
+          fill: "#f6f6f6"
+        }), React.createElement("path", {
+          id: "Trazado_3912",
+          "data-name": "Trazado 3912",
+          d: "M275.443,70.406V94.423l-46.36-26.765V43.641Z",
+          transform: "translate(-200.523 -15.698)",
+          fill: "#d7dce0"
+        }), React.createElement("path", {
+          id: "Trazado_3913",
+          "data-name": "Trazado 3913",
+          d: "M300.149,35.13c6.034,3.493,6.034,9.14,0,12.622s-15.823,3.484-21.866,0-6.034-9.13,0-12.622,15.833-3.483,21.866,0",
+          transform: "translate(-213.124 -15.798)",
+          fill: "#f5f5f5"
+        }), React.createElement("path", {
+          id: "Trazado_3914",
+          "data-name": "Trazado 3914",
+          d: "M321.81,36.107,275.444,62.872l-46.36-26.765,46.36-26.773Zm-37.264,3.211c4.71-2.718,4.71-7.127,0-9.852s-12.35-2.719-17.067,0-4.71,7.134,0,9.852,12.358,2.718,17.067,0",
+          transform: "translate(-200.523 -8.165)",
+          fill: "#fff"
+        }), React.createElement("path", {
+          id: "Trazado_3915",
+          "data-name": "Trazado 3915",
+          d: "M275.114,95.265a1.17,1.17,0,0,1-.585-.157l-46.36-26.765a1.171,1.171,0,0,1-.585-1.014V43.312a1.171,1.171,0,0,1,2.341,0V66.653l45.189,26.089,45.2-26.089V43.312a1.171,1.171,0,1,1,2.341,0V67.329a1.171,1.171,0,0,1-.585,1.014L275.7,95.108a1.172,1.172,0,0,1-.585.157",
+          transform: "translate(-200.194 -15.369)",
+          fill: "#acb6d4"
+        }), React.createElement("g", {
+          id: "Grupo_7423",
+          "data-name": "Grupo 7423",
+          transform: "translate(27.389 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3840",
+          "data-name": "Trazado 3840",
+          d: "M275.113,63.714a1.182,1.182,0,0,1-.585-.157l-46.36-26.765a1.171,1.171,0,0,1,0-2.028l46.36-26.773a1.174,1.174,0,0,1,1.171,0l46.367,26.773a1.171,1.171,0,0,1,0,2.028L275.7,63.558a1.178,1.178,0,0,1-.585.157M231.095,35.779l44.018,25.413,44.025-25.413-44.025-25.42Z",
+          transform: "translate(-227.583 -7.836)",
+          fill: "#acb6d4"
+        }))), React.createElement("g", {
+          id: "Ilustration.rectangle",
+          transform: "translate(711.685 293.426)"
+        }, React.createElement("path", {
+          id: "Trazado_3932",
+          "data-name": "Trazado 3932",
+          d: "M298.389,92.524,258.36,115.641l-61.012-35.22L237.384,57.3Z",
+          transform: "translate(-177.342 -34.907)",
+          fill: "#61dafb",
+          opacity: "0.201"
+        }), React.createElement("path", {
+          id: "Trazado_3967",
+          "data-name": "Trazado 3967",
+          d: "M298.389,92.524,258.36,115.641l-61.012-35.22L237.384,57.3Z",
+          transform: "translate(-197.348 -57.305)",
+          fill: "#61dafb",
+          opacity: "0.755"
+        })), React.createElement("g", {
+          id: "Illustration.Mobile",
+          transform: "translate(748.445 357.654)"
+        }, React.createElement("path", {
+          id: "Mobile.Background.Black",
+          d: "M285.918,73.879c2.112,1.221,3.143,2.85,3.143,4.561,0,2.061-1.506,4.239-4.444,5.935L155.263,159.053,60.655,104.429,190,29.75c5.379-3.106,13.521-3.442,18.176-.753Z",
+          transform: "translate(-43.642 -10.566)",
+          fill: "#030405",
+          opacity: "0.709"
+        }), React.createElement("g", {
+          id: "Mobile.squares",
+          transform: "translate(111.094 0.001)"
+        }, React.createElement("path", {
+          id: "Trazado_3859",
+          "data-name": "Trazado 3859",
+          d: "M307.928,180.284a.976.976,0,0,1-.489-.131l-61.012-35.22a.977.977,0,0,1,0-1.692l14.72-8.5a.98.98,0,0,1,.977,0l61,35.221a.976.976,0,0,1,0,1.691l-14.712,8.5a.976.976,0,0,1-.488.131m-59.058-36.2,59.058,34.092,12.759-7.372-59.051-34.092Z",
+          transform: "translate(-245.939 -41.747)",
+          fill: "#424f6e"
+        }), React.createElement("path", {
+          id: "Trazado_3921",
+          "data-name": "Trazado 3921",
+          d: "M488,207.714a7.888,7.888,0,0,1-3.859-.976l-23.993-13.85a3.11,3.11,0,0,1-1.812-2.519,2.379,2.379,0,0,1,1.354-2.036l24.909-14.383a7.546,7.546,0,0,1,6.889.265l23.993,13.853a3.11,3.11,0,0,1,1.812,2.52,2.38,2.38,0,0,1-1.354,2.036L491.025,207a6.136,6.136,0,0,1-3.03.711m-.384-33.464a5.159,5.159,0,0,0-2.516.566L460.186,189.2a1.457,1.457,0,0,0-.854,1.169,2.213,2.213,0,0,0,1.312,1.652l23.993,13.85a6.654,6.654,0,0,0,5.887.265l24.91-14.38a1.458,1.458,0,0,0,.853-1.169,2.212,2.212,0,0,0-1.312-1.653L490.983,175.08a6.966,6.966,0,0,0-3.372-.831",
+          transform: "translate(-443.388 -165.147)",
+          fill: "#424f6e"
+        }), React.createElement("path", {
+          id: "Trazado_3934",
+          "data-name": "Trazado 3934",
+          d: "M516.233,240.531a15.4,15.4,0,0,1-7.532-1.906l-46.832-27.034c-2.249-1.3-3.538-3.09-3.538-4.917a4.644,4.644,0,0,1,2.644-3.975L509.6,174.625c3.52-2.033,9.428-1.8,13.447.517l46.832,27.04c2.248,1.3,3.538,3.09,3.538,4.918a4.646,4.646,0,0,1-2.644,3.975l-48.621,28.068a11.978,11.978,0,0,1-5.915,1.389m-.75-65.319a10.069,10.069,0,0,0-4.911,1.1l-48.621,28.075a2.844,2.844,0,0,0-1.666,2.282c0,1.094.957,2.3,2.561,3.225l46.832,27.035c3.362,1.941,8.624,2.177,11.491.518l48.623-28.069a2.845,2.845,0,0,0,1.665-2.282c0-1.095-.957-2.3-2.56-3.226l-46.832-27.04a13.6,13.6,0,0,0-6.582-1.622",
+          transform: "translate(-417.056 -173.238)",
+          fill: "#424f6e"
+        })), React.createElement("g", {
+          id: "Mobile.Device",
+          transform: "translate(0 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3850",
+          "data-name": "Trazado 3850",
+          d: "M291.775,181.32v7.749c0,2.061-1.505,4.239-4.443,5.935L146.539,276.29c-5.386,3.106-13.521,3.442-18.176.753L50.622,232.161c-2.112-1.221-3.143-2.851-3.143-4.561v-7.589c.059,1.652,1.1,3.216,3.143,4.4l77.741,44.881c4.656,2.69,12.79,2.354,18.176-.752l140.793-81.286c2.938-1.7,4.443-3.874,4.443-5.935",
+          transform: "translate(-46.502 -129.102)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3855",
+          "data-name": "Trazado 3855",
+          d: "M157.977,275.847l-11.438,6.607c-5.386,3.106-13.521,3.442-18.176.753L50.622,238.324c-2.046-1.184-3.084-2.748-3.143-4.4v-.161c0-2.069,1.5-4.239,4.444-5.935l11.445-6.607Z",
+          transform: "translate(-46.502 -143.015)",
+          fill: "#424f6e"
+        }), React.createElement("path", {
+          id: "Trazado_3856",
+          "data-name": "Trazado 3856",
+          d: "M135.73,244.113a17.079,17.079,0,0,1-8.378-1.928L49.611,197.3c-2.269-1.314-3.558-3.164-3.63-5.211a.97.97,0,0,1,0-.115c0-.026,0-.053,0-.08,0-2.5,1.8-4.977,4.933-6.781L191.7,103.83c5.642-3.258,14.235-3.6,19.153-.752L288.6,147.959c2.342,1.353,3.631,3.274,3.631,5.407,0,2.5-1.8,4.972-4.932,6.781L146.506,241.433a22.169,22.169,0,0,1-10.776,2.68m-87.8-52.135c0,.015,0,.031,0,.046.048,1.37.967,2.611,2.655,3.589l77.74,44.881c4.379,2.53,12.1,2.192,17.2-.753l140.791-81.285c2.513-1.45,3.955-3.305,3.955-5.089,0-1.426-.918-2.711-2.655-3.715L209.88,104.769c-4.381-2.531-12.1-2.194-17.2.753L51.889,186.808c-2.513,1.447-3.955,3.3-3.955,5.089,0,.027,0,.054,0,.081",
+          transform: "translate(-45.979 -101.148)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3857",
+          "data-name": "Trazado 3857",
+          d: "M165.96,276.3a.969.969,0,0,1-.488-.131l-94.61-54.625a.977.977,0,0,1,.977-1.692l94.61,54.625a.977.977,0,0,1-.489,1.823",
+          transform: "translate(-54.485 -142.492)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3858",
+          "data-name": "Trazado 3858",
+          d: "M132.2,275.152a.968.968,0,0,1-.488-.131l-17.665-10.2a.977.977,0,1,1,.977-1.691l17.665,10.2a.977.977,0,0,1-.489,1.823",
+          transform: "translate(-69.544 -157.582)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3860",
+          "data-name": "Trazado 3860",
+          d: "M135.729,279.293a17.076,17.076,0,0,1-8.378-1.928L49.61,232.484c-2.342-1.353-3.631-3.274-3.631-5.407v-7.749a.977.977,0,0,1,1.954,0v7.749c0,1.426.918,2.711,2.655,3.715l77.741,44.881c4.378,2.53,12.1,2.192,17.2-.753L286.32,193.635c2.513-1.451,3.955-3.305,3.955-5.089V180.8a.977.977,0,1,1,1.954,0v7.749c0,2.5-1.8,4.972-4.932,6.781L146.5,276.613a22.167,22.167,0,0,1-10.775,2.68",
+          transform: "translate(-45.979 -128.578)",
+          fill: "#acb6d4"
+        })), React.createElement("g", {
+          id: "Mobile.Orange",
+          transform: "translate(177.329 8.926)"
+        }, React.createElement("path", {
+          id: "Trazado_3916",
+          "data-name": "Trazado 3916",
+          d: "M528.753,224.832v7.416a2.251,2.251,0,0,1-1.313,1.906l-29.622,17.1c-1.947,1.127-5.351.987-7.6-.315l-28.532-16.471a3.126,3.126,0,0,1-1.858-2.48v-7.416a3.126,3.126,0,0,0,1.858,2.48l28.532,16.471c2.247,1.3,5.651,1.442,7.6.315l29.622-17.1a2.251,2.251,0,0,0,1.313-1.906",
+          transform: "translate(-459.831 -204.766)",
+          fill: "#d9684a"
+        }), React.createElement("path", {
+          id: "Trazado_3917",
+          "data-name": "Trazado 3917",
+          d: "M527.44,196.688l-29.622,17.1c-1.947,1.127-5.351.983-7.6-.315L461.689,197a3.127,3.127,0,0,1-1.858-2.48,2.251,2.251,0,0,1,1.313-1.906l29.622-17.1c1.947-1.124,5.351-.983,7.6.315L526.9,192.3a3.126,3.126,0,0,1,1.857,2.48",
+          transform: "translate(-459.831 -174.754)",
+          fill: "#9e533e"
+        })), React.createElement("path", {
+          id: "Mobile.Green2",
+          d: "M307.928,180.284a.976.976,0,0,1-.489-.131l-61.012-35.22a.977.977,0,0,1,0-1.692l14.72-8.5a.98.98,0,0,1,.977,0l61,35.221a.976.976,0,0,1,0,1.691l-14.712,8.5a.976.976,0,0,1-.488.131",
+          transform: "translate(-200.491 -60.708)",
+          fill: "#6aac7d",
+          opacity: "0.201"
+        }), React.createElement("path", {
+          id: "Mobile.Green1",
+          d: "M307.928,180.284a.976.976,0,0,1-.489-.131l-61.012-35.22a.977.977,0,0,1,0-1.692l14.72-8.5a.98.98,0,0,1,.977,0l61,35.221a.976.976,0,0,1,0,1.691l-14.712,8.5a.976.976,0,0,1-.488.131",
+          transform: "translate(-225.921 -83.144)",
+          fill: "#6aac7d",
+          opacity: "0.755"
+        }), React.createElement("path", {
+          id: "Mobile.Blue2",
+          d: "M527.44,196.688l-29.622,17.1c-1.947,1.127-5.351.983-7.6-.315L461.689,197a3.127,3.127,0,0,1-1.858-2.48,2.251,2.251,0,0,1,1.313-1.906l29.622-17.1c1.947-1.124,5.351-.983,7.6.315L526.9,192.3a3.126,3.126,0,0,1,1.857,2.48",
+          transform: "translate(-358.245 -127.358)",
+          fill: "#50b3d0",
+          opacity: "0.295"
+        }), React.createElement("path", {
+          id: "Mobile.Blue1",
+          d: "M527.44,196.688l-29.622,17.1c-1.947,1.127-5.351.983-7.6-.315L461.689,197a3.127,3.127,0,0,1-1.858-2.48,2.251,2.251,0,0,1,1.313-1.906l29.622-17.1c1.947-1.124,5.351-.983,7.6.315L526.9,192.3a3.126,3.126,0,0,1,1.857,2.48",
+          transform: "translate(-400.974 -158.373)",
+          fill: "#50b3d0",
+          opacity: "0.838"
+        }), React.createElement("g", {
+          id: "Mobile.icons",
+          transform: "translate(97.697 23.606)"
+        }, React.createElement("g", {
+          id: "Vue.js_Logo_2",
+          transform: "translate(0 70.241)"
+        }, React.createElement("g", {
+          id: "Grupo_7433",
+          "data-name": "Grupo 7433",
+          transform: "translate(0 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3962",
+          "data-name": "Trazado 3962",
+          d: "M-150.93,0l-1.908,3.305L-154.747,0H-161.1l8.263,14.312L-144.576,0Z",
+          transform: "translate(161.101)",
+          fill: "#41b883"
+        })), React.createElement("g", {
+          id: "Grupo_7434",
+          "data-name": "Grupo 7434",
+          transform: "translate(3.305 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3963",
+          "data-name": "Trazado 3963",
+          d: "M-101.885,0l-1.908,3.305L-105.7,0h-3.049l4.958,8.587L-98.835,0Z",
+          transform: "translate(108.751)",
+          fill: "#34495e"
+        }))), React.createElement("g", {
+          id: "Npm-logo",
+          transform: "translate(102.65 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3956",
+          "data-name": "Trazado 3956",
+          d: "M0,0H22.886V7.629H11.443V8.9H6.357V7.629H0ZM1.271,6.357H3.814V2.543H5.086V6.357H6.357V1.271H1.271ZM7.629,1.271V7.629h2.543V6.357h2.543V1.271Zm2.543,1.271h1.271V5.086H10.172Zm3.814-1.271V6.357h2.543V2.543H17.8V6.357h1.271V2.543h1.271V6.357h1.271V1.271Z",
+          transform: "translate(0 0)",
+          fill: "#cb3837"
+        }), React.createElement("path", {
+          id: "Trazado_3957",
+          "data-name": "Trazado 3957",
+          d: "M1,6.086H3.543V2.271H4.814V6.086H6.086V1H1Z",
+          transform: "translate(0.271 0.271)",
+          fill: "#fff"
+        }), React.createElement("path", {
+          id: "Trazado_3958",
+          "data-name": "Trazado 3958",
+          d: "M6,1V7.357H8.543V6.086h2.543V1ZM9.814,4.814H8.543V2.271H9.814Z",
+          transform: "translate(1.629 0.271)",
+          fill: "#fff"
+        }), React.createElement("path", {
+          id: "Trazado_3959",
+          "data-name": "Trazado 3959",
+          d: "M11,1V6.086h2.543V2.271h1.271V6.086h1.271V2.271h1.271V6.086h1.271V1Z",
+          transform: "translate(2.986 0.271)",
+          fill: "#fff"
+        })), React.createElement("g", {
+          id: "React",
+          transform: "translate(13.398 16.718)"
+        }, React.createElement("path", {
+          id: "Trazado_3960",
+          "data-name": "Trazado 3960",
+          d: "M13.07,4.584h0q-.254-.087-.512-.161.043-.174.079-.349c.387-1.88.134-3.4-.731-3.894C11.077-.3,9.721.2,8.351,1.392q-.2.177-.4.363-.129-.124-.263-.243C6.257.238,4.818-.3,3.954.2,3.125.68,2.88,2.1,3.229,3.886q.052.265.117.527c-.2.058-.4.119-.588.185C1.075,5.185,0,6.1,0,7.058c0,.985,1.154,1.973,2.907,2.572q.213.073.43.134-.07.282-.125.568c-.332,1.751-.073,3.141.753,3.618.853.492,2.286-.014,3.681-1.233q.165-.145.332-.306.209.2.43.392c1.351,1.163,2.685,1.632,3.511,1.154.853-.494,1.13-1.987.77-3.8q-.041-.208-.1-.425.151-.045.3-.092c1.822-.6,3.008-1.58,3.008-2.578C15.9,6.1,14.787,5.175,13.07,4.584ZM8.8,1.9C9.971.883,11.068.48,11.567.768h0c.532.307.739,1.545.4,3.169q-.033.159-.071.316a16.268,16.268,0,0,0-2.125-.336A15.952,15.952,0,0,0,8.432,2.24Q8.61,2.068,8.8,1.9Zm-4.1,5.968q.216.417.451.823t.5.816a14.46,14.46,0,0,1-1.465-.236C4.319,8.823,4.492,8.352,4.694,7.873Zm0-1.6c-.2-.469-.367-.93-.505-1.376.454-.1.937-.184,1.441-.247q-.253.395-.487.8T4.693,6.276Zm.361.8q.314-.653.676-1.282h0q.362-.628.771-1.227c.473-.036.957-.054,1.447-.054s.978.019,1.45.055q.4.6.766,1.223t.685,1.275q-.319.655-.683,1.287h0q-.361.627-.763,1.23c-.472.034-.959.051-1.456.051s-.976-.015-1.439-.045q-.412-.6-.777-1.232T5.054,7.075Zm5.7,1.616q.24-.416.461-.842h0a14.422,14.422,0,0,1,.534,1.4,14.411,14.411,0,0,1-1.483.253q.252-.4.488-.809Zm.455-2.414q-.22-.418-.457-.827h0q-.233-.4-.483-.795c.507.064.993.149,1.449.253a14.486,14.486,0,0,1-.509,1.369ZM7.956,2.726a14.524,14.524,0,0,1,.935,1.129q-.939-.044-1.879,0C7.321,3.447,7.638,3.069,7.956,2.726ZM4.294.788C4.826.481,6,.92,7.241,2.02c.079.07.159.144.238.22A16.274,16.274,0,0,0,6.126,3.916,16.593,16.593,0,0,0,4,4.246Q3.944,4,3.9,3.756h0C3.6,2.229,3.795,1.077,4.294.788ZM3.519,9.111q-.2-.057-.392-.123A5.753,5.753,0,0,1,1.272,8a1.4,1.4,0,0,1-.593-.945c0-.579.863-1.317,2.3-1.819q.271-.094.547-.172A16.287,16.287,0,0,0,4.3,7.075a16.534,16.534,0,0,0-.784,2.036Zm3.68,3.1A5.751,5.751,0,0,1,5.419,13.32h0a1.4,1.4,0,0,1-1.115.042c-.5-.289-.71-1.406-.426-2.9q.051-.265.116-.528a15.969,15.969,0,0,0,2.142.31A16.525,16.525,0,0,0,7.5,11.928Q7.354,12.071,7.2,12.206Zm.776-.768c-.322-.347-.643-.731-.956-1.145q.457.018.93.018t.96-.021a14.442,14.442,0,0,1-.933,1.148Zm4.124.945a1.4,1.4,0,0,1-.52.987c-.5.29-1.572-.087-2.728-1.081q-.2-.171-.4-.364a15.959,15.959,0,0,0,1.332-1.692A15.852,15.852,0,0,0,11.936,9.9q.049.2.086.385h0a5.75,5.75,0,0,1,.076,2.1Zm.577-3.392h0c-.087.029-.176.057-.267.084a15.939,15.939,0,0,0-.8-2.014,15.932,15.932,0,0,0,.774-1.984c.163.047.32.1.473.149,1.471.506,2.368,1.255,2.368,1.832,0,.615-.969,1.412-2.543,1.934Z",
+          transform: "translate(0 0)",
+          fill: "#61dafb"
+        }), React.createElement("path", {
+          id: "Trazado_3961",
+          "data-name": "Trazado 3961",
+          d: "M10.866,8.158a1.42,1.42,0,1,1-1.419,1.42,1.42,1.42,0,0,1,1.419-1.42",
+          transform: "translate(-2.917 -2.52)",
+          fill: "#61dafb"
+        })))), React.createElement("g", {
+          id: "Ilustraiton.Desktop",
+          transform: "translate(987.468 148)"
+        }, React.createElement("g", {
+          id: "Desktop.Devise",
+          transform: "translate(0 0)"
+        }, React.createElement("g", {
+          id: "Grupo_7418",
+          "data-name": "Grupo 7418",
+          transform: "translate(0 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3799",
+          "data-name": "Trazado 3799",
+          d: "M167.232,30.8V136.338A11.166,11.166,0,0,1,161.66,146L19.82,227.9a3.4,3.4,0,0,1-3.465.281l-.039-.023c-1.124-.656-1.826-2.154-1.826-4.292V118.7L167.232,30.514Z",
+          transform: "translate(-13.319 -12.556)",
+          fill: "#030405",
+          opacity: "0.634"
+        }), React.createElement("path", {
+          id: "Trazado_3803",
+          "data-name": "Trazado 3803",
+          d: "M17.9,224.753a3.838,3.838,0,0,1-1.936-.511,1.17,1.17,0,1,1,1.17-2.027,2.384,2.384,0,0,0,2.3-.283l141.836-81.9a10.014,10.014,0,0,0,4.987-8.648V13.437c0-1.605-.464-2.831-1.24-3.279a1.171,1.171,0,1,1,1.17-2.028c1.533.883,2.411,2.817,2.411,5.307V131.388a12.365,12.365,0,0,1-6.156,10.675L20.6,223.96a5.464,5.464,0,0,1-2.7.793",
+          transform: "translate(-13.514 -7.607)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3804",
+          "data-name": "Trazado 3804",
+          d: "M15.986,224.272a1.167,1.167,0,0,1-.588-.159c-1.552-.905-2.408-2.789-2.408-5.3V101.52c0-4.363,2.6-9.278,5.916-11.191L161,8.293a4.582,4.582,0,0,1,4.543-.33,1.171,1.171,0,0,1-1.108,2.063,2.407,2.407,0,0,0-2.266.3L20.076,92.358c-2.572,1.484-4.745,5.679-4.745,9.163V218.809c0,1.6.466,2.826,1.246,3.281a1.171,1.171,0,0,1-.591,2.182",
+          transform: "translate(-12.989 -7.504)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3805",
+          "data-name": "Trazado 3805",
+          d: "M14.161,119.542a1.171,1.171,0,0,1-.586-2.184L166.317,29.171a1.171,1.171,0,0,1,1.171,2.028L14.746,119.385a1.164,1.164,0,0,1-.585.157",
+          transform: "translate(-12.989 -12.227)",
+          fill: "#acb6d4"
+        })), React.createElement("g", {
+          id: "Grupo_7417",
+          "data-name": "Grupo 7417",
+          transform: "translate(11.599 76.474)"
+        }, React.createElement("path", {
+          id: "Trazado_3808",
+          "data-name": "Trazado 3808",
+          d: "M48.94,110.516c0,1.714,1.2,2.408,2.687,1.551a5.939,5.939,0,0,0,2.687-4.654c0-1.713-1.2-2.408-2.687-1.551a5.941,5.941,0,0,0-2.687,4.654",
+          transform: "translate(-29.939 -105.495)",
+          fill: "#030405"
+        }), React.createElement("path", {
+          id: "Trazado_3809",
+          "data-name": "Trazado 3809",
+          d: "M36.767,117.544c0,1.714,1.2,2.408,2.687,1.551a5.939,5.939,0,0,0,2.687-4.654c0-1.713-1.2-2.408-2.687-1.551a5.939,5.939,0,0,0-2.687,4.654",
+          transform: "translate(-27.266 -107.039)",
+          fill: "#030405"
+        }), React.createElement("path", {
+          id: "Trazado_3810",
+          "data-name": "Trazado 3810",
+          d: "M24.593,124.573c0,1.714,1.2,2.408,2.687,1.551a5.939,5.939,0,0,0,2.687-4.654c0-1.713-1.2-2.408-2.687-1.551a5.939,5.939,0,0,0-2.687,4.654",
+          transform: "translate(-24.593 -108.582)",
+          fill: "#030405"
+        }))), React.createElement("path", {
+          id: "Desktop.Green2",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(107.815 29.116)",
+          fill: "#41b883",
+          opacity: "0.565"
+        }), React.createElement("path", {
+          id: "Desktop.Green1",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(131.436 29.116)",
+          fill: "#41b883",
+          opacity: "0.376"
+        }), React.createElement("g", {
+          id: "Desktop.icons",
+          transform: "translate(179.312 21.961)"
+        }, React.createElement("g", {
+          id: "Npm-logo-2",
+          "data-name": "Npm-logo",
+          transform: "translate(26.019 61.194)"
+        }, React.createElement("path", {
+          id: "Trazado_3956-2",
+          "data-name": "Trazado 3956",
+          d: "M0,0H22.886V7.629H11.443V8.9H6.357V7.629H0ZM1.271,6.357H3.814V2.543H5.086V6.357H6.357V1.271H1.271ZM7.629,1.271V7.629h2.543V6.357h2.543V1.271Zm2.543,1.271h1.271V5.086H10.172Zm3.814-1.271V6.357h2.543V2.543H17.8V6.357h1.271V2.543h1.271V6.357h1.271V1.271Z",
+          transform: "translate(0 0)",
+          fill: "#cb3837"
+        }), React.createElement("path", {
+          id: "Trazado_3957-2",
+          "data-name": "Trazado 3957",
+          d: "M1,6.086H3.543V2.271H4.814V6.086H6.086V1H1Z",
+          transform: "translate(0.271 0.271)",
+          fill: "#fff"
+        }), React.createElement("path", {
+          id: "Trazado_3958-2",
+          "data-name": "Trazado 3958",
+          d: "M6,1V7.357H8.543V6.086h2.543V1ZM9.814,4.814H8.543V2.271H9.814Z",
+          transform: "translate(1.629 0.271)",
+          fill: "#fff"
+        }), React.createElement("path", {
+          id: "Trazado_3959-2",
+          "data-name": "Trazado 3959",
+          d: "M11,1V6.086h2.543V2.271h1.271V6.086h1.271V2.271h1.271V6.086h1.271V1Z",
+          transform: "translate(2.986 0.271)",
+          fill: "#fff"
+        })), React.createElement("g", {
+          id: "React-2",
+          "data-name": "React",
+          transform: "translate(8.263 27.99)"
+        }, React.createElement("path", {
+          id: "Trazado_3960-2",
+          "data-name": "Trazado 3960",
+          d: "M13.07,4.584h0q-.254-.087-.512-.161.043-.174.079-.349c.387-1.88.134-3.4-.731-3.894C11.077-.3,9.721.2,8.351,1.392q-.2.177-.4.363-.129-.124-.263-.243C6.257.238,4.818-.3,3.954.2,3.125.68,2.88,2.1,3.229,3.886q.052.265.117.527c-.2.058-.4.119-.588.185C1.075,5.185,0,6.1,0,7.058c0,.985,1.154,1.973,2.907,2.572q.213.073.43.134-.07.282-.125.568c-.332,1.751-.073,3.141.753,3.618.853.492,2.286-.014,3.681-1.233q.165-.145.332-.306.209.2.43.392c1.351,1.163,2.685,1.632,3.511,1.154.853-.494,1.13-1.987.77-3.8q-.041-.208-.1-.425.151-.045.3-.092c1.822-.6,3.008-1.58,3.008-2.578C15.9,6.1,14.787,5.175,13.07,4.584ZM8.8,1.9C9.971.883,11.068.48,11.567.768h0c.532.307.739,1.545.4,3.169q-.033.159-.071.316a16.268,16.268,0,0,0-2.125-.336A15.952,15.952,0,0,0,8.432,2.24Q8.61,2.068,8.8,1.9Zm-4.1,5.968q.216.417.451.823t.5.816a14.46,14.46,0,0,1-1.465-.236C4.319,8.823,4.492,8.352,4.694,7.873Zm0-1.6c-.2-.469-.367-.93-.505-1.376.454-.1.937-.184,1.441-.247q-.253.395-.487.8T4.693,6.276Zm.361.8q.314-.653.676-1.282h0q.362-.628.771-1.227c.473-.036.957-.054,1.447-.054s.978.019,1.45.055q.4.6.766,1.223t.685,1.275q-.319.655-.683,1.287h0q-.361.627-.763,1.23c-.472.034-.959.051-1.456.051s-.976-.015-1.439-.045q-.412-.6-.777-1.232T5.054,7.075Zm5.7,1.616q.24-.416.461-.842h0a14.422,14.422,0,0,1,.534,1.4,14.411,14.411,0,0,1-1.483.253q.252-.4.488-.809Zm.455-2.414q-.22-.418-.457-.827h0q-.233-.4-.483-.795c.507.064.993.149,1.449.253a14.486,14.486,0,0,1-.509,1.369ZM7.956,2.726a14.524,14.524,0,0,1,.935,1.129q-.939-.044-1.879,0C7.321,3.447,7.638,3.069,7.956,2.726ZM4.294.788C4.826.481,6,.92,7.241,2.02c.079.07.159.144.238.22A16.274,16.274,0,0,0,6.126,3.916,16.593,16.593,0,0,0,4,4.246Q3.944,4,3.9,3.756h0C3.6,2.229,3.795,1.077,4.294.788ZM3.519,9.111q-.2-.057-.392-.123A5.753,5.753,0,0,1,1.272,8a1.4,1.4,0,0,1-.593-.945c0-.579.863-1.317,2.3-1.819q.271-.094.547-.172A16.287,16.287,0,0,0,4.3,7.075a16.534,16.534,0,0,0-.784,2.036Zm3.68,3.1A5.751,5.751,0,0,1,5.419,13.32h0a1.4,1.4,0,0,1-1.115.042c-.5-.289-.71-1.406-.426-2.9q.051-.265.116-.528a15.969,15.969,0,0,0,2.142.31A16.525,16.525,0,0,0,7.5,11.928Q7.354,12.071,7.2,12.206Zm.776-.768c-.322-.347-.643-.731-.956-1.145q.457.018.93.018t.96-.021a14.442,14.442,0,0,1-.933,1.148Zm4.124.945a1.4,1.4,0,0,1-.52.987c-.5.29-1.572-.087-2.728-1.081q-.2-.171-.4-.364a15.959,15.959,0,0,0,1.332-1.692A15.852,15.852,0,0,0,11.936,9.9q.049.2.086.385h0a5.75,5.75,0,0,1,.076,2.1Zm.577-3.392h0c-.087.029-.176.057-.267.084a15.939,15.939,0,0,0-.8-2.014,15.932,15.932,0,0,0,.774-1.984c.163.047.32.1.473.149,1.471.506,2.368,1.255,2.368,1.832,0,.615-.969,1.412-2.543,1.934Z",
+          transform: "translate(0 0)",
+          fill: "#61dafb"
+        }), React.createElement("path", {
+          id: "Trazado_3961-2",
+          "data-name": "Trazado 3961",
+          d: "M10.866,8.158a1.42,1.42,0,1,1-1.419,1.42,1.42,1.42,0,0,1,1.419-1.42",
+          transform: "translate(-2.917 -2.52)",
+          fill: "#61dafb"
+        })), React.createElement("g", {
+          id: "Vue.js_Logo_2-2",
+          "data-name": "Vue.js_Logo_2",
+          transform: "translate(0 0)"
+        }, React.createElement("g", {
+          id: "Grupo_7433-2",
+          "data-name": "Grupo 7433",
+          transform: "translate(0 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3962-2",
+          "data-name": "Trazado 3962",
+          d: "M-150.93,0l-1.908,3.305L-154.747,0H-161.1l8.263,14.312L-144.576,0Z",
+          transform: "translate(161.101)",
+          fill: "#41b883"
+        })), React.createElement("g", {
+          id: "Grupo_7434-2",
+          "data-name": "Grupo 7434",
+          transform: "translate(3.305 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3963-2",
+          "data-name": "Trazado 3963",
+          d: "M-101.885,0l-1.908,3.305L-105.7,0h-3.049l4.958,8.587L-98.835,0Z",
+          transform: "translate(108.751)",
+          fill: "#34495e"
+        })))), React.createElement("path", {
+          id: "Desktop.Blue2",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(10.872 92.054)",
+          fill: "#61dafb",
+          opacity: "0.565"
+        }), React.createElement("path", {
+          id: "Desktop.Blue1",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(34.493 92.054)",
+          fill: "#61dafb",
+          opacity: "0.376"
+        }), React.createElement("path", {
+          id: "Desktop.Orange1",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(78.91 99.141)",
+          opacity: "0.565",
+          fill: "url(#linear-gradient)"
+        }), React.createElement("g", {
+          id: "Desktop.Squares",
+          transform: "translate(22.683 29.116)"
+        }, React.createElement("path", {
+          id: "Trazado_4097",
+          "data-name": "Trazado 4097",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568M35.975,1.292,4.993,19.26A9.585,9.585,0,0,0,.667,26.775l.1,35.764C.773,64.3,1.6,65.4,2.938,65.4a3.83,3.83,0,0,0,1.868-.579L35.787,46.848a9.587,9.587,0,0,0,4.324-7.513l-.1-35.763c0-1.764-.837-2.859-2.17-2.859a3.824,3.824,0,0,0-1.866.579",
+          transform: "translate(96.943)",
+          fill: "#41b883"
+        }), React.createElement("path", {
+          id: "Trazado_4104",
+          "data-name": "Trazado 4104",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568M35.975,1.292,4.993,19.26A9.585,9.585,0,0,0,.667,26.775l.1,35.764C.773,64.3,1.6,65.4,2.938,65.4a3.83,3.83,0,0,0,1.868-.579L35.787,46.848a9.587,9.587,0,0,0,4.324-7.513l-.1-35.763c0-1.764-.837-2.859-2.17-2.859a3.824,3.824,0,0,0-1.866.579",
+          transform: "translate(-0.001 62.938)",
+          fill: "#61dafb"
+        }), React.createElement("path", {
+          id: "Trazado_4107",
+          "data-name": "Trazado 4107",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568M35.975,1.292,4.993,19.26A9.585,9.585,0,0,0,.667,26.775l.1,35.764C.773,64.3,1.6,65.4,2.938,65.4a3.83,3.83,0,0,0,1.868-.579L35.787,46.848a9.587,9.587,0,0,0,4.324-7.513l-.1-35.763c0-1.764-.837-2.859-2.17-2.859a3.824,3.824,0,0,0-1.866.579",
+          transform: "translate(68.037 70.024)",
+          fill: "#9e533e"
+        })), React.createElement("path", {
+          id: "Desktop.Orange2",
+          d: "M.1,62.54,0,26.777a10.38,10.38,0,0,1,4.676-8.142L35.657.666A4.383,4.383,0,0,1,37.841,0c1.716,0,2.83,1.4,2.836,3.569l.1,35.763A10.38,10.38,0,0,1,36.1,47.474L5.123,65.443a4.384,4.384,0,0,1-2.185.666c-1.717,0-2.831-1.4-2.837-3.568",
+          transform: "translate(102.531 99.141)",
+          fill: "#fff",
+          opacity: "0.376"
+        })), React.createElement("g", {
+          id: "Server2",
+          transform: "translate(1065.01 370.443)"
+        }, React.createElement("path", {
+          id: "Trazado_4109",
+          "data-name": "Trazado 4109",
+          d: "M523.261,248.7a17.265,17.265,0,0,1-8.446-2.137L462.3,216.246c-2.522-1.455-3.967-3.465-3.967-5.514a5.208,5.208,0,0,1,2.965-4.458l54.522-31.481c3.948-2.28,10.572-2.024,15.079.58l52.516,30.322c2.521,1.454,3.967,3.465,3.967,5.515a5.209,5.209,0,0,1-2.965,4.458l-54.522,31.474a13.431,13.431,0,0,1-6.633,1.557m-.841-73.247a11.291,11.291,0,0,0-5.507,1.239L462.39,208.173a3.189,3.189,0,0,0-1.868,2.559c0,1.226,1.074,2.579,2.872,3.617l52.516,30.316c3.77,2.177,9.671,2.442,12.886.581l54.525-31.476a3.19,3.19,0,0,0,1.867-2.559c0-1.228-1.073-2.58-2.871-3.618L529.8,177.27a15.246,15.246,0,0,0-7.381-1.819",
+          transform: "translate(-458.331 -153.521)",
+          fill: "#acb6d4"
+        }), React.createElement("g", {
+          id: "Grupo_7429",
+          "data-name": "Grupo 7429",
+          transform: "translate(16.774 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3841",
+          "data-name": "Trazado 3841",
+          d: "M288.159,102.8a1.171,1.171,0,0,1-1.171-1.171V77.608a1.171,1.171,0,1,1,2.341,0v24.017a1.171,1.171,0,0,1-1.171,1.171",
+          transform: "translate(-240.628 -22.9)",
+          fill: "#3a3a3a"
+        }), React.createElement("path", {
+          id: "Trazado_3829",
+          "data-name": "Trazado 3829",
+          d: "M334.855,52.92V67.658L288.488,94.423V70.406l46.367-26.765Z",
+          transform: "translate(-240.957 -15.698)",
+          fill: "#f6f6f6"
+        }), React.createElement("path", {
+          id: "Trazado_3831",
+          "data-name": "Trazado 3831",
+          d: "M275.443,70.406V94.423l-46.36-26.765V43.641Z",
+          transform: "translate(-227.913 -15.698)",
+          fill: "#d7dce0"
+        }), React.createElement("path", {
+          id: "Trazado_3834",
+          "data-name": "Trazado 3834",
+          d: "M294.356,34.556c4.71,2.726,4.71,7.134,0,9.852s-12.35,2.719-17.067,0-4.71-7.126,0-9.852,12.358-2.718,17.067,0",
+          transform: "translate(-237.722 -13.255)",
+          fill: "#d7dce0"
+        }), React.createElement("path", {
+          id: "Trazado_3842",
+          "data-name": "Trazado 3842",
+          d: "M275.114,95.265a1.17,1.17,0,0,1-.585-.157l-46.36-26.765a1.171,1.171,0,0,1-.585-1.014V43.312a1.171,1.171,0,0,1,2.341,0V66.653l45.189,26.089,45.2-26.089V43.312a1.171,1.171,0,1,1,2.341,0V67.329a1.171,1.171,0,0,1-.585,1.014L275.7,95.108a1.172,1.172,0,0,1-.585.157",
+          transform: "translate(-227.583 -15.369)",
+          fill: "#acb6d4"
+        }), React.createElement("g", {
+          id: "Grupo_7421",
+          "data-name": "Grupo 7421",
+          transform: "translate(0 0)"
+        }, React.createElement("path", {
+          id: "Trazado_3840-2",
+          "data-name": "Trazado 3840",
+          d: "M275.113,63.714a1.182,1.182,0,0,1-.585-.157l-46.36-26.765a1.171,1.171,0,0,1,0-2.028l46.36-26.773a1.174,1.174,0,0,1,1.171,0l46.367,26.773a1.171,1.171,0,0,1,0,2.028L275.7,63.558a1.178,1.178,0,0,1-.585.157M231.095,35.779l44.018,25.413,44.025-25.413-44.025-25.42Z",
+          transform: "translate(-227.583 -7.836)",
+          fill: "#acb6d4"
+        }), React.createElement("path", {
+          id: "Trazado_3843",
+          "data-name": "Trazado 3843",
+          d: "M285.5,47.3a18.607,18.607,0,0,1-9.121-2.212c-2.654-1.532-4.116-3.639-4.117-5.935s1.46-4.408,4.117-5.944c5.118-2.95,13.13-2.952,18.238,0,2.657,1.535,4.119,3.648,4.117,5.944s-1.464,4.4-4.117,5.934A18.576,18.576,0,0,1,285.5,47.3m0-13.96a16.28,16.28,0,0,0-7.952,1.9c-1.9,1.1-2.947,2.49-2.946,3.916s1.047,2.812,2.946,3.908c4.386,2.527,11.517,2.527,15.9,0,1.9-1.1,2.946-2.484,2.947-3.908s-1.046-2.817-2.947-3.917a16.257,16.257,0,0,0-7.945-1.9",
+          transform: "translate(-237.393 -12.922)",
+          fill: "#acb6d4"
+        })))))));
       }
     }
   });
@@ -1079,7 +1541,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ***********************************/
 
   ims.set('./views/header/icon', {
-    hash: 1463248823,
+    hash: 518839118,
     creator: function (require, exports) {
       "use strict";
 
@@ -1091,7 +1553,9 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       var React = require("react");
 
       function IconLogo() {
-        return React.createElement("figure", null, React.createElement("div", {
+        return React.createElement("figure", {
+          className: "animation__bg"
+        }, React.createElement("div", {
           className: "beyond__icon hidden-mobile"
         }, React.createElement("svg", {
           version: "1.1",
@@ -1099,7 +1563,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           x: "0px",
           y: "0px",
           viewBox: "0 0 32 32"
-        }, React.createElement("g", null, React.createElement("g", {
+        }, React.createElement("g", {
           id: "beyond-ales",
           transform: "translate(0 58.014)"
         }, React.createElement("path", {
@@ -1110,7 +1574,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         }, React.createElement("path", {
           className: "st1",
           d: "M16.4,5.9c-0.2,0-0.4,0-0.6,0c-4.5,0.2-8,4-7.8,8.5s4,8,8.5,7.8c4.5-0.2,8-4,7.8-8.5\r\n\t\t\tC24.1,9.5,20.6,6,16.4,5.9z M16.3,7.8c0.5,0,1,0.1,1.4,0.2c3.4,0.9,5.4,4.4,4.5,7.9c-0.9,3.4-4.4,5.4-7.9,4.5\r\n\t\t\tC11,19.5,8.9,16,9.8,12.5c0.7-2.7,3.2-4.6,6-4.7C16,7.8,16.2,7.8,16.3,7.8L16.3,7.8z M19.5,0.3c-0.5,0-1,0.2-1.5,0.4\r\n\t\t\tC17.2,1,16.7,1.4,16.2,2c-0.8,0.9-1.5,1.8-2.2,2.9c0.9-0.2,1.7-0.3,2.7-0.2c0.3-0.5,0.7-0.9,1.1-1.4C19.1,2,20.1,1.9,20.5,4\r\n\t\t\tc0.1,0.6,0.2,1.2,0.3,1.8c0.8,0.4,1.5,1,2.2,1.7c0-1.3-0.1-2.6-0.4-3.8c-0.2-0.7-0.5-1.4-0.9-2.1c-0.4-0.5-0.9-1.1-1.6-1.3\r\n\t\t\tC19.8,0.3,19.6,0.3,19.5,0.3L19.5,0.3z M16.4,5.7c-0.2,0-0.4,0-0.6,0c-4.6,0.2-8.2,4.1-8,8.7c0.2,4.6,4.1,8.2,8.7,8s8.2-4.1,8-8.7\r\n\t\t\tC24.3,9.4,20.7,5.9,16.4,5.7L16.4,5.7z M16.3,7.6c0.5,0,1,0.1,1.4,0.2c3.5,1,5.7,4.6,4.6,8.1c-0.9,3.5-4.5,5.5-8,4.6\r\n\t\t\ts-5.5-4.5-4.6-8c0.7-2.8,3.2-4.7,6.1-4.8C16,7.6,16.2,7.6,16.3,7.6L16.3,7.6z"
-        }))))));
+        })))));
       }
     }
   });
@@ -1119,7 +1583,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ************************************/
 
   ims.set('./views/header/index', {
-    hash: 2155869239,
+    hash: 1976717415,
     creator: function (require, exports) {
       "use strict";
 
@@ -1134,20 +1598,22 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _pulse = require("./pulse");
 
-      var _notice = require("./notice");
-
       var _headerContent = require("./header-content");
 
       require("@beyond/docs/header-menu/widget");
 
+      var _headerImage = require("./header-image");
+
       function Header() {
         const container = React.useRef(null);
-        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement("docs-header-menu", null), React.createElement("header", {
+        return React.createElement(React.Fragment, null, React.createElement("header", {
           className: "home__header",
           ref: container
         }, React.createElement("div", {
-          className: "container flex-container flex-center"
-        }, React.createElement(_headerContent.HeaderContent, null), React.createElement(_icon.IconLogo, null)), React.createElement(_pulse.Pulse, null)));
+          className: "container header-content__container "
+        }, React.createElement(_headerContent.HeaderContent, null), React.createElement("div", {
+          className: "header__animation__container"
+        }, React.createElement(_headerImage.HeaderImage, null)), React.createElement(_icon.IconLogo, null))), React.createElement(_pulse.Pulse, null));
       }
     }
   });
@@ -1210,35 +1676,12 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
-  /*************************************
-  INTERNAL MODULE: ./views/header/notice
-  *************************************/
-
-  ims.set('./views/header/notice', {
-    hash: 2514501766,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Notice = Notice;
-
-      var React = require("react");
-
-      function Notice() {
-        return React.createElement("section", {
-          className: "flex-container flex-center header-notice bg-primary-accent pd-5"
-        }, "Beta version");
-      }
-    }
-  });
   /************************************
   INTERNAL MODULE: ./views/header/pulse
   ************************************/
 
   ims.set('./views/header/pulse', {
-    hash: 436370280,
+    hash: 4109181657,
     creator: function (require, exports) {
       "use strict";
 
@@ -1318,52 +1761,12 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       }
     }
   });
-  /*************************************
-  INTERNAL MODULE: ./views/navigator-box
-  *************************************/
-
-  ims.set('./views/navigator-box', {
-    hash: 3401150443,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.CodeBox = CodeBox;
-
-      var React = require("react");
-
-      var _code = require("@beyond/docs/code/code");
-
-      function CodeBox({
-        title,
-        children
-      }) {
-        return React.createElement("div", {
-          className: "navigator__box"
-        }, React.createElement("header", null, React.createElement("div", {
-          className: "box__buttons"
-        }, React.createElement("div", {
-          className: "circle red"
-        }), React.createElement("div", {
-          className: "circle blue"
-        }), React.createElement("div", {
-          className: "circle green"
-        })), title), React.createElement("section", {
-          className: "box__code"
-        }, React.createElement(_code.Code, {
-          language: "json"
-        }, children)));
-      }
-    }
-  });
   /****************************
   INTERNAL MODULE: ./views/page
   ****************************/
 
   ims.set('./views/page', {
-    hash: 1607691665,
+    hash: 516715092,
     creator: function (require, exports) {
       "use strict";
 
@@ -1388,12 +1791,28 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _solution = require("./sections/solution");
 
-      function Page() {
-        return React.createElement(React.Fragment, null, React.createElement(_header.Header, null), React.createElement("main", {
+      var _code = require("@beyond/docs/store/code");
+
+      var _context = require("./context");
+
+      function Page({
+        store
+      }) {
+        const [ready, setReady] = React.useState(store.ready);
+        const [data, setTexts] = React.useState(store.texts);
+        (0, _code.useBinder)([store], () => {
+          setReady(store.ready);
+          setTexts(store.texts);
+        });
+        if (!ready) return null;
+        return React.createElement(_context.HomeContext.Provider, {
+          value: {
+            ready,
+            texts: store.texts
+          }
+        }, React.createElement(_header.Header, null), React.createElement("main", {
           className: "main__home__content"
-        }, React.createElement(_solution.Solution, null), React.createElement(_technologies.Technologies, null), React.createElement("div", {
-          className: "container"
-        }, React.createElement(_configModule.ConfigModule, null), React.createElement(_realtime.Realtime, null), React.createElement(_dx.DX, null)), React.createElement(_footer.Footer, null)));
+        }, React.createElement(_solution.Solution, null), React.createElement(_technologies.Technologies, null), React.createElement(_realtime.Realtime, null), React.createElement(_configModule.ConfigModule, null), React.createElement(_dx.DX, null), React.createElement(_footer.Footer, null)));
       }
     }
   });
@@ -1402,7 +1821,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   **********************************************/
 
   ims.set('./views/sections/config-module', {
-    hash: 2979428409,
+    hash: 1431005447,
     creator: function (require, exports) {
       "use strict";
 
@@ -1413,9 +1832,11 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var React = require("react");
 
-      var _navigatorBox = require("../navigator-box");
+      var _code = require("@beyond/docs/code/code");
 
-      var _code = require("@beyond/ui/link/code");
+      var _code2 = require("@beyond/ui/link/code");
+
+      var _context = require("../context");
 
       const tpl = `
 {
@@ -1439,20 +1860,27 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 `;
 
       function ConfigModule() {
-        return React.createElement("section", {
-          className: "block__features two-columns gradient-one code-box-container"
+        const {
+          texts: {
+            config,
+            plugAndPlay,
+            readMore
+          }
+        } = (0, _context.useHomeContext)();
+        return React.createElement("div", {
+          className: "page-section grid-container container two-columns"
+        }, React.createElement("div", {
+          className: "flex-center-v"
         }, React.createElement("div", {
           className: "content"
-        }, React.createElement("h3", {
-          className: "text-plg"
-        }, "M\u00EDnima Configuraci\u00F3n y carga modular"), React.createElement("p", null, "Sin empaquetadores y en una estructura modular que asegura la carga a demanda sin agregar complejidades a medida que el proyecto crece."), React.createElement("h3", {
-          className: "text-slg"
-        }, "Plug & Play"), React.createElement("p", null, "Los modulos pueden reestructurarse y moverse de un proyecto a otro sin necesidad necesidad de configuraciones adicionales."), React.createElement("footer", {
+        }, React.createElement("section", null, React.createElement("header", null, React.createElement("span", {
+          className: "pretitle"
+        }, config.pretitle), React.createElement("h3", null, config.title)), React.createElement("p", null, config.texts)), React.createElement("h3", null, plugAndPlay.title), React.createElement("p", null, plugAndPlay.texts), React.createElement("footer", {
           className: "action"
-        }, React.createElement(_code.Link, {
+        }, React.createElement(_code2.Link, {
           className: "link-more",
           href: "/docs/modules/introduction"
-        }, "Leer M\u00E1s"))), React.createElement(_navigatorBox.CodeBox, {
+        }, readMore)))), React.createElement(_code.CodeBox, {
           title: "module.json"
         }, tpl));
       }
@@ -1463,7 +1891,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ***********************************/
 
   ims.set('./views/sections/dx', {
-    hash: 607679831,
+    hash: 1138058189,
     creator: function (require, exports) {
       "use strict";
 
@@ -1474,45 +1902,105 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var React = require("react");
 
-      var _code = require("@beyond/ui/image/code");
+      var _code = require("@beyond/ui/swiper/code");
+
+      var _context = require("../context");
+
+      var _code2 = require("@beyond/ui/image/code");
+
+      var _code3 = require("@beyond/ui/link/code");
 
       function DX() {
+        const {
+          texts: {
+            experience,
+            readMore,
+            learnMore
+          }
+        } = (0, _context.useHomeContext)();
         return React.createElement(React.Fragment, null, React.createElement("article", {
-          className: "block__features gradient-one two-columns mv-200"
+          className: "page-section primary-surface block__features gradient-one two-columns mv-200"
+        }, React.createElement("div", null), React.createElement("div", {
+          className: "container no-mv"
         }, React.createElement("div", {
-          className: "image-over"
-        }, React.createElement(_code.BeyondImage, {
-          src: "/images/home/dashboard-home.png",
-          alt: "Beyond Dashboard"
-        }), React.createElement(_code.BeyondImage, {
-          src: "/images/home/dashboard-home-2.png",
-          alt: "Beyond Dashboard"
-        })), React.createElement("div", null), React.createElement("div", {
-          className: "content content-40"
+          className: "content"
         }, React.createElement("header", {
-          className: "header__section header__left"
-        }, React.createElement("h3", null, "Experiencia de desarrollo")), React.createElement("ul", null, React.createElement("li", null, "Proyectos en simult\u00E1neo."), React.createElement("li", null, "Edici\u00F3n de c\u00F3digo."), React.createElement("li", null, "Deployment."), React.createElement("li", null, "Creaci\u00F3n de m\u00F3dulos."), React.createElement("li", null, "Gesti\u00F3n de plataformas y servicios.")))));
-      }
-    }
-  });
-  /**********************************************
-  INTERNAL MODULE: ./views/sections/realtime-icon
-  **********************************************/
-
-  ims.set('./views/sections/realtime-icon', {
-    hash: 3453655079,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.RealtimeIcon = RealtimeIcon;
-
-      var React = require("react");
-
-      function RealtimeIcon() {
-        return React.createElement("svg", null);
+          className: "header__section"
+        }, React.createElement("span", {
+          className: "pretitle"
+        }, "DASHBOARD"), React.createElement("h3", {
+          className: "secondary"
+        }, experience.title)), React.createElement("div", {
+          className: "flex-container flex-center-x container--md"
+        }, React.createElement("p", {
+          className: "text-center"
+        }, experience.texts)))), React.createElement(_code.BeyondSwiperSlider, {
+          config: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+            centeredSlides: true,
+            centeredSlidesBounds: true,
+            breakpoints: {
+              400: {
+                slidesPerView: 2,
+                spaceBetween: 10
+              },
+              600: {
+                slidesPerView: 3,
+                spaceBetween: 10
+              },
+              800: {
+                slidesPerView: 4,
+                spaceBetween: 15
+              }
+            }
+          },
+          className: "docs-home-slider"
+        }, React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - code editor",
+          src: "/images/dashboard/v1/code-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - compilation flow",
+          src: "/images/dashboard/v1/compilation-error-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - compilation view",
+          src: "/images/dashboard/v1/compilation-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - module form",
+          src: "/images/dashboard/v1/module-form-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - module form, bundle selection ",
+          src: "/images/dashboard/v1/module-form-view-2.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - module deaail view",
+          src: "/images/dashboard/v1/module-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - creating projects",
+          src: "/images/dashboard/v1/project-create-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - project detail view",
+          src: "/images/dashboard/v1/project-view.png"
+        }), React.createElement(_code2.BeyondImage, {
+          className: "swiper-modal",
+          alt: "BeyondJS - Dashboard - aside options",
+          src: "/images/dashboard/v1/project-view-aside.png"
+        }), React.createElement(_code2.BeyondImage, {
+          alt: "BeyondJS - Dashboard - project list",
+          className: "swiper-modal",
+          src: "/images/dashboard/v1/projects.png"
+        })), React.createElement("div", {
+          className: "container flex-container flex-center text-center"
+        }, React.createElement(_code3.Link, {
+          href: "/docs/dashboard"
+        }, learnMore))));
       }
     }
   });
@@ -1521,7 +2009,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   ims.set('./views/sections/realtime', {
-    hash: 3427878090,
+    hash: 1720420574,
     creator: function (require, exports) {
       "use strict";
 
@@ -1532,40 +2020,47 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var React = require("react");
 
-      var _code = require("@beyond/ui/icons/code");
-
-      var _icons = require("../../icons");
+      var _code = require("@beyond/ui/image/code");
 
       var _code2 = require("@beyond/ui/link/code");
 
+      var _context = require("../context");
+
       function Realtime() {
-        return React.createElement(React.Fragment, null, React.createElement("section", {
-          className: "block__features  three-columns realtime-section"
+        const {
+          texts: {
+            realtime,
+            hmr,
+            readMore
+          }
+        } = (0, _context.useHomeContext)();
+        return React.createElement("section", {
+          className: "page-section primary-surface realtime-section"
         }, React.createElement("div", {
-          className: "icons icons-graphic"
-        }, React.createElement(_code.BeyondIcon, {
-          icon: _icons.SVGS.realtime.icon,
-          viewBox: _icons.SVGS.realtime.viewBox,
-          alt: "beyond realtime connection with hmr"
+          className: "top-img container no-mv no-pv"
+        }, React.createElement(_code.BeyondImage, {
+          className: "is-floating",
+          alt: "BeyondJS - HMR & real time connections",
+          src: "/images/home/separator.png"
         })), React.createElement("div", {
+          className: "container grid-container two-columns  no-mv"
+        }, React.createElement("div", {
           className: "content"
-        }, React.createElement("h3", null, "HMR en Navegador y ", React.createElement("span", {
-          className: "accent"
-        }, "Node")), React.createElement("p", null, "Actualizaci\u00F3n en tiempo de ejecuci\u00F3n del c\u00F3digo cliente y", React.createElement("span", {
-          className: "accent"
-        }, " Node"), ". ", React.createElement("span", {
-          className: "insight beyond"
-        }, "BeyondJS"), " gestiona los servicios Node para evitar el reinicio de los mismos cuando se realizan cambios y garantizar la mejor experiencia de desarrollo posible."), React.createElement(_code2.Link, {
+        }, React.createElement("span", {
+          className: "pretitle t3 secondary-accent"
+        }, hmr.pretitle), React.createElement("h3", null, hmr.title), React.createElement("p", null, " ", hmr.texts), React.createElement(_code2.Link, {
           href: "/docs/hmr",
           className: "link-more"
-        }, "Leer m\u00E1s")), React.createElement("div", {
+        }, readMore)), React.createElement("div", {
           className: "content"
-        }, React.createElement("h3", null, "Conexi\u00F3n Real-time cliente y servidor/ servidor y servidor"), React.createElement("p", null, "Comunicaci\u00F3n de", React.createElement(_code2.Elink, {
-          href: "https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API"
-        }, " websockets "), "soportada de forma autom\u00E1tica para conectar el c\u00F3digo cliente de un proyecto m\u00F3vil o web con un servidor o servicio node."), React.createElement(_code2.Link, {
-          href: "/docs/bridges",
+        }, React.createElement("span", {
+          className: "pretitle t3 secondary-accent"
+        }, realtime.pretitle), React.createElement("h3", null, realtime.title), React.createElement("p", null, realtime.startText, " ", React.createElement(_code2.Elink, {
+          href: realtime.link
+        }, " websockets "), " ", realtime.endText), React.createElement(_code2.Link, {
+          href: "/docs/hmr",
           className: "link-more"
-        }, "Leer m\u00E1s"))));
+        }, readMore))));
       }
     }
   });
@@ -1574,7 +2069,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   ims.set('./views/sections/solution', {
-    hash: 4170057658,
+    hash: 3201876857,
     creator: function (require, exports) {
       "use strict";
 
@@ -1589,35 +2084,51 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       var _code = require("@beyond/ui/link/code");
 
+      var _context = require("../context");
+
+      var _code2 = require("@beyond/docs/components/html/code");
+
       function Solution() {
+        const {
+          texts: {
+            solution: {
+              universalTs,
+              jamStack,
+              frameworks
+            }
+          }
+        } = (0, _context.useHomeContext)();
         return React.createElement("div", {
-          className: "container cards__container"
+          className: "container cards__container no-mv"
         }, React.createElement(_card.Card, {
-          title: "Typescript Universal",
+          title: universalTs.title,
+          img: "universal-ts",
           href: "/docs/intro"
-        }, "Dise\u00F1ado para crear desde un mismo proyecto, m\u00FAltiples distribuciones como sitios web, aplicaciones ", React.createElement(_code.Elink, {
+        }, React.createElement(_code2.CHtml, null, universalTs.description.one), " ", React.createElement(_code.Elink, {
           href: "https://cordova.apache.org/"
-        }, "C\u00F3rdova"), ", ", React.createElement(_code.Elink, {
+        }, universalTs.description.cordova), ", ", React.createElement(_code.Elink, {
           href: "https://docs.npmjs.com/packages-and-modules"
-        }, "paquetes NPM"), " y proyectos ", React.createElement(_code.Elink, {
+        }, universalTs.description.npm), universalTs.description.two, " ", React.createElement(_code.Elink, {
           href: "https://nodejs.org"
-        }, "Node"), "."), React.createElement(_card.Card, {
-          title: "Jamstack y SSR",
+        }, universalTs.description.node), "."), React.createElement(_card.Card, {
+          title: jamStack.title,
+          img: "isomorphic",
           href: "/docs/rendering"
-        }, "Listo para publicar sitios est\u00E1ticos, ", React.createElement("strong", null, "SSR"), ", ", React.createElement("strong", null, "CSR"), " o arquitecturas ", React.createElement(_code.Elink, {
+        }, React.createElement(_code2.CHtml, null, jamStack.one), React.createElement(_code.Elink, {
           href: "https://jamstack.org/"
-        }, "Jamstack"), " y con posibilidad de usarlas en conjunto por medio de ", React.createElement(_code.Elink, {
+        }, jamStack.jamStack), jamStack.two, React.createElement(_code.Elink, {
           href: "https://micro-frontends.org/"
-        }, "micro frontends"), "."), React.createElement(_card.Card, {
-          title: "Frameworks de vistas",
+        }, jamStack.microfrontends), "."), React.createElement(_card.Card, {
+          title: frameworks.title,
+          img: "framework-views",
           href: "/docs/widgets"
-        }, "Compatible con\u00A0", React.createElement(_code.Elink, {
+        }, frameworks.start, React.createElement(_code.Elink, {
           href: "https://reactjs.org"
         }, "React"), ",\u00A0", React.createElement(_code.Elink, {
           href: "https://vuejs.org/"
-        }, "Vue"), " y ", React.createElement(_code.Elink, {
+        }, "Vue"), " ", React.createElement(_code.Elink, {
           href: "https://svelte.dev/"
-        }, "Svelte"), ". Preparado para incluir otros frameworks o librerias de gestion de vistas."));
+        }, "Svelte"), ".", frameworks.end));
       }
     }
   });
@@ -1626,7 +2137,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *********************************************/
 
   ims.set('./views/sections/technologies', {
-    hash: 2100616649,
+    hash: 1109694072,
     creator: function (require, exports) {
       "use strict";
 
@@ -1643,13 +2154,13 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
       function Technologies() {
         return React.createElement("div", {
-          className: "container technologies__section"
+          className: "container technologies__section no-mv"
         }, React.createElement("section", {
           className: ""
-        }, React.createElement("h3", null, React.createElement("span", {
-          className: "pre__title"
-        }, "A very simple way"), "Desarrollo universal"), React.createElement("span", {
+        }, React.createElement("h3", {
           className: "subtitle"
+        }, "Desarrollo universal"), React.createElement("p", {
+          className: "p2"
         }, "Enfocado en hacer que las mismas herramientas y t\u00E9cnicas funcionen para m\u00FAltiples distribuciones  y tecnolog\u00EDas de manera simple y en  la creaci\u00F3n de micro servicios y micro frontends.")), React.createElement("div", {
           className: "banner__icons"
         }, React.createElement(_code.BeyondIcon, {
