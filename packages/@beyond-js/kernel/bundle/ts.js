@@ -4,7 +4,7 @@ define(["exports"], function (_exports2) {
   Object.defineProperty(_exports2, "__esModule", {
     value: true
   });
-  _exports2.instances = _exports2.externals = _exports2.Package = _exports2.Module = _exports2.ManagedExports = _exports2.ListenerFunction = _exports2.IMSpecs = _exports2.IMCreators = _exports2.IDependencies = _exports2.Events = _exports2.Bundle = void 0;
+  _exports2.instances = _exports2.externals = _exports2.Package = _exports2.Module = _exports2.ListenerFunction = _exports2.IMSpecs = _exports2.IMCreators = _exports2.IExportsDescriptor = _exports2.IDependencies = _exports2.Events = _exports2.Bundle = void 0;
   let __pkg = {
     exports: {}
   };
@@ -336,7 +336,7 @@ define(["exports"], function (_exports2) {
   *******************************/
 
   ims.set('./exports/index', {
-    hash: 901862518,
+    hash: 3698033296,
     creator: function (require, exports) {
       "use strict";
 
@@ -354,6 +354,19 @@ define(["exports"], function (_exports2) {
         get values() {
           return this.#values;
         }
+        /**
+         * Property is set by the bundle file, or by the transversal
+         * @type {{im: string, from: string, name: string}[]}
+         */
+
+
+        descriptor;
+        /**
+         * Property is set by the bundle file to process the module exports (es6, cjs, amd)
+         * @type {(require: (id: string) => any) => {void(require)}}
+         */
+
+        process;
 
         constructor(require) {
           this.#require = require;
@@ -361,16 +374,12 @@ define(["exports"], function (_exports2) {
             on: (event, listener) => require.pkg.hmr.on(event, listener),
             off: (event, listener) => require.pkg.hmr.off(event, listener)
           };
-        } // This method is overridden by the bundle file to process the module exports
+        } // Used by the IM exports proxy to update the value of the bundle exported property when
+        // the property is changed in the IM
 
 
-        process(require) {
-          void require;
-        } // This method is overridden by the bundle file to processed the managed exports
-
-
-        managed(require, exports) {
-          void (require && exports);
+        set(key, value) {
+          this.#values[key] = value;
         }
 
         update() {
@@ -380,8 +389,19 @@ define(["exports"], function (_exports2) {
             return this.#require.solve(id, trace);
           };
 
-          this.process(require);
-          this.managed(require, this.#values);
+          this.process?.({
+            require
+          }); // Clean all previous values
+
+          Object.keys(this.#values).forEach(p => p !== 'hmr' && delete this.#values[p]);
+          this.descriptor?.forEach(({
+            im,
+            from,
+            name
+          }) => {
+            const trace = new _trace.Trace();
+            this.#values[name] = this.#require.solve(im, trace)[from];
+          });
         }
 
       }
@@ -419,12 +439,54 @@ define(["exports"], function (_exports2) {
       exports.default = _default;
     }
   });
+  /*****************************
+  INTERNAL MODULE: ./ims/exports
+  *****************************/
+
+  ims.set('./ims/exports', {
+    hash: 1949276032,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.IMExports = void 0;
+
+      class IMExports {
+        constructor(im, bexports) {
+          return new Proxy(this, {
+            set: (self, name, value) => {
+              // Set the exported property
+              self[name] = value; // Check if it is a bundle exported property
+
+              const prop = bexports.descriptor.find(({
+                im: id,
+                from
+              }) => {
+                return im.id === id && name === from;
+              });
+              prop && bexports.set(prop.name, value);
+              prop && bexports.process?.({
+                prop: prop.name,
+                value
+              });
+              return true;
+            }
+          });
+        }
+
+      }
+
+      exports.IMExports = IMExports;
+    }
+  });
   /************************
   INTERNAL MODULE: ./ims/im
   ************************/
 
   ims.set('./ims/im', {
-    hash: 1829740730,
+    hash: 4200005275,
     creator: function (require, exports) {
       "use strict";
 
@@ -433,7 +495,9 @@ define(["exports"], function (_exports2) {
       });
       exports.InternalModule = void 0;
 
-      var _trace = require("../require/trace"); // Bundle internal module
+      var _trace = require("../require/trace");
+
+      var _exports = require("./exports"); // Bundle internal module
 
 
       class InternalModule {
@@ -456,7 +520,7 @@ define(["exports"], function (_exports2) {
         }
 
         #require;
-        #exports = {};
+        #exports;
         #creator;
         #creating = false;
         #created = false;
@@ -507,6 +571,7 @@ define(["exports"], function (_exports2) {
           this.#hash = hash;
           this.#creator = creator;
           this.#require = require;
+          this.#exports = new _exports.IMExports(this, pkg.exports);
         }
 
       }
@@ -974,7 +1039,52 @@ define(["exports"], function (_exports2) {
       exports.Trace = Trace;
     }
   });
-  let Bundle, Events, ListenerFunction, ManagedExports, IDependencies, externals, IMSpecs, IMCreators, instances, Module, Package; // Module exports
+  __pkg.exports.descriptor = [{
+    "im": "./bundle",
+    "from": "Bundle",
+    "name": "Bundle"
+  }, {
+    "im": "./events/index",
+    "from": "Events",
+    "name": "Events"
+  }, {
+    "im": "./events/types",
+    "from": "ListenerFunction",
+    "name": "ListenerFunction"
+  }, {
+    "im": "./exports/index",
+    "from": "IExportsDescriptor",
+    "name": "IExportsDescriptor"
+  }, {
+    "im": "./externals",
+    "from": "IDependencies",
+    "name": "IDependencies"
+  }, {
+    "im": "./externals",
+    "from": "externals",
+    "name": "externals"
+  }, {
+    "im": "./ims/im",
+    "from": "IMSpecs",
+    "name": "IMSpecs"
+  }, {
+    "im": "./ims/index",
+    "from": "IMCreators",
+    "name": "IMCreators"
+  }, {
+    "im": "./instances",
+    "from": "instances",
+    "name": "instances"
+  }, {
+    "im": "./module/index",
+    "from": "Module",
+    "name": "Module"
+  }, {
+    "im": "./package/index",
+    "from": "Package",
+    "name": "Package"
+  }];
+  let Bundle, Events, ListenerFunction, IExportsDescriptor, IDependencies, externals, IMSpecs, IMCreators, instances, Module, Package; // Module exports
 
   _exports2.Package = Package;
   _exports2.Module = Module;
@@ -983,7 +1093,7 @@ define(["exports"], function (_exports2) {
   _exports2.IMSpecs = IMSpecs;
   _exports2.externals = externals;
   _exports2.IDependencies = IDependencies;
-  _exports2.ManagedExports = ManagedExports;
+  _exports2.IExportsDescriptor = IExportsDescriptor;
   _exports2.ListenerFunction = ListenerFunction;
   _exports2.Events = Events;
   _exports2.Bundle = Bundle;
@@ -992,7 +1102,7 @@ define(["exports"], function (_exports2) {
     _exports2.Bundle = Bundle = require('./bundle').Bundle;
     _exports2.Events = Events = require('./events/index').Events;
     _exports2.ListenerFunction = ListenerFunction = require('./events/types').ListenerFunction;
-    _exports2.ManagedExports = ManagedExports = require('./exports/index').ManagedExports;
+    _exports2.IExportsDescriptor = IExportsDescriptor = require('./exports/index').IExportsDescriptor;
     _exports2.IDependencies = IDependencies = require('./externals').IDependencies;
     _exports2.externals = externals = require('./externals').externals;
     _exports2.IMSpecs = IMSpecs = require('./ims/im').IMSpecs;

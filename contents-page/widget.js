@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/contents-data/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond/docs/contents-data/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Controller = void 0;
+  _exports.hmr = _exports.Controller = void 0;
 
   const {
     Bundle: __Bundle,
@@ -173,18 +173,22 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
         });
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Controller = require('./controller').Controller;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "Controller",
+    "name": "Controller"
+  }];
   let Controller; // Module exports
 
-  _exports2.Controller = Controller;
+  _exports.Controller = Controller;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Controller = Controller = require('./controller').Controller;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
   };
 
   const hmr = new function () {
@@ -192,7 +196,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/core/ts", 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.ssr = _exports2.hmr = void 0;
+  _exports.ssr = _exports.hmr = void 0;
   const amd_require = require;
 
   const {
@@ -276,18 +276,22 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"
       }();
       exports.ssr = ssr;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.ssr = require('./ssr').ssr;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./ssr",
+    "from": "ssr",
+    "name": "ssr"
+  }];
   let ssr; // Module exports
 
-  _exports2.ssr = ssr;
+  _exports.ssr = ssr;
 
-  __pkg.exports.process = function (require) {
-    _exports2.ssr = ssr = require('./ssr').ssr;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'ssr') && (_exports.ssr = ssr = require ? require('./ssr').ssr : value);
   };
 
   const hmr = new function () {
@@ -295,7 +299,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

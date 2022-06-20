@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "react", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Layout = _exports2.Controller = void 0;
+  _exports.hmr = _exports.Layout = _exports.Controller = void 0;
 
   const {
     Bundle: __Bundle,
@@ -82,21 +82,28 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
         }, React.createElement("menu-layout", null), React.createElement("main", null, React.createElement("beyond-layout-children", null))));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Controller = require('./controller').Controller;
-    _exports.Layout = require('./layout').Layout;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "Controller",
+    "name": "Controller"
+  }, {
+    "im": "./layout",
+    "from": "Layout",
+    "name": "Layout"
+  }];
   let Controller, Layout; // Module exports
 
-  _exports2.Layout = Layout;
-  _exports2.Controller = Controller;
+  _exports.Layout = Layout;
+  _exports.Controller = Controller;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Controller = Controller = require('./controller').Controller;
-    _exports2.Layout = Layout = require('./layout').Layout;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
+    (require || prop === 'Layout') && (_exports.Layout = Layout = require ? require('./layout').Layout : value);
   };
 
   const hmr = new function () {
@@ -104,7 +111,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

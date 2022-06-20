@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.styles = _exports2.hmr = _exports2.V1Styles = _exports2.DependenciesStyles = void 0;
+  _exports.styles = _exports.hmr = _exports.V1Styles = _exports.DependenciesStyles = void 0;
 
   const {
     Bundle: __Bundle,
@@ -297,24 +297,34 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
 
       exports.V1Styles = V1Styles;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.DependenciesStyles = require('./dependencies-styles').DependenciesStyles;
-    _exports.styles = require('./registry').styles;
-    _exports.V1Styles = require('./v1').V1Styles;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./dependencies-styles",
+    "from": "DependenciesStyles",
+    "name": "DependenciesStyles"
+  }, {
+    "im": "./registry",
+    "from": "styles",
+    "name": "styles"
+  }, {
+    "im": "./v1",
+    "from": "V1Styles",
+    "name": "V1Styles"
+  }];
   let DependenciesStyles, styles, V1Styles; // Module exports
 
-  _exports2.V1Styles = V1Styles;
-  _exports2.styles = styles;
-  _exports2.DependenciesStyles = DependenciesStyles;
+  _exports.V1Styles = V1Styles;
+  _exports.styles = styles;
+  _exports.DependenciesStyles = DependenciesStyles;
 
-  __pkg.exports.process = function (require) {
-    _exports2.DependenciesStyles = DependenciesStyles = require('./dependencies-styles').DependenciesStyles;
-    _exports2.styles = styles = require('./registry').styles;
-    _exports2.V1Styles = V1Styles = require('./v1').V1Styles;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'DependenciesStyles') && (_exports.DependenciesStyles = DependenciesStyles = require ? require('./dependencies-styles').DependenciesStyles : value);
+    (require || prop === 'styles') && (_exports.styles = styles = require ? require('./registry').styles : value);
+    (require || prop === 'V1Styles') && (_exports.V1Styles = V1Styles = require ? require('./v1').V1Styles : value);
   };
 
   const hmr = new function () {
@@ -322,7 +332,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

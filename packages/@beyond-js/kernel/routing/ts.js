@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.routing = _exports2.URI = void 0;
+  _exports.routing = _exports.URI = void 0;
 
   const {
     Bundle: __Bundle,
@@ -567,21 +567,28 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
 
       exports.URI = URI;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.routing = require('./routing').routing;
-    _exports.URI = require('./uri/uri').URI;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./routing",
+    "from": "routing",
+    "name": "routing"
+  }, {
+    "im": "./uri/uri",
+    "from": "URI",
+    "name": "URI"
+  }];
   let routing, URI; // Module exports
 
-  _exports2.URI = URI;
-  _exports2.routing = routing;
+  _exports.URI = URI;
+  _exports.routing = routing;
 
-  __pkg.exports.process = function (require) {
-    _exports2.routing = routing = require('./routing').routing;
-    _exports2.URI = URI = require('./uri/uri').URI;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'routing') && (_exports.routing = routing = require ? require('./routing').routing : value);
+    (require || prop === 'URI') && (_exports.URI = URI = require ? require('./uri/uri').URI : value);
   };
 
   __pkg.initialise(ims);

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.ThemeToggleButton = _exports2.Control = void 0;
+  _exports.hmr = _exports.ThemeToggleButton = _exports.Control = void 0;
 
   const {
     Bundle: __Bundle,
@@ -201,21 +201,28 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond-js/widgets/r
         }, React.createElement(_svg.Svg, null));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Control = require('./control').Control;
-    _exports.ThemeToggleButton = require('./switch').ThemeToggleButton;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "Control",
+    "name": "Control"
+  }, {
+    "im": "./switch",
+    "from": "ThemeToggleButton",
+    "name": "ThemeToggleButton"
+  }];
   let Control, ThemeToggleButton; // Module exports
 
-  _exports2.ThemeToggleButton = ThemeToggleButton;
-  _exports2.Control = Control;
+  _exports.ThemeToggleButton = ThemeToggleButton;
+  _exports.Control = Control;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Control = Control = require('./control').Control;
-    _exports2.ThemeToggleButton = ThemeToggleButton = require('./switch').ThemeToggleButton;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Control') && (_exports.Control = Control = require ? require('./control').Control : value);
+    (require || prop === 'ThemeToggleButton') && (_exports.ThemeToggleButton = ThemeToggleButton = require ? require('./switch').ThemeToggleButton : value);
   };
 
   const hmr = new function () {
@@ -223,7 +230,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond-js/widgets/r
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

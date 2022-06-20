@@ -1,10 +1,10 @@
-define(["exports"], function (_exports2) {
+define(["exports"], function (_exports) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.txt = _exports2.hmr = void 0;
+  _exports.txt = _exports.hmr = void 0;
 
   const {
     Bundle: __Bundle,
@@ -75,18 +75,22 @@ define(["exports"], function (_exports2) {
         }
       };
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.txt = require('./txt').txt;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./txt",
+    "from": "txt",
+    "name": "txt"
+  }];
   let txt; // Module exports
 
-  _exports2.txt = txt;
+  _exports.txt = txt;
 
-  __pkg.exports.process = function (require) {
-    _exports2.txt = txt = require('./txt').txt;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'txt') && (_exports.txt = txt = require ? require('./txt').txt : value);
   };
 
   const hmr = new function () {
@@ -94,7 +98,7 @@ define(["exports"], function (_exports2) {
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

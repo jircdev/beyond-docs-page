@@ -1,10 +1,10 @@
-define(["exports", "svelte/internal", "@beyond-js/widgets/controller/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "svelte/internal", "@beyond-js/widgets/controller/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.SvelteWidgetController = _exports2.PageSvelteWidgetController = void 0;
+  _exports.hmr = _exports.SvelteWidgetController = _exports.PageSvelteWidgetController = void 0;
 
   const {
     Bundle: __Bundle,
@@ -586,21 +586,28 @@ define(["exports", "svelte/internal", "@beyond-js/widgets/controller/ts", "@beyo
 
       exports.Wrapper = Wrapper;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.SvelteWidgetController = require('./controller').SvelteWidgetController;
-    _exports.PageSvelteWidgetController = require('./page').PageSvelteWidgetController;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "SvelteWidgetController",
+    "name": "SvelteWidgetController"
+  }, {
+    "im": "./page",
+    "from": "PageSvelteWidgetController",
+    "name": "PageSvelteWidgetController"
+  }];
   let SvelteWidgetController, PageSvelteWidgetController; // Module exports
 
-  _exports2.PageSvelteWidgetController = PageSvelteWidgetController;
-  _exports2.SvelteWidgetController = SvelteWidgetController;
+  _exports.PageSvelteWidgetController = PageSvelteWidgetController;
+  _exports.SvelteWidgetController = SvelteWidgetController;
 
-  __pkg.exports.process = function (require) {
-    _exports2.SvelteWidgetController = SvelteWidgetController = require('./controller').SvelteWidgetController;
-    _exports2.PageSvelteWidgetController = PageSvelteWidgetController = require('./page').PageSvelteWidgetController;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'SvelteWidgetController') && (_exports.SvelteWidgetController = SvelteWidgetController = require ? require('./controller').SvelteWidgetController : value);
+    (require || prop === 'PageSvelteWidgetController') && (_exports.PageSvelteWidgetController = PageSvelteWidgetController = require ? require('./page').PageSvelteWidgetController : value);
   };
 
   const hmr = new function () {
@@ -608,7 +615,7 @@ define(["exports", "svelte/internal", "@beyond-js/widgets/controller/ts", "@beyo
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

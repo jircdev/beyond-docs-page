@@ -42,7 +42,11 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports, dependenc
     }
   }); // Module exports
 
-  __pkg.exports.process = function (require) {};
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {};
 
   const hmr = new function () {
     this.on = (event, listener) => __pkg.hmr.on(event, listener);

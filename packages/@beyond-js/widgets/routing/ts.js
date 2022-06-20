@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.manager = _exports2.hmr = _exports2.Route = _exports2.PageInstance = _exports2.Layout = void 0;
+  _exports.manager = _exports.hmr = _exports.Route = _exports.PageInstance = _exports.Layout = void 0;
   const amd_require = require;
 
   const {
@@ -473,27 +473,40 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", 
 
       exports.Route = Route;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Layout = require('./layouts/layout').Layout;
-    _exports.manager = require('./manager').manager;
-    _exports.PageInstance = require('./pages/instance').PageInstance;
-    _exports.Route = require('./route').Route;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./layouts/layout",
+    "from": "Layout",
+    "name": "Layout"
+  }, {
+    "im": "./manager",
+    "from": "manager",
+    "name": "manager"
+  }, {
+    "im": "./pages/instance",
+    "from": "PageInstance",
+    "name": "PageInstance"
+  }, {
+    "im": "./route",
+    "from": "Route",
+    "name": "Route"
+  }];
   let Layout, manager, PageInstance, Route; // Module exports
 
-  _exports2.Route = Route;
-  _exports2.PageInstance = PageInstance;
-  _exports2.manager = manager;
-  _exports2.Layout = Layout;
+  _exports.Route = Route;
+  _exports.PageInstance = PageInstance;
+  _exports.manager = manager;
+  _exports.Layout = Layout;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Layout = Layout = require('./layouts/layout').Layout;
-    _exports2.manager = manager = require('./manager').manager;
-    _exports2.PageInstance = PageInstance = require('./pages/instance').PageInstance;
-    _exports2.Route = Route = require('./route').Route;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Layout') && (_exports.Layout = Layout = require ? require('./layouts/layout').Layout : value);
+    (require || prop === 'manager') && (_exports.manager = manager = require ? require('./manager').manager : value);
+    (require || prop === 'PageInstance') && (_exports.PageInstance = PageInstance = require ? require('./pages/instance').PageInstance : value);
+    (require || prop === 'Route') && (_exports.Route = Route = require ? require('./route').Route : value);
   };
 
   const hmr = new function () {
@@ -501,7 +514,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/widgets/render/ts", 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

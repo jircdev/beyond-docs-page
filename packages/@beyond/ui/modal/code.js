@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "react-dom", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "react-dom", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Control = _exports2.BeyondModal = void 0;
+  _exports.hmr = _exports.Control = _exports.BeyondModal = void 0;
 
   const {
     Bundle: __Bundle,
@@ -216,21 +216,28 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "react-dom", "@beyond
         }, output), container);
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Control = require('./control').Control;
-    _exports.BeyondModal = require('./modal').BeyondModal;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "Control",
+    "name": "Control"
+  }, {
+    "im": "./modal",
+    "from": "BeyondModal",
+    "name": "BeyondModal"
+  }];
   let Control, BeyondModal; // Module exports
 
-  _exports2.BeyondModal = BeyondModal;
-  _exports2.Control = Control;
+  _exports.BeyondModal = BeyondModal;
+  _exports.Control = Control;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Control = Control = require('./control').Control;
-    _exports2.BeyondModal = BeyondModal = require('./modal').BeyondModal;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Control') && (_exports.Control = Control = require ? require('./control').Control : value);
+    (require || prop === 'BeyondModal') && (_exports.BeyondModal = BeyondModal = require ? require('./modal').BeyondModal : value);
   };
 
   const hmr = new function () {
@@ -238,7 +245,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "react-dom", "@beyond
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

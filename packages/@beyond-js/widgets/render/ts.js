@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0) {
+define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.widgets = _exports2.prerender = _exports2.hmr = _exports2.attributes = _exports2.WidgetCSR = _exports2.StylesManager = _exports2.NodeWidget = _exports2.ListenerFunction = _exports2.IWidgetSpecs = _exports2.IBeyondWidgetController = _exports2.Events = _exports2.BeyondWidget = void 0;
+  _exports.widgets = _exports.prerender = _exports.hmr = _exports.attributes = _exports.WidgetCSR = _exports.StylesManager = _exports.NodeWidget = _exports.ListenerFunction = _exports.IWidgetSpecs = _exports.IBeyondWidgetController = _exports.Events = _exports.BeyondWidget = void 0;
   const amd_require = require;
 
   const {
@@ -1385,48 +1385,82 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       }();
       exports.widgets = widgets;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.attributes = require('./attributes').attributes;
-    _exports.Events = require('./events/index').Events;
-    _exports.ListenerFunction = require('./events/types').ListenerFunction;
-    _exports.NodeWidget = require('./instances/node').NodeWidget;
-    _exports.prerender = require('./prerendered/index').prerender;
-    _exports.IBeyondWidgetController = require('./widget/csr').IBeyondWidgetController;
-    _exports.WidgetCSR = require('./widget/csr').WidgetCSR;
-    _exports.IWidgetSpecs = require('./widget/index').IWidgetSpecs;
-    _exports.BeyondWidget = require('./widget/index').BeyondWidget;
-    _exports.StylesManager = require('./widget/styles/index').StylesManager;
-    _exports.widgets = require('./widgets').widgets;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./attributes",
+    "from": "attributes",
+    "name": "attributes"
+  }, {
+    "im": "./events/index",
+    "from": "Events",
+    "name": "Events"
+  }, {
+    "im": "./events/types",
+    "from": "ListenerFunction",
+    "name": "ListenerFunction"
+  }, {
+    "im": "./instances/node",
+    "from": "NodeWidget",
+    "name": "NodeWidget"
+  }, {
+    "im": "./prerendered/index",
+    "from": "prerender",
+    "name": "prerender"
+  }, {
+    "im": "./widget/csr",
+    "from": "IBeyondWidgetController",
+    "name": "IBeyondWidgetController"
+  }, {
+    "im": "./widget/csr",
+    "from": "WidgetCSR",
+    "name": "WidgetCSR"
+  }, {
+    "im": "./widget/index",
+    "from": "IWidgetSpecs",
+    "name": "IWidgetSpecs"
+  }, {
+    "im": "./widget/index",
+    "from": "BeyondWidget",
+    "name": "BeyondWidget"
+  }, {
+    "im": "./widget/styles/index",
+    "from": "StylesManager",
+    "name": "StylesManager"
+  }, {
+    "im": "./widgets",
+    "from": "widgets",
+    "name": "widgets"
+  }];
   let attributes, Events, ListenerFunction, NodeWidget, prerender, IBeyondWidgetController, WidgetCSR, IWidgetSpecs, BeyondWidget, StylesManager, widgets; // Module exports
 
-  _exports2.widgets = widgets;
-  _exports2.StylesManager = StylesManager;
-  _exports2.BeyondWidget = BeyondWidget;
-  _exports2.IWidgetSpecs = IWidgetSpecs;
-  _exports2.WidgetCSR = WidgetCSR;
-  _exports2.IBeyondWidgetController = IBeyondWidgetController;
-  _exports2.prerender = prerender;
-  _exports2.NodeWidget = NodeWidget;
-  _exports2.ListenerFunction = ListenerFunction;
-  _exports2.Events = Events;
-  _exports2.attributes = attributes;
+  _exports.widgets = widgets;
+  _exports.StylesManager = StylesManager;
+  _exports.BeyondWidget = BeyondWidget;
+  _exports.IWidgetSpecs = IWidgetSpecs;
+  _exports.WidgetCSR = WidgetCSR;
+  _exports.IBeyondWidgetController = IBeyondWidgetController;
+  _exports.prerender = prerender;
+  _exports.NodeWidget = NodeWidget;
+  _exports.ListenerFunction = ListenerFunction;
+  _exports.Events = Events;
+  _exports.attributes = attributes;
 
-  __pkg.exports.process = function (require) {
-    _exports2.attributes = attributes = require('./attributes').attributes;
-    _exports2.Events = Events = require('./events/index').Events;
-    _exports2.ListenerFunction = ListenerFunction = require('./events/types').ListenerFunction;
-    _exports2.NodeWidget = NodeWidget = require('./instances/node').NodeWidget;
-    _exports2.prerender = prerender = require('./prerendered/index').prerender;
-    _exports2.IBeyondWidgetController = IBeyondWidgetController = require('./widget/csr').IBeyondWidgetController;
-    _exports2.WidgetCSR = WidgetCSR = require('./widget/csr').WidgetCSR;
-    _exports2.IWidgetSpecs = IWidgetSpecs = require('./widget/index').IWidgetSpecs;
-    _exports2.BeyondWidget = BeyondWidget = require('./widget/index').BeyondWidget;
-    _exports2.StylesManager = StylesManager = require('./widget/styles/index').StylesManager;
-    _exports2.widgets = widgets = require('./widgets').widgets;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'attributes') && (_exports.attributes = attributes = require ? require('./attributes').attributes : value);
+    (require || prop === 'Events') && (_exports.Events = Events = require ? require('./events/index').Events : value);
+    (require || prop === 'ListenerFunction') && (_exports.ListenerFunction = ListenerFunction = require ? require('./events/types').ListenerFunction : value);
+    (require || prop === 'NodeWidget') && (_exports.NodeWidget = NodeWidget = require ? require('./instances/node').NodeWidget : value);
+    (require || prop === 'prerender') && (_exports.prerender = prerender = require ? require('./prerendered/index').prerender : value);
+    (require || prop === 'IBeyondWidgetController') && (_exports.IBeyondWidgetController = IBeyondWidgetController = require ? require('./widget/csr').IBeyondWidgetController : value);
+    (require || prop === 'WidgetCSR') && (_exports.WidgetCSR = WidgetCSR = require ? require('./widget/csr').WidgetCSR : value);
+    (require || prop === 'IWidgetSpecs') && (_exports.IWidgetSpecs = IWidgetSpecs = require ? require('./widget/index').IWidgetSpecs : value);
+    (require || prop === 'BeyondWidget') && (_exports.BeyondWidget = BeyondWidget = require ? require('./widget/index').BeyondWidget : value);
+    (require || prop === 'StylesManager') && (_exports.StylesManager = StylesManager = require ? require('./widget/styles/index').StylesManager : value);
+    (require || prop === 'widgets') && (_exports.widgets = widgets = require ? require('./widgets').widgets : value);
   };
 
   const hmr = new function () {
@@ -1434,7 +1468,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "react", "prismjs", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.CodeBox = _exports2.Code = void 0;
+  _exports.hmr = _exports.CodeBox = _exports.Code = void 0;
 
   const {
     Bundle: __Bundle,
@@ -13,7 +13,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
 
   const __pkg = new __Bundle("@beyond/docs/code/code").package();
 
-  externals.register(new Map([["react", dependency_1], ["prismjs", dependency_2]]));
+  externals.register(new Map([["react", dependency_0], ["prismjs", dependency_1]]));
 
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/code/code');
 
@@ -98,21 +98,28 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
         }));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.CodeBox = require('./code-box').CodeBox;
-    _exports.Code = require('./code').Code;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./code-box",
+    "from": "CodeBox",
+    "name": "CodeBox"
+  }, {
+    "im": "./code",
+    "from": "Code",
+    "name": "Code"
+  }];
   let CodeBox, Code; // Module exports
 
-  _exports2.Code = Code;
-  _exports2.CodeBox = CodeBox;
+  _exports.Code = Code;
+  _exports.CodeBox = CodeBox;
 
-  __pkg.exports.process = function (require) {
-    _exports2.CodeBox = CodeBox = require('./code-box').CodeBox;
-    _exports2.Code = Code = require('./code').Code;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'CodeBox') && (_exports.CodeBox = CodeBox = require ? require('./code-box').CodeBox : value);
+    (require || prop === 'Code') && (_exports.Code = Code = require ? require('./code').Code : value);
   };
 
   const hmr = new function () {
@@ -120,7 +127,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

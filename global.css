@@ -62,16 +62,27 @@
   font-weight: lighter;
 }
 
+a {
+  text-decoration: none !important;
+}
+
+h1, .h1, h2, .h2 {
+  color: var(--text-title-color);
+  font-weight: normal;
+  margin: 0;
+}
+
 h1, .h1 {
   font-size: 2.7rem;
   line-height: 54px;
   letter-spacing: 0.43px;
-  margin: 0;
+  margin: 0 0 2rem;
 }
 
-.subtitle-h1 {
+.pretitle-h1 {
   font-size: 1.65rem;
   line-height: 30px;
+  color: var(--app-primary-color);
   letter-spacing: -0.26px;
 }
 
@@ -84,27 +95,24 @@ h2, .h2 {
   font-size: 2.25rem;
   line-height: 54px;
   letter-spacing: 0.43px;
+  margin: 2rem 0;
 }
 
-.subtitle-h2 {
+.pretitle-h2 {
   font-size: 1.4rem;
+  color: var(--app-primary-color);
 }
 
-.subtitle-h3 {
+.pretitle-h3 {
   font-size: 0.9rem;
   line-height: 54px;
   letter-spacing: 0.43px;
+  color: var(--app-primary-color);
 }
 
 h3, .h3 {
   font-size: 1.5rem;
   font-weight: normal;
-}
-
-h1, .h1, h2, .h2 {
-  color: var(--text-title-color);
-  font-weight: normal;
-  margin: 0;
 }
 
 h3, h4 {

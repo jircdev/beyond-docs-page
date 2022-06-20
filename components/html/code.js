@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@cloudinary/url-gen/internal/utils/dataStructureUtils", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.TypeProperty = _exports2.ObjectProperty = _exports2.Notice = _exports2.ModalImage = _exports2.Loading = _exports2.List = _exports2.CHtml = _exports2.BeyondName = void 0;
+  _exports.hmr = _exports.TypeProperty = _exports.Title = _exports.Render = _exports.Paragraph = _exports.ObjectProperty = _exports.Notice = _exports.ModalImage = _exports.Loading = _exports.List = _exports.Document = _exports.CHtml = _exports.BeyondName = void 0;
 
   const {
     Bundle: __Bundle,
@@ -13,9 +13,9 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
 
   const __pkg = new __Bundle("@beyond/docs/components/html/code").package();
 
-  externals.register(new Map([["react", dependency_0]]));
+  externals.register(new Map([["react", dependency_0], ["@cloudinary/url-gen/internal/utils/dataStructureUtils", dependency_3]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"]));
 
   const ims = new Map();
   /************************
@@ -48,27 +48,37 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
   *************************/
 
   ims.set('./control', {
-    hash: 1628279249,
+    hash: 705506786,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
+      exports.BlockQuote = BlockQuote;
       exports.CHtml = CHtml;
+      exports.CodeComponent = CodeComponent;
+      exports.DocLinks = DocLinks;
       exports.List = List;
+      exports.ListItem = ListItem;
+      exports.Paragraph = Paragraph;
+      exports.Title = Title;
 
       var React = require("react");
 
       var _code = require("@beyond/ui/link/code");
+
+      var _code2 = require("@beyond/docs/code/code");
+
+      var _dataStructureUtils = require("@cloudinary/url-gen/internal/utils/dataStructureUtils");
       /*bundle*/
 
 
       function CHtml({
-        value,
+        content,
         children
       }) {
-        const data = children ?? value;
+        const data = children ?? content;
         return React.createElement("span", {
           dangerouslySetInnerHTML: {
             __html: data
@@ -78,25 +88,197 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
       /*bundle*/
 
 
-      function List({
-        items
+      function Paragraph({
+        content,
+        children
       }) {
-        return React.createElement("ul", null, items.map((item, index) => {
+        if (Array.isArray(content)) {
+          return React.createElement("p", null, content);
+        }
+
+        const data = children ?? content;
+        return React.createElement("p", {
+          dangerouslySetInnerHTML: {
+            __html: data
+          }
+        });
+      }
+      /*bundle*/
+
+
+      function Title(props) {
+        const {
+          content,
+          selector,
+          children
+        } = props;
+        let data = children ?? content;
+        const output = [];
+        const tag = selector.split("#")[0];
+        const Control = ['h2', 'h3', 'h4', 'h5', 'h6'].includes(tag) ? tag : 'h1';
+
+        if (Array.isArray(data)) {
+          output.push(React.createElement("span", {
+            className: `pretitle-${tag}`,
+            key: "pretitle"
+          }, data[0]));
+          data = data[1];
+        }
+
+        output.push(React.createElement(Control, {
+          dangerouslySetInnerHTML: {
+            __html: data
+          },
+          key: "title"
+        }));
+        return React.createElement(React.Fragment, null, output);
+      }
+      /*bundle*/
+
+
+      function List(props) {
+        const {
+          content,
+          children
+        } = props;
+
+        if (!Array.isArray(content)) {
+          throw new Error('The content passed must be an array');
+        }
+
+        return React.createElement("ul", null, content.map((item, index) => {
+          if (item?.type?.name === 'ListItem') {
+            return item;
+          }
+
           if (Array.isArray(item)) {
             const [label, href] = item;
             return React.createElement("li", {
-              key: `${label}.${index}`
+              key: `${label}.${index}.arr`
             }, React.createElement(_code.Link, {
               href: href
             }, label));
           }
 
+          if (typeof item === 'object') {
+            return React.createElement("li", {
+              key: `${index}.obj.${[performance.now()]}`
+            }, item);
+          }
+
           return React.createElement("li", {
-            key: index,
+            key: `${index}.obj.${[performance.now()]}`,
             dangerouslySetInnerHTML: {
               __html: item
             }
           });
+        }), children);
+      }
+
+      function DocLinks({
+        item: [href, label],
+        external
+      }) {
+        const Control = external ? _code.Elink : _code.Link;
+        return React.createElement(Control, {
+          href: href
+        }, label);
+      }
+
+      function BlockQuote({
+        children
+      }) {
+        console.log(33, children);
+        return React.createElement("div", {
+          className: "block__note"
+        }, children);
+      }
+      /**
+       * Render a list item that contains a nested list.
+       * @constructor
+       */
+
+
+      function ListItem({
+        content
+      }) {
+        if ((0, _dataStructureUtils.isString)(content)) {
+          content = [React.createElement(CHtml, {
+            content: content,
+            key: content
+          })];
+        }
+
+        return React.createElement("li", null, content);
+      }
+
+      function CodeComponent({
+        content
+      }) {
+        if (!content) {
+          throw new Error('the content object is missing');
+        }
+
+        const {
+          title,
+          language = 'typescript',
+          tpl
+        } = content;
+        const Control = title ? _code2.CodeBox : _code2.Code;
+        console.log(20, content);
+        return React.createElement(Control, {
+          title: title,
+          language: language
+        }, tpl);
+      }
+    }
+  });
+  /**************************
+  INTERNAL MODULE: ./document
+  **************************/
+
+  ims.set('./document', {
+    hash: 730396954,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Document = Document;
+
+      var React = require("react");
+
+      var _loading = require("./loading");
+
+      var _code = require("@beyond/docs/store/code");
+
+      var _render = require("./render");
+
+      var _code2 = require("@beyond/docs/components/next-links/code");
+      /* bundle */
+
+
+      function Document({
+        moduleId,
+        tpls,
+        textId,
+        nextLinks
+      }) {
+        const [ready, texts] = (0, _code.useTexts)(moduleId);
+        if (!ready) return React.createElement(_loading.Loading, null);
+        const textsUsed = textId ? texts[textId] : texts;
+        return React.createElement(_code.DocsContext.Provider, {
+          value: {
+            texts,
+            ready,
+            tpls
+          }
+        }, React.createElement(_render.Render, {
+          content: textsUsed,
+          tpls: tpls
+        }), nextLinks && React.createElement(_code2.NextLinks, {
+          items: nextLinks
         }));
       }
     }
@@ -199,6 +381,35 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
       }
     }
   });
+  /************************
+  INTERNAL MODULE: ./render
+  ************************/
+
+  ims.set('./render', {
+    hash: 150004341,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Render = Render;
+
+      var _react = require("react");
+
+      var _useRender = require("./use-render");
+      /*bundle*/
+
+
+      function Render({
+        content,
+        tpls
+      }) {
+        const output = (0, _useRender.useRender)(content, tpls);
+        return _react.default.createElement(_react.default.Fragment, null, output);
+      }
+    }
+  });
   /*******************************
   INTERNAL MODULE: ./type-property
   *******************************/
@@ -251,39 +462,297 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
         }));
       }
     }
-  }); // Exports managed by beyond bundle objects
+  });
+  /*************************************
+  INTERNAL MODULE: ./use-render/controls
+  *************************************/
 
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.BeyondName = require('./beyond').BeyondName;
-    _exports.CHtml = require('./control').CHtml;
-    _exports.List = require('./control').List;
-    _exports.Loading = require('./loading').Loading;
-    _exports.ModalImage = require('./modal-image').ModalImage;
-    _exports.Notice = require('./notice').Notice;
-    _exports.TypeProperty = require('./type-property').TypeProperty;
-    _exports.ObjectProperty = require('./type-property').ObjectProperty;
-  };
+  ims.set('./use-render/controls', {
+    hash: 2519862568,
+    creator: function (require, exports) {
+      "use strict";
 
-  let BeyondName, CHtml, List, Loading, ModalImage, Notice, TypeProperty, ObjectProperty; // Module exports
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.Controls = void 0;
 
-  _exports2.ObjectProperty = ObjectProperty;
-  _exports2.TypeProperty = TypeProperty;
-  _exports2.Notice = Notice;
-  _exports2.ModalImage = ModalImage;
-  _exports2.Loading = Loading;
-  _exports2.List = List;
-  _exports2.CHtml = CHtml;
-  _exports2.BeyondName = BeyondName;
+      var _control = require("../control");
 
-  __pkg.exports.process = function (require) {
-    _exports2.BeyondName = BeyondName = require('./beyond').BeyondName;
-    _exports2.CHtml = CHtml = require('./control').CHtml;
-    _exports2.List = List = require('./control').List;
-    _exports2.Loading = Loading = require('./loading').Loading;
-    _exports2.ModalImage = ModalImage = require('./modal-image').ModalImage;
-    _exports2.Notice = Notice = require('./notice').Notice;
-    _exports2.TypeProperty = TypeProperty = require('./type-property').TypeProperty;
-    _exports2.ObjectProperty = ObjectProperty = require('./type-property').ObjectProperty;
+      const Controls = {
+        p: _control.Paragraph,
+        l: _control.DocLinks,
+        t: _control.Paragraph,
+        e: _control.DocLinks,
+        h: _control.Title,
+        items: _control.List,
+        s: _control.CHtml
+      };
+      exports.Controls = Controls;
+    }
+  });
+  /**********************************
+  INTERNAL MODULE: ./use-render/index
+  **********************************/
+
+  ims.set('./use-render/index', {
+    hash: 2172529941,
+    creator: function (require, exports) {
+      "use strict";
+
+      Object.defineProperty(exports, "__esModule", {
+        value: true
+      });
+      exports.useRender = useRender;
+
+      var _react = require("react");
+
+      var _control = require("../control");
+
+      var _controls = require("./controls");
+
+      var _modalImage = require("../modal-image");
+
+      var _dataStructureUtils = require("@cloudinary/url-gen/internal/utils/dataStructureUtils");
+
+      function useRender(content, tpls = {}) {
+        const controls = _controls.Controls;
+        /**
+         * q = quote
+         * h = titles
+         * p = paragraph
+         * l = link
+         * e = external link
+         * t = deprecated
+         * i = img
+         * c = code
+         */
+
+        const regexp = /[q|h|p|l|e|t|i|c]{1}?\d{1}|items\d{0,1}|\d/;
+        /**
+         * @TODO: @julio: refactor and order
+         * @param item
+         * @param data
+         * @param output
+         * @param id
+         */
+
+        const analize = (item, data, output, id) => {
+          const itemId = `${item}.${id}`;
+
+          if (item.includes("items") && item.substring(0, 5) === "items") {
+            const Control = controls.items;
+            let items = [];
+            let children = [];
+            data[item].forEach((element, index) => {
+              if (typeof element === "object") {
+                element = check(element, []);
+                items.push(_react.default.createElement(_control.ListItem, {
+                  key: `element.sublist.${index}.${data[item].length}`,
+                  content: element
+                }));
+                return;
+              }
+
+              items.push(_react.default.createElement(_control.ListItem, {
+                key: `${itemId}.${index}`,
+                content: element
+              }));
+              return;
+            });
+            output.push(_react.default.createElement(Control, {
+              key: `${id}${item}`,
+              content: items
+            }, children));
+            return;
+          }
+          /**
+           * Si es un objeto recursivo
+           */
+
+
+          if (!regexp.test(item)) {
+            check(data[item], output);
+            return;
+          } // blockQuote
+
+
+          if (["q"].includes(item[0])) {
+            const quote = (0, _dataStructureUtils.isString)(data[item]) ? data[item] : check(data[item], []);
+            output.push(_react.default.createElement(_control.BlockQuote, {
+              key: itemId
+            }, quote));
+            return;
+          }
+
+          if (["i"].includes(item[0])) {
+            const [src, alt] = data[item];
+            output.push(_react.default.createElement(_modalImage.ModalImage, {
+              key: itemId,
+              src: src,
+              alt: alt
+            }));
+            return;
+          }
+
+          if (["c"].includes(item[0])) {
+            if (!tpls[data[item]]) {
+              throw new Error(`the template "${data[item]}" were not found on ${item}`);
+            }
+
+            output.push(_react.default.createElement(_control.CodeComponent, {
+              key: itemId,
+              content: tpls[data[item]]
+            }));
+            return;
+          } //links
+
+
+          if (["e", "l"].includes(item[0])) {
+            const attrs = {
+              key: `${id}${item}`,
+              item: data[item]
+            };
+            if (item[0] === "e") attrs.external = true;
+            output.push(_react.default.createElement(_control.DocLinks, { ...attrs
+            }));
+            return;
+          }
+
+          if (item[0] === 'p' && typeof data[item] === 'object') {
+            const Control = controls[item[0]];
+            const elements = check(data[item], output);
+            output.push(_react.default.createElement(Control, {
+              key: `${id}${item}`,
+              selector: item,
+              content: elements
+            }));
+          }
+
+          if (item[0] === 'h') {
+            const Control = controls[item[0]];
+            output.push(_react.default.createElement(Control, {
+              key: `${id}${item}`,
+              selector: item,
+              content: data[item]
+            }));
+            return;
+          }
+
+          if (typeof data[item] === "object") {
+            check(data[item], output, item);
+            return;
+          }
+
+          const Control = controls[item[0]];
+          output.push(_react.default.createElement(Control, {
+            key: `${id}${item}`,
+            selector: item,
+            content: data[item]
+          }));
+        };
+
+        let i = 0;
+
+        const check = data => {
+          const output = [];
+          const id = `item.${performance.now()}.${Object.keys(data).join()}}`;
+          if (i > 50) return console.log("TOP.......");
+          i++;
+          const keys = Object.keys(data);
+          keys.forEach((item, i) => {
+            analize(item, data, output, `${id}.${i}`);
+          });
+          return output;
+        };
+
+        const output = check(content, []); // const output = check(content, []);
+
+        return output;
+      }
+    }
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./beyond",
+    "from": "BeyondName",
+    "name": "BeyondName"
+  }, {
+    "im": "./control",
+    "from": "CHtml",
+    "name": "CHtml"
+  }, {
+    "im": "./control",
+    "from": "Paragraph",
+    "name": "Paragraph"
+  }, {
+    "im": "./control",
+    "from": "Title",
+    "name": "Title"
+  }, {
+    "im": "./control",
+    "from": "List",
+    "name": "List"
+  }, {
+    "im": "./document",
+    "from": "Document",
+    "name": "Document"
+  }, {
+    "im": "./loading",
+    "from": "Loading",
+    "name": "Loading"
+  }, {
+    "im": "./modal-image",
+    "from": "ModalImage",
+    "name": "ModalImage"
+  }, {
+    "im": "./notice",
+    "from": "Notice",
+    "name": "Notice"
+  }, {
+    "im": "./render",
+    "from": "Render",
+    "name": "Render"
+  }, {
+    "im": "./type-property",
+    "from": "TypeProperty",
+    "name": "TypeProperty"
+  }, {
+    "im": "./type-property",
+    "from": "ObjectProperty",
+    "name": "ObjectProperty"
+  }];
+  let BeyondName, CHtml, Paragraph, Title, List, Document, Loading, ModalImage, Notice, Render, TypeProperty, ObjectProperty; // Module exports
+
+  _exports.ObjectProperty = ObjectProperty;
+  _exports.TypeProperty = TypeProperty;
+  _exports.Render = Render;
+  _exports.Notice = Notice;
+  _exports.ModalImage = ModalImage;
+  _exports.Loading = Loading;
+  _exports.Document = Document;
+  _exports.List = List;
+  _exports.Title = Title;
+  _exports.Paragraph = Paragraph;
+  _exports.CHtml = CHtml;
+  _exports.BeyondName = BeyondName;
+
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'BeyondName') && (_exports.BeyondName = BeyondName = require ? require('./beyond').BeyondName : value);
+    (require || prop === 'CHtml') && (_exports.CHtml = CHtml = require ? require('./control').CHtml : value);
+    (require || prop === 'Paragraph') && (_exports.Paragraph = Paragraph = require ? require('./control').Paragraph : value);
+    (require || prop === 'Title') && (_exports.Title = Title = require ? require('./control').Title : value);
+    (require || prop === 'List') && (_exports.List = List = require ? require('./control').List : value);
+    (require || prop === 'Document') && (_exports.Document = Document = require ? require('./document').Document : value);
+    (require || prop === 'Loading') && (_exports.Loading = Loading = require ? require('./loading').Loading : value);
+    (require || prop === 'ModalImage') && (_exports.ModalImage = ModalImage = require ? require('./modal-image').ModalImage : value);
+    (require || prop === 'Notice') && (_exports.Notice = Notice = require ? require('./notice').Notice : value);
+    (require || prop === 'Render') && (_exports.Render = Render = require ? require('./render').Render : value);
+    (require || prop === 'TypeProperty') && (_exports.TypeProperty = TypeProperty = require ? require('./type-property').TypeProperty : value);
+    (require || prop === 'ObjectProperty') && (_exports.ObjectProperty = ObjectProperty = require ? require('./type-property').ObjectProperty : value);
   };
 
   const hmr = new function () {
@@ -291,7 +760,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/ui/image/code", "@b
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

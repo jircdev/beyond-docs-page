@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.backends = _exports2.Backend = _exports2.ActionsBridge = void 0;
+  _exports.hmr = _exports.backends = _exports.Backend = _exports.ActionsBridge = void 0;
 
   const {
     Bundle: __Bundle,
@@ -514,24 +514,34 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
 
       exports.default = _default;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.ActionsBridge = require('./action/bridge').ActionsBridge;
-    _exports.Backend = require('./backend').Backend;
-    _exports.backends = require('./backends').backends;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./action/bridge",
+    "from": "ActionsBridge",
+    "name": "ActionsBridge"
+  }, {
+    "im": "./backend",
+    "from": "Backend",
+    "name": "Backend"
+  }, {
+    "im": "./backends",
+    "from": "backends",
+    "name": "backends"
+  }];
   let ActionsBridge, Backend, backends; // Module exports
 
-  _exports2.backends = backends;
-  _exports2.Backend = Backend;
-  _exports2.ActionsBridge = ActionsBridge;
+  _exports.backends = backends;
+  _exports.Backend = Backend;
+  _exports.ActionsBridge = ActionsBridge;
 
-  __pkg.exports.process = function (require) {
-    _exports2.ActionsBridge = ActionsBridge = require('./action/bridge').ActionsBridge;
-    _exports2.Backend = Backend = require('./backend').Backend;
-    _exports2.backends = backends = require('./backends').backends;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'ActionsBridge') && (_exports.ActionsBridge = ActionsBridge = require ? require('./action/bridge').ActionsBridge : value);
+    (require || prop === 'Backend') && (_exports.Backend = Backend = require ? require('./backend').Backend : value);
+    (require || prop === 'backends') && (_exports.backends = backends = require ? require('./backends').backends : value);
   };
 
   const hmr = new function () {
@@ -539,7 +549,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/core/ts"], 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

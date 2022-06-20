@@ -1,10 +1,10 @@
-define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.useBeyondSwiperContext = _exports2.hmr = _exports2.BeyondSwiperSlider = _exports2.BeyondSwiperContext = void 0;
+  _exports.useBeyondSwiperContext = _exports.hmr = _exports.BeyondSwiperSlider = _exports.BeyondSwiperContext = void 0;
 
   const {
     Bundle: __Bundle,
@@ -239,24 +239,34 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
 
       ;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.BeyondSwiperContext = require('./context').BeyondSwiperContext;
-    _exports.useBeyondSwiperContext = require('./context').useBeyondSwiperContext;
-    _exports.BeyondSwiperSlider = require('./swiper-slider').BeyondSwiperSlider;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./context",
+    "from": "BeyondSwiperContext",
+    "name": "BeyondSwiperContext"
+  }, {
+    "im": "./context",
+    "from": "useBeyondSwiperContext",
+    "name": "useBeyondSwiperContext"
+  }, {
+    "im": "./swiper-slider",
+    "from": "BeyondSwiperSlider",
+    "name": "BeyondSwiperSlider"
+  }];
   let BeyondSwiperContext, useBeyondSwiperContext, BeyondSwiperSlider; // Module exports
 
-  _exports2.BeyondSwiperSlider = BeyondSwiperSlider;
-  _exports2.useBeyondSwiperContext = useBeyondSwiperContext;
-  _exports2.BeyondSwiperContext = BeyondSwiperContext;
+  _exports.BeyondSwiperSlider = BeyondSwiperSlider;
+  _exports.useBeyondSwiperContext = useBeyondSwiperContext;
+  _exports.BeyondSwiperContext = BeyondSwiperContext;
 
-  __pkg.exports.process = function (require) {
-    _exports2.BeyondSwiperContext = BeyondSwiperContext = require('./context').BeyondSwiperContext;
-    _exports2.useBeyondSwiperContext = useBeyondSwiperContext = require('./context').useBeyondSwiperContext;
-    _exports2.BeyondSwiperSlider = BeyondSwiperSlider = require('./swiper-slider').BeyondSwiperSlider;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'BeyondSwiperContext') && (_exports.BeyondSwiperContext = BeyondSwiperContext = require ? require('./context').BeyondSwiperContext : value);
+    (require || prop === 'useBeyondSwiperContext') && (_exports.useBeyondSwiperContext = useBeyondSwiperContext = require ? require('./context').useBeyondSwiperContext : value);
+    (require || prop === 'BeyondSwiperSlider') && (_exports.BeyondSwiperSlider = BeyondSwiperSlider = require ? require('./swiper-slider').BeyondSwiperSlider : value);
   };
 
   const hmr = new function () {
@@ -264,7 +274,7 @@ define(["exports", "react", "swiper", "@beyond/ui/reactive-model/ts", "@beyond-j
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

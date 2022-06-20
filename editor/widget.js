@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/widgets/render/ts", "slate-react", "slate", "react", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/models/contents/bridge", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
+define(["exports", "@beyond-js/widgets/render/ts", "slate-react", "slate", "react", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/models/contents/bridge", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Widget = _exports2.Controller = void 0;
+  _exports.hmr = _exports.Widget = _exports.Controller = void 0;
 
   const {
     Bundle: __Bundle,
@@ -1078,21 +1078,28 @@ define(["exports", "@beyond-js/widgets/render/ts", "slate-react", "slate", "reac
 
       exports.serialize = serialize;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Controller = require('./controller/controller').Controller;
-    _exports.Widget = require('./page').Widget;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller/controller",
+    "from": "Controller",
+    "name": "Controller"
+  }, {
+    "im": "./page",
+    "from": "Widget",
+    "name": "Widget"
+  }];
   let Controller, Widget; // Module exports
 
-  _exports2.Widget = Widget;
-  _exports2.Controller = Controller;
+  _exports.Widget = Widget;
+  _exports.Controller = Controller;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Controller = Controller = require('./controller/controller').Controller;
-    _exports2.Widget = Widget = require('./page').Widget;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller/controller').Controller : value);
+    (require || prop === 'Widget') && (_exports.Widget = Widget = require ? require('./page').Widget : value);
   };
 
   const hmr = new function () {
@@ -1100,7 +1107,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "slate-react", "slate", "reac
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

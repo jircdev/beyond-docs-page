@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.NextLinks = void 0;
+  _exports.hmr = _exports.NextLinks = void 0;
 
   const {
     Bundle: __Bundle,
@@ -63,18 +63,22 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
         }, React.createElement("ul", null, output));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.NextLinks = require('./control').NextLinks;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "NextLinks",
+    "name": "NextLinks"
+  }];
   let NextLinks; // Module exports
 
-  _exports2.NextLinks = NextLinks;
+  _exports.NextLinks = NextLinks;
 
-  __pkg.exports.process = function (require) {
-    _exports2.NextLinks = NextLinks = require('./control').NextLinks;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'NextLinks') && (_exports.NextLinks = NextLinks = require ? require('./control').NextLinks : value);
   };
 
   const hmr = new function () {
@@ -82,7 +86,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

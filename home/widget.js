@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/swiper/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16, dependency_17, dependency_18) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond/ui/icons/code", "@beyond/docs/header-menu/widget", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/swiper/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16, dependency_17, dependency_18) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Controller = void 0;
+  _exports.hmr = _exports.Controller = void 0;
 
   const {
     Bundle: __Bundle,
@@ -1583,7 +1583,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ************************************/
 
   ims.set('./views/header/index', {
-    hash: 1976717415,
+    hash: 2043006560,
     creator: function (require, exports) {
       "use strict";
 
@@ -2184,18 +2184,22 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
         })));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Controller = require('./controller').Controller;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "Controller",
+    "name": "Controller"
+  }];
   let Controller; // Module exports
 
-  _exports2.Controller = Controller;
+  _exports.Controller = Controller;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Controller = Controller = require('./controller').Controller;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
   };
 
   const hmr = new function () {
@@ -2203,7 +2207,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

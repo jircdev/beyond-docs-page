@@ -9654,6 +9654,7 @@ body.body-beyond-modal-opened {
   --element-bg: var(--gray-light);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
+  --app-primary-color: var(--primary-dark);
   --app-element-surface: var(--color-gray-10);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
@@ -9710,6 +9711,7 @@ body.body-beyond-modal-opened {
     --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
     --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
     --app-dark-text-gradient: var(--app-secondary-text-gradient);
+    --app-primary-color: var(--primary-dark);
     --app-icon-bg: #2b3853;
     --app-animation-color: #222d42;
     --app-link-color: var(--primary);
@@ -9747,6 +9749,7 @@ html[data-beyond-mode=light] {
   --element-bg: var(--gray-light);
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
+  --app-primary-color: var(--primary-dark);
   --app-element-surface: var(--color-gray-10);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
@@ -9803,6 +9806,7 @@ html[data-beyond-mode=dark] {
   --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
   --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
   --app-dark-text-gradient: var(--app-secondary-text-gradient);
+  --app-primary-color: var(--primary-dark);
   --app-icon-bg: #2b3853;
   --app-animation-color: #222d42;
   --app-link-color: var(--primary);

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.beyond__styles = void 0;
+  _exports.hmr = _exports.beyond__styles = void 0;
 
   const {
     Bundle: __Bundle,
@@ -36,18 +36,22 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"]
       const beyond__styles = '';
       exports.beyond__styles = beyond__styles;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.beyond__styles = require('./controller').beyond__styles;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "beyond__styles",
+    "name": "beyond__styles"
+  }];
   let beyond__styles; // Module exports
 
-  _exports2.beyond__styles = beyond__styles;
+  _exports.beyond__styles = beyond__styles;
 
-  __pkg.exports.process = function (require) {
-    _exports2.beyond__styles = beyond__styles = require('./controller').beyond__styles;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'beyond__styles') && (_exports.beyond__styles = beyond__styles = require ? require('./controller').beyond__styles : value);
   };
 
   const hmr = new function () {
@@ -55,7 +59,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"]
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

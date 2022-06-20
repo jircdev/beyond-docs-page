@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
+define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.ICONS = _exports2.AppIconButton = _exports2.AppIcon = void 0;
+  _exports.hmr = _exports.ICONS = _exports.AppIconButton = _exports.AppIcon = void 0;
 
   const {
     Bundle: __Bundle,
@@ -62,7 +62,7 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/t
   ***********************/
 
   ims.set('./icons', {
-    hash: 2067420099,
+    hash: 1074058584,
     creator: function (require, exports) {
       "use strict";
 
@@ -92,113 +92,18 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/t
           viewBox: '0 0 122.88 92.91'
         },
         settings: {
-          viewBox: `
-        0 0
-        24 24`,
-          icon: ` < g
-        id = "settings"
-        transform = "scale(0.0499)" >
-        <path d = "M254.15,234.1V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v220.6c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v98.2
-        c0,
-        7.5,
-        6,
-        13.5,
-        13.5,
-        13.5s13
-        .5-6,
-        13.5-13.5
-        v-98.2
-        c31.3 - 6.3,
-        55-34,
-        55-67.2
-        C309.15,
-        268.2,
-        285.55,
-        240.4,
-        254.15,
-        234.1z
-        M240.65,
-        342.8
-        c-22.9,
-        0-41.5 - 18.6 - 41.5 - 41.5
-        s18.6 - 41.5,
-        41.5-41.5
-        s41.5,
-        18.6,
-        41.5,
-        41.5S263
-        .55,
-        342.8,
-        240.65,
-        342.8z
-        "/>
-            <path
-        d = "M88.85,120.9V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v107.4c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v211.4
-        c0,
-        7.5,
-        6,
-        13.5,
-        13.5,
-        13.5s13
-        .5-6,
-        13.5-13.5
-        V255.2
-        c31.3 - 6.3,
-        55-34,
-        55-67.2
-        S120.15,
-        127.2,
-        88.85,
-        120.9z
-        M75.35,
-        229.6
-        c-22.9,
-        0-41.5 - 18.6 - 41.5 - 41.5
-        s18.6 - 41.5,
-        41.5-41.5
-        s41.5,
-        18.6,
-        41.5,
-        41.5S98
-        .15,
-        229.6,
-        75.35,
-        229.6z
-        "/>
-            <path
-        d = "M418.45,120.9V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v107.4c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v211.5
-        c0,
-        7.5,
-        6,
-        13.5,
-        13.5,
-        13.5s13
-        .5-6,
-        13.5-13.5
-        V255.2
-        c31.3 - 6.3,
-        55-34,
-        55-67.2
-        S449.85,
-        127.2,
-        418.45,
-        120.9z
-        M404.95,
-        229.6
-        c-22.9,
-        0-41.5 - 18.6 - 41.5 - 41.5
-        s18.6 - 41.5,
-        41.5-41.5
-        s41.5,
-        18.6,
-        41.5,
-        41.5S427
-        .85,
-        229.6,
-        404.95,
-        229.6z
-        "/>
-            </g>`
+          viewBox: `0 0 24 24`,
+          icon: `<g id="settings" transform="scale(0.0499)">
+                    <path d="M254.15,234.1V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v220.6c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v98.2
+                            c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5v-98.2c31.3-6.3,55-34,55-67.2C309.15,268.2,285.55,240.4,254.15,234.1z M240.65,342.8
+                            c-22.9,0-41.5-18.6-41.5-41.5s18.6-41.5,41.5-41.5s41.5,18.6,41.5,41.5S263.55,342.8,240.65,342.8z"/>
+                    <path d="M88.85,120.9V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v107.4c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v211.4
+                            c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5V255.2c31.3-6.3,55-34,55-67.2S120.15,127.2,88.85,120.9z M75.35,229.6
+                            c-22.9,0-41.5-18.6-41.5-41.5s18.6-41.5,41.5-41.5s41.5,18.6,41.5,41.5S98.15,229.6,75.35,229.6z"/>
+                    <path d="M418.45,120.9V13.5c0-7.5-6-13.5-13.5-13.5s-13.5,6-13.5,13.5v107.4c-31.3,6.3-55,34-55,67.2s23.7,60.9,55,67.2v211.5
+                            c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5V255.2c31.3-6.3,55-34,55-67.2S449.85,127.2,418.45,120.9z M404.95,229.6
+                            c-22.9,0-41.5-18.6-41.5-41.5s18.6-41.5,41.5-41.5s41.5,18.6,41.5,41.5S427.85,229.6,404.95,229.6z"/>
+                </g>`
         },
         folder: {
           viewBox: `0 0 24 24`,
@@ -336,24 +241,34 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/t
       };
       exports.ICONS = ICONS;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.AppIcon = require('./icon').AppIcon;
-    _exports.AppIconButton = require('./icon').AppIconButton;
-    _exports.ICONS = require('./icons').ICONS;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./icon",
+    "from": "AppIcon",
+    "name": "AppIcon"
+  }, {
+    "im": "./icon",
+    "from": "AppIconButton",
+    "name": "AppIconButton"
+  }, {
+    "im": "./icons",
+    "from": "ICONS",
+    "name": "ICONS"
+  }];
   let AppIcon, AppIconButton, ICONS; // Module exports
 
-  _exports2.ICONS = ICONS;
-  _exports2.AppIconButton = AppIconButton;
-  _exports2.AppIcon = AppIcon;
+  _exports.ICONS = ICONS;
+  _exports.AppIconButton = AppIconButton;
+  _exports.AppIcon = AppIcon;
 
-  __pkg.exports.process = function (require) {
-    _exports2.AppIcon = AppIcon = require('./icon').AppIcon;
-    _exports2.AppIconButton = AppIconButton = require('./icon').AppIconButton;
-    _exports2.ICONS = ICONS = require('./icons').ICONS;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'AppIcon') && (_exports.AppIcon = AppIcon = require ? require('./icon').AppIcon : value);
+    (require || prop === 'AppIconButton') && (_exports.AppIconButton = AppIconButton = require ? require('./icon').AppIconButton : value);
+    (require || prop === 'ICONS') && (_exports.ICONS = ICONS = require ? require('./icons').ICONS : value);
   };
 
   const hmr = new function () {
@@ -361,7 +276,7 @@ define(["exports", "react", "@beyond/ui/icons/code", "@beyond-js/kernel/bundle/t
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

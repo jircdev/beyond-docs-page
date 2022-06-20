@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.BeyondIconButton = _exports2.BeyondIcon = void 0;
+  _exports.hmr = _exports.BeyondIconButton = _exports.BeyondIcon = void 0;
 
   const {
     Bundle: __Bundle,
@@ -254,21 +254,28 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyo
       };
       exports.BEYOND_ICONS = BEYOND_ICONS;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.BeyondIconButton = require('./beyond-icon-button').BeyondIconButton;
-    _exports.BeyondIcon = require('./icon').BeyondIcon;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./beyond-icon-button",
+    "from": "BeyondIconButton",
+    "name": "BeyondIconButton"
+  }, {
+    "im": "./icon",
+    "from": "BeyondIcon",
+    "name": "BeyondIcon"
+  }];
   let BeyondIconButton, BeyondIcon; // Module exports
 
-  _exports2.BeyondIcon = BeyondIcon;
-  _exports2.BeyondIconButton = BeyondIconButton;
+  _exports.BeyondIcon = BeyondIcon;
+  _exports.BeyondIconButton = BeyondIconButton;
 
-  __pkg.exports.process = function (require) {
-    _exports2.BeyondIconButton = BeyondIconButton = require('./beyond-icon-button').BeyondIconButton;
-    _exports2.BeyondIcon = BeyondIcon = require('./icon').BeyondIcon;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'BeyondIconButton') && (_exports.BeyondIconButton = BeyondIconButton = require ? require('./beyond-icon-button').BeyondIconButton : value);
+    (require || prop === 'BeyondIcon') && (_exports.BeyondIcon = BeyondIcon = require ? require('./icon').BeyondIcon : value);
   };
 
   const hmr = new function () {
@@ -276,7 +283,7 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "prop-types", "@beyo
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

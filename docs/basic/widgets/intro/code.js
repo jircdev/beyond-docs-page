@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/docs/code/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Widgets = _exports2.WidgetCreation = _exports2.WidgetController = _exports2.ViewFrameworks = _exports2.PageWidget = _exports2.LayoutWidget = void 0;
+  _exports.hmr = _exports.Widgets = _exports.WidgetCreation = _exports.WidgetController = _exports.ViewFrameworks = _exports.PageWidget = _exports.LayoutWidget = void 0;
 
   const {
     Bundle: __Bundle,
@@ -431,7 +431,7 @@ class Controller extends ReactWidgetController {
   *********************************/
 
   ims.set('./view-frameworks', {
-    hash: 297537356,
+    hash: 2069137863,
     creator: function (require, exports) {
       "use strict";
 
@@ -473,45 +473,64 @@ class Controller extends ReactWidgetController {
         }, "Svelte"), t2), React.createElement("h3", {
           id: "widget-react"
         }, React.createElement(_code.CHtml, {
-          value: using.react.title
+          content: using.react.title
         })), React.createElement("p", null, using.react.p1), React.createElement("div", {
           className: "block__note"
         }, using.react.p2, React.createElement(_code2.Elink, {
           href: using.react.e1.href
         }, using.react.e1.label)), React.createElement("h3", null, React.createElement(_code.CHtml, {
-          value: using.vueSvelte.title
+          content: using.vueSvelte.title
         })), React.createElement("p", null, using.vueSvelte.p1.t1, " ", React.createElement(_code2.Link, {
           href: "/docs/processors"
         }, using.vueSvelte.p1.l1), " ", using.vueSvelte.p1.t2));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.WidgetController = require('./controller').WidgetController;
-    _exports.WidgetCreation = require('./creation').WidgetCreation;
-    _exports.Widgets = require('./index').Widgets;
-    _exports.LayoutWidget = require('./types/layout').LayoutWidget;
-    _exports.PageWidget = require('./types/page').PageWidget;
-    _exports.ViewFrameworks = require('./view-frameworks').ViewFrameworks;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "WidgetController",
+    "name": "WidgetController"
+  }, {
+    "im": "./creation",
+    "from": "WidgetCreation",
+    "name": "WidgetCreation"
+  }, {
+    "im": "./index",
+    "from": "Widgets",
+    "name": "Widgets"
+  }, {
+    "im": "./types/layout",
+    "from": "LayoutWidget",
+    "name": "LayoutWidget"
+  }, {
+    "im": "./types/page",
+    "from": "PageWidget",
+    "name": "PageWidget"
+  }, {
+    "im": "./view-frameworks",
+    "from": "ViewFrameworks",
+    "name": "ViewFrameworks"
+  }];
   let WidgetController, WidgetCreation, Widgets, LayoutWidget, PageWidget, ViewFrameworks; // Module exports
 
-  _exports2.ViewFrameworks = ViewFrameworks;
-  _exports2.PageWidget = PageWidget;
-  _exports2.LayoutWidget = LayoutWidget;
-  _exports2.Widgets = Widgets;
-  _exports2.WidgetCreation = WidgetCreation;
-  _exports2.WidgetController = WidgetController;
+  _exports.ViewFrameworks = ViewFrameworks;
+  _exports.PageWidget = PageWidget;
+  _exports.LayoutWidget = LayoutWidget;
+  _exports.Widgets = Widgets;
+  _exports.WidgetCreation = WidgetCreation;
+  _exports.WidgetController = WidgetController;
 
-  __pkg.exports.process = function (require) {
-    _exports2.WidgetController = WidgetController = require('./controller').WidgetController;
-    _exports2.WidgetCreation = WidgetCreation = require('./creation').WidgetCreation;
-    _exports2.Widgets = Widgets = require('./index').Widgets;
-    _exports2.LayoutWidget = LayoutWidget = require('./types/layout').LayoutWidget;
-    _exports2.PageWidget = PageWidget = require('./types/page').PageWidget;
-    _exports2.ViewFrameworks = ViewFrameworks = require('./view-frameworks').ViewFrameworks;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'WidgetController') && (_exports.WidgetController = WidgetController = require ? require('./controller').WidgetController : value);
+    (require || prop === 'WidgetCreation') && (_exports.WidgetCreation = WidgetCreation = require ? require('./creation').WidgetCreation : value);
+    (require || prop === 'Widgets') && (_exports.Widgets = Widgets = require ? require('./index').Widgets : value);
+    (require || prop === 'LayoutWidget') && (_exports.LayoutWidget = LayoutWidget = require ? require('./types/layout').LayoutWidget : value);
+    (require || prop === 'PageWidget') && (_exports.PageWidget = PageWidget = require ? require('./types/page').PageWidget : value);
+    (require || prop === 'ViewFrameworks') && (_exports.ViewFrameworks = ViewFrameworks = require ? require('./view-frameworks').ViewFrameworks : value);
   };
 
   const hmr = new function () {
@@ -519,7 +538,7 @@ class Controller extends ReactWidgetController {
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Control = void 0;
+  _exports.hmr = _exports.Control = void 0;
 
   const {
     Bundle: __Bundle,
@@ -40,18 +40,22 @@ define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"]
 
       exports.Control = Control;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Control = require('./control').Control;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "Control",
+    "name": "Control"
+  }];
   let Control; // Module exports
 
-  _exports2.Control = Control;
+  _exports.Control = Control;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Control = Control = require('./control').Control;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Control') && (_exports.Control = Control = require ? require('./control').Control : value);
   };
 
   const hmr = new function () {
@@ -59,7 +63,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"]
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

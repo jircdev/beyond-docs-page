@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.ReactiveModel = void 0;
+  _exports.hmr = _exports.ReactiveModel = void 0;
 
   const {
     Bundle: __Bundle,
@@ -110,18 +110,22 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
 
       exports.ReactiveModel = ReactiveModel;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.ReactiveModel = require('./reactive-model').ReactiveModel;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./reactive-model",
+    "from": "ReactiveModel",
+    "name": "ReactiveModel"
+  }];
   let ReactiveModel; // Module exports
 
-  _exports2.ReactiveModel = ReactiveModel;
+  _exports.ReactiveModel = ReactiveModel;
 
-  __pkg.exports.process = function (require) {
-    _exports2.ReactiveModel = ReactiveModel = require('./reactive-model').ReactiveModel;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'ReactiveModel') && (_exports.ReactiveModel = ReactiveModel = require ? require('./reactive-model').ReactiveModel : value);
   };
 
   const hmr = new function () {
@@ -129,7 +133,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

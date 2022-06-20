@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Texts = _exports2.CurrentTexts = void 0;
+  _exports.hmr = _exports.Texts = _exports.CurrentTexts = void 0;
 
   const {
     Bundle: __Bundle,
@@ -302,21 +302,28 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
 
       exports.Texts = Texts;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.CurrentTexts = require('./current').CurrentTexts;
-    _exports.Texts = require('./texts').Texts;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./current",
+    "from": "CurrentTexts",
+    "name": "CurrentTexts"
+  }, {
+    "im": "./texts",
+    "from": "Texts",
+    "name": "Texts"
+  }];
   let CurrentTexts, Texts; // Module exports
 
-  _exports2.Texts = Texts;
-  _exports2.CurrentTexts = CurrentTexts;
+  _exports.Texts = Texts;
+  _exports.CurrentTexts = CurrentTexts;
 
-  __pkg.exports.process = function (require) {
-    _exports2.CurrentTexts = CurrentTexts = require('./current').CurrentTexts;
-    _exports2.Texts = Texts = require('./texts').Texts;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'CurrentTexts') && (_exports.CurrentTexts = CurrentTexts = require ? require('./current').CurrentTexts : value);
+    (require || prop === 'Texts') && (_exports.Texts = Texts = require ? require('./texts').Texts : value);
   };
 
   const hmr = new function () {
@@ -324,7 +331,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts"], 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

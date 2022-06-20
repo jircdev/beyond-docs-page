@@ -1,10 +1,10 @@
-define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.ReactWidgetController = _exports2.PageReactWidgetController = void 0;
+  _exports.hmr = _exports.ReactWidgetController = _exports.PageReactWidgetController = void 0;
 
   const {
     Bundle: __Bundle,
@@ -410,21 +410,28 @@ define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@b
 
       exports.Wrapper = Wrapper;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.ReactWidgetController = require('./controller').ReactWidgetController;
-    _exports.PageReactWidgetController = require('./page').PageReactWidgetController;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./controller",
+    "from": "ReactWidgetController",
+    "name": "ReactWidgetController"
+  }, {
+    "im": "./page",
+    "from": "PageReactWidgetController",
+    "name": "PageReactWidgetController"
+  }];
   let ReactWidgetController, PageReactWidgetController; // Module exports
 
-  _exports2.PageReactWidgetController = PageReactWidgetController;
-  _exports2.ReactWidgetController = ReactWidgetController;
+  _exports.PageReactWidgetController = PageReactWidgetController;
+  _exports.ReactWidgetController = ReactWidgetController;
 
-  __pkg.exports.process = function (require) {
-    _exports2.ReactWidgetController = ReactWidgetController = require('./controller').ReactWidgetController;
-    _exports2.PageReactWidgetController = PageReactWidgetController = require('./page').PageReactWidgetController;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'ReactWidgetController') && (_exports.ReactWidgetController = ReactWidgetController = require ? require('./controller').ReactWidgetController : value);
+    (require || prop === 'PageReactWidgetController') && (_exports.PageReactWidgetController = PageReactWidgetController = require ? require('./page').PageReactWidgetController : value);
   };
 
   const hmr = new function () {
@@ -432,7 +439,7 @@ define(["exports", "react", "react-dom", "@beyond-js/widgets/controller/ts", "@b
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
+define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.useTexts = _exports2.useModel = _exports2.useDocsContext = _exports2.useBinder = _exports2.hmr = _exports2.DocsContext = _exports2.Control = void 0;
+  _exports.useTexts = _exports.useModel = _exports.useDocsContext = _exports.useBinder = _exports.hmr = _exports.DocsContext = _exports.Control = void 0;
 
   const {
     Bundle: __Bundle,
@@ -43,7 +43,7 @@ define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bun
   ****************************/
 
   ims.set('./use-binder', {
-    hash: 1067502534,
+    hash: 1517189814,
     creator: function (require, exports) {
       "use strict";
 
@@ -129,7 +129,7 @@ define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bun
   ***************************/
 
   ims.set('./use-texts', {
-    hash: 3708528764,
+    hash: 2481001095,
     creator: function (require, exports) {
       "use strict";
 
@@ -172,37 +172,56 @@ define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bun
             modelTexts.unbind('change', triggerEvent);
           };
         }, []);
-        const isReady = ready && texts;
+        const isReady = ready && !!texts;
         return [isReady, texts];
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Control = require('./control').Control;
-    _exports.useBinder = require('./use-binder').useBinder;
-    _exports.useModel = require('./use-model').useModel;
-    _exports.DocsContext = require('./use-texts').DocsContext;
-    _exports.useDocsContext = require('./use-texts').useDocsContext;
-    _exports.useTexts = require('./use-texts').useTexts;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "Control",
+    "name": "Control"
+  }, {
+    "im": "./use-binder",
+    "from": "useBinder",
+    "name": "useBinder"
+  }, {
+    "im": "./use-model",
+    "from": "useModel",
+    "name": "useModel"
+  }, {
+    "im": "./use-texts",
+    "from": "DocsContext",
+    "name": "DocsContext"
+  }, {
+    "im": "./use-texts",
+    "from": "useDocsContext",
+    "name": "useDocsContext"
+  }, {
+    "im": "./use-texts",
+    "from": "useTexts",
+    "name": "useTexts"
+  }];
   let Control, useBinder, useModel, DocsContext, useDocsContext, useTexts; // Module exports
 
-  _exports2.useTexts = useTexts;
-  _exports2.useDocsContext = useDocsContext;
-  _exports2.DocsContext = DocsContext;
-  _exports2.useModel = useModel;
-  _exports2.useBinder = useBinder;
-  _exports2.Control = Control;
+  _exports.useTexts = useTexts;
+  _exports.useDocsContext = useDocsContext;
+  _exports.DocsContext = DocsContext;
+  _exports.useModel = useModel;
+  _exports.useBinder = useBinder;
+  _exports.Control = Control;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Control = Control = require('./control').Control;
-    _exports2.useBinder = useBinder = require('./use-binder').useBinder;
-    _exports2.useModel = useModel = require('./use-model').useModel;
-    _exports2.DocsContext = DocsContext = require('./use-texts').DocsContext;
-    _exports2.useDocsContext = useDocsContext = require('./use-texts').useDocsContext;
-    _exports2.useTexts = useTexts = require('./use-texts').useTexts;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Control') && (_exports.Control = Control = require ? require('./control').Control : value);
+    (require || prop === 'useBinder') && (_exports.useBinder = useBinder = require ? require('./use-binder').useBinder : value);
+    (require || prop === 'useModel') && (_exports.useModel = useModel = require ? require('./use-model').useModel : value);
+    (require || prop === 'DocsContext') && (_exports.DocsContext = DocsContext = require ? require('./use-texts').DocsContext : value);
+    (require || prop === 'useDocsContext') && (_exports.useDocsContext = useDocsContext = require ? require('./use-texts').useDocsContext : value);
+    (require || prop === 'useTexts') && (_exports.useTexts = useTexts = require ? require('./use-texts').useTexts : value);
   };
 
   const hmr = new function () {
@@ -210,7 +229,7 @@ define(["exports", "react", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bun
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

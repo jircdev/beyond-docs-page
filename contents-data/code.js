@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/store/code", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/docs/basic/widgets/intro/code", "@beyond/docs/docs/basic/widgets/rendering/code", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14) {
+define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/store/code", "@beyond-js/kernel/core/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond/docs/docs/starting/quick-start/code", "@beyond/docs/docs/starting/tutorial/code", "@beyond/docs/docs/starting/dashboard/code", "@beyond/docs/docs/basic/widgets/intro/code", "@beyond/docs/docs/basic/widgets/rendering/code", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16, dependency_17) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.useContent = _exports2.hmr = _exports2.SR = _exports2.RightAside = _exports2.RenderingPage = _exports2.NodeWidget = _exports2.Controller = _exports2.ContentsPage = _exports2.ContentsContainer = _exports2.CSR = _exports2.BeyondName = void 0;
+  _exports.useContent = _exports.hmr = _exports.SR = _exports.RightAside = _exports.RenderingPage = _exports.NodeWidget = _exports.Controller = _exports.ContentsPage = _exports.ContentsContainer = _exports.CSR = _exports.BeyondName = void 0;
 
   const {
     Bundle: __Bundle,
@@ -15,7 +15,7 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
 
   externals.register(new Map([["react", dependency_0]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/store/code", "@beyond/docs/docs/basic/widgets/intro/code", "@beyond/docs/docs/basic/widgets/rendering/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/components/next-links/code", "@beyond/docs/components/html/code", "@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/store/code", "@beyond/docs/docs/starting/quick-start/code", "@beyond/docs/docs/starting/tutorial/code", "@beyond/docs/docs/starting/dashboard/code", "@beyond/docs/docs/basic/widgets/intro/code", "@beyond/docs/docs/basic/widgets/rendering/code"]));
 
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/contents-data/code');
 
@@ -2961,7 +2961,7 @@ $media-large: 1025px;
   ********************/
 
   ims.set('./db', {
-    hash: 3844982937,
+    hash: 1830918655,
     creator: function (require, exports) {
       "use strict";
 
@@ -2974,11 +2974,11 @@ $media-large: 1025px;
 
       var _intro = require("./starting/intro");
 
-      var _quickStart = require("./starting/quick-start");
+      var _code = require("@beyond/docs/docs/starting/quick-start/code");
 
-      var _tutorialPage = require("./starting/tutorial/tutorial-page");
+      var _code2 = require("@beyond/docs/docs/starting/tutorial/code");
 
-      var _dashboard = require("./starting/dashboard");
+      var _code3 = require("@beyond/docs/docs/starting/dashboard/code");
 
       var _projects = require("./basic/projects");
 
@@ -2998,9 +2998,9 @@ $media-large: 1025px;
 
       var _bundles = require("./basic/modules/bundles");
 
-      var _code = require("@beyond/docs/docs/basic/widgets/intro/code");
+      var _code4 = require("@beyond/docs/docs/basic/widgets/intro/code");
 
-      var _code2 = require("@beyond/docs/docs/basic/widgets/rendering/code");
+      var _code5 = require("@beyond/docs/docs/basic/widgets/rendering/code");
 
       var _backend = require("./basic/backend");
 
@@ -3049,16 +3049,22 @@ $media-large: 1025px;
       //widgets
       //styles
 
+      /*fundamentals*/
+
       /*API*/
 
 
       const getContent = (contentId, sub = undefined) => {
         const starting = {
           intro: _intro.Intro,
-          'quick-start': _quickStart.QuickStart,
-          dashboard: _dashboard.DashboardPage,
+          'quick-start': _code.QuickStart,
+          dashboard: _code3.DashboardPage,
           tutorial: {
-            web: _tutorialPage.TutorialPage
+            start: _code2.TutorialIntro,
+            'first-module': _code2.TutorialFirstModule,
+            backend: _code2.TutorialBackend,
+            bridge: _code2.TutorialBridge,
+            routing: _code2.TutorialRouting
           }
         };
         const basics = {
@@ -3077,11 +3083,11 @@ $media-large: 1025px;
           },
           bundles: _bundles.Bundles,
           widgets: {
-            default: _code.Widgets,
-            definition: _code.WidgetCreation,
-            controller: _code.WidgetController,
-            layout: _code.LayoutWidget,
-            page: _code.PageWidget
+            default: _code4.Widgets,
+            definition: _code4.WidgetCreation,
+            controller: _code4.WidgetController,
+            layout: _code4.LayoutWidget,
+            page: _code4.PageWidget
           },
           state: {
             management: _stateManagement.StateManagement
@@ -3095,7 +3101,7 @@ $media-large: 1025px;
           routing: _routing.RoutingPage,
           template: _template.TemplatePage,
           backend: _backend.Backend,
-          rendering: _code2.RenderingPage,
+          rendering: _code5.RenderingPage,
           deployment: _deployment.DeploymentPage
         };
         const foundations = {
@@ -3890,7 +3896,7 @@ this.#texts.bind('change', this.triggerEvent);
   *****************************************/
 
   ims.set('./starting/intro/features', {
-    hash: 1664240202,
+    hash: 1695666211,
     creator: function (require, exports) {
       "use strict";
 
@@ -3920,7 +3926,7 @@ this.#texts.bind('change', this.triggerEvent);
         return React.createElement(React.Fragment, null, React.createElement("h2", {
           id: "features"
         }, title), React.createElement("p", null, " ", p1), React.createElement(_code.List, {
-          items: items
+          content: items
         }));
       }
     }
@@ -4009,7 +4015,7 @@ this.#texts.bind('change', this.triggerEvent);
   ******************************************/
 
   ims.set('./starting/intro/universal', {
-    hash: 2864318934,
+    hash: 326776514,
     creator: function (require, exports) {
       "use strict";
 
@@ -4034,11 +4040,11 @@ this.#texts.bind('change', this.triggerEvent);
             }
           }
         } = (0, _context.useDocsContext)();
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, universal.title), React.createElement(_code.BeyondImage, {
+        return React.createElement(React.Fragment, null, React.createElement("h1", null, React.createElement(_code2.CHtml, null, universal.title)), React.createElement(_code.BeyondImage, {
           src: "/images/tutorials/beyond-environments.png",
           alt: "Beyond environments"
         }), React.createElement("p", null, universal.p1), React.createElement("p", null, universal.p2), React.createElement(_code2.List, {
-          items: universal.items
+          content: universal.items
         }));
       }
     }
@@ -4151,14 +4157,14 @@ this.#texts.bind('change', this.triggerEvent);
   ********************************************/
 
   ims.set('./starting/quick-start/index', {
-    hash: 1998571228,
+    hash: 2197488445,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.QuickStart = QuickStart;
+      exports._QuickStart = _QuickStart;
 
       var React = require("react");
 
@@ -4170,7 +4176,7 @@ this.#texts.bind('change', this.triggerEvent);
 
       var _prerequisites = require("./prerequisites");
 
-      function QuickStart() {
+      function _QuickStart() {
         return React.createElement(React.Fragment, null, React.createElement("h1", null, "Comienzo r\u00E1pido"), React.createElement(_prerequisites.Prerequisites, null), React.createElement(_createFirstProject.CreateFirstProject, null), React.createElement(_globalInstalation.GlobalInstalation, null), React.createElement(_code.NextLinks, {
           items: [['Crear un proyecto', '/docs/projects/create'], ['Tutorial', '/docs/tutorial/web']]
         }));
@@ -4242,805 +4248,6 @@ this.#texts.bind('change', this.triggerEvent);
         }, "Prerequisitos"), React.createElement("ul", null, React.createElement("li", null, "Node ", React.createElement("span", {
           className: "inline"
         }, "^14.17.4"), "."), React.createElement("li", null, "Estar familiarizado con manejadores de dependencias como npm o yarn.")));
-      }
-    }
-  });
-  /**************************************************
-  INTERNAL MODULE: ./starting/tutorial/bridge-section
-  **************************************************/
-
-  ims.set('./starting/tutorial/bridge-section', {
-    hash: 822663657,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.BridgeSection = BridgeSection;
-
-      var React = require("react");
-
-      var _code = require("@beyond/docs/code/code");
-
-      var _bridge = require("./templates/bridge");
-
-      var _code2 = require("@beyond/ui/link/code");
-
-      var _pageCode = require("./templates/page-code");
-
-      var _code3 = require("@beyond/docs/components/html/code");
-
-      function BridgeSection() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "bridge-code"
-        }, "C\u00F3digo Bridge"), React.createElement("p", null, "Como mencionamos antes, en esta parte generalmente cada proyecto tiene su propia l\u00F3gica para la validaci\u00F3n de sesi\u00F3n. La intenci\u00F3n hoy no es enfocarse en c\u00F3mo debe manejarse esto, lo que haremos ser\u00E1 crear un c\u00F3digo b\u00E1sico que nos permita conectar nuestro c\u00F3digo cliente con el backend node."), React.createElement(_code.Code, {
-          language: "ts"
-        }, _bridge.bridgeCode), React.createElement("p", null, "El c\u00F3digo es bastante simple, pero hay varios puntos interesantes a destacar."), React.createElement("ul", null, React.createElement("li", null, "El comentario m\u00E1gico ", React.createElement("span", {
-          className: "inline-code"
-        }, "/*bundle*/"), "es utilizado por ", React.createElement("span", {
-          className: "beyond"
-        }, "Beyond"), " para identificar que el c\u00F3digo a continuaci\u00F3n debe ser considerado como c\u00F3digo a exportar en el bundle final. Si quieres leer m\u00E1s acerca del funcionamiento de bundles y m\u00F3dulos, te recomendamos ir a ", React.createElement(_code2.Link, {
-          href: "/modules"
-        }, "La secci\u00F3n de m\u00F3dulos"), " de la documentaci\u00F3n."), React.createElement("li", null, "El comentario m\u00E1gico ", React.createElement("span", {
-          className: "inline-code"
-        }, "/*actions*/"), "es utilizado por beyond para identificar que segmentos del bundle bridge deben quedar disponibles como acciones que puedan ser consumidas por el cliente."), React.createElement("li", null, "La respuesta del m\u00E9todo ", React.createElement("span", {
-          className: "inline-code"
-        }, "login"), "es un objeto plano que llega con la estructura definida al cliente.")), React.createElement("h2", {
-          id: "back-client-connection"
-        }, "Conectar cliente y servidor"), React.createElement("p", null, "El bridge que creamos es un servicio node. Generalmente, para ejecutar un servicio node, es necesario ir a una consola. Sin embargo, en ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS "), " estos servicios funcionan como un ", React.createElement(_code2.Link, {
-          href: "/bee"
-        }, "BEE (Beyond Environment Service)"), " y para ejecutarlo podemos debemos ir al ", React.createElement(_code2.Link, {
-          href: "/dashboard"
-        }, " Dashboard"), " y darle al bot\u00F3n de ejecuci\u00F3n, que podemos encontrar en la pantalla de detalle del proyecto."), React.createElement("p", null, "y otro en el detalle del proyecto:"), React.createElement(_code3.ModalImage, {
-          src: "/images/dashboard/v1/bee.png",
-          alt: "bee service"
-        }), React.createElement("div", {
-          className: "block__note"
-        }, React.createElement("strong", null, "El Dashboard"), " es una herramienta muy potente provista por BeyondJS. Puedes aprender m\u00E1s acerca de esto en ", React.createElement(_code2.Link, {
-          href: "/docs/dashboard"
-        }, "la secci\u00F3n de detalle"), "."), React.createElement("p", null, "Para poder implementar la funcionalidad de login con nuestro servidor, debemos importar nuestro objeto auth en el c\u00F3digo cliente y asociar el evento ", React.createElement("span", {
-          className: "inline-code"
-        }, "onSubmit"), " a nuestro formulario."), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "En beyondJS"), " los proyectos siguen las mismas directrices para espacificaci\u00F3n y resoluci\u00F3n de nombres y paquetes que npm, de la misma forma que lo hace typescript. Deben tener ", React.createElement("strong", null, "nombre"), " de m\u00F3dulo y pueden manejar un", React.createElement("strong", null, "scope"), " tambien. En nuestro caso, definimos ambos al momento de crear nuestro proyecto y m\u00F3dulo respectivamente."), React.createElement("p", null, "A continuaci\u00F3n, en nuestro componente ", React.createElement("span", {
-          className: "inline_code"
-        }, "Page"), " importamos el objeto ", React.createElement("span", {
-          className: "inline_code"
-        }, "Auth")), React.createElement(_code.Code, {
-          language: "typescript"
-        }, `import {Auth} from "@testing/login/home/bridge";`), React.createElement("p", null, "Agregamos nuestra funci\u00F3n ", React.createElement("span", {
-          className: "inline-code"
-        }, "onSubmit"), "y la asociamos al formulario, nuestro c\u00F3digo debe quedar de la siguiente forma:"), React.createElement(_code.Code, {
-          language: "typescript"
-        }, _pageCode.PageCode), React.createElement("p", null, "Es tiempo de probar nuestro formulario. Si agregamos los datos correctos, podremos ver que en la consola del navegador aparece el mensaje que indica que los datos fueron validados y se puede iniciar sesi\u00F3n, si por el contrario, agregamos datos incorrectos, podremos ver como aparece el mensaje de error \"Invalid data\" el cual actualizamos en la variable de estado del componente."), React.createElement("h4", null, "Resumen"), React.createElement("ul", null, React.createElement("li", null, "Creamos un m\u00F3dulo con un widget de tipo page"), React.createElement("li", null, "Creamos una conexi\u00F3n con un backend node por medio del bundle bridge"), React.createElement("li", null, "Repasamos la estructura de resoluci\u00F3n de m\u00F3dulos para importar el bridge Auth y poder agregar la validaci\u00F3n de inicio de sesi\u00F3n")), React.createElement("p", null, "Ahora s\u00F3lo nos falta redireccionar al usuario a una pantalla de bienvenida."));
-      }
-    }
-  });
-  /*************************************************
-  INTERNAL MODULE: ./starting/tutorial/create-module
-  *************************************************/
-
-  ims.set('./starting/tutorial/create-module', {
-    hash: 1617904126,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.CreateModule = CreateModule;
-
-      var React = require("react");
-
-      function CreateModule() {
-        return React.createElement("section", {
-          className: "content"
-        });
-      }
-    }
-  });
-  /**************************************************
-  INTERNAL MODULE: ./starting/tutorial/create-project
-  **************************************************/
-
-  ims.set('./starting/tutorial/create-project', {
-    hash: 3611414700,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.CreateProject = CreateProject;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/docs/components/html/code");
-
-      function CreateProject() {
-        return React.createElement("section", {
-          className: "content"
-        }, React.createElement("h2", {
-          id: "create-project-section"
-        }, "Crear el proyecto"), React.createElement("p", null, "En el formulario de creaci\u00F3n de proyectos, vamos a seleccionar proyecto ", React.createElement("strong", null, "Web"), ". Esto nos llevar\u00E1 a un formulario donde se solicitan los siguientes datos:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Scope:"), " colocamos \u201Ctesting\u201D."), React.createElement("li", null, React.createElement("strong", null, "Name "), ": colocamos \u201Clogin\u201D."), React.createElement("li", null, React.createElement("strong", null, "Title:"), " Tutorial beyond."), React.createElement("li", null, React.createElement("strong", null, "Port:"), " coloquemos el puerto: 6500. Es el puerto que se utilizar\u00E1 para acceder al proyecto. ", React.createElement("div", {
-          className: "beyond"
-        }, "BeyondJS"), " propone un puerto por defecto y puede ser modificado si se requiere.")), React.createElement("p", null, "Y presionamos crear."), React.createElement("div", {
-          className: "block__note"
-        }, "El scope y el nombre, son datos que permiten identificar el proyecto y que lo dejan listo para ser publicado como paquete npm o para importarlo desde otro proyecto. Estas configuraciones pueden hacerse de forma manual, el dashboard s\u00F3lo simplifica el proceso. Puedes ver la explicaci\u00F3n de ello en", React.createElement(_code.Link, {
-          href: "/project/config"
-        }, " la secci\u00F3n de Configuraci\u00F3n de proyecto.")), React.createElement("p", null, "Este formulario simplifica el proceso de creacion. Internamente lo que sucede es que se crea el archivo de configuraci\u00F3n de beyond (beyond.json), el cual registra las aplicaciones en el directorio. Tambi\u00E9n se crea la estructura base de la aplicaci\u00F3n, la cual esta conformada de la siguiente forma:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "package.json:"), " Incluye las dependencias del proyecto creado."), React.createElement("li", null, React.createElement("strong", null, "project.json:"), " Contiene la configuraci\u00F3n b\u00E1sica del proyecto (puede variar seg\u00FAn el tipo y las necesidades del mismo)."), React.createElement("li", null, React.createElement("strong", null, "template:"), " Esta carpeta contiene todos los elementos necesarios para definir el template general del proyecto.", React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "template.json:"), " Archivo que permite realizar ajustes en la configuraci\u00F3n del template del proyecto.")))), React.createElement("p", null, "En el dashboard, tenemos dos lugares para ver el m\u00F3dulo. El ", React.createElement("i", null, "Board"), " del proyecto, que lista los m\u00F3dulos existentes y El ", React.createElement("i", null, "Aside"), " del proyecto que permite navegar los archivos del mismo. Como vemos en la siguiente imagen."), React.createElement(_code2.ModalImage, {
-          src: "/contents/static/project-view.png",
-          alt: "Beyond module view"
-        }), React.createElement("p", null, "La pantalla de detalle del proyecto nos permite realizar las siguientes acciones:"), React.createElement("ul", null, React.createElement("li", null, "Listar m\u00F3dulos del proyecto."), React.createElement("li", null, "Crear nuevos m\u00F3dulos."), React.createElement("li", null, "Visualizar errores de c\u00F3digo en real time."), React.createElement("li", null, "Editar c\u00F3digo fuente."), React.createElement("li", null, "Agregar archivos est\u00E1ticos y de template."), React.createElement("li", null, "Realizar configuraciones generales sobre el proyecto."), React.createElement("li", null, "Realizar deployment.")));
-      }
-    }
-  });
-  /*********************************************
-  INTERNAL MODULE: ./starting/tutorial/dashboard
-  *********************************************/
-
-  ims.set('./starting/tutorial/dashboard', {
-    hash: 3964894646,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.TDashboard = TDashboard;
-
-      var React = require("react");
-
-      var _code = require("@beyond/docs/components/html/code");
-
-      function TDashboard() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "dashboard"
-        }, "El Dashboard"), React.createElement("p", null, "El dashboard se levanta por defecto en el puerto 4000, para acceder a el debes ingresar a", React.createElement("a", {
-          href: "http://localhost:4000",
-          target: "_blank"
-        }, " localhost:4000"), "."), React.createElement("p", null, "Como comentamos antes, ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), "analiza el directorio validando si existe alg\u00FAn proyecto beyond ya configurado. Caso contrario, como se ve en la imagen a continuaci\u00F3n, indicar\u00E1 que no existe ninguno y brinda la opci\u00F3n de crearlo."), React.createElement(_code.ModalImage, {
-          src: "/contents/static/empty.png",
-          alt: "beyond dashboard empty folder"
-        }));
-      }
-    }
-  });
-  /***********************************************
-  INTERNAL MODULE: ./starting/tutorial/home-module
-  ***********************************************/
-
-  ims.set('./starting/tutorial/home-module', {
-    hash: 126121524,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.HomeModule = HomeModule;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/docs/code/code");
-
-      var _pageCodeStarted = require("./templates/page-code-started");
-
-      var _pageStyles = require("./templates/page-styles");
-
-      function HomeModule() {
-        return React.createElement("section", {
-          className: "content"
-        }, React.createElement("h2", {
-          id: "create-module"
-        }, "M\u00F3dulo Inicial"), React.createElement("p", null, "El proyecto trae un m\u00F3dulo ", React.createElement("span", {
-          className: "inline"
-        }, "home"), " creado por defecto. Puedes verlo accediendo desde el navegador a ", React.createElement(_code.Elink, {
-          href: "http://localhost:6500",
-          target: "_blank"
-        }, "localhost:6500 ")), React.createElement("div", {
-          className: "block__note"
-        }, "El puerto se define en el archivo ", React.createElement("span", {
-          className: "inline"
-        }, "project.json"), ", puedes leer m\u00E1s sobre ello en la secci\u00F3n de ", React.createElement(_code.Link, {
-          href: "/docs/projects/json"
-        }, "Configuraci\u00F3n de Proyectos"), "."), React.createElement("p", null, "La estructura del m\u00F3dulo es la siguiente: "), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "widget"), ": Carpeta en donde se encuentra el c\u00F3digo del componente ", React.createElement("span", {
-          className: "inline"
-        }, "page")), React.createElement("li", null, React.createElement("strong", null, "ts"), ":", React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "controller.tsx"), ": Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador."), React.createElement("li", null, React.createElement("strong", null, "views/page.tsx"), ": Componente react que renderiza la p\u00E1gina"))), React.createElement("li", null, React.createElement("strong", null, "scss"), ": Carpeta para agregar estilos al m\u00F3dulo."), React.createElement("li", null, React.createElement("strong", null, "module.json"), ": Archivo de configuraci\u00F3n del m\u00F3dulo (Lugar para definir tipo de bundles y procesadores a utilizar).")), React.createElement("h4", null, "\u00A1Manos a la obra!"), React.createElement("p", null, "Teniendo clara la estructura, lo que procede a continuaci\u00F3n es crear el formulario de inicio de sesi\u00F3n y agregar algo de estilos, para luego continuar con la conexi\u00F3n al backend node."), React.createElement("h3", null, "Creaci\u00F3n del Formulario"), React.createElement("p", null, "Si has trabajado con React, lo que viene es la parte que seguramente conoces mejor, con algunas sutilezas seguramente. A continuaci\u00F3n, editaremos nuestro archivo ", React.createElement("span", {
-          className: "inline"
-        }, "page.tsx"), " para crear un formulario de inicio de sesi\u00F3n y la funcionalidad b\u00E1sica para actualizar el estado."), React.createElement("h4", null, "Page.tsx"), React.createElement(_code2.Code, {
-          language: "tsx"
-        }, _pageCodeStarted.PageCodeStarted), React.createElement("h3", {
-          id: "styles"
-        }, "Estilos"), React.createElement("p", null, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " maneja los estilos por defecto con el preprocesador SASS, ahora vamos a nuestro archivo", React.createElement("span", {
-          className: "inline-code"
-        }, " styles.scss"), " y agreguemos un poco de estilo al formulario."), React.createElement("div", {
-          className: "block__note"
-        }, "SASS es un procesador en BeyondJS, si quieres leer a profundidad sobre el mecanismo de procesadores podr\u00E1s encontrar los detalles en ", React.createElement(_code.Link, {
-          href: "/processors"
-        }, "La secci\u00F3n de procesadores.")), React.createElement("h4", null, "styles.scss"), React.createElement(_code2.Code, {
-          language: "scss"
-        }, _pageStyles.pageStyles), React.createElement("h4", null, "Expliquemos un poco el c\u00F3digo anterior"), React.createElement("ul", null, React.createElement("li", null, "Agregamos estilo b\u00E1sico al formulario, los inputs, el bot\u00F3n de env\u00EDo y para manejar un mensaje de error."), React.createElement("li", null, React.createElement("strong", null, "Custom properties:"), " las custom properties utilizadas, son una estructura b\u00E1sica para manejo de variables incluidas por beyond en el ", React.createElement(_code.Link, {
-          href: "/template"
-        }, "Template del proyecto"))));
-      }
-    }
-  });
-  /*****************************************
-  INTERNAL MODULE: ./starting/tutorial/intro
-  *****************************************/
-
-  ims.set('./starting/tutorial/intro', {
-    hash: 944044776,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.TutorialIntro = TutorialIntro;
-
-      var React = require("react");
-
-      var _code = require("@beyond/docs/components/html/code");
-
-      var _code2 = require("@beyond/ui/link/code");
-
-      var _code3 = require("@beyond/docs/code/code");
-
-      function TutorialIntro() {
-        return React.createElement(React.Fragment, null, React.createElement("h1", null, "Tutorial: Proyecto Web "), React.createElement("h2", {
-          id: "before-start"
-        }, "Antes de Empezar"), React.createElement("p", null, "Este tutorial busca el flujo principal de desarrollo con ", React.createElement(_code.BeyondName, null), " y demostrar de manera clara los beneficios que este ofrece. Est\u00E1 creado para personas que deseen aprender mientras practican, por tanto, los conceptos que definen la estructura de ", React.createElement(_code.BeyondName, null), " son abordados de forma general, focalizando en hacer un ejercicio r\u00E1pido, conciso y claro. Para mayor detalle los conceptos estar\u00E1n disponbiles en la documentaci\u00F3n cuando sea requerida."), React.createElement("p", null, "El tutorial se divide en las siguientes partes:"), React.createElement("ul", null, React.createElement("li", null, "El dashboard."), React.createElement("li", null, "Creaci\u00F3n de primer m\u00F3dulo."), React.createElement("li", null, "Integraci\u00F3n con backend."), React.createElement("li", null, "Enrutamiento.")), React.createElement("p", null, "Sugerimos que este sea completado para demostrar como en poco tiempo se logra integrar c\u00F3digo cliente y servidor, utilizando la misma estructura JavaScript."), React.createElement("p", null, "Antes de empezar, recomendamos la revisi\u00F3n de los siguientes conceptos para que est\u00E9n presentes a medida que se avanza."), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Bundle:"), " Representa un conjunto de archivos fuentes que generan un \u00FAnico archivo final, el cual es incluido en el navegador."), React.createElement("li", null, React.createElement("strong", null, "M\u00F3dulo:"), " Representa uno o m\u00FAltiples bundles."), React.createElement("li", null, React.createElement("strong", null, "Processor:"), " Representa el procesador, compilador o transpilador de c\u00F3digo de la tecnolog\u00EDa que se est\u00E1 utilizando.")), React.createElement("section", null, React.createElement("h2", {
-          id: "starting"
-        }, "Empezando"), React.createElement("p", null, "Lo primero que debe hacerse es crear el proyecto, para ello usaremos el paquete ", React.createElement("span", {
-          className: "inline"
-        }, "@beyond-js/create-project"), " se encarga de instalar BeyondJS de manera local y generar la estructura inicial de nuestro proyecto."), React.createElement(_code3.Code, {
-          language: "shell"
-        }, `> npx @beyond-js/create-project --name @test/login --type web-backend --container beyond`), React.createElement("div", {
-          className: "block__note"
-        }, React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " est\u00E1 realizado para funcionar como dependencia global y correr varios proyectos en simult\u00E1neo, puedes aprender m\u00E1s sobre esto ", React.createElement(_code2.Link, {
-          href: "/docs/quick-start"
-        }, "aqui"), "."), React.createElement("p", null, "En el comando anterior, se solicit\u00F3 crear un proyecto de tipo web con backend y se le agreg\u00F3 como scope ", React.createElement("strong", null, "testing"), " y como nombre ", React.createElement("strong", null, "login"), "."), React.createElement("div", {
-          className: "block__note"
-        }, "El scope y el nombre, son datos que permiten identificar el proyecto y que lo dejan listo para ser publicado como paquete npm o para importarlo desde otro proyecto. Estas configuraciones pueden hacerse de forma manual, el dashboard s\u00F3lo simplifica el proceso. Puedes ver la explicaci\u00F3n de ello en", React.createElement(_code2.Link, {
-          href: "/project/config"
-        }, " la secci\u00F3n de Configuraci\u00F3n de proyecto.")), React.createElement("p", null, "Al finalizar el comando, podremos ver que se crearon los siguientes archivos, podremos ver que se cre\u00F3 la carpeta ", React.createElement("span", {
-          className: "inline"
-        }, "beyond"), " que definimos como container y adentro de ella tendremos la siguiente estructura:"), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "beyond.json"), ": Archivo para manejar el servidor de desarrollo, gestionado por BeyondJS."), React.createElement("li", null, React.createElement("strong", null, "package.json"), ": Archivo de dependencias del proyecto"), React.createElement("li", null, React.createElement("strong", null, "projects.json"), ": Archivo de configuraci\u00F3n de proyectos, permite a BeyondJS identificar los proyectos a levantar."), React.createElement("li", null, React.createElement("strong", null, "login"), " Carpeta del proyecto.", React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "project.json:"), " Contiene la configuraci\u00F3n b\u00E1sica del proyecto (puede variar seg\u00FAn el tipo y las necesidades del mismo)."), React.createElement("li", null, React.createElement("strong", null, "/modules"), ": Carpeta en donde se crean los m\u00F3dulos del proyecto por defecto. Este valor es configurable, puedes leer m\u00E1s de ello en la secci\u00F3n de ", React.createElement(_code2.Link, {
-          href: "/docs/projects/json"
-        }, "Configuraci\u00F3n de Proyectos"), "."), React.createElement("li", null, React.createElement("strong", null, "template:"), " Esta carpeta contiene todos los elementos necesarios para definir el template general del proyecto.", React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "template.json:"), " Archivo que permite realizar ajustes en la configuraci\u00F3n del template del proyecto.")))))), React.createElement("div", {
-          className: "block__note"
-        }, "Puedes aprender m\u00E1s acerca de los tipos de proyecto disponibles en la secci\u00F3n de ", React.createElement(_code2.Link, {
-          href: "/docs/quick-start"
-        }, "Inicio R\u00E1pido"), "."), React.createElement("p", null, "Luego de haber ejecutado el comando, ya estamos listos para empezar nuestro proyecto, para ello ejecutamos lo siguiente."), React.createElement(_code3.Code, {
-          language: "shell"
-        }, `> npm start`)));
-      }
-    }
-  });
-  /*************************************************
-  INTERNAL MODULE: ./starting/tutorial/module-review
-  *************************************************/
-
-  ims.set('./starting/tutorial/module-review', {
-    hash: 2774581636,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.ModuleReview = ModuleReview;
-
-      var React = require("react");
-
-      var _code = require("@beyond/ui/link/code");
-
-      var _code2 = require("@beyond/docs/code/code");
-
-      var _module = require("./templates/module.json");
-
-      var _code3 = require("@beyond/docs/components/html/code");
-
-      const tpl = `
-{
-  "bundle": "start",
-  "platforms": "backend",
-  "ts": {
-    "files": "*"
-  }
-}
-`;
-      const tpl2 = `
-import {listen} from '@beyond-js/backend/listen/ts';
-
-listen();`;
-
-      function ModuleReview() {
-        return React.createElement(React.Fragment, null, React.createElement("h2", {
-          id: "bundle-bridge"
-        }, "L\u00F3gica ", React.createElement("strong", null, "Backend")), React.createElement("p", null, "Por su naturaleza, Los formularios de inicio de sesi\u00F3n requieren validar los datos contra un backend que se conecte a alg\u00FAn manejador de datos. A continuaci\u00F3n, vamos a emular la conexi\u00F3n a la base de datos, creando nuestra integraci\u00F3n con un servicio node, que tendr\u00E1 un usuario y clave predefinidos y as\u00ED, podremos revisar si la sesi\u00F3n es v\u00E1lida o no. Para lograrlo, haremos uso de websockets."), React.createElement("p", null, "Es necesario crear un bundle BRIDGE para crear de forma simple un servicio node y lograr la integraci\u00F3n con el c\u00F3digo cliente. Los bundles bridges, como su nombre lo indica, crean un puente de conexi\u00F3n entre el c\u00F3digo cliente y servidor permitiendo manejar el c\u00F3digo de manera uniforme."), React.createElement("h3", null, "Inicializaci\u00F3n del Backend"), React.createElement("div", {
-          className: "block__note"
-        }, React.createElement(_code3.BeyondName, null), " provee la libreria ", React.createElement("span", {
-          className: "inline"
-        }, " @beyond-js/backend"), " para la creaci\u00F3n de c\u00F3digo backend, esta libreria es opcional para evitar su inclusi\u00F3n innecesaria en aquellos proyectos que no la requieran."), React.createElement("p", null, "Para empezar, es necesario inicializar el backend, para lo cual se requiere crear un bundle ", React.createElement("span", {
-          className: "inline"
-        }, "start"), " que lo levante, para ello, creamos una carpeta ", React.createElement("span", {
-          className: "inline"
-        }, "start"), " y adentro agregamos un archivo ", React.createElement("span", {
-          className: "inline"
-        }, "module.json"), " con la siguiente estructura"), React.createElement(_code2.CodeBox, {
-          language: "json",
-          title: "module.json"
-        }, tpl), React.createElement("p", null, "Procedemos a crear un archivo ", React.createElement("span", {
-          className: "inline"
-        }, "start.ts"), " y agregamos el c\u00F3ddigo para inicializar el backend"), React.createElement(_code2.CodeBox, {
-          language: "ts",
-          title: "start.ts"
-        }, tpl2), React.createElement("div", {
-          className: "block__note"
-        }, "NOTA: Los bridges son un feature central y muy poderoso en ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " y en este tutorial solo se muestran de forma superficial. Si quieres conocer m\u00E1s y entender c\u00F3mo funcionan, dir\u00EDgite a la seccion de bridges."), React.createElement("div", {
-          className: "block__note"
-        }, "Si quieres conocer m\u00E1s acerca del manejo de bundles y m\u00F3dulos, puedes ir a ", React.createElement(_code.Link, {
-          href: "/docs/modules/introduction"
-        }, "la secci\u00F3n de M\u00F3dulos"), "."), React.createElement("p", null, "Para agregar un bundle bridge al m\u00F3dulo, debemos dirigirnos al archivo de configuraci\u00F3n (module.json), ubicado dentro de la carpeta home. La ruta deber\u00EDa ser", React.createElement("span", {
-          className: "inline-code"
-        }, "\u201Cproyecto/modules/home/module.json\u201D")), React.createElement("p", null, "All\u00ED, debemos agregar la siguiente estructura:"), React.createElement(_code2.Code, {
-          language: "json"
-        }, _module.moduleJson.bridge), React.createElement("p", null, "Nuestro ", React.createElement("span", {
-          className: "inline"
-        }, "module.json"), " final deberia quedar con la siguiente estructura:"), React.createElement(_code2.Code, {
-          language: "json"
-        }, _module.moduleJson.module), React.createElement("h4", null, "Explicamos lo que acabamos de hacer"), React.createElement("ul", null, React.createElement("li", null, "Como ", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " es un framework que garantiza el funcionamiento universal, cada m\u00F3dulo creado puede especificar que plataformas estan soportadas por el mismo. Con la entrada", React.createElement("span", {
-          className: "inline-code"
-        }, " platforms"), " le especificamos que queremos que nuestro m\u00F3dulo soporte las plataformas", React.createElement("span", {
-          className: "inline-code"
-        }, " web"), " y ", React.createElement("span", {
-          className: "inline-code"
-        }, "backend"), "."), React.createElement("li", null, "Agregamos la configuraci\u00F3n de un bundle de tipo bridge para manejar las acciones en un servicio node y la interconexi\u00F3n con el c\u00F3digo cliente."), React.createElement("li", null, "En la entrada ", React.createElement("span", {
-          className: "inline-code"
-        }, "Bridge"), ", agregamos la propiedad \"path\" que define el directorio relativo en donde se encontrar\u00E1 el c\u00F3digo del bundle.")), React.createElement("p", null, "A cotinuaci\u00F3n, creamos una carpeta con el nombre \"bridge\" para que ", React.createElement("span", {
-          className: "beyond"
-        }, "Beyond"), " consiga el path definido en module.json y, adentro de la carpeta bridge, creamos un archivo ", React.createElement("span", {
-          className: "inline-code"
-        }, "index.ts"), " en el cual se agregar\u00E1 la l\u00F3gica servidor."));
-      }
-    }
-  });
-  /*********************************************
-  INTERNAL MODULE: ./starting/tutorial/t-routing
-  *********************************************/
-
-  ims.set('./starting/tutorial/t-routing', {
-    hash: 1914212215,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.TRouting = TRouting;
-
-      var React = require("react");
-
-      var _code = require("@beyond/docs/code/code");
-
-      var _code2 = require("@beyond/ui/link/code");
-
-      var _code3 = require("@beyond/docs/ui/icons/code");
-
-      var _code4 = require("@beyond/docs/components/html/code");
-
-      function TRouting() {
-        return React.createElement("div", {
-          className: "section"
-        }, React.createElement("h2", {
-          id: "routing"
-        }, "Routing"), React.createElement("p", null, "Lo primero que debemos hacer, es crear un nuevo m\u00F3dulo con un bundle de tipo Page, esta vez lo haremos desde el ", React.createElement("span", {
-          className: "beyond"
-        }, "Dashboard"), ". Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, sino lo hemos hecho. Esto habilitar\u00E1 en el", React.createElement(_code2.Link, {
-          rel: "stylesheet",
-          href: "/dashboard"
-        }, "Preaside"), " las acciones que podemos realizar sobre el proyecto, Las listamos a continuaci\u00F3n:"), React.createElement("ul", {
-          className: "content__list list-icons list-icons--left"
-        }, React.createElement("li", null, React.createElement(_code3.AppIcon, {
-          icon: "add"
-        }), "Agregar m\u00F3dulos"), React.createElement("li", null, React.createElement(_code3.AppIcon, {
-          icon: "settings"
-        }), " Configuraci\u00F3n general del proyecto"), React.createElement("li", null, React.createElement(_code3.AppIcon, {
-          icon: "static"
-        }), "Gestionar archivos est\u00E1ticos"), React.createElement("li", null, React.createElement(_code3.AppIcon, {
-          icon: "folder"
-        }), "Gestionar Template")), React.createElement("p", null, "Hacemos click en el icono para agregar m\u00F3dulos y se abrir\u00E1 un modal como el siguiente:"), React.createElement(_code4.ModalImage, {
-          src: "/contents/static/create-module-1.png",
-          alt: "Create module on beyond project"
-        }), React.createElement("p", null, "Seleccionamos ", React.createElement("span", {
-          className: "inline"
-        }, "m\u00F3dulo en blanco"), ". y en la siguiente pantalla, nos pide el bundle, seleccionamos page: "), React.createElement(_code4.ModalImage, {
-          src: "/contents/static/create-module-2.png",
-          alt: "Create module on beyond project"
-        }), React.createElement("p", null, "En la pantalla final, nos pedir\u00E1 algunos datos, a continuaci\u00F3n se explica que colocar:"), React.createElement(_code4.ModalImage, {
-          src: "/contents/static/create-module-3.png",
-          alt: "Create module on beyond project"
-        }), React.createElement("ul", null, React.createElement("li", null, React.createElement("strong", null, "Module name:"), " welcome"), React.createElement("li", null, React.createElement("strong", null, "Web component name:"), " welcome-page."), React.createElement("li", null, React.createElement("strong", null, "Url:"), " \"/welcome\"")), React.createElement("div", {
-          className: "block__note"
-        }, "Las p\u00E1ginas y layouts en beyond se resuelven haciendo uso de", React.createElement("a", {
-          href: "/https://developer.mozilla.org/en-US/docs/Web/Web_Components",
-          target: "_blank"
-        }, "Web components"), ". Si quieres saber en detalle como funcionan y porque, dirigete a la", React.createElement(_code2.Link, {
-          href: "/web-components"
-        }, " Secci\u00F3n de Web Components.")), React.createElement("p", null, "Abrimos el objeto Page creado en el m\u00F3dulo y agregaremos un mensaje simple que diga: ", React.createElement("strong", null, "Bienvenido!")), React.createElement("p", null, "A continuaci\u00F3n, haremos los ajustes necesarios para redireccionar a nuestro m\u00F3dulo de bienvenida, luego de iniciar sesion. Lo que debemos hacer, es importar el objeto \"routing\" de", React.createElement("span", {
-          className: "beyond"
-        }, "BeyondJS"), " para usar el m\u00E9todo", React.createElement("span", {
-          className: "code-inline"
-        }, "pushState"), " que proveey  y navegar a la p\u00E1gina de bienvenida que creamos."), React.createElement("h4", null, "Importaci\u00F3n"), React.createElement(_code.Code, {
-          language: "ts"
-        }, `import {routing} from "@beyond-js/kernel/routing/ts";`), React.createElement("h4", null, " Navegaci\u00F3n en metodo onSubmit"), React.createElement(_code.Code, {
-          language: "ts"
-        }, `routing.pushState('/welcome');`), React.createElement("p", null, "\u00A1Listo! Si volvemos a probar nuestro formulario, podremos iniciar sesi\u00F3n y ver como nos dirigimos a la p\u00E1gina de bienvenida."));
-      }
-    }
-  });
-  /****************************************************
-  INTERNAL MODULE: ./starting/tutorial/templates/bridge
-  ****************************************************/
-
-  ims.set('./starting/tutorial/templates/bridge', {
-    hash: 2772175095,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.bridgeCode = void 0;
-      const bridgeCode = `
-const data = {
-    user: 'admin',
-    password: '123456.'
-}
-
-export /*actions*//*bundle*/
-class Auth {
-
-    async login(user: string, password: string) {
-        if (user !== data.user || password !== data.password) {
-            return {status: true, error: 'Invalid data'};
-        }
-
-        return {status: true, data: {valid: true}}
-    }
-}
-`;
-      exports.bridgeCode = bridgeCode;
-    }
-  });
-  /*********************************************************
-  INTERNAL MODULE: ./starting/tutorial/templates/module.json
-  *********************************************************/
-
-  ims.set('./starting/tutorial/templates/module.json', {
-    hash: 1686211011,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.moduleJson = void 0;
-      const moduleJson = {
-        bridge: `
-  "platforms": [
-    "backend",
-    "web"
-  ],
-  "bridge": {
-    "path": "bridge",
-    "files": [
-      "*"
-    ]
-  },
-   "widget": ...    
-    `,
-        module: `
-{
-  "name": "home",
-  "platforms": [
-    "backend",
-    "web"
-  ],
-  "bridge": {
-    "path": "bridge",
-    "files": [
-      "*"
-    ]
-  },
-  "widget": {
-    "is": "page",
-    "route": "/",
-    "element": {
-      "name": "home-page"
-    },
-    "scss": {
-      "path": "scss",
-      "files": [
-        "*"
-      ]
-    },
-    "ts": {
-      "path": "ts",
-      "files": [
-        "*"
-      ]
-    }
-  }
-}
-`
-      };
-      exports.moduleJson = moduleJson;
-    }
-  });
-  /***************************************************************
-  INTERNAL MODULE: ./starting/tutorial/templates/page-code-started
-  ***************************************************************/
-
-  ims.set('./starting/tutorial/templates/page-code-started', {
-    hash: 2302254350,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.PageCodeStarted = void 0;
-      const PageCodeStarted = `
-import * as React from "react";
-
-interface IForm {
-    disabled?: boolean;
-}
-
-export /*bridge*/
-function Page(): JSX.Element {
-    const defaultValues = {username: '', password: '', fetching: false};
-    const [values, setValues] = React.useState(defaultValues);
-    const [error, setError] = React.useState();
-    const handleChange = ({currentTarget: target}) => {
-        const currentValue = {...values};
-        currentValue[target.name] = target.value;
-        setValues(currentValue);
-    };
-    const formDisabled: IForm = {};
-    const {username, password} = values;
-    if (!username || !password) {
-        formDisabled.disabled = true;
-    }
-     return (
-        <div className="page__container">
-            <form>
-                {
-                    error &&
-                    <div className="form__error">
-                        {error}
-                    </div>
-                }
-                <label>User: </label>
-                <input onChange={handleChange} type="text" name="username"/>
-                <label>Password</label>
-                <input onChange={handleChange} type="password" name="password"/>
-                <div className="form__actions">
-                    <button {...formDisabled}>Login</button>
-                </div>
-            </form>
-        </div>
-    );
-}`;
-      exports.PageCodeStarted = PageCodeStarted;
-    }
-  });
-  /*******************************************************
-  INTERNAL MODULE: ./starting/tutorial/templates/page-code
-  *******************************************************/
-
-  ims.set('./starting/tutorial/templates/page-code', {
-    hash: 2100269388,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.PageCode = void 0;
-      const PageCode = `
-import * as React from "react";
-import {Auth} from "@testing/login/home/bridge";
-
-interface IForm {
-    disabled?: boolean;
-}
-const model = new Auth();
-export /*bridge*/
-function Page(): JSX.Element {
-    const defaultValues = {username: '', password: '', fetching: false};
-    const [values, setValues] = React.useState(defaultValues);
-    const [error, setError] = React.useState();
-    const handleChange = ({currentTarget: target}) => {
-        const currentValue = {...values};
-        currentValue[target.name] = target.value;
-        setValues(currentValue);
-    };
-    const formDisabled: IForm = {};
-    const {username, password} = values;
-    if (!username || !password) {
-        formDisabled.disabled = true;
-    }
-      const onSubmit = async event => {
-        try {
-            event.preventDefault();
-            const response = await model.login(username, password);
-            if (response.data?.valid) {
-                console.log('iniciamos sesion');
-                return;
-            }
-            setError(response.error);
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-     return (
-        <div className="page__container">
-            <form onSubmit={onSubmit}>
-                {
-                    error &&
-                    <div className="form__error">
-                        {error}
-                    </div>
-                }
-                <label>User: </label>
-                <input onChange={handleChange} type="text" name="username"/>
-                <label>Password</label>
-                <input onChange={handleChange} type="password" name="password"/>
-                <div className="form__actions">
-                    <button onClick={onSubmit} {...formDisabled}>Login</button>
-                </div>
-            </form>
-        </div>
-    );
-}
-`;
-      exports.PageCode = PageCode;
-    }
-  });
-  /*********************************************************
-  INTERNAL MODULE: ./starting/tutorial/templates/page-styles
-  *********************************************************/
-
-  ims.set('./starting/tutorial/templates/page-styles', {
-    hash: 2057643850,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.pageStyles = void 0;
-      const pageStyles = `
-.page__container {
-  display: flex;
-  padding: 20px;
-  height: 100%;
-  margin: 0;
-  flex-direction: column;
-  align-items: center;
-  align-content: center;
-  justify-content: center;
-
-  .form__error {
-    padding: 15px;
-    display: grid;
-    background: var(--error);
-    color: var(--text-on-primary);
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: var(--element-bg);
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
-
-    input {
-      padding: 8px;
-      border: 1px solid var(--gray-light);
-      transition: all 300ms ease-in;
-
-      &:hover, &:focus {
-        outline: none;
-        border-color: var(--primary);
-      }
-    }
-
-    .form__actions {
-      display: flex;
-      justify-content: end;
-
-      button {
-        background: var(--primary);
-        cursor: pointer;
-        border: 1px solid var(--primary-dark);
-        color: var(--text-on-primary);
-        padding: .5rem 2rem;
-        transition: all 300ms ease-in;
-
-        &:disabled {
-          opacity: .6;
-          cursor: not-allowed;
-        }
-
-        &:hover {
-          background: var(--primary-dark);
-        }
-      }
-    }
-  }
-
-}
-
-`;
-      exports.pageStyles = pageStyles;
-    }
-  });
-  /*************************************************
-  INTERNAL MODULE: ./starting/tutorial/tutorial-page
-  *************************************************/
-
-  ims.set('./starting/tutorial/tutorial-page', {
-    hash: 2884479451,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.TutorialPage = TutorialPage;
-
-      var React = require("react");
-
-      var _moduleReview = require("./module-review");
-
-      var _bridgeSection = require("./bridge-section");
-
-      var _intro = require("./intro");
-
-      var _homeModule = require("./home-module");
-
-      var _tRouting = require("./t-routing");
-
-      function TutorialPage() {
-        return React.createElement("div", {
-          className: "content"
-        }, React.createElement(_intro.TutorialIntro, null), React.createElement(_homeModule.HomeModule, null), React.createElement(_moduleReview.ModuleReview, null), React.createElement(_bridgeSection.BridgeSection, null), React.createElement(_tRouting.TRouting, null));
       }
     }
   });
@@ -6064,45 +5271,76 @@ console.log(1, 'ejemplo');
         }, "Goals"), React.createElement("ul", null, React.createElement("li", null, "Crear proyectos compatibles con cualquier entorno, utilizando el mismo criterio de desarrollo."), React.createElement("li", null, " Permitir que los paquetes, proyectos, librerias puedan ser consumidos de forma directa desde cualquier otro proyecto una vez realizada su publicaci\u00F3n, sin necesidad de pasar por alg\u00FAn proceso de transpilaci\u00F3n."), React.createElement("li", null, "Foco en la productividad: Integrar todas las herramientas necesarias para el desarrollo de manera eficiente. (Desarrollar)")));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.NodeWidget = require('./api/node-widget').NodeWidget;
-    _exports.CSR = require('./basic/rendering/csr').CSR;
-    _exports.RenderingPage = require('./basic/rendering/index').RenderingPage;
-    _exports.SR = require('./basic/rendering/sr').SR;
-    _exports.ContentsContainer = require('./container').ContentsContainer;
-    _exports.Controller = require('./controller').Controller;
-    _exports.ContentsPage = require('./page').ContentsPage;
-    _exports.useContent = require('./use-content').useContent;
-    _exports.BeyondName = require('./views/beyond').BeyondName;
-    _exports.RightAside = require('./views/right-aside/index').RightAside;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./api/node-widget",
+    "from": "NodeWidget",
+    "name": "NodeWidget"
+  }, {
+    "im": "./basic/rendering/csr",
+    "from": "CSR",
+    "name": "CSR"
+  }, {
+    "im": "./basic/rendering/index",
+    "from": "RenderingPage",
+    "name": "RenderingPage"
+  }, {
+    "im": "./basic/rendering/sr",
+    "from": "SR",
+    "name": "SR"
+  }, {
+    "im": "./container",
+    "from": "ContentsContainer",
+    "name": "ContentsContainer"
+  }, {
+    "im": "./controller",
+    "from": "Controller",
+    "name": "Controller"
+  }, {
+    "im": "./page",
+    "from": "ContentsPage",
+    "name": "ContentsPage"
+  }, {
+    "im": "./use-content",
+    "from": "useContent",
+    "name": "useContent"
+  }, {
+    "im": "./views/beyond",
+    "from": "BeyondName",
+    "name": "BeyondName"
+  }, {
+    "im": "./views/right-aside/index",
+    "from": "RightAside",
+    "name": "RightAside"
+  }];
   let NodeWidget, CSR, RenderingPage, SR, ContentsContainer, Controller, ContentsPage, useContent, BeyondName, RightAside; // Module exports
 
-  _exports2.RightAside = RightAside;
-  _exports2.BeyondName = BeyondName;
-  _exports2.useContent = useContent;
-  _exports2.ContentsPage = ContentsPage;
-  _exports2.Controller = Controller;
-  _exports2.ContentsContainer = ContentsContainer;
-  _exports2.SR = SR;
-  _exports2.RenderingPage = RenderingPage;
-  _exports2.CSR = CSR;
-  _exports2.NodeWidget = NodeWidget;
+  _exports.RightAside = RightAside;
+  _exports.BeyondName = BeyondName;
+  _exports.useContent = useContent;
+  _exports.ContentsPage = ContentsPage;
+  _exports.Controller = Controller;
+  _exports.ContentsContainer = ContentsContainer;
+  _exports.SR = SR;
+  _exports.RenderingPage = RenderingPage;
+  _exports.CSR = CSR;
+  _exports.NodeWidget = NodeWidget;
 
-  __pkg.exports.process = function (require) {
-    _exports2.NodeWidget = NodeWidget = require('./api/node-widget').NodeWidget;
-    _exports2.CSR = CSR = require('./basic/rendering/csr').CSR;
-    _exports2.RenderingPage = RenderingPage = require('./basic/rendering/index').RenderingPage;
-    _exports2.SR = SR = require('./basic/rendering/sr').SR;
-    _exports2.ContentsContainer = ContentsContainer = require('./container').ContentsContainer;
-    _exports2.Controller = Controller = require('./controller').Controller;
-    _exports2.ContentsPage = ContentsPage = require('./page').ContentsPage;
-    _exports2.useContent = useContent = require('./use-content').useContent;
-    _exports2.BeyondName = BeyondName = require('./views/beyond').BeyondName;
-    _exports2.RightAside = RightAside = require('./views/right-aside/index').RightAside;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'NodeWidget') && (_exports.NodeWidget = NodeWidget = require ? require('./api/node-widget').NodeWidget : value);
+    (require || prop === 'CSR') && (_exports.CSR = CSR = require ? require('./basic/rendering/csr').CSR : value);
+    (require || prop === 'RenderingPage') && (_exports.RenderingPage = RenderingPage = require ? require('./basic/rendering/index').RenderingPage : value);
+    (require || prop === 'SR') && (_exports.SR = SR = require ? require('./basic/rendering/sr').SR : value);
+    (require || prop === 'ContentsContainer') && (_exports.ContentsContainer = ContentsContainer = require ? require('./container').ContentsContainer : value);
+    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
+    (require || prop === 'ContentsPage') && (_exports.ContentsPage = ContentsPage = require ? require('./page').ContentsPage : value);
+    (require || prop === 'useContent') && (_exports.useContent = useContent = require ? require('./use-content').useContent : value);
+    (require || prop === 'BeyondName') && (_exports.BeyondName = BeyondName = require ? require('./views/beyond').BeyondName : value);
+    (require || prop === 'RightAside') && (_exports.RightAside = RightAside = require ? require('./views/right-aside/index').RightAside : value);
   };
 
   const hmr = new function () {
@@ -6110,7 +5348,7 @@ console.log(1, 'ejemplo');
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

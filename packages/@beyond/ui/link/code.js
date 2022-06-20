@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2) {
+define(["exports", "react", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Link = _exports2.Elink = void 0;
+  _exports.hmr = _exports.Link = _exports.Elink = void 0;
 
   const {
     Bundle: __Bundle,
@@ -63,21 +63,28 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/b
         }, props.children);
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Link = require('./link').Link;
-    _exports.Elink = require('./link').Elink;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./link",
+    "from": "Link",
+    "name": "Link"
+  }, {
+    "im": "./link",
+    "from": "Elink",
+    "name": "Elink"
+  }];
   let Link, Elink; // Module exports
 
-  _exports2.Elink = Elink;
-  _exports2.Link = Link;
+  _exports.Elink = Elink;
+  _exports.Link = Link;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Link = Link = require('./link').Link;
-    _exports2.Elink = Elink = require('./link').Elink;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Link') && (_exports.Link = Link = require ? require('./link').Link : value);
+    (require || prop === 'Elink') && (_exports.Elink = Elink = require ? require('./link').Elink : value);
   };
 
   const hmr = new function () {
@@ -85,7 +92,7 @@ define(["exports", "react", "@beyond-js/kernel/routing/ts", "@beyond-js/kernel/b
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

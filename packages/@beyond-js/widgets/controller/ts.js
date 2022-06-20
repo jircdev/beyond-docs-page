@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/routing/ts", "@beyond-js/widgets/routing/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
+define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/routing/ts", "@beyond-js/widgets/routing/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.WidgetServerController = _exports2.WidgetControllerBase = _exports2.WidgetClientController = _exports2.WidgetAttributes = _exports2.PageURI = _exports2.IWidgetStore = _exports2.IWidgetRendered = void 0;
+  _exports.hmr = _exports.WidgetServerController = _exports.WidgetControllerBase = _exports.WidgetClientController = _exports.WidgetAttributes = _exports.PageURI = _exports.IWidgetStore = _exports.IWidgetRendered = void 0;
 
   const {
     Bundle: __Bundle,
@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
   ****************************/
 
   ims.set('./attributes', {
-    hash: 1714489664,
+    hash: 1863105372,
     creator: function (require, exports) {
       "use strict";
 
@@ -37,9 +37,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
         // The reason why it is declared as HTMLElement is to avoid circular reference between controller and widget.
         #widget;
         #events = new _ts.Events();
-        on = (event, listener) => {
-          this.#events.on(event, listener);
-        };
+        on = (event, listener) => this.#events.on(event, listener);
         off = (event, listener) => this.#events.off(event, listener);
 
         constructor(widget) {
@@ -51,7 +49,6 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
 
         change(name, old, value) {
           this.set(name, value);
-          console.log(88, name, old, value);
           this.#events.trigger('change');
           this.#events.trigger(`${name}:change`, value);
         }
@@ -399,36 +396,58 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
 
       exports.PageURI = PageURI;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.WidgetAttributes = require('./attributes').WidgetAttributes;
-    _exports.WidgetClientController = require('./client').WidgetClientController;
-    _exports.IWidgetStore = require('./controller').IWidgetStore;
-    _exports.WidgetControllerBase = require('./controller').WidgetControllerBase;
-    _exports.IWidgetRendered = require('./ssr').IWidgetRendered;
-    _exports.WidgetServerController = require('./ssr').WidgetServerController;
-    _exports.PageURI = require('./uri').PageURI;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./attributes",
+    "from": "WidgetAttributes",
+    "name": "WidgetAttributes"
+  }, {
+    "im": "./client",
+    "from": "WidgetClientController",
+    "name": "WidgetClientController"
+  }, {
+    "im": "./controller",
+    "from": "IWidgetStore",
+    "name": "IWidgetStore"
+  }, {
+    "im": "./controller",
+    "from": "WidgetControllerBase",
+    "name": "WidgetControllerBase"
+  }, {
+    "im": "./ssr",
+    "from": "IWidgetRendered",
+    "name": "IWidgetRendered"
+  }, {
+    "im": "./ssr",
+    "from": "WidgetServerController",
+    "name": "WidgetServerController"
+  }, {
+    "im": "./uri",
+    "from": "PageURI",
+    "name": "PageURI"
+  }];
   let WidgetAttributes, WidgetClientController, IWidgetStore, WidgetControllerBase, IWidgetRendered, WidgetServerController, PageURI; // Module exports
 
-  _exports2.PageURI = PageURI;
-  _exports2.WidgetServerController = WidgetServerController;
-  _exports2.IWidgetRendered = IWidgetRendered;
-  _exports2.WidgetControllerBase = WidgetControllerBase;
-  _exports2.IWidgetStore = IWidgetStore;
-  _exports2.WidgetClientController = WidgetClientController;
-  _exports2.WidgetAttributes = WidgetAttributes;
+  _exports.PageURI = PageURI;
+  _exports.WidgetServerController = WidgetServerController;
+  _exports.IWidgetRendered = IWidgetRendered;
+  _exports.WidgetControllerBase = WidgetControllerBase;
+  _exports.IWidgetStore = IWidgetStore;
+  _exports.WidgetClientController = WidgetClientController;
+  _exports.WidgetAttributes = WidgetAttributes;
 
-  __pkg.exports.process = function (require) {
-    _exports2.WidgetAttributes = WidgetAttributes = require('./attributes').WidgetAttributes;
-    _exports2.WidgetClientController = WidgetClientController = require('./client').WidgetClientController;
-    _exports2.IWidgetStore = IWidgetStore = require('./controller').IWidgetStore;
-    _exports2.WidgetControllerBase = WidgetControllerBase = require('./controller').WidgetControllerBase;
-    _exports2.IWidgetRendered = IWidgetRendered = require('./ssr').IWidgetRendered;
-    _exports2.WidgetServerController = WidgetServerController = require('./ssr').WidgetServerController;
-    _exports2.PageURI = PageURI = require('./uri').PageURI;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'WidgetAttributes') && (_exports.WidgetAttributes = WidgetAttributes = require ? require('./attributes').WidgetAttributes : value);
+    (require || prop === 'WidgetClientController') && (_exports.WidgetClientController = WidgetClientController = require ? require('./client').WidgetClientController : value);
+    (require || prop === 'IWidgetStore') && (_exports.IWidgetStore = IWidgetStore = require ? require('./controller').IWidgetStore : value);
+    (require || prop === 'WidgetControllerBase') && (_exports.WidgetControllerBase = WidgetControllerBase = require ? require('./controller').WidgetControllerBase : value);
+    (require || prop === 'IWidgetRendered') && (_exports.IWidgetRendered = IWidgetRendered = require ? require('./ssr').IWidgetRendered : value);
+    (require || prop === 'WidgetServerController') && (_exports.WidgetServerController = WidgetServerController = require ? require('./ssr').WidgetServerController : value);
+    (require || prop === 'PageURI') && (_exports.PageURI = PageURI = require ? require('./uri').PageURI : value);
   };
 
   const hmr = new function () {
@@ -436,7 +455,7 @@ define(["exports", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/bundle/ts", "
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

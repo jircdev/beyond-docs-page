@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0) {
+define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.beyond = _exports2.SingleCall = _exports2.PendingPromise = _exports2.ListenerFunction = _exports2.Events = _exports2.CancellationToken = void 0;
+  _exports.hmr = _exports.beyond = _exports.SingleCall = _exports.PendingPromise = _exports.ListenerFunction = _exports.Events = _exports.CancellationToken = void 0;
   const amd_require = require;
 
   const {
@@ -878,33 +878,52 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
       exports.PendingPromise = PendingPromise;
       typeof window === 'object' && (window.PendingPromise = PendingPromise);
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.beyond = require('./beyond').beyond;
-    _exports.Events = require('./utils/events/events').Events;
-    _exports.ListenerFunction = require('./utils/events/types').ListenerFunction;
-    _exports.CancellationToken = require('./utils/execution-control/cancellation-token/cancellation-token').CancellationToken;
-    _exports.SingleCall = require('./utils/execution-control/single-call/single-call').SingleCall;
-    _exports.PendingPromise = require('./utils/pending-promise/pending-promise').PendingPromise;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./beyond",
+    "from": "beyond",
+    "name": "beyond"
+  }, {
+    "im": "./utils/events/events",
+    "from": "Events",
+    "name": "Events"
+  }, {
+    "im": "./utils/events/types",
+    "from": "ListenerFunction",
+    "name": "ListenerFunction"
+  }, {
+    "im": "./utils/execution-control/cancellation-token/cancellation-token",
+    "from": "CancellationToken",
+    "name": "CancellationToken"
+  }, {
+    "im": "./utils/execution-control/single-call/single-call",
+    "from": "SingleCall",
+    "name": "SingleCall"
+  }, {
+    "im": "./utils/pending-promise/pending-promise",
+    "from": "PendingPromise",
+    "name": "PendingPromise"
+  }];
   let beyond, Events, ListenerFunction, CancellationToken, SingleCall, PendingPromise; // Module exports
 
-  _exports2.PendingPromise = PendingPromise;
-  _exports2.SingleCall = SingleCall;
-  _exports2.CancellationToken = CancellationToken;
-  _exports2.ListenerFunction = ListenerFunction;
-  _exports2.Events = Events;
-  _exports2.beyond = beyond;
+  _exports.PendingPromise = PendingPromise;
+  _exports.SingleCall = SingleCall;
+  _exports.CancellationToken = CancellationToken;
+  _exports.ListenerFunction = ListenerFunction;
+  _exports.Events = Events;
+  _exports.beyond = beyond;
 
-  __pkg.exports.process = function (require) {
-    _exports2.beyond = beyond = require('./beyond').beyond;
-    _exports2.Events = Events = require('./utils/events/events').Events;
-    _exports2.ListenerFunction = ListenerFunction = require('./utils/events/types').ListenerFunction;
-    _exports2.CancellationToken = CancellationToken = require('./utils/execution-control/cancellation-token/cancellation-token').CancellationToken;
-    _exports2.SingleCall = SingleCall = require('./utils/execution-control/single-call/single-call').SingleCall;
-    _exports2.PendingPromise = PendingPromise = require('./utils/pending-promise/pending-promise').PendingPromise;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'beyond') && (_exports.beyond = beyond = require ? require('./beyond').beyond : value);
+    (require || prop === 'Events') && (_exports.Events = Events = require ? require('./utils/events/events').Events : value);
+    (require || prop === 'ListenerFunction') && (_exports.ListenerFunction = ListenerFunction = require ? require('./utils/events/types').ListenerFunction : value);
+    (require || prop === 'CancellationToken') && (_exports.CancellationToken = CancellationToken = require ? require('./utils/execution-control/cancellation-token/cancellation-token').CancellationToken : value);
+    (require || prop === 'SingleCall') && (_exports.SingleCall = SingleCall = require ? require('./utils/execution-control/single-call/single-call').SingleCall : value);
+    (require || prop === 'PendingPromise') && (_exports.PendingPromise = PendingPromise = require ? require('./utils/pending-promise/pending-promise').PendingPromise : value);
   };
 
   const hmr = new function () {
@@ -912,7 +931,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

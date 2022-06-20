@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "perfect-scrollbar", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "perfect-scrollbar", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.BeyondScrollContainer = void 0;
+  _exports.hmr = _exports.BeyondScrollContainer = void 0;
 
   const {
     Bundle: __Bundle,
@@ -84,18 +84,22 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "perfect-scrollbar", 
 
       ;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.BeyondScrollContainer = require('./container').BeyondScrollContainer;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./container",
+    "from": "BeyondScrollContainer",
+    "name": "BeyondScrollContainer"
+  }];
   let BeyondScrollContainer; // Module exports
 
-  _exports2.BeyondScrollContainer = BeyondScrollContainer;
+  _exports.BeyondScrollContainer = BeyondScrollContainer;
 
-  __pkg.exports.process = function (require) {
-    _exports2.BeyondScrollContainer = BeyondScrollContainer = require('./container').BeyondScrollContainer;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'BeyondScrollContainer') && (_exports.BeyondScrollContainer = BeyondScrollContainer = require ? require('./container').BeyondScrollContainer : value);
   };
 
   const hmr = new function () {
@@ -103,7 +107,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "perfect-scrollbar", 
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Control = void 0;
+  _exports.hmr = _exports.DashboardPage = void 0;
 
   const {
     Bundle: __Bundle,
@@ -13,7 +13,9 @@ define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"]
 
   const __pkg = new __Bundle("@beyond/docs/docs/starting/dashboard/code").package();
 
-  externals.register(new Map([]));
+  externals.register(new Map([["react", dependency_1]]));
+
+  __pkg.dependencies.update(new Set(["@beyond/docs/components/html/code"]));
 
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/docs/starting/dashboard/code');
 
@@ -23,35 +25,62 @@ define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"]
   *************************/
 
   ims.set('./control', {
-    hash: 1583137179,
+    hash: 3857488992,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.Control = void 0;
+      exports.DashboardPage = DashboardPage;
+
+      var React = require("react");
+
+      var _code = require("@beyond/docs/components/html/code");
+
+      var _beyond_context = require("beyond_context");
       /*bundle*/
 
-      class Control {
-        constructor() {}
 
+      function DashboardPage() {
+        return React.createElement(React.Fragment, null, React.createElement(_code.Document, {
+          textId: "dashboard",
+          moduleId: _beyond_context.module.resource
+        }), React.createElement(_code.Document, {
+          textId: "features",
+          moduleId: _beyond_context.module.resource
+        }), React.createElement(_code.Document, {
+          textId: "structure",
+          moduleId: _beyond_context.module.resource
+        }), React.createElement(_code.Document, {
+          textId: "ts",
+          moduleId: _beyond_context.module.resource
+        }), React.createElement(_code.Document, {
+          textId: "editor",
+          moduleId: _beyond_context.module.resource
+        }), React.createElement(_code.Document, {
+          moduleId: _beyond_context.module.resource,
+          textId: "deploy",
+          nextLinks: [["Tutorial", "/docs/tutorial/bridge"]]
+        }));
       }
-
-      exports.Control = Control;
     }
-  }); // Exports managed by beyond bundle objects
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./control",
+    "from": "DashboardPage",
+    "name": "DashboardPage"
+  }];
+  let DashboardPage; // Module exports
 
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Control = require('./control').Control;
-  };
+  _exports.DashboardPage = DashboardPage;
 
-  let Control; // Module exports
-
-  _exports2.Control = Control;
-
-  __pkg.exports.process = function (require) {
-    _exports2.Control = Control = require('./control').Control;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'DashboardPage') && (_exports.DashboardPage = DashboardPage = require ? require('./control').DashboardPage : value);
   };
 
   const hmr = new function () {
@@ -59,7 +88,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "@beyond-js/kernel/bundle/ts"]
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0) {
+define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.Transversal = void 0;
+  _exports.hmr = _exports.Transversal = void 0;
 
   const {
     Bundle: __Bundle,
@@ -20,7 +20,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
   *****************************/
 
   ims.set('./transversal', {
-    hash: 1013372962,
+    hash: 1673198772,
     creator: function (require, exports) {
       "use strict";
 
@@ -65,9 +65,8 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
             const exports = {}; // The exports.managed function
 
-            const response = bcreator(ims, exports); // Set the managed exports function
-
-            exports.managed && (pkg.exports.managed = exports.managed); // Set the dependencies of the package
+            const response = bcreator(ims, exports);
+            pkg.exports.descriptor = exports.descriptor; // Set the dependencies of the package
 
             const {
               dependencies
@@ -91,18 +90,22 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
       exports.Transversal = Transversal;
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.Transversal = require('./transversal').Transversal;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./transversal",
+    "from": "Transversal",
+    "name": "Transversal"
+  }];
   let Transversal; // Module exports
 
-  _exports2.Transversal = Transversal;
+  _exports.Transversal = Transversal;
 
-  __pkg.exports.process = function (require) {
-    _exports2.Transversal = Transversal = require('./transversal').Transversal;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'Transversal') && (_exports.Transversal = Transversal = require ? require('./transversal').Transversal : value);
   };
 
   const hmr = new function () {
@@ -110,7 +113,7 @@ define(["exports", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependen
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });

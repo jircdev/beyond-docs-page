@@ -1,10 +1,10 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/bundle/ts"], function (_exports2, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6) {
   "use strict";
 
-  Object.defineProperty(_exports2, "__esModule", {
+  Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports2.hmr = _exports2.SR = _exports2.RenderingPage = void 0;
+  _exports.hmr = _exports.SR = _exports.RenderingPage = void 0;
 
   const {
     Bundle: __Bundle,
@@ -225,7 +225,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
   *********************/
 
   ims.set('./ssr', {
-    hash: 4080916674,
+    hash: 3562890744,
     creator: function (require, exports) {
       "use strict";
 
@@ -258,7 +258,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
         return React.createElement(React.Fragment, null, React.createElement("h2", {
           id: "ssr-rendering"
         }, React.createElement(_code3.CHtml, {
-          value: title
+          content: title
         })), React.createElement("div", {
           className: "block__note"
         }, p1.t1, " ", React.createElement(_code.Elink, {
@@ -266,25 +266,32 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
         }, p1.elink1.label, " "), " ", p1.t2), React.createElement("p", null, p2), React.createElement("p", null, p3.t1, React.createElement(_code.Link, {
           href: "/docs/widgets/"
         }, p3.l1), " ", p3.t2), React.createElement("p", null, p4), React.createElement(_code3.List, {
-          items: items
+          content: items
         }));
       }
     }
-  }); // Exports managed by beyond bundle objects
-
-  __pkg.exports.managed = function (require, _exports) {
-    _exports.RenderingPage = require('./index').RenderingPage;
-    _exports.SR = require('./sr').SR;
-  };
-
+  });
+  __pkg.exports.descriptor = [{
+    "im": "./index",
+    "from": "RenderingPage",
+    "name": "RenderingPage"
+  }, {
+    "im": "./sr",
+    "from": "SR",
+    "name": "SR"
+  }];
   let RenderingPage, SR; // Module exports
 
-  _exports2.SR = SR;
-  _exports2.RenderingPage = RenderingPage;
+  _exports.SR = SR;
+  _exports.RenderingPage = RenderingPage;
 
-  __pkg.exports.process = function (require) {
-    _exports2.RenderingPage = RenderingPage = require('./index').RenderingPage;
-    _exports2.SR = SR = require('./sr').SR;
+  __pkg.exports.process = function ({
+    require,
+    prop,
+    value
+  }) {
+    (require || prop === 'RenderingPage') && (_exports.RenderingPage = RenderingPage = require ? require('./index').RenderingPage : value);
+    (require || prop === 'SR') && (_exports.SR = SR = require ? require('./sr').SR : value);
   };
 
   const hmr = new function () {
@@ -292,7 +299,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
 
     this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
-  _exports2.hmr = hmr;
+  _exports.hmr = hmr;
 
   __pkg.initialise(ims);
 });
