@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "react", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -13,11 +13,9 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
 
   const __pkg = new __Bundle("@beyond/docs/docs/basic/projects/code").package();
 
-  externals.register(new Map([["react", dependency_1]]));
+  externals.register(new Map([["react", dependency_0]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/components/html/code"]));
-
-  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/docs/basic/projects/code');
 
   const ims = new Map();
   /************************

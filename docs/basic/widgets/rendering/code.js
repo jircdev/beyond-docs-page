@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6) {
+define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -13,11 +13,9 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
 
   const __pkg = new __Bundle("@beyond/docs/docs/basic/widgets/rendering/code").package();
 
-  externals.register(new Map([["react", dependency_1]]));
+  externals.register(new Map([["react", dependency_0]]));
 
   __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code"]));
-
-  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/docs/basic/widgets/rendering/code');
 
   const ims = new Map();
   /*****************************
