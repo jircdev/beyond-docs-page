@@ -220,7 +220,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   *****************************/
 
   ims.set('./views/index', {
-    hash: 460627773,
+    hash: 1156450693,
     creator: function (require, exports) {
       "use strict";
 
@@ -249,22 +249,54 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
 
       var _hamburgerMenu = require("./hamburger-menu");
 
+      var _ts = require("@beyond-js/kernel/routing/ts");
+
       function TopHeader({
         attributes,
         widget,
         store
       }) {
         const [ready, texts] = (0, _code4.useTexts)(_beyond_context.module.resource);
+        const [url, setUrl] = React.useState(_ts.routing.uri?.uri);
+        const ref = React.useRef(null);
+        (0, _code4.useBinder)([_ts.routing], () => {
+          console.log('cambio la url');
+          setUrl(_ts.routing.uri.uri);
+        });
+        React.useEffect(() => {
+          if (!ref?.current) return;
+          console.log("si");
+          const parent = ref.current;
+          const items = [...parent.querySelectorAll('a')];
+          const menu = parent.querySelector('.menu-list__container');
+          menu.classList.toggle('opened');
+          items.forEach(item => {
+            const onClick = event => {
+              event.preventDefault();
+              event.stopPropagation();
+
+              if (event.currentTarget.href) {
+                _ts.routing.pushState(event.currentTarget.href);
+              }
+
+              menu.classList.toggle('opened');
+            };
+
+            item.addEventListener('click', onClick);
+          });
+        }, [ref]);
         if (!ready) return null;
+        const isHome = url === "/";
         return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, {
           texts: texts
         }), React.createElement("section", {
-          className: "top__header"
+          ref: ref,
+          className: `top__header${isHome ? ' home--header' : ''}`
         }, React.createElement("nav", {
-          className: "menu-container container flex-container flex-h-end"
+          className: "menu-container flex-container flex-h-end"
         }, React.createElement("div", {
           className: "mobile__header"
-        }, React.createElement(_hamburgerMenu.HamburgerMenu, null), React.createElement(_code3.Link, {
+        }, !isHome && React.createElement(_hamburgerMenu.HamburgerMenu, null), React.createElement(_code3.Link, {
           href: "/"
         }, React.createElement(_code.BeyondImage, {
           src: "/images/beyond-logo.png",
@@ -273,11 +305,11 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
           className: "menu-list__container"
         }, React.createElement("ul", {
           className: "header__menu"
-        }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement(_code3.Link, {
+        }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement("a", {
           href: "/docs/tutorial/web"
-        }, texts.tutorial)), React.createElement("li", null, React.createElement(_code3.Link, {
+        }, texts.tutorial)), React.createElement("li", null, React.createElement("a", {
           href: "/docs/intro"
-        }, texts.documentation)), React.createElement("li", null, React.createElement(_code3.Link, {
+        }, texts.documentation)), React.createElement("li", null, React.createElement("a", {
           href: "/examples"
         }, texts.examples)))))));
       }

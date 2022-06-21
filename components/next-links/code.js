@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
 
   externals.register(new Map([["react", dependency_1]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/ui/link/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/store/code"]));
 
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/components/next-links/code');
 
@@ -25,7 +25,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
   *************************/
 
   ims.set('./control', {
-    hash: 1044210324,
+    hash: 33843683,
     creator: function (require, exports) {
       "use strict";
 
@@ -38,13 +38,15 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
 
       var _code = require("@beyond/ui/link/code");
 
+      var _code2 = require("@beyond/docs/store/code");
+
       const Item = ({
-        label,
-        href
+        href,
+        texts
       }) => {
         return React.createElement("li", null, React.createElement(_code.Link, {
           href: href
-        }, label));
+        }, texts[href]));
       };
       /*bundle*/
 
@@ -52,10 +54,12 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
       function NextLinks({
         items
       }) {
-        const output = items.map(([label, href], i) => React.createElement(Item, {
-          key: `${label}.${i}`,
-          href: href,
-          label: label
+        const [ready, texts] = (0, _code2.useTexts)('@beyond/docs/layout/menu');
+        if (!ready) return null;
+        const output = items.map((href, i) => React.createElement(Item, {
+          texts: texts,
+          key: `${href}.${i}`,
+          href: href
         })); // items
 
         return React.createElement("div", {

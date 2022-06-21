@@ -1,4 +1,4 @@
-define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@cloudinary/url-gen/internal/utils/dataStructureUtils", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8) {
+define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@cloudinary/url-gen/internal/utils/dataStructureUtils", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code", "@beyond/docs/ui/icons/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
 
   externals.register(new Map([["react", dependency_0], ["@cloudinary/url-gen/internal/utils/dataStructureUtils", dependency_3]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/code/code", "@beyond/docs/store/code", "@beyond/docs/components/next-links/code", "@beyond/ui/image/code", "@beyond/ui/modal/code", "@beyond/docs/ui/icons/code"]));
 
   const ims = new Map();
   /************************
@@ -48,7 +48,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   *************************/
 
   ims.set('./control', {
-    hash: 705506786,
+    hash: 1657698445,
     creator: function (require, exports) {
       "use strict";
 
@@ -188,7 +188,6 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
       function BlockQuote({
         children
       }) {
-        console.log(33, children);
         return React.createElement("div", {
           className: "block__note"
         }, children);
@@ -225,7 +224,6 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
           tpl
         } = content;
         const Control = title ? _code2.CodeBox : _code2.Code;
-        console.log(20, content);
         return React.createElement(Control, {
           title: title,
           language: language
@@ -238,7 +236,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   **************************/
 
   ims.set('./document', {
-    hash: 730396954,
+    hash: 763027935,
     creator: function (require, exports) {
       "use strict";
 
@@ -248,8 +246,6 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
       exports.Document = Document;
 
       var React = require("react");
-
-      var _loading = require("./loading");
 
       var _code = require("@beyond/docs/store/code");
 
@@ -266,7 +262,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
         nextLinks
       }) {
         const [ready, texts] = (0, _code.useTexts)(moduleId);
-        if (!ready) return React.createElement(_loading.Loading, null);
+        if (!ready) return null;
         const textsUsed = textId ? texts[textId] : texts;
         return React.createElement(_code.DocsContext.Provider, {
           value: {
@@ -496,7 +492,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   **********************************/
 
   ims.set('./use-render/index', {
-    hash: 2172529941,
+    hash: 3342464370,
     creator: function (require, exports) {
       "use strict";
 
@@ -515,6 +511,8 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
 
       var _dataStructureUtils = require("@cloudinary/url-gen/internal/utils/dataStructureUtils");
 
+      var _code = require("@beyond/docs/ui/icons/code");
+
       function useRender(content, tpls = {}) {
         const controls = _controls.Controls;
         /**
@@ -526,9 +524,10 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
          * t = deprecated
          * i = img
          * c = code
+         * bi = BeyondIcon
          */
 
-        const regexp = /[q|h|p|l|e|t|i|c]{1}?\d{1}|items\d{0,1}|\d/;
+        const regexp = /[bi|q|h|p|l|e|t|i|c]{1}?\d{1}|items\d{0,1}|\d/;
         /**
          * @TODO: @julio: refactor and order
          * @param item
@@ -538,17 +537,26 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
          */
 
         const analize = (item, data, output, id) => {
+          const elementData = data[item];
           const itemId = `${item}.${id}`;
+
+          if (item.substring(0, 2) === 'bi') {
+            output.push(_react.default.createElement(_code.AppIcon, {
+              icon: elementData,
+              key: itemId
+            }));
+            return;
+          }
 
           if (item.includes("items") && item.substring(0, 5) === "items") {
             const Control = controls.items;
             let items = [];
             let children = [];
-            data[item].forEach((element, index) => {
+            elementData.forEach((element, index) => {
               if (typeof element === "object") {
-                element = check(element, []);
+                element = check(element);
                 items.push(_react.default.createElement(_control.ListItem, {
-                  key: `element.sublist.${index}.${data[item].length}`,
+                  key: `element.sublist.${index}.${elementData.length}`,
                   content: element
                 }));
                 return;
@@ -572,13 +580,14 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
 
 
           if (!regexp.test(item)) {
-            check(data[item], output);
+            const data = check(elementData);
+            output = output.concat(data);
             return;
           } // blockQuote
 
 
           if (["q"].includes(item[0])) {
-            const quote = (0, _dataStructureUtils.isString)(data[item]) ? data[item] : check(data[item], []);
+            const quote = (0, _dataStructureUtils.isString)(elementData) ? elementData : check(elementData, []);
             output.push(_react.default.createElement(_control.BlockQuote, {
               key: itemId
             }, quote));
@@ -586,7 +595,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
           }
 
           if (["i"].includes(item[0])) {
-            const [src, alt] = data[item];
+            const [src, alt] = elementData;
             output.push(_react.default.createElement(_modalImage.ModalImage, {
               key: itemId,
               src: src,
@@ -596,13 +605,13 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
           }
 
           if (["c"].includes(item[0])) {
-            if (!tpls[data[item]]) {
-              throw new Error(`the template "${data[item]}" were not found on ${item}`);
+            if (!tpls[elementData]) {
+              throw new Error(`the template "${elementData}" were not found on ${item}`);
             }
 
             output.push(_react.default.createElement(_control.CodeComponent, {
               key: itemId,
-              content: tpls[data[item]]
+              content: tpls[elementData]
             }));
             return;
           } //links
@@ -611,7 +620,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
           if (["e", "l"].includes(item[0])) {
             const attrs = {
               key: `${id}${item}`,
-              item: data[item]
+              item: elementData
             };
             if (item[0] === "e") attrs.external = true;
             output.push(_react.default.createElement(_control.DocLinks, { ...attrs
@@ -619,14 +628,15 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
             return;
           }
 
-          if (item[0] === 'p' && typeof data[item] === 'object') {
+          if (item[0] === 'p' && typeof elementData === 'object') {
             const Control = controls[item[0]];
-            const elements = check(data[item], output);
+            const elements = check(elementData, output);
             output.push(_react.default.createElement(Control, {
               key: `${id}${item}`,
               selector: item,
               content: elements
             }));
+            return;
           }
 
           if (item[0] === 'h') {
@@ -634,13 +644,13 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
             output.push(_react.default.createElement(Control, {
               key: `${id}${item}`,
               selector: item,
-              content: data[item]
+              content: elementData
             }));
             return;
           }
 
-          if (typeof data[item] === "object") {
-            check(data[item], output, item);
+          if (typeof elementData === "object") {
+            check(elementData);
             return;
           }
 

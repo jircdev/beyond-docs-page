@@ -25,7 +25,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
   ****************************/
 
   ims.set('./controller', {
-    hash: 3780607880,
+    hash: 3407416487,
     creator: function (require, exports) {
       "use strict";
 
@@ -109,7 +109,7 @@ class Controller extends ReactWidgetController {
           type: "void",
           optional: true
         }), ": Se ejecuta cada vez que se accede a la url y la p\u00E1gina se muestra en el navegador.")), React.createElement(_code.NextLinks, {
-          items: [['Creación de widgets', '/docs/widgets/creation'], ['Widgets de tipo Page', '/docs/widgets/page']]
+          items: ['/docs/widgets/creation', '/docs/widgets/page']
         }));
       }
     }
@@ -119,7 +119,7 @@ class Controller extends ReactWidgetController {
   **************************/
 
   ims.set('./creation', {
-    hash: 3005060782,
+    hash: 2861308691,
     creator: function (require, exports) {
       "use strict";
 
@@ -186,7 +186,7 @@ class Controller extends ReactWidgetController {
         }, "module.json"), " y ", React.createElement("span", {
           className: "inline"
         }, ".tsconfig"), "."), React.createElement("p", null, "Cuando los bundles son creados por medio del Dashboard, los archivos son generados y m\u00F3dificados por el servicio de desarrollo."), React.createElement(_code4.NextLinks, {
-          items: [['Widget Page', '/docs/widgets/page'], ['Widget Layout', '/docs/widgets/layout']]
+          items: ['/docs/widgets/page', '/docs/widgets/layout']
         }));
       }
     }
@@ -196,7 +196,7 @@ class Controller extends ReactWidgetController {
   ***********************/
 
   ims.set('./index', {
-    hash: 2594570979,
+    hash: 1851893657,
     creator: function (require, exports) {
       "use strict";
 
@@ -230,7 +230,7 @@ class Controller extends ReactWidgetController {
             texts
           }
         }, React.createElement(_intro.Intro, null), React.createElement(_viewFrameworks.ViewFrameworks, null), React.createElement(_code.NextLinks, {
-          items: [['Crear un Widget', '/docs/widgets/creation'], ['Objeto Controller', '/docs/widgets/controller']]
+          items: ['/docs/widgets/creation', '/docs/widgets/controller']
         }));
       }
     }
@@ -361,7 +361,7 @@ class Controller extends ReactWidgetController {
   ****************************/
 
   ims.set('./types/page', {
-    hash: 2259952982,
+    hash: 968589436,
     creator: function (require, exports) {
       "use strict";
 
@@ -421,7 +421,7 @@ class Controller extends ReactWidgetController {
         }, "controller"), " del widget y podria ser accedido desde el controlador de la siguiente forma:"), React.createElement(_code.Code, null, " this.uri.vars.get('userId');"), React.createElement("div", {
           className: "block__note"
         }, "El objeto uri es pasado tambien a los componentes de vista. la forma de acceder a ellos depende de la implementaci\u00F3n de cada framework o herramienta."), React.createElement(_code3.NextLinks, {
-          items: [['Layouts', '/docs/widgets/layouts'], ['Enrutamiento', '/docs/routing']]
+          items: ['/docs/widgets/layouts', '/docs/routing']
         }));
       }
     }

@@ -35,9 +35,6 @@ define(["@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/transversals/ts", "@be
     "name": "docs-header-menu",
     "id": "@beyond/docs/header-menu/widget"
   }, {
-    "name": "header-animation",
-    "id": "@beyond/docs/header-animation/widget"
-  }, {
     "name": "home-page",
     "id": "@beyond/docs/home/widget",
     "is": "page",

@@ -91,7 +91,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
   ***********************/
 
   ims.set('./index', {
-    hash: 3034690106,
+    hash: 2378897313,
     creator: function (require, exports) {
       "use strict";
 
@@ -129,7 +129,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/ui/link/code
             texts
           }
         }, React.createElement(_intro.RenderingIntro, null), React.createElement(_ssr.SSR, null), React.createElement(_csr.CSR, null), React.createElement(_sr.SR, null), React.createElement(_code.NextLinks, {
-          items: [['Renderización', '/docs/rendering'], ['Widgets', '/docs/widgets']]
+          items: ['/docs/rendering', '/docs/widgets']
         }));
       }
     }

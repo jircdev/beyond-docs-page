@@ -20,11 +20,11 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
   require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/docs/starting/dashboard/code');
 
   const ims = new Map();
-  /*************************
-  INTERNAL MODULE: ./control
-  *************************/
+  /***********************
+  INTERNAL MODULE: ./intro
+  ***********************/
 
-  ims.set('./control', {
+  ims.set('./intro', {
     hash: 3857488992,
     creator: function (require, exports) {
       "use strict";
@@ -67,7 +67,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
     }
   });
   __pkg.exports.descriptor = [{
-    "im": "./control",
+    "im": "./intro",
     "from": "DashboardPage",
     "name": "DashboardPage"
   }];
@@ -80,7 +80,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
     prop,
     value
   }) {
-    (require || prop === 'DashboardPage') && (_exports.DashboardPage = DashboardPage = require ? require('./control').DashboardPage : value);
+    (require || prop === 'DashboardPage') && (_exports.DashboardPage = DashboardPage = require ? require('./intro').DashboardPage : value);
   };
 
   const hmr = new function () {

@@ -3,9 +3,6 @@
   overflow: hidden;
 }
 
-.docs-page {
-  padding: 1.5rem;
-}
 @media (min-width: 769px) {
   .docs-page {
     display: grid;

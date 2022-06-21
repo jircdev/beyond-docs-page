@@ -1583,7 +1583,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   ************************************/
 
   ims.set('./views/header/index', {
-    hash: 2043006560,
+    hash: 345324366,
     creator: function (require, exports) {
       "use strict";
 
@@ -1595,8 +1595,6 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
       var React = require("react");
 
       var _icon = require("./icon");
-
-      var _pulse = require("./pulse");
 
       var _headerContent = require("./header-content");
 
@@ -1613,7 +1611,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           className: "container header-content__container "
         }, React.createElement(_headerContent.HeaderContent, null), React.createElement("div", {
           className: "header__animation__container"
-        }, React.createElement(_headerImage.HeaderImage, null)), React.createElement(_icon.IconLogo, null))), React.createElement(_pulse.Pulse, null));
+        }, React.createElement(_headerImage.HeaderImage, null)), React.createElement(_icon.IconLogo, null))));
       }
     }
   });

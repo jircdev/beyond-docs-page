@@ -1,3 +1,10 @@
+.menu-container {
+  width: 100%;
+  padding: 15px !important;
+  max-width: 1340px;
+  margin: auto;
+}
+
 .container {
   z-index: 2;
   position: relative;
@@ -95,7 +102,6 @@
   padding: 0;
 }
 .top__header .mobile__header {
-  padding: 0 1rem;
   display: flex;
   width: 100%;
   align-items: center;
@@ -122,7 +128,10 @@
     flex-grow: 0;
     flex-shrink: 0;
   }
-  .top__header .mobile__header .beyond-element-image {
+  .top__header .container {
+    margin: 0;
+  }
+  .top__header:not(.home--header) .mobile__header .beyond-element-image {
     justify-content: center;
   }
   .top__header .menu-list__container {
