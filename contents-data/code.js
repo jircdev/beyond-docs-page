@@ -591,7 +591,7 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
   ********************/
 
   ims.set('./db', {
-    hash: 2423158334,
+    hash: 257625508,
     creator: function (require, exports) {
       "use strict";
 
@@ -685,10 +685,11 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
           bundles: _code8.Bundles,
           widgets: {
             default: _code9.Widgets,
-            definition: _code9.WidgetCreation,
+            definition: _code9.WidgetsDefinition,
             controller: _code9.WidgetController,
-            layout: _code9.LayoutWidget,
-            page: _code9.PageWidget
+            layout: _code9.WidgetLayout,
+            page: _code9.WidgetPage,
+            rendering: _code10.WidgetsRendering
           },
           state: {
             management: _code14.StateManagement
@@ -700,8 +701,7 @@ define(["exports", "react", "@beyond/docs/components/next-links/code", "@beyond/
             themes: _code13.StylesThemePage
           },
           routing: _code12.RoutingPage,
-          backend: _code11.BackendPage,
-          rendering: _code10.RenderingPage
+          backend: _code11.BackendPage
         };
         const foundations = {
           processors: _code15.Processors,

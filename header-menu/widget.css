@@ -128,9 +128,6 @@
     flex-grow: 0;
     flex-shrink: 0;
   }
-  .top__header .container {
-    margin: 0;
-  }
   .top__header:not(.home--header) .mobile__header .beyond-element-image {
     justify-content: center;
   }

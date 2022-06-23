@@ -132,7 +132,7 @@ h3, h4 {
 
 .p2, p {
   font-size: 1rem;
-  letter-spacing: 0.16px;
+  letter-spacing: 0 0.32px;
   font-weight: lighter;
   line-height: 24px;
 }
@@ -188,9 +188,6 @@ h3, h4 {
   grid-template-columns: 1fr;
 }
 @media (min-width: 481px) {
-  .container {
-    margin: 2rem auto;
-  }
   .container.two-columns {
     grid-template-columns: 1fr 1fr;
   }

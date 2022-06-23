@@ -48,7 +48,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   *************************/
 
   ims.set('./control', {
-    hash: 1657698445,
+    hash: 2047331022,
     creator: function (require, exports) {
       "use strict";
 
@@ -114,7 +114,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
         } = props;
         let data = children ?? content;
         const output = [];
-        const tag = selector.split("#")[0];
+        const [tag, idAttribute] = selector.split("#");
         const Control = ['h2', 'h3', 'h4', 'h5', 'h6'].includes(tag) ? tag : 'h1';
 
         if (Array.isArray(data)) {
@@ -125,11 +125,15 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
           data = data[1];
         }
 
+        const attrs = {
+          key: idAttribute ?? 'title'
+        };
+        if (idAttribute) attrs.id = idAttribute;
         output.push(React.createElement(Control, {
           dangerouslySetInnerHTML: {
             __html: data
           },
-          key: "title"
+          ...attrs
         }));
         return React.createElement(React.Fragment, null, output);
       }
@@ -139,14 +143,20 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
       function List(props) {
         const {
           content,
-          children
+          children,
+          element
         } = props;
+        const [name, className] = element.split(".");
+        console.log(12, element);
 
         if (!Array.isArray(content)) {
           throw new Error('The content passed must be an array');
         }
 
-        return React.createElement("ul", null, content.map((item, index) => {
+        const attrs = {};
+        if (className) attrs.className = className;
+        return React.createElement("ul", { ...attrs
+        }, content.map((item, index) => {
           if (item?.type?.name === 'ListItem') {
             return item;
           }
@@ -236,7 +246,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   **************************/
 
   ims.set('./document', {
-    hash: 763027935,
+    hash: 3336486975,
     creator: function (require, exports) {
       "use strict";
 
@@ -259,11 +269,18 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
         moduleId,
         tpls,
         textId,
-        nextLinks
+        nextLinks,
+        d
       }) {
         const [ready, texts] = (0, _code.useTexts)(moduleId);
         if (!ready) return null;
         const textsUsed = textId ? texts[textId] : texts;
+
+        if (d) {
+          console.log(1.1, moduleId, texts);
+          console.log(1.2, textId, textsUsed);
+        }
+
         return React.createElement(_code.DocsContext.Provider, {
           value: {
             texts,
@@ -492,7 +509,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
   **********************************/
 
   ims.set('./use-render/index', {
-    hash: 3342464370,
+    hash: 3151094503,
     creator: function (require, exports) {
       "use strict";
 
@@ -570,7 +587,8 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/code/code", "@
             });
             output.push(_react.default.createElement(Control, {
               key: `${id}${item}`,
-              content: items
+              content: items,
+              element: item
             }, children));
             return;
           }

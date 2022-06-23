@@ -1,10 +1,10 @@
-define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5) {
+define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
-  _exports.hmr = _exports.SR = _exports.RenderingPage = void 0;
+  _exports.hmr = _exports.WidgetsRendering = _exports.SR = void 0;
 
   const {
     Bundle: __Bundle,
@@ -15,7 +15,7 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "
 
   externals.register(new Map([["react", dependency_0]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code", "@beyond/docs/components/next-links/code"]));
+  __pkg.dependencies.update(new Set(["@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/components/html/code"]));
 
   const ims = new Map();
   /*****************************
@@ -89,45 +89,37 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "
   ***********************/
 
   ims.set('./index', {
-    hash: 2378897313,
+    hash: 2039214313,
     creator: function (require, exports) {
       "use strict";
 
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
-      exports.RenderingPage = RenderingPage;
+      exports.WidgetsRendering = WidgetsRendering;
 
       var React = require("react");
 
-      var _ssr = require("./ssr");
-
-      var _csr = require("./csr");
-
-      var _sr = require("./sr");
-
-      var _code = require("@beyond/docs/components/next-links/code");
-
-      var _intro = require("./intro");
-
-      var _code2 = require("@beyond/docs/store/code");
-
       var _beyond_context = require("beyond_context");
 
-      var _code3 = require("@beyond/docs/components/html/code");
+      var _code = require("@beyond/docs/components/html/code");
       /*bundle*/
 
 
-      function RenderingPage() {
-        const [ready, texts] = (0, _code2.useTexts)(_beyond_context.module.resource);
-        if (!ready) return React.createElement(_code3.Loading, null);
-        return React.createElement(_code2.DocsContext.Provider, {
-          value: {
-            ready,
-            texts
-          }
-        }, React.createElement(_intro.RenderingIntro, null), React.createElement(_ssr.SSR, null), React.createElement(_csr.CSR, null), React.createElement(_sr.SR, null), React.createElement(_code.NextLinks, {
-          items: ['/docs/rendering', '/docs/widgets']
+      function WidgetsRendering() {
+        return React.createElement(React.Fragment, null, React.createElement(_code.Document, {
+          moduleId: _beyond_context.module.resource,
+          textId: "intro"
+        }), React.createElement(_code.Document, {
+          moduleId: _beyond_context.module.resource,
+          textId: "ssr"
+        }), React.createElement(_code.Document, {
+          moduleId: _beyond_context.module.resource,
+          textId: "csr"
+        }), React.createElement(_code.Document, {
+          moduleId: _beyond_context.module.resource,
+          textId: "sr",
+          nextLinks: ["/docs/widgets/controller"]
         }));
       }
     }
@@ -271,24 +263,24 @@ define(["exports", "react", "@beyond/ui/link/code", "@beyond/docs/store/code", "
   });
   __pkg.exports.descriptor = [{
     "im": "./index",
-    "from": "RenderingPage",
-    "name": "RenderingPage"
+    "from": "WidgetsRendering",
+    "name": "WidgetsRendering"
   }, {
     "im": "./sr",
     "from": "SR",
     "name": "SR"
   }];
-  let RenderingPage, SR; // Module exports
+  let WidgetsRendering, SR; // Module exports
 
   _exports.SR = SR;
-  _exports.RenderingPage = RenderingPage;
+  _exports.WidgetsRendering = WidgetsRendering;
 
   __pkg.exports.process = function ({
     require,
     prop,
     value
   }) {
-    (require || prop === 'RenderingPage') && (_exports.RenderingPage = RenderingPage = require ? require('./index').RenderingPage : value);
+    (require || prop === 'WidgetsRendering') && (_exports.WidgetsRendering = WidgetsRendering = require ? require('./index').WidgetsRendering : value);
     (require || prop === 'SR') && (_exports.SR = SR = require ? require('./sr').SR : value);
   };
 

@@ -9646,7 +9646,7 @@ body.body-beyond-modal-opened {
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: var(--color-gray-80);
+  --text-color: #000;
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -9741,7 +9741,7 @@ html[data-beyond-mode=light] {
   --text-on-secondary: #FFFFFF;
   --secondary-background: #4B6378;
   --background: #fff;
-  --text-color: var(--color-gray-80);
+  --text-color: #000;
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);

@@ -20,7 +20,7 @@ define(["exports"], function (_exports) {
   *********************/
 
   ims.set('./txt', {
-    hash: 997313180,
+    hash: 2647836208,
     creator: function (require, exports) {
       exports.txt = {
         "title": "Contents",
@@ -61,8 +61,9 @@ define(["exports"], function (_exports) {
         "/docs/widgets/intro": "Introduction",
         "/docs/widgets/definition": "Definition",
         "/docs/widgets/controller": "Object Controller",
-        "/docs/widgets/Page": "Page",
+        "/docs/widgets/page": "Page",
         "/docs/widgets/layout": "Layout",
+        "/docs/widgets/rendering": "Rendering",
         "/docs/foundations/hmr": "HMR",
         "/docs/foundations/bee": "BEEs",
         "/docs/foundations/distributions": "Distributions",

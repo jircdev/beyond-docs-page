@@ -60,7 +60,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
   **********************/
 
   ims.set('./code', {
-    hash: 225097830,
+    hash: 4074053595,
     creator: function (require, exports) {
       "use strict";
 
@@ -92,10 +92,13 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-j
           };
         };
 
-        return React.createElement("pre", null, React.createElement("code", {
+        const cls = 'code-container';
+        return React.createElement("div", {
+          className: cls
+        }, React.createElement("pre", null, React.createElement("code", {
           className: `language-${language}`,
           dangerouslySetInnerHTML: createMarkup()
-        }));
+        })));
       }
     }
   });

@@ -62,7 +62,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
   ******************************/
 
   ims.set('./bridge/index', {
-    hash: 3708234636,
+    hash: 3876757867,
     creator: function (require, exports) {
       "use strict";
 
@@ -87,7 +87,7 @@ define(["exports", "@beyond-js/kernel/styles/ts", "react", "@beyond/docs/compone
           textId: "bridgeCode",
           tpls: _templates.tpls.bridge
         }), React.createElement(_code.Document, {
-          nextLinks: [['Routing', '/docs/tutorial/routing']],
+          nextLinks: ['/docs/tutorial/routing'],
           tpls: _templates.tpls.bridge,
           moduleId: _beyond_context.module.resource,
           textId: "connectClientAndServer"

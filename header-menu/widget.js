@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond-js/kernel/texts/ts", "react", "@beyond/docs/manager/code", "@beyond/ui/image/code", "@beyond/docs/components/theme-button/code", "@beyond/ui/link/code", "@beyond/docs/store/code", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/modal/code", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -220,7 +220,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
   *****************************/
 
   ims.set('./views/index', {
-    hash: 1156450693,
+    hash: 770889294,
     creator: function (require, exports) {
       "use strict";
 
@@ -306,7 +306,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/kernel/styles/ts"
         }, React.createElement("ul", {
           className: "header__menu"
         }, React.createElement("li", null, React.createElement(_code2.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement("a", {
-          href: "/docs/tutorial/web"
+          href: "/docs/tutorial/start"
         }, texts.tutorial)), React.createElement("li", null, React.createElement("a", {
           href: "/docs/intro"
         }, texts.documentation)), React.createElement("li", null, React.createElement("a", {

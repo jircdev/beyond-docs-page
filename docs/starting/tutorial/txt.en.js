@@ -20,7 +20,7 @@ define(["exports"], function (_exports) {
   *********************/
 
   ims.set('./txt', {
-    hash: 894034438,
+    hash: 203089584,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -87,7 +87,8 @@ define(["exports"], function (_exports) {
         },
         "formCreation": {
           "h2#form-creation": "Form Creation",
-          "p1": "If you have worked with React, what follows a part that you probably know best, with some subtleties for sure. Next, we'll edit our page.tsx file to create a login form and the basic functionality for updating status."
+          "p1": "If you have worked with React, what follows a part that you probably know best, with some subtleties for sure. Next, we'll edit our page.tsx file to create a login form and the basic functionality for updating status.",
+          "c1": "page"
         },
         "styles": {
           "h2": "Styles",

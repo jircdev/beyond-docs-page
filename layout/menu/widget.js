@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15) {
+define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/controllers/ts", "@beyond-js/kernel/core/ts", "@beyond/docs/layout/styles/code", "react", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond-js/kernel/routing/ts", "@beyond/docs/ui/icons/code", "@beyond/ui/reactive-model/ts", "@beyond-js/kernel/texts/ts", "@beyond-js/kernel/bundle/ts", "@beyond-js/kernel/styles/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -15,7 +15,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
   externals.register(new Map([["react", dependency_4]]));
 
-  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/manager/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond/docs/ui/icons/code", "@beyond/ui/reactive-model/ts"]));
+  __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles/code", "@beyond/docs/store/code", "@beyond/ui/icons/code", "@beyond/ui/image/code", "@beyond/docs/components/html/code", "@beyond/docs/ui/icons/code", "@beyond/ui/reactive-model/ts"]));
 
   require('@beyond-js/widgets/render/ts').widgets.register([{
     "name": "menu-layout",
@@ -94,7 +94,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *****************************/
 
   ims.set('./data/basics', {
-    hash: 1504180154,
+    hash: 4130205166,
     creator: function (require, exports) {
       "use strict";
 
@@ -105,14 +105,13 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       var _structureItem = require("./structure-item");
 
-      const projects = [["projects/intro", 'Introducción'], ["projects/create", 'Crear un proyecto'], ["projects/structure", 'Estructura'], ["projects/json", 'project.json'], ["projects/import", 'Importar un proyecto'], ["projects/dependencies", 'Dependencias']];
-      const modules = [['modules/introduction', 'Modulos en Beyond'], ['modules/create', 'Crear un módulo'], ['modules/json', 'Configuración']];
-      const styles = [["styles/template", "Template"], ["styles/modules", "Modulos"], ["styles/themes", "Light & Dark theme"], ["styles/imports", "Importación"]];
-      const widgets = [["widgets", "Intro"], ["widgets/definition", "Definición"], ["widgets/controller", "Objeto Controller"], ["widgets/page", "Page"], ["widgets/layout", "Layout"]];
-      const general = (0, _structureItem.structureItems)([['projects', 'Proyectos', (0, _structureItem.structureItems)(projects)], ['modules', 'Módulos', (0, _structureItem.structureItems)(modules)], ['bundles', 'Bundles'], ['processors', 'Processors'], ['template', 'Sistema de Plantillas'], ['widgets', 'Widgets', (0, _structureItem.structureItems)(widgets)], ['routing', 'Enrutamiento'], ['state/management', 'Manejo de Estados'], ['backend', 'Backend'], ['styles', 'Estilos', (0, _structureItem.structureItems)(styles)]]);
+      const projects = ["projects/intro", "projects/create", "projects/structure", "projects/json", "projects/import", "projects/dependencies"];
+      const modules = ['modules/introduction', 'modules/create', 'modules/json'];
+      const styles = ["styles/template", "styles/modules", "styles/themes", "styles/imports"];
+      const widgets = ["widgets", "widgets/definition", "widgets/controller", "widgets/page", "widgets/layout", "widgets/rendering"];
+      const general = (0, _structureItem.structureItems)([['projects', (0, _structureItem.structureItems)(projects)], ['modules', (0, _structureItem.structureItems)(modules)], 'bundles', 'processors', 'template', ['widgets', (0, _structureItem.structureItems)(widgets)], 'routing', 'state/management', 'backend', ['styles', (0, _structureItem.structureItems)(styles)]]);
       const basics = {
         id: 'concepts',
-        label: 'Conceptos Básicos',
         children: general
       };
       exports.basics = basics;
@@ -123,7 +122,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *****************************/
 
   ims.set('./data/config', {
-    hash: 4150105189,
+    hash: 18647715,
     creator: function (require, exports) {
       "use strict";
 
@@ -133,11 +132,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
       exports.config = void 0;
       const config = {
         id: 'configuration',
-        label: 'Configuracion',
-        children: [{
-          id: 'template',
-          label: 'Plantilla'
-        }]
+        children: ['template']
       };
       exports.config = config;
     }
@@ -147,7 +142,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ***********************************/
 
   ims.set('./data/fundamentals', {
-    hash: 4102357387,
+    hash: 138307814,
     creator: function (require, exports) {
       "use strict";
 
@@ -160,9 +155,8 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
 
       const fundamentals = {
         id: 'fundamentals',
-        label: 'Fundamentos',
-        children: (0, _structureItem.structureItems)([['dev-server', "Servidor de desarrollo"], ['foundations/distributions', 'Distribuciones'], ['foundations/hmr', 'HMR'], ['foundations/bee', 'BEE'] // ['multilanguage', 'Multilenguaje'],
-        // ['glossary', 'Glosario']
+        children: (0, _structureItem.structureItems)(['dev-server', 'foundations/distributions', 'foundations/hmr', 'foundations/bee' // 'multilanguage',
+        // 'glossary',
         ])
       };
       exports.fundamentals = fundamentals;
@@ -199,7 +193,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *******************************/
 
   ims.set('./data/starting', {
-    hash: 1380141735,
+    hash: 3436517680,
     creator: function (require, exports) {
       "use strict";
 
@@ -215,12 +209,11 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         label
       });
 
-      const tutorial = (0, _structureItem.structureItems)([['tutorial/start', 'Empezando'], ['tutorial/first-module', 'Creando un módulo'], ['tutorial/backend', 'Código Backend'], ['tutorial/bridge', 'Bridge'], ['tutorial/routing', 'Enrutamiento']]);
-      const items = [['intro', 'Introducción'], ['quick-start', 'Inicio rápido'], ['tutorial', 'Tutorial', tutorial], ['dashboard', 'Dashboard']];
+      const tutorial = (0, _structureItem.structureItems)(['tutorial/start', 'tutorial/first-module', 'tutorial/backend', 'tutorial/bridge', 'tutorial/routing']);
+      const items = ['intro', 'quick-start', ['tutorial', tutorial], 'dashboard'];
       const children = (0, _structureItem.structureItems)(items);
       const starting = {
         id: 'getting-start',
-        label: 'Empezando',
         children
       };
       exports.starting = starting;
@@ -231,7 +224,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   *************************************/
 
   ims.set('./data/structure-item', {
-    hash: 2146397657,
+    hash: 2375272371,
     creator: function (require, exports) {
       "use strict";
 
@@ -240,11 +233,21 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
       });
       exports.structureItems = void 0;
 
-      const structureItems = data => data.map(([id, label, children = undefined]) => ({
-        id,
-        label,
-        children
-      }));
+      const structureItems = data => {
+        return data.map(item => {
+          if (Array.isArray(item)) {
+            const [id, children] = item;
+            return {
+              id,
+              children
+            };
+          }
+
+          return {
+            id: item
+          };
+        });
+      };
 
       exports.structureItems = structureItems;
     }
@@ -254,7 +257,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ******************************/
 
   ims.set('./menu/context', {
-    hash: 2111041036,
+    hash: 1594199103,
     creator: function (require, exports) {
       "use strict";
 
@@ -279,7 +282,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ****************************/
 
   ims.set('./menu/index', {
-    hash: 2112504280,
+    hash: 2020288400,
     creator: function (require, exports) {
       "use strict";
 
@@ -305,6 +308,8 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
       var _beyond_context = require("beyond_context");
 
       var _code4 = require("@beyond/docs/components/html/code");
+
+      var _ts = require("@beyond-js/kernel/routing/ts");
       /*bundle*/
 
 
@@ -337,6 +342,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           value: {
             ready,
             texts,
+            current: _ts.routing.uri,
             close: closeMenu
           }
         }, React.createElement("aside", {
@@ -365,7 +371,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   **********************************/
 
   ims.set('./menu/items/index', {
-    hash: 2275326600,
+    hash: 2361789647,
     creator: function (require, exports) {
       "use strict";
 
@@ -402,7 +408,8 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         item
       }) {
         const {
-          texts
+          texts,
+          current
         } = (0, _context.useMenuContext)();
 
         const onClick = event => {
@@ -410,8 +417,10 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           event.currentTarget.closest('li').classList.toggle('item--opened');
         };
 
+        const selected = item.children.find(item => `/docs/${item.id}` === current.uri);
+        const cls = `menu__item--parent${!!selected ? ' item--opened' : ''}`;
         return React.createElement("li", {
-          className: "menu__item--parent"
+          className: cls
         }, React.createElement("section", {
           onClick: onClick
         }, React.createElement("a", {
@@ -428,13 +437,14 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         item
       }) {
         const {
-          container,
           close,
-          texts
+          texts,
+          current
         } = (0, _context.useMenuContext)();
         if (item.children) return React.createElement(ParentItem, {
           item: item
         });
+        const uri = `/docs/${item.id}`;
 
         const onClick = event => {
           event.preventDefault();
@@ -444,12 +454,12 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
           if (currentActive) currentActive.classList.remove('active-item');
           target.classList.add('active-item');
 
-          _ts.routing.pushState(`/docs/${item.id}`);
+          _ts.routing.pushState(uri);
 
           close();
         };
 
-        const cls = ``;
+        const cls = `${uri === current.uri ? 'active-item' : ''}`;
         const link = `/docs/${item.id}`;
         return React.createElement("li", {
           className: cls
@@ -465,7 +475,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
   ***************************/
 
   ims.set('./menu/list', {
-    hash: 3013158509,
+    hash: 3132290937,
     creator: function (require, exports) {
       "use strict";
 
@@ -491,6 +501,7 @@ define(["exports", "@beyond-js/widgets/render/ts", "@beyond-js/react-widgets/con
         }));
         const clsToApply = level ? 'docs__menu__sublist' : 'docs__menu__list';
         const cls = `${clsToApply}${className ? ` ${className}` : ''}`;
+        console.log(10, items);
         return React.createElement("ul", {
           className: cls
         }, output);
