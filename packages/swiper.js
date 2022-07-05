@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/swiper/8.1.4.js
+}), mod); // .beyond/uimport/temp/swiper/8.2.6.js
 
 
 var __exports = {};
@@ -1087,7 +1087,7 @@ function updateAutoHeight(speed) {
 
   if (swiper.params.slidesPerView !== "auto" && swiper.params.slidesPerView > 1) {
     if (swiper.params.centeredSlides) {
-      swiper.visibleSlides.each(slide => {
+      (swiper.visibleSlides || dom_default([])).each(slide => {
         activeSlides.push(slide);
       });
     } else {
@@ -1887,6 +1887,17 @@ function slideToLoop(index2, speed, runCallbacks, internal) {
     runCallbacks = true;
   }
 
+  if (typeof index2 === "string") {
+    const indexAsNumber = parseInt(index2, 10);
+    const isValidNumber = isFinite(indexAsNumber);
+
+    if (!isValidNumber) {
+      throw new Error(`The passed-in 'index' (string) couldn't be converted to 'number'. [${index2}] given.`);
+    }
+
+    index2 = indexAsNumber;
+  }
+
   const swiper = this;
   let newIndex = index2;
 
@@ -2267,6 +2278,11 @@ function closestElement(selector, base) {
     if (!el || el === (0, import_ssr_window8.getDocument)() || el === (0, import_ssr_window8.getWindow)()) return null;
     if (el.assignedSlot) el = el.assignedSlot;
     const found = el.closest(selector);
+
+    if (!found && !el.getRootNode) {
+      return null;
+    }
+
     return found || __closestFrom(el.getRootNode().host);
   }
 
@@ -2314,7 +2330,7 @@ function onTouchStart(event2) {
   const noSwipingSelector = params.noSwipingSelector ? params.noSwipingSelector : `.${params.noSwipingClass}`;
   const isTargetShadow = !!(e.target && e.target.shadowRoot);
 
-  if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, e.target) : $targetEl.closest(noSwipingSelector)[0])) {
+  if (params.noSwiping && (isTargetShadow ? closestElement(noSwipingSelector, $targetEl[0]) : $targetEl.closest(noSwipingSelector)[0])) {
     swiper.allowClick = true;
     return;
   }
@@ -2977,6 +2993,18 @@ function setBreakpoint() {
     swiper.emitContainerClasses();
   }
 
+  ["navigation", "pagination", "scrollbar"].forEach(prop => {
+    const wasModuleEnabled = params[prop] && params[prop].enabled;
+    const isModuleEnabled = breakpointParams[prop] && breakpointParams[prop].enabled;
+
+    if (wasModuleEnabled && !isModuleEnabled) {
+      swiper[prop].disable();
+    }
+
+    if (!wasModuleEnabled && isModuleEnabled) {
+      swiper[prop].enable();
+    }
+  });
   const directionChanged = breakpointParams.direction && breakpointParams.direction !== params.direction;
   const needsReLoop = params.loop && (breakpointParams.slidesPerView !== params.slidesPerView || directionChanged);
 
@@ -3757,6 +3785,23 @@ var Swiper = class {
     return swiper;
   }
 
+  changeLanguageDirection(direction) {
+    const swiper = this;
+    if (swiper.rtl && direction === "rtl" || !swiper.rtl && direction === "ltr") return;
+    swiper.rtl = direction === "rtl";
+    swiper.rtlTranslate = swiper.params.direction === "horizontal" && swiper.rtl;
+
+    if (swiper.rtl) {
+      swiper.$el.addClass(`${swiper.params.containerModifierClass}rtl`);
+      swiper.el.dir = "rtl";
+    } else {
+      swiper.$el.removeClass(`${swiper.params.containerModifierClass}rtl`);
+      swiper.el.dir = "ltr";
+    }
+
+    swiper.update();
+  }
+
   mount(el) {
     const swiper = this;
     if (swiper.mounted) return true;
@@ -3780,6 +3825,10 @@ var Swiper = class {
         res.children = options => $el.children(options);
 
         return res;
+      }
+
+      if (!$el.children) {
+        return dom_default($el).children(getWrapperSelector());
       }
 
       return $el.children(getWrapperSelector());
@@ -4765,7 +4814,8 @@ function Navigation(_ref) {
       hideOnClick: false,
       disabledClass: "swiper-button-disabled",
       hiddenClass: "swiper-button-hidden",
-      lockClass: "swiper-button-lock"
+      lockClass: "swiper-button-lock",
+      navigationDisabledClass: "swiper-navigation-disabled"
     }
   });
   swiper.navigation = {
@@ -4816,12 +4866,14 @@ function Navigation(_ref) {
     e.preventDefault();
     if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
     swiper.slidePrev();
+    emit("navigationPrev");
   }
 
   function onNextClick(e) {
     e.preventDefault();
     if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
     swiper.slideNext();
+    emit("navigationNext");
   }
 
   function init() {
@@ -4873,8 +4925,12 @@ function Navigation(_ref) {
   }
 
   on2("init", () => {
-    init();
-    update();
+    if (swiper.params.navigation.enabled === false) {
+      disable();
+    } else {
+      init();
+      update();
+    }
   });
   on2("toEdge fromEdge lock unlock", () => {
     update();
@@ -4928,7 +4984,21 @@ function Navigation(_ref) {
       }
     }
   });
+
+  const enable = () => {
+    swiper.$el.removeClass(swiper.params.navigation.navigationDisabledClass);
+    init();
+    update();
+  };
+
+  const disable = () => {
+    swiper.$el.addClass(swiper.params.navigation.navigationDisabledClass);
+    destroy();
+  };
+
   Object.assign(swiper.navigation, {
+    enable,
+    disable,
     update,
     init,
     destroy
@@ -4980,7 +5050,8 @@ function Pagination(_ref) {
       clickableClass: `${pfx}-clickable`,
       lockClass: `${pfx}-lock`,
       horizontalClass: `${pfx}-horizontal`,
-      verticalClass: `${pfx}-vertical`
+      verticalClass: `${pfx}-vertical`,
+      paginationDisabledClass: `${pfx}-disabled`
     }
   });
   swiper.pagination = {
@@ -5279,9 +5350,13 @@ function Pagination(_ref) {
   }
 
   on2("init", () => {
-    init();
-    render();
-    update();
+    if (swiper.params.pagination.enabled === false) {
+      disable();
+    } else {
+      init();
+      render();
+      update();
+    }
   });
   on2("activeIndexChange", () => {
     if (swiper.params.loop) {
@@ -5328,7 +5403,7 @@ function Pagination(_ref) {
       $el
     } = swiper.pagination;
 
-    if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && $el.length > 0 && !dom_default(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
+    if (swiper.params.pagination.el && swiper.params.pagination.hideOnClick && $el && $el.length > 0 && !dom_default(targetEl).hasClass(swiper.params.pagination.bulletClass)) {
       if (swiper.navigation && (swiper.navigation.nextEl && targetEl === swiper.navigation.nextEl || swiper.navigation.prevEl && targetEl === swiper.navigation.prevEl)) return;
       const isHidden = $el.hasClass(swiper.params.pagination.hiddenClass);
 
@@ -5341,7 +5416,32 @@ function Pagination(_ref) {
       $el.toggleClass(swiper.params.pagination.hiddenClass);
     }
   });
+
+  const enable = () => {
+    swiper.$el.removeClass(swiper.params.pagination.paginationDisabledClass);
+
+    if (swiper.pagination.$el) {
+      swiper.pagination.$el.removeClass(swiper.params.pagination.paginationDisabledClass);
+    }
+
+    init();
+    render();
+    update();
+  };
+
+  const disable = () => {
+    swiper.$el.addClass(swiper.params.pagination.paginationDisabledClass);
+
+    if (swiper.pagination.$el) {
+      swiper.pagination.$el.addClass(swiper.params.pagination.paginationDisabledClass);
+    }
+
+    destroy();
+  };
+
   Object.assign(swiper.pagination, {
+    enable,
+    disable,
     render,
     update,
     init,
@@ -5375,7 +5475,10 @@ function Scrollbar(_ref) {
       draggable: false,
       snapOnRelease: true,
       lockClass: "swiper-scrollbar-lock",
-      dragClass: "swiper-scrollbar-drag"
+      dragClass: "swiper-scrollbar-drag",
+      scrollbarDisabledClass: "swiper-scrollbar-disabled",
+      horizontalClass: `swiper-scrollbar-horizontal`,
+      verticalClass: `swiper-scrollbar-vertical`
     }
   });
   swiper.scrollbar = {
@@ -5601,6 +5704,7 @@ function Scrollbar(_ref) {
       support: support2
     } = swiper;
     const $el = scrollbar.$el;
+    if (!$el) return;
     const target = $el[0];
     const activeListener = support2.passiveListener && params.passiveListeners ? {
       passive: false,
@@ -5625,12 +5729,12 @@ function Scrollbar(_ref) {
   }
 
   function enableDraggable() {
-    if (!swiper.params.scrollbar.el) return;
+    if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) return;
     events2("on");
   }
 
   function disableDraggable() {
-    if (!swiper.params.scrollbar.el) return;
+    if (!swiper.params.scrollbar.el || !swiper.scrollbar.el) return;
     events2("off");
   }
 
@@ -5650,6 +5754,7 @@ function Scrollbar(_ref) {
       $el = $swiperEl.find(params.el);
     }
 
+    $el.addClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
     let $dragEl = $el.find(`.${swiper.params.scrollbar.dragClass}`);
 
     if ($dragEl.length === 0) {
@@ -5674,13 +5779,24 @@ function Scrollbar(_ref) {
   }
 
   function destroy() {
+    const params = swiper.params.scrollbar;
+    const $el = swiper.scrollbar.$el;
+
+    if ($el) {
+      $el.removeClass(swiper.isHorizontal() ? params.horizontalClass : params.verticalClass);
+    }
+
     disableDraggable();
   }
 
   on2("init", () => {
-    init();
-    updateSize2();
-    setTranslate2();
+    if (swiper.params.scrollbar.enabled === false) {
+      disable();
+    } else {
+      init();
+      updateSize2();
+      setTranslate2();
+    }
   });
   on2("update resize observerUpdate lock unlock", () => {
     updateSize2();
@@ -5703,7 +5819,32 @@ function Scrollbar(_ref) {
   on2("destroy", () => {
     destroy();
   });
+
+  const enable = () => {
+    swiper.$el.removeClass(swiper.params.scrollbar.scrollbarDisabledClass);
+
+    if (swiper.scrollbar.$el) {
+      swiper.scrollbar.$el.removeClass(swiper.params.scrollbar.scrollbarDisabledClass);
+    }
+
+    init();
+    updateSize2();
+    setTranslate2();
+  };
+
+  const disable = () => {
+    swiper.$el.addClass(swiper.params.scrollbar.scrollbarDisabledClass);
+
+    if (swiper.scrollbar.$el) {
+      swiper.scrollbar.$el.addClass(swiper.params.scrollbar.scrollbarDisabledClass);
+    }
+
+    destroy();
+  };
+
   Object.assign(swiper.scrollbar, {
+    enable,
+    disable,
     updateSize: updateSize2,
     setTranslate: setTranslate2,
     init,
@@ -6597,11 +6738,11 @@ function Lazy(_ref) {
     if (params.loadPrevNext) {
       if (slidesPerView > 1 || params.loadPrevNextAmount && params.loadPrevNextAmount > 1) {
         const amount = params.loadPrevNextAmount;
-        const spv = slidesPerView;
+        const spv = Math.ceil(slidesPerView);
         const maxIndex = Math.min(activeIndex + spv + Math.max(amount, spv), slides.length);
         const minIndex = Math.max(activeIndex - Math.max(spv, amount), 0);
 
-        for (let i = activeIndex + slidesPerView; i < maxIndex; i += 1) {
+        for (let i = activeIndex + spv; i < maxIndex; i += 1) {
           if (slideExist(i)) loadInSlide(i);
         }
 
@@ -6715,6 +6856,10 @@ function Lazy(_ref) {
     if (lazy.enabled && (cssMode || watchSlidesProgress && (touchReleaseOnEdges || resistanceRatio === 0))) {
       load();
     }
+  });
+  on2("destroy", () => {
+    if (!swiper.$el) return;
+    swiper.$el.find(`.${swiper.params.lazy.loadingClass}`).removeClass(swiper.params.lazy.loadingClass);
   });
   Object.assign(swiper.lazy, {
     load,
@@ -7097,7 +7242,27 @@ function A11y(_ref) {
     swiper.slideTo(swiper.slides.indexOf(slideEl), 0);
   };
 
-  function init() {
+  const initSlides = () => {
+    const params = swiper.params.a11y;
+
+    if (params.itemRoleDescriptionMessage) {
+      addElRoleDescription(dom_default(swiper.slides), params.itemRoleDescriptionMessage);
+    }
+
+    addElRole(dom_default(swiper.slides), params.slideRole);
+    const slidesLength = swiper.params.loop ? swiper.slides.filter(el => !el.classList.contains(swiper.params.slideDuplicateClass)).length : swiper.slides.length;
+
+    if (params.slideLabelMessage) {
+      swiper.slides.each((slideEl, index2) => {
+        const $slideEl = dom_default(slideEl);
+        const slideIndex = swiper.params.loop ? parseInt($slideEl.attr("data-swiper-slide-index"), 10) : index2;
+        const ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
+        addElLabel($slideEl, ariaLabelMessage);
+      });
+    }
+  };
+
+  const init = () => {
     const params = swiper.params.a11y;
     swiper.$el.append(liveRegion);
     const $containerEl = swiper.$el;
@@ -7115,19 +7280,7 @@ function A11y(_ref) {
     const live = swiper.params.autoplay && swiper.params.autoplay.enabled ? "off" : "polite";
     addElId($wrapperEl, wrapperId);
     addElLive($wrapperEl, live);
-
-    if (params.itemRoleDescriptionMessage) {
-      addElRoleDescription(dom_default(swiper.slides), params.itemRoleDescriptionMessage);
-    }
-
-    addElRole(dom_default(swiper.slides), params.slideRole);
-    const slidesLength = swiper.params.loop ? swiper.slides.filter(el => !el.classList.contains(swiper.params.slideDuplicateClass)).length : swiper.slides.length;
-    swiper.slides.each((slideEl, index2) => {
-      const $slideEl = dom_default(slideEl);
-      const slideIndex = swiper.params.loop ? parseInt($slideEl.attr("data-swiper-slide-index"), 10) : index2;
-      const ariaLabelMessage = params.slideLabelMessage.replace(/\{\{index\}\}/, slideIndex + 1).replace(/\{\{slidesLength\}\}/, slidesLength);
-      addElLabel($slideEl, ariaLabelMessage);
-    });
+    initSlides();
     let $nextEl;
     let $prevEl;
 
@@ -7152,7 +7305,7 @@ function A11y(_ref) {
     }
 
     swiper.$el.on("focus", handleFocus, true);
-  }
+  };
 
   function destroy() {
     if (liveRegion && liveRegion.length > 0) liveRegion.remove();
@@ -7189,6 +7342,10 @@ function A11y(_ref) {
     if (!swiper.params.a11y.enabled) return;
     init();
   });
+  on2("slidesLengthChange snapGridLengthChange slidesGridLengthChange", () => {
+    if (!swiper.params.a11y.enabled) return;
+    initSlides();
+  });
   on2("fromEdge toEdge afterInit lock unlock", () => {
     if (!swiper.params.a11y.enabled) return;
     updateNavigation();
@@ -7217,7 +7374,8 @@ function History(_ref) {
       enabled: false,
       root: "",
       replaceState: false,
-      key: "slides"
+      key: "slides",
+      keepQuery: false
     }
   });
   let initialized = false;
@@ -7269,6 +7427,10 @@ function History(_ref) {
       value = `${key}/${value}`;
     }
 
+    if (swiper.params.history.keepQuery) {
+      value += location.search;
+    }
+
     const currentState = window2.history.state;
 
     if (currentState && currentState.value === value) {
@@ -7304,7 +7466,7 @@ function History(_ref) {
 
   const setHistoryPopState = () => {
     paths = getPathValues(swiper.params.url);
-    scrollToSlide(swiper.params.speed, swiper.paths.value, false);
+    scrollToSlide(swiper.params.speed, paths.value, false);
   };
 
   const init = () => {
@@ -7771,6 +7933,30 @@ function Thumb(_ref) {
     const thumbsSwiper = swiper.thumbs.swiper;
     if (!thumbsSwiper || thumbsSwiper.destroyed) return;
     const slidesPerView = thumbsSwiper.params.slidesPerView === "auto" ? thumbsSwiper.slidesPerViewDynamic() : thumbsSwiper.params.slidesPerView;
+    let thumbsToActivate = 1;
+    const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
+
+    if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) {
+      thumbsToActivate = swiper.params.slidesPerView;
+    }
+
+    if (!swiper.params.thumbs.multipleActiveThumbs) {
+      thumbsToActivate = 1;
+    }
+
+    thumbsToActivate = Math.floor(thumbsToActivate);
+    thumbsSwiper.slides.removeClass(thumbActiveClass);
+
+    if (thumbsSwiper.params.loop || thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled) {
+      for (let i = 0; i < thumbsToActivate; i += 1) {
+        thumbsSwiper.$wrapperEl.children(`[data-swiper-slide-index="${swiper.realIndex + i}"]`).addClass(thumbActiveClass);
+      }
+    } else {
+      for (let i = 0; i < thumbsToActivate; i += 1) {
+        thumbsSwiper.slides.eq(swiper.realIndex + i).addClass(thumbActiveClass);
+      }
+    }
+
     const autoScrollOffset = swiper.params.thumbs.autoScrollOffset;
     const useOffset = autoScrollOffset && !thumbsSwiper.params.loop;
 
@@ -7821,30 +8007,6 @@ function Thumb(_ref) {
         } else if (newThumbsIndex > currentThumbsIndex && thumbsSwiper.params.slidesPerGroup === 1) {}
 
         thumbsSwiper.slideTo(newThumbsIndex, initial ? 0 : void 0);
-      }
-    }
-
-    let thumbsToActivate = 1;
-    const thumbActiveClass = swiper.params.thumbs.slideThumbActiveClass;
-
-    if (swiper.params.slidesPerView > 1 && !swiper.params.centeredSlides) {
-      thumbsToActivate = swiper.params.slidesPerView;
-    }
-
-    if (!swiper.params.thumbs.multipleActiveThumbs) {
-      thumbsToActivate = 1;
-    }
-
-    thumbsToActivate = Math.floor(thumbsToActivate);
-    thumbsSwiper.slides.removeClass(thumbActiveClass);
-
-    if (thumbsSwiper.params.loop || thumbsSwiper.params.virtual && thumbsSwiper.params.virtual.enabled) {
-      for (let i = 0; i < thumbsToActivate; i += 1) {
-        thumbsSwiper.$wrapperEl.children(`[data-swiper-slide-index="${swiper.realIndex + i}"]`).addClass(thumbActiveClass);
-      }
-    } else {
-      for (let i = 0; i < thumbsToActivate; i += 1) {
-        thumbsSwiper.slides.eq(swiper.realIndex + i).addClass(thumbActiveClass);
       }
     }
   }
@@ -9335,7 +9497,7 @@ function EffectCards(_ref) {
       virtualTranslate: !swiper.params.cssMode
     })
   });
-} // .beyond/uimport/temp/swiper/8.1.4.js
+} // .beyond/uimport/temp/swiper/8.2.6.js
 
 
 var __default = core_default;

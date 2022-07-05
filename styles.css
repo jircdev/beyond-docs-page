@@ -9408,7 +9408,7 @@ body.body-beyond-modal-opened {
   --color-gray-50: #818181;
   --color-gray-60: #6d6d6d;
   --color-gray-70: #5f5f5f;
-  --color-gray-80: #474747;
+  --color-gray-80: #424242;
   --color-gray-90: #2f2f2f;
   --color-gray-100: #141414;
   --color-carbon-0: #eef1f3;
@@ -9707,7 +9707,7 @@ body.body-beyond-modal-opened {
     --primary-surface: #101625;
     --app-element-surface: rgba(0, 0, 0, 0.7);
     --app-element-hover-surface: rgba(3, 4, 5, 0.5);
-    --app-element-border-color-1: var(--gray-darker);
+    --app-element-border-color-1: var(--color-gray-80);
     --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
     --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
     --app-dark-text-gradient: var(--app-secondary-text-gradient);
@@ -9723,6 +9723,7 @@ body.body-beyond-modal-opened {
     --app-editor-bg: #1D2B3D;
     --app-scrollbar-color: var(--secondary-light);
     --app-scrollbar-track: var(--color-carbon-95);
+    --app-accent-color: #617096;
   }
 }
 
@@ -9802,7 +9803,7 @@ html[data-beyond-mode=dark] {
   --primary-surface: #101625;
   --app-element-surface: rgba(0, 0, 0, 0.7);
   --app-element-hover-surface: rgba(3, 4, 5, 0.5);
-  --app-element-border-color-1: var(--gray-darker);
+  --app-element-border-color-1: var(--color-gray-80);
   --app-primary-text-gradient: linear-gradient(to right, var(--text-on-primary), var(--secondary-light));
   --app-secondary-text-gradient: linear-gradient(to right, var(--color-gray-10), var(--color-carbon-30));
   --app-dark-text-gradient: var(--app-secondary-text-gradient);
@@ -9818,6 +9819,7 @@ html[data-beyond-mode=dark] {
   --app-editor-bg: #1D2B3D;
   --app-scrollbar-color: var(--secondary-light);
   --app-scrollbar-track: var(--color-carbon-95);
+  --app-accent-color: #617096;
 }
 :root {
   --bynd-aside-width: 250px;
@@ -9853,7 +9855,7 @@ html[data-beyond-mode=dark] {
   --color-gray-50: #818181;
   --color-gray-60: #6d6d6d;
   --color-gray-70: #5f5f5f;
-  --color-gray-80: #474747;
+  --color-gray-80: #424242;
   --color-gray-90: #2f2f2f;
   --color-gray-100: #141414;
   --color-carbon-0: #eef1f3;

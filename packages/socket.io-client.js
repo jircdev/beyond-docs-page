@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/socket.io-client/4.5.0.js
+}), mod); // .beyond/uimport/temp/socket.io-client/4.5.1.js
 
 
 var __exports = {};
@@ -296,8 +296,14 @@ function reconstructPacket(packet, buffers) {
 function _reconstructPacket(data, buffers) {
   if (!data) return data;
 
-  if (data && data._placeholder) {
-    return buffers[data.num];
+  if (data && data._placeholder === true) {
+    const isIndexValid = typeof data.num === "number" && data.num >= 0 && data.num < buffers.length;
+
+    if (isIndexValid) {
+      return buffers[data.num];
+    } else {
+      throw new Error("illegal attachments");
+    }
   } else if (Array.isArray(data)) {
     for (let i = 0; i < data.length; i++) {
       data[i] = _reconstructPacket(data[i], buffers);
@@ -384,6 +390,10 @@ var Decoder = class extends Emitter {
     let packet;
 
     if (typeof obj === "string") {
+      if (this.reconstructor) {
+        throw new Error("got plaintext data when reconstructing a packet");
+      }
+
       packet = this.decodeString(obj);
 
       if (packet.type === PacketType.BINARY_EVENT || packet.type === PacketType.BINARY_ACK) {
@@ -1306,7 +1316,7 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-}); // .beyond/uimport/temp/socket.io-client/4.5.0.js
+}); // .beyond/uimport/temp/socket.io-client/4.5.1.js
 
 var __default = lookup;
 };

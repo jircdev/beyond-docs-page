@@ -1,21 +1,24 @@
-define(["exports", "@beyond-js/kernel/styles/ts", "react", "prismjs", "@beyond-js/kernel/bundle/ts"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "react", "prismjs"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.CodeBox = _exports.Code = void 0;
-
   const {
     Bundle: __Bundle,
     externals
-  } = require('@beyond-js/kernel/bundle/ts');
+  } = dependency_0;
 
-  const __pkg = new __Bundle("@beyond/docs/code/code").package();
+  const __pkg = new __Bundle({
+    "module": "@beyond/docs/code",
+    "bundle": "code"
+  }).package();
 
-  externals.register(new Map([["react", dependency_1], ["prismjs", dependency_2]]));
+  ;
+  externals.register(new Map([["react", dependency_2], ["prismjs", dependency_3]]));
 
-  require('@beyond-js/kernel/styles/ts').styles.register('@beyond/docs/code/code');
+  require('@beyond-js/kernel/styles').styles.register('@beyond/docs/code');
 
   const ims = new Map();
   /**************************

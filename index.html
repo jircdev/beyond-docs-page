@@ -31,13 +31,13 @@
     })();
     const paths = {'@beyond/docs': baseUrl};
     requirejs.config({baseUrl: '/packages', paths});
-    require(["@beyond-js/widgets/render/ts","@beyond-js/widgets/application/ts","@beyond-js/widgets/layout/ts","@beyond/docs/start","@beyond-js/local/main/ts"]);
+    require(["@beyond-js/widgets/render","@beyond-js/widgets/application","@beyond-js/widgets/layout","@beyond/docs/start","@beyond-js/local/main"]);
     
     </script>
     
 </head>
 
 <body>
-<div id="beyond-topbar"></div> <!-- top bar for iOS -->
+
 </body>
 </html>

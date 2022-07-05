@@ -1,0 +1,16 @@
+.about__header {
+  position: relative;
+}
+.about__header svg {
+  animation: 5s rotate infinite forwards;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(20deg);
+  }
+}
+
