@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/socket.io-client/4.5.1.js
+}), mod); // .beyond/uimport/socket.io-client/4.5.1.js
 
 
 var __exports = {};
@@ -1316,7 +1316,7 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-}); // .beyond/uimport/temp/socket.io-client/4.5.1.js
+}); // .beyond/uimport/socket.io-client/4.5.1.js
 
 var __default = lookup;
 };

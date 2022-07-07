@@ -22646,7 +22646,7 @@ var require_react_dom = __commonJS({
     }
   }
 
-}); // .beyond/uimport/temp/react-dom/17.0.2.js
+}); // .beyond/uimport/react-dom/17.0.2.js
 
 
 var __exports = {};

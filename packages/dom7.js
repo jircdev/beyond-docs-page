@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/dom7/4.0.4.js
+}), mod); // .beyond/uimport/dom7/4.0.4.js
 
 
 var __exports = {};
@@ -1557,7 +1557,7 @@ var touchend = shortcut("touchend");
 var touchmove = shortcut("touchmove");
 var resize = shortcut("resize");
 var scroll = shortcut("scroll");
-var dom7_esm_default = $; // .beyond/uimport/temp/dom7/4.0.4.js
+var dom7_esm_default = $; // .beyond/uimport/dom7/4.0.4.js
 
 var __default = dom7_esm_default;
 };

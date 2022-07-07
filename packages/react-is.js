@@ -240,7 +240,7 @@ var require_react_is = __commonJS({
     }
   }
 
-}); // .beyond/uimport/temp/react-is/16.13.1.js
+}); // .beyond/uimport/react-is/16.13.1.js
 
 
 var __exports = {};

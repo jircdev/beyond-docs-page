@@ -930,9 +930,9 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => __pkg.hmr.on(event, listener);
+    this.on = (event, listener) => void 0;
 
-    this.off = (event, listener) => __pkg.hmr.off(event, listener);
+    this.off = (event, listener) => void 0;
   }();
   _exports.hmr = hmr;
 

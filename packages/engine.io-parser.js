@@ -29,7 +29,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/engine.io-parser/5.0.4.js
+}), mod); // .beyond/uimport/engine.io-parser/5.0.4.js
 
 
 var __exports = {};

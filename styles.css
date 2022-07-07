@@ -9695,7 +9695,6 @@ body.body-beyond-modal-opened {
     --secondary-accent: #8E99BB;
     --text-on-secondary: #FFFFFF;
     --secondary-background: #000012;
-    --background: #183045;
     --text-color: rgba(255, 255, 255, .6);
     --text-title-color: var(--text-on-primary);
     --text-second-color: var(--gray-dark);
@@ -9705,6 +9704,7 @@ body.body-beyond-modal-opened {
     --separator-color: var(--gray-lighter);
     --app-aside-link-selected: #fff;
     --primary-surface: #101625;
+    --background: #101625;
     --app-element-surface: rgba(0, 0, 0, 0.7);
     --app-element-hover-surface: rgba(3, 4, 5, 0.5);
     --app-element-border-color-1: var(--color-gray-80);
@@ -9791,7 +9791,6 @@ html[data-beyond-mode=dark] {
   --secondary-accent: #8E99BB;
   --text-on-secondary: #FFFFFF;
   --secondary-background: #000012;
-  --background: #183045;
   --text-color: rgba(255, 255, 255, .6);
   --text-title-color: var(--text-on-primary);
   --text-second-color: var(--gray-dark);
@@ -9801,6 +9800,7 @@ html[data-beyond-mode=dark] {
   --separator-color: var(--gray-lighter);
   --app-aside-link-selected: #fff;
   --primary-surface: #101625;
+  --background: #101625;
   --app-element-surface: rgba(0, 0, 0, 0.7);
   --app-element-hover-surface: rgba(3, 4, 5, 0.5);
   --app-element-border-color-1: var(--color-gray-80);

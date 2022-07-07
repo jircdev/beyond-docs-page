@@ -29,7 +29,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/ssr-window/4.0.2.js
+}), mod); // .beyond/uimport/ssr-window/4.0.2.js
 
 
 var __exports = {};

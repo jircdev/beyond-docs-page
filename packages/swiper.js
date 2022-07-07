@@ -30,7 +30,7 @@ var __copyProps = (to, from, except, desc) => {
 
 var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
   value: true
-}), mod); // .beyond/uimport/temp/swiper/8.2.6.js
+}), mod); // .beyond/uimport/swiper/8.2.6.js
 
 
 var __exports = {};
@@ -9497,7 +9497,7 @@ function EffectCards(_ref) {
       virtualTranslate: !swiper.params.cssMode
     })
   });
-} // .beyond/uimport/temp/swiper/8.2.6.js
+} // .beyond/uimport/swiper/8.2.6.js
 
 
 var __default = core_default;

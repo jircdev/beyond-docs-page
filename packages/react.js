@@ -1976,7 +1976,7 @@ var require_react = __commonJS({
     }
   }
 
-}); // .beyond/uimport/temp/react/17.0.2.js
+}); // .beyond/uimport/react/17.0.2.js
 
 
 var __exports = {};

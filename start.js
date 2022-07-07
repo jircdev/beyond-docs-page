@@ -2,6 +2,11 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
   "use strict";
 
   const {
+    externals
+  } = dependency_0;
+  externals.register(new Map([["@beyond-js/kernel/bundle", dependency_0], ["@beyond-js/kernel/transversals", dependency_1], ["@beyond-js/widgets/render", dependency_2], ["@beyond-js/kernel/routing", dependency_3]]));
+
+  const {
     Transversal
   } = require('@beyond-js/kernel/transversals');
 
@@ -48,13 +53,13 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     "id": "@beyond/docs/layout/main",
     "is": "layout"
   }, {
-    "name": "menu-layout",
-    "attrs": ["opened"],
-    "id": "@beyond/docs/layout/menu.widget",
-    "is": "layout"
-  }, {
     "name": "home-layout",
     "id": "@beyond/docs/layout/home",
+    "is": "layout"
+  }, {
+    "name": "menu-layout",
+    "attrs": ["opened", "home"],
+    "id": "@beyond/docs/layout/menu.widget",
     "is": "layout"
   }]);
   const bundles = new Map();
