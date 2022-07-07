@@ -1,0 +1,256 @@
+.aside__header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-content: center;
+}
+.aside__header .menu-docs__mobile-header {
+  display: none;
+}
+.aside__header h4 {
+  display: block;
+  margin: 15px;
+  font-size: 13px;
+  text-transform: uppercase;
+  padding: 0;
+  font-weight: lighter;
+}
+.aside__header .mobile-only {
+  display: none;
+}
+@media (max-width: 480px) {
+  .aside__header .mobile-only {
+    display: flex;
+  }
+}
+.aside__header .docs__menu__list__btn-close {
+  position: absolute;
+  right: 15px;
+  height: 30px;
+  width: 30px;
+  background: transparent;
+}
+.aside__header .docs__menu__list__btn-close svg {
+  fill: var(--primary-accent);
+}
+@media (min-width: 764px) {
+  .aside__header .docs__menu__list__btn-close {
+    display: none;
+  }
+}
+.docs__menu__list a {
+  text-decoration: none;
+  color: var(--text-color);
+  line-height: 23px;
+  letter-spacing: 0.28px;
+}
+.docs__menu__list a:hover {
+  color: var(--text-color);
+}
+.docs__menu__list > .menu__item--parent > section a {
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: lighter;
+  margin: 5px 0;
+}
+
+.docs__menu__list > .menu__item--parent > .docs__menu__sublist > li.item--opened > section a {
+  font-weight: bolder;
+}
+.docs__menu__list .active-item {
+  font-weight: bolder;
+}
+.docs__menu__list .active-item a {
+  font-weight: bolder;
+  color: var(--app-aside-link-selected);
+}
+.docs__menu__list li {
+  cursor: pointer;
+  align-items: center;
+  list-style: none;
+}
+.docs__menu__list li a {
+  font-size: 14px;
+  font-weight: lighter;
+}
+.docs__menu__list li > section {
+  display: flex;
+  align-items: center;
+  accent-color: var(--text-second-color);
+  transition: 300ms all ease-in;
+  justify-content: space-between;
+}
+.docs__menu__list li > section .beyond-icon {
+  fill: var(--text-color);
+}
+.docs__menu__list li.item--opened .beyond-icon {
+  transform: rotate(90deg);
+}
+.docs__menu__list > li.menu__item--parent > section > svg {
+  display: none;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.gradient-one {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,2a2896+100 */
+  background: rgb(64, 150, 238);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0);
+  /* IE6-9 */
+}
+
+.docs__menu__list li .docs__menu__sublist li > ul {
+  display: none;
+  border-left: 1px solid var(--color-gray-10);
+}
+.docs__menu__list li .docs__menu__sublist li > ul li {
+  padding-left: 1rem;
+}
+.docs__menu__list li .docs__menu__sublist li > ul .active-item {
+  border-left: 1px solid var(--app-primary-color);
+  margin-left: -1px;
+}
+.docs__menu__list li .docs__menu__sublist li.item--opened ul {
+  display: grid;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.gradient-one {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,2a2896+100 */
+  background: rgb(64, 150, 238);
+  /* Old browsers */
+  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0);
+  /* IE6-9 */
+}
+
+aside.docs__menu {
+  flex-direction: column;
+  z-index: 11;
+  padding-top: 15px;
+  padding-bottom: 30px;
+  position: sticky;
+  top: 50px;
+  overflow-y: auto;
+}
+@media (min-width: 765px) {
+  aside.docs__menu {
+    height: calc(100vh - 130px);
+    max-height: 90vh;
+  }
+}
+@media (max-width: 768px) {
+  aside.docs__menu {
+    padding: 15px;
+  }
+}
+aside.docs__menu .docs__menu__list {
+  --item-border: var(--primary);
+  display: grid;
+  grid-gap: 5px;
+  list-style: none;
+  padding: 0 15px;
+  position: sticky;
+  top: 0;
+}
+aside.docs__menu .docs__menu__list * {
+  font-size: 0.85rem;
+}
+@media (min-width: 481px) {
+  aside.docs__menu.on-home {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  aside.docs__menu {
+    position: fixed;
+    left: 0;
+    width: 0;
+    bottom: 0;
+    top: 0;
+    transition: 150ms ease-in all;
+    overflow: hidden;
+    padding: 0;
+    height: 100vh;
+    z-index: 101;
+  }
+  aside.docs__menu .img-logo {
+    margin: auto;
+    height: 30px;
+    display: flex;
+    align-content: start;
+    padding: 1rem;
+  }
+  aside.docs__menu .menu-mobile-container {
+    background: var(--background);
+    height: 100vh;
+    width: 40%;
+  }
+}
+@media (max-width: 768px) and (max-width: 480px) {
+  aside.docs__menu .menu-mobile-container {
+    width: 80%;
+  }
+}
+@media (max-width: 768px) {
+  aside.docs__menu.docs__menu--opened {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  aside.docs__menu.docs__menu--opened .beyond-perfect-scrollbar {
+    width: 80%;
+    height: 100%;
+  }
+}
+@media (max-width: 768px) {
+  aside.docs__menu .menu-docs__mobile-header {
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+}
+aside.docs__menu {
+  --docs-scrollbar-thumb: var(--app-scrollbar-color);
+  /* Handle */
+}
+aside.docs__menu::-webkit-scrollbar {
+  width: 8px;
+}
+aside.docs__menu::-webkit-scrollbar-track {
+  background: var(--app-scrollbar-track);
+  border-radius: 10px;
+}
+aside.docs__menu::-webkit-scrollbar-thumb {
+  background: var(--docs-scrollbar-thumb);
+}
+

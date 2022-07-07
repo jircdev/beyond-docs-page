@@ -16,7 +16,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "react-dom", "@beyond-js
   }).package();
 
   ;
-  externals.register(new Map([["@beyond-js/kernel/bundle", dependency_0], ["react", dependency_1], ["react-dom", dependency_2], ["@beyond-js/widgets/controller", dependency_3], ["@beyond-js/widgets/render", dependency_4]]));
+  externals.register(new Map([["react", dependency_1], ["react-dom", dependency_2]]));
   const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
@@ -439,9 +439,9 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "react-dom", "@beyond-js
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports.hmr = hmr;
 

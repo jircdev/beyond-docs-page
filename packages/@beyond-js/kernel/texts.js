@@ -337,9 +337,9 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/core"], functi
   };
 
   const hmr = new function () {
-    this.on = (event, listener) => void 0;
+    this.on = (event, listener) => __pkg.hmr.on(event, listener);
 
-    this.off = (event, listener) => void 0;
+    this.off = (event, listener) => __pkg.hmr.off(event, listener);
   }();
   _exports.hmr = hmr;
 

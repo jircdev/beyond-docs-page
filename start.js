@@ -2,11 +2,6 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
   "use strict";
 
   const {
-    externals
-  } = dependency_0;
-  externals.register(new Map([["@beyond-js/kernel/bundle", dependency_0], ["@beyond-js/kernel/transversals", dependency_1], ["@beyond-js/widgets/render", dependency_2], ["@beyond-js/kernel/routing", dependency_3]]));
-
-  const {
     Transversal
   } = require('@beyond-js/kernel/transversals');
 
