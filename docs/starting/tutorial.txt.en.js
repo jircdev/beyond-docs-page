@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 1842438303,
+    hash: 1779891952,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -84,41 +84,6 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           },
           "p9": "Now, you are ready to start working on the first module."
         },
-        "firstModule": {
-          "h1#first-module": ["Tutorial", "First module"],
-          "p0": "As can be observed, the project has two modules created, the Home, which is a response to the base URL of the project, and the “server-start” module, which will be addressed later.",
-          "p1": "From the dashboard, we can also see the content of these modules. For this, we can click on the project icon at the PreAside. Then you can select the module you want, and then you can see its structure.\n",
-          "i1": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
-          "p11": "The dashboard allows us to",
-          "items1": ["See the bundles of a module.", "View the bundle files.", "Add files.", "Edit the source code of the files."],
-          "p3": "The structure of the module is as follows",
-          "items": ["widget: Folder where the page component code is located.", {
-            "s1": "ts: ",
-            "items": ["controller.ts: Component controller object, required to mount the WebComponent in the browser.", "views/index.tsx: React component that renders the page."]
-          }, "scss: Folder for adding styles to the module", "module.json: Module configuration file (Place to define the type of bundles and processors to use)."],
-          "p4": "Let's get down to business!",
-          "p5": "Having a clear idea on the structure, what's next is creating the login form and adding some styles, and then continuing with the connection to the backend node."
-        },
-        "formCreation": {
-          "h2#form-creation": "Form Creation",
-          "p1": "If you have previously worked with React, what follows is the part you will probably know best, for sure, with some subtleties. Next, you will edit our page.tsx file to create a login form and a basic functionality to update status.\n",
-          "p2": "IDE or from the integrated Dashboard Editor, which speciallty is providing help to the developer for specific cases. But for the purposes of the tutorial, we recommend using it by clicking on the required file from the side.\n\n",
-          "c1": "page"
-        },
-        "styles": {
-          "h2": "Styles",
-          "p1": "BeyondJS handles styling by default with the SASS preprocessor. Let's go to our styles.scss file and add some styling to the form.",
-          "q2": {
-            "s1": "SASS is a processor in BeyondJS. To read in-depth about the processor's mechanism, you can find further details in the",
-            "l1": ["/processors", "processor's chapter"]
-          },
-          "c1": "styles",
-          "p3": "Let's explain a bit the above code.",
-          "items": ["We add basic styling to the form, the inputs, the submit button, and for handling an error message.", {
-            "s1": "Custom properties: the custom properties used are a simple structure for handling variables included by beyond in the ",
-            "l1": ["/template", "Project Template."]
-          }]
-        },
         "backendLogic": {
           "h1": ["Tutorial", "Backend Logic"],
           "p1": "Login forms, by nature, require validating data against a backend that connects to some data handler. Next, we are emulating the connection to the database, creating our integration with a node service, which will have a predefined username and password against which we will validate if the session is valid or not. To achieve this, we will make use of WebSockets.",
@@ -148,7 +113,102 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "i4": ["/images/tutorial/bridge-form.png", "Creating module on BeyondJS Dashboard"],
           "p7": "\nYou add the module name, which we will be called `auth`, and confirm. When the form finishes executing, BeyondJS will have created a folder with the module structure. This includes a structure similar to the home module, but with a bundle of a bridge type instead of a page one.\n",
           "p8": "Our final module.json should have the following structure:",
-          "c4": "platforms2"
+          "c4": "platforms2",
+          "q2": "module.json are currently not visible from the dashboard, you can see them from your preferred IDE"
+        },
+        "bridgeCode": {
+          "h1": ["Tutorial", "Bridge Code"],
+          "p1": "As we mentioned before, in this moment, usually, each project has its logic for session validation. The intention today is not to focus on how should this be handled. What you will do, is create a basic code that allows you to connect our client code with the backend node. You'll add this to the existing bridge.ts file in the module you just created.\n",
+          "c1": "bridge",
+          "p2": "The code is quite simple, but there are several interesting points to highlight: ",
+          "items": [{
+            "s1": "The magic comment /*bundle*/, is used by Beyond to identify that the code below should be considered as a code to be exported in the final bundle. If you want to read more about how bundles and modules work, we recommend you go to the ",
+            "l1": ["/modules/introduction", "modules chapter"],
+            "s2": " of the documentation."
+          }, "The magic comment /*actions*/ is used by BeyondJS to identify which segments of the bundle bridge should be made available as actions that can be consumed by the client.", "The response of the login method is a flat object that arrives with the defined structure to the client."]
+        },
+        "connectClientAndServer": {
+          "h2": "Connect client and server",
+          "p1": {
+            "s1": "The bridge we created is a node service. Generally, to run a node service, it is necessary to go to a console. However, in BeyondJS, these services work as a ",
+            "l1": ["/bee", "BEE (Beyond Environment Service)"],
+            "s2": "and to execute it, we must go to the",
+            "l2": ["/docs/dashboard", "Dashboard"],
+            "s3": " and click on the execution button, which we can find on the project detail screen"
+          },
+          "p2": "And another in the project detail:",
+          "i1": ["/images/dashboard/v1/bee.png", "Beyond Environment Execution - Dashboard - BeyondJs"],
+          "p3": {
+            "s1": "<strong>The Dashboard</strong> is a powerful tool provided by BeyondJS. You can learn more about this in ",
+            "l1": ["/dashboard", "detail section"]
+          },
+          "p4": "To implement the login functionality with our server, we must import our auth object in the client code and associate the onSubmit event to our form.",
+          "p5": "Projects in BeyondJS follow the same guidelines for specification and resolution of names and packages, as npm, in the same way that typescript does. They must have a module name and can handle a scope as well. In our case, we define both when creating our project and module respectively.",
+          "p6": "Next, in our Page component we import the Auth object",
+          "c1": "view1",
+          "p7": "We add our onSubmity function and associate it to the form, our code should be as follows:",
+          "c2": "view2",
+          "p8": "Time to test our form. If we add the correct data, we can see a message appearing in the browser console indicating that the data was validated, and you can log in. If, on the contrary, we add incorrect data, we can see how the error message \"Invalid data\" appears. Which we update in the component's state variable.",
+          "p9": "Summary:",
+          "items": ["We create a module with a page type widget", "We create a connection with a backend node through the bundle bridge.", "We review the module resolution structure to import the Auth bridge and be able to add the login validation."],
+          "p10": "Now we just need to redirect the user to a welcome screen."
+        },
+        "routing": {
+          "h1": ["tutorial", "Routing"],
+          "p1": "The first thing we must do is create a new module with a bundle of type Page. This can be done from the dashboard. For that, we must access our dashboard and select the project we are working on if we have done so. It will enable, in the Preaside, the actions that we can carry out on the project, listed below:",
+          "items": ["Add modules", "General project settings", "Manage static files", "Manage Templates"],
+          "p2": "We click on the icon to add modules and a modal like the following will open:",
+          "i1": ["/images/dashboard/v1/create-module-1.png", "Create module on beyond project 1"],
+          "p3": "We select blank module. On the next screen, it request the bundle, we then select “page”:",
+          "i2": ["/images/dashboard/v1/create-module-2.png", "Create module on beyond project 2"],
+          "p4": "On the final screen, it will require us for some information, below it is explained what to place on it:",
+          "i3": ["/images/dashboard/v1/create-module-3.png", "Create module on beyond project 3"],
+          "items2": ["Module name: welcome", "Web component name: welcome-page.", "Url: \"/welcome\""],
+          "p5": "Pages and layouts in Beyond are resolved using Web components. If you want to know in detail how they work and why, go to the Web Components Section.",
+          "p6": "We then open the Page object created in the module and add a simple message that says: Welcome!",
+          "p7": "Next, we will make the necessary adjustments to redirect to our welcome module after logging in. What we need to do after is import the \"routing\" object from Beyond, use the pushState method as it provides, and navigate to the welcome page.",
+          "h4#imports": "Imports",
+          "c1": "importing",
+          "h4#pushState": "Navigation",
+          "c2": "pushState",
+          "p8": "We are done! If we retest our form, we'll be able to log in and see how we've been redirected to the welcome page."
+        },
+        "firstModule": {
+          "h1#first-module": ["Tutorial", "First module"],
+          "p0": "From the dashboard, we can also see the content of these modules. For this, we can click on the project icon at the PreAside. Then you can select the module you want, and then you can see its structure.\n",
+          "i1": ["/images/tutorial/project-view.png", "BeyondJS - Navigating module"],
+          "p1": "As can be observed, the project has two modules created, the Home, which is a response to the base URL of the project, and the “server-start” module, which will be addressed later.",
+          "p2": "The dashboard allows us to",
+          "items1": ["See the bundles of a module.", "View the bundle files.", "Add files.", "Edit the source code of the files."],
+          "p3": "From the Dashboard, we can also navigate the module by accessing the PreAside at the Active project icon. You click on the home module, and it will display the list of bundles contained in the module.",
+          "i2": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
+          "p4": "The structure of the module is as follows",
+          "items": ["widget: Folder where the page component code is located.", {
+            "s1": "ts: ",
+            "items": ["controller.ts: Component controller object, required to mount the WebComponent in the browser.", "views/index.tsx: React component that renders the page."]
+          }, "scss: Folder for adding styles to the module", "module.json: Module configuration file (Place to define the type of bundles and processors to use)."],
+          "p5": "Let's get down to business!",
+          "p6": "Having a clear idea on the structure, what's next is creating the login form and adding some styles, and then continuing with the connection to the backend node."
+        },
+        "formCreation": {
+          "h2#form-creation": "Form Creation",
+          "p1": "If you have previously worked with React, what follows is the part you will probably know best, for sure, with some subtleties. Next, you will edit our page.tsx file to create a login form and a basic functionality to update status.\n",
+          "p2": "IDE or from the integrated Dashboard Editor, which speciallty is providing help to the developer for specific cases. But for the purposes of the tutorial, we recommend using it by clicking on the required file from the side.\n\n",
+          "c1": "page"
+        },
+        "styles": {
+          "h2": "Styles",
+          "p1": "BeyondJS handles styling by default with the SASS preprocessor. Let's go to our styles.scss file and add some styling to the form.",
+          "q2": {
+            "s1": "SASS is a processor in BeyondJS. To read in-depth about the processor's mechanism, you can find further details in the",
+            "l1": ["/processors", "processor's chapter"]
+          },
+          "c1": "styles",
+          "p3": "Let's explain a bit the above code.",
+          "items": ["We add basic styling to the form, the inputs, the submit button, and for handling an error message.", {
+            "s1": "Custom properties: the custom properties used are a simple structure for handling variables included by beyond in the ",
+            "l1": ["/template", "Project Template."]
+          }]
         }
       };
     }

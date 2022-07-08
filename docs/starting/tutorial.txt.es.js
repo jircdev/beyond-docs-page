@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 2829885479,
+    hash: 4223284493,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -82,44 +82,6 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           },
           "p9": "Ahora estamos listos para empezar a trabajar en el primer módulo."
         },
-        "firstModule": {
-          "h1": ["Tutorial", "Primer módulo"],
-          "p01": "En el dashboard, también podemos hacer click sobre el proyecto y esto abrirá un nuevo tab con el listado de módulos del mismo.",
-          "i1": ["/images/tutorial/project-view.png", "BeyondJS - Project view"],
-          "p0": "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “server-start” del cúal se hablará más adelante.",
-          "p1": "Desde el Dashboard también podemos ver el contenido de estos módulos, para ello podemos hacer click en el ícono de proyecto en el PreAside y luego seleccionar el módulo que deseemos y podremos ver la estructura del mismo.",
-          "i2": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
-          "p11": "El Dashboard nos permite hacer las siguientes acciones sobre un módulo",
-          "items1": ["Ver los bundles de un módulo.", "Ver los archivos de los bundles.", "Agregar archivos.", "Editar el código fuente de los archivos.", "Generar declaraciones.", "Visualizar errores de código."],
-          "p3": "La estructura del módulo `home` es la siguiente:",
-          "items": ["widget: Carpeta en donde se encuentra el código del componente page", {
-            "s1": "ts: ",
-            "items": ["`controller.ts`: Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador.", "`views/index.tsx`: Componente react que renderiza la página."]
-          }, "scss: Carpeta para agregar estilos al módulo.", "module.json: Archivo de configuración del módulo (Lugar para definir tipo de bundles y procesadores a utilizar)."],
-          "p4": "¡Manos a la obra!",
-          "p5": "Teniendo clara la estructura, lo que procede a continuación es crear el formulario de inicio de sesión y agregar algo de estilos, para luego continuar con la conexión al backend node"
-        },
-        "formCreation": {
-          "h2#creating-module": "Creación del Formulario",
-          "p1": "Si has trabajado con React, lo que viene es la parte que seguramente conoces mejor, con algunas sutilezas seguramente. A continuación, editaremos nuestro archivo page.tsx para crear un formulario de inicio de sesión y la funcionalidad básica para actualizar el estado.",
-          "p2": " La edición puede hacerse desde tu IDE de preferencia y también desde el Editor integrado del Dashboard, el cual tiene como finalidad brindar ayuda para casos especificos al desarrollador, pero para efectos del tutorial recomendamos usarlo, basta con hacer click en el archivo requerido desde el aside.",
-          "c1": "page"
-        },
-        "styles": {
-          "h2": "Estilos",
-          "p1": "BeyondJS maneja los estilos por defecto con el preprocesador SASS, ahora vamos a nuestro archivo styles.scss y agreguemos un poco de estilo al formulario.",
-          "q2": {
-            "s1": "SASS es un procesador en BeyondJS, si quieres leer a profundidad sobre el mecanismo de procesadores podrás encontrar los detalles en ",
-            "l1": ["/docs/processors", "La seccion de procesadores"]
-          },
-          "c1": "styles",
-          "p3": "Expliquemos un poco el código anterior:",
-          "items": ["Agregamos estilo básico al formulario, los inputs, el botón de envío y para manejar un mensaje de error.", {
-            "s1": "Custom properties: las custom properties utilizadas, son una estructura básica para manejo de variables incluidas por beyond en el ",
-            "l1": ["/template", "Template del proyecto"],
-            "s2": "."
-          }]
-        },
         "backendLogic": {
           "h1": ["Tutorial", "Logica Backend"],
           "p1": "Por su naturaleza, Los formularios de inicio de sesión requieren validar los datos contra un backend que se conecte a algún manejador de datos. A continuación, vamos a emular la conexión a la base de datos, creando nuestra integración con un servicio node, que tendrá un usuario y clave predefinidos y así, podremos revisar si la sesión es válida o no. Para lograrlo, haremos uso de websockets.",
@@ -149,7 +111,8 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "i4": ["/images/tutorial/bridge-form.png", "Creating module on BeyondJS Dashboard"],
           "p7": "A continuación agregamos el nombre del módulo, al cúal llamaremos `auth` y confirmamos.  Cúando el formulario termine la ejecución, BeyondJS habrá  creado una carpeta con la estructura del módulo, que incluye una estructura similar a la del módulo home, pero con un bundle de tipo bridge en vez de page. ",
           "p8": "Nuestro module.json final, debería quedar con la siguiente estructura:",
-          "c4": "platforms2"
+          "c4": "platforms2",
+          "q2": "los module.json actualmente no son visibles desde el dashboard, puedes verlos desde tu IDE de preferencia"
         },
         "bridgeCode": {
           "h1": ["Tutorial", "Código Bridge"],
@@ -190,7 +153,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
         },
         "routing": {
           "h1": ["Tutorial", "Routing"],
-          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, si no lo hemos hecho. Esto habilitará en el Preaside las acciones que podemos realizar sobre el proyecto, Las listamos a continuación:",
+          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, si no lo hemos hecho. Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto, Las listamos a continuación:",
           "items": ["Agregar módulos", "Configuración general del proyecto", "Gestionar archivos estáticos", "Gestionar Templates"],
           "p2": "Hacemos clic en el ícono para agregar módulos y se abrirá un modal como el siguiente:",
           "i1": ["/images/dashboard/v1/create-module-1.png", "Create module on beyond project 1"],
@@ -208,7 +171,46 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "c2": "pushState",
           "p8": "¡Listo! Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
         },
-        "algo": "algo"
+        "algo": "algo",
+        "firstModule": {
+          "h1": ["Tutorial", "Primer módulo"],
+          "p0": "En el dashboard, también podemos hacer click sobre el proyecto y esto abrirá un nuevo tab con el listado de módulos del mismo.",
+          "i1": ["/images/tutorial/project-view.png", "BeyondJS - Project view"],
+          "p1": "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “server-start” del cúal se hablará más adelante.",
+          "p2": "El Dashboard nos permite hacer las siguientes acciones sobre un módulo",
+          "items1": ["Ver los bundles de un módulo.", "Ver los archivos de los bundles.", "Agregar archivos.", "Editar el código fuente de los archivos.", "Generar declaraciones.", "Visualizar errores de código."],
+          "p3": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
+          "i2": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
+          "p10": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
+          "p4": "La estructura del módulo `home` es la siguiente:",
+          "items": ["widget: Carpeta en donde se encuentra el código del componente page", {
+            "s1": "ts: ",
+            "items": ["`controller.ts`: Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador.", "`views/index.tsx`: Componente react que renderiza la página."]
+          }, "scss: Carpeta para agregar estilos al módulo.", "module.json: Archivo de configuración del módulo (Lugar para definir tipo de bundles y procesadores a utilizar)."],
+          "p5": "¡Manos a la obra!",
+          "p6": "Teniendo clara la estructura, lo que procede a continuación es crear el formulario de inicio de sesión y agregar algo de estilos, para luego continuar con la conexión al backend node"
+        },
+        "formCreation": {
+          "h2#creating-module": "Creación del Formulario",
+          "p1": "Si has trabajado con React, lo que viene es la parte que seguramente conoces mejor, con algunas sutilezas seguramente. A continuación, editaremos nuestro archivo page.tsx para crear un formulario de inicio de sesión y la funcionalidad básica para actualizar el estado.",
+          "p2": " La edición puede hacerse desde tu IDE de preferencia y también desde el Editor integrado del Dashboard, el cual tiene como finalidad brindar ayuda para casos especificos al desarrollador, pero para efectos del tutorial recomendamos usarlo, basta con hacer click en el archivo requerido desde el aside.",
+          "c1": "page"
+        },
+        "styles": {
+          "h2": "Estilos",
+          "p1": "BeyondJS maneja los estilos por defecto con el preprocesador SASS, ahora vamos a nuestro archivo styles.scss y agreguemos un poco de estilo al formulario.",
+          "q2": {
+            "s1": "SASS es un procesador en BeyondJS, si quieres leer a profundidad sobre el mecanismo de procesadores podrás encontrar los detalles en ",
+            "l1": ["/docs/processors", "La seccion de procesadores"]
+          },
+          "c1": "styles",
+          "p3": "Expliquemos un poco el código anterior:",
+          "items": ["Agregamos estilo básico al formulario, los inputs, el botón de envío y para manejar un mensaje de error.", {
+            "s1": "Custom properties: las custom properties utilizadas, son una estructura básica para manejo de variables incluidas por beyond en el ",
+            "l1": ["/template", "Template del proyecto"],
+            "s2": "."
+          }]
+        }
       };
     }
   });

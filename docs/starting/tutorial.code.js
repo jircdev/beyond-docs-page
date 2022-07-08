@@ -288,7 +288,7 @@ class Auth {
   *********************************/
 
   ims.set('./templates/index', {
-    hash: 2217311335,
+    hash: 1890569048,
     creator: function (require, exports) {
       "use strict";
 
@@ -313,7 +313,7 @@ class Auth {
         starting: _starting.starting,
         module: {
           page: {
-            title: "view/index.tsx",
+            title: "views/index.tsx",
             tpl: _pageCodeStarted.PageCodeStarted
           },
           styles: {
@@ -339,7 +339,7 @@ class Auth {
   ***************************************/
 
   ims.set('./templates/module.json', {
-    hash: 1686211011,
+    hash: 3005968685,
     creator: function (require, exports) {
       "use strict";
 
@@ -349,51 +349,7 @@ class Auth {
       exports.moduleJson = void 0;
       const moduleJson = {
         bridge: `
-  "platforms": [
-    "backend",
-    "web"
-  ],
-  "bridge": {
-    "path": "bridge",
-    "files": [
-      "*"
-    ]
-  },
-   "widget": ...    
-    `,
-        module: `
-{
-  "name": "home",
-  "platforms": [
-    "backend",
-    "web"
-  ],
-  "bridge": {
-    "path": "bridge",
-    "files": [
-      "*"
-    ]
-  },
-  "widget": {
-    "is": "page",
-    "route": "/",
-    "element": {
-      "name": "home-page"
-    },
-    "scss": {
-      "path": "scss",
-      "files": [
-        "*"
-      ]
-    },
-    "ts": {
-      "path": "ts",
-      "files": [
-        "*"
-      ]
-    }
-  }
-}
+
 `
       };
       exports.moduleJson = moduleJson;
@@ -536,7 +492,7 @@ function View(): JSX.Element {
   ***************************************/
 
   ims.set('./templates/page-styles', {
-    hash: 2057643850,
+    hash: 2630990486,
     creator: function (require, exports) {
       "use strict";
 
@@ -566,7 +522,7 @@ function View(): JSX.Element {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background: var(--element-bg);
+    background: var(--bg-element);
     padding: 30px;
     width: 100%;
     max-width: 500px;
@@ -646,7 +602,7 @@ routing.pushState('/welcome');`;
   *********************************/
 
   ims.set('./templates/start', {
-    hash: 1673004955,
+    hash: 4188211953,
     creator: function (require, exports) {
       "use strict";
 
@@ -682,36 +638,16 @@ listen();
     `;
       const tpl3 = `
 {
-  "name": "home",
-  "platforms": [
-    "backend",
-    "web"
-  ],
+  "name": "auth",
   "bridge": {
     "path": "bridge",
     "files": [
       "*"
     ]
   },
-  "widget": {
-    "is": "page",
-    "route": "/",
-    "element": {
-      "name": "home-page"
-    },
-    "scss": {
-      "path": "scss",
-      "files": [
-        "*"
-      ]
-    },
-    "ts": {
-      "path": "ts",
-      "files": [
-        "*"
-      ]
-    }
-  }
+  "platforms": [
+    "*"
+  ]
 }`;
       const backend = {
         module1: {
