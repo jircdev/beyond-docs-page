@@ -1,2 +1,5 @@
 /* /index.html 200
-/api/* /.netlify/functions/:splat 200
+[[redirects]]
+from="/api/*"
+to="/.netlify/functions/:splat"
+
