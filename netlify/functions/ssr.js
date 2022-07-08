@@ -2,7 +2,7 @@ exports.handler = async function (event, context) {
     return {
         statusCode: 200,
         body: JSON.stringify({
-            message: 'test julio'
+            message: 'test julio 1'
         })
     }
 }
