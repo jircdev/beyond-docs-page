@@ -226,7 +226,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   *****************************/
 
   ims.set('./views/index', {
-    hash: 446699369,
+    hash: 1116974950,
     creator: function (require, exports) {
       "use strict";
 
@@ -305,7 +305,9 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
         }, React.createElement(_image.BeyondImage, {
           src: "/images/beyond-logo.png",
           alt: "beyondjs"
-        })), React.createElement(_menu.HamburgerMenu, null)), React.createElement("div", {
+        })), React.createElement("div", {
+          className: "header-mobile-menu"
+        }, React.createElement(_themeButton.ThemeToggleButton, null), React.createElement(_languageAction.LanguageAction, null), React.createElement(_menu.HamburgerMenu, null))), React.createElement("div", {
           className: "menu-list__container"
         }, React.createElement("ul", {
           className: "header__menu"
@@ -324,7 +326,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   ***************************************/
 
   ims.set('./views/language-action', {
-    hash: 3610201077,
+    hash: 1534267421,
     creator: function (require, exports) {
       "use strict";
 
@@ -348,7 +350,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
         };
 
         return React.createElement(React.Fragment, null, React.createElement(_icons.AppIcon, {
-          className: "language-icon",
+          className: "btn-header-menu language-icon",
           icon: "languages",
           onClick: onClick
         }), toggle && React.createElement(_modal.LanguagesModal, {

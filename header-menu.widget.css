@@ -82,6 +82,15 @@
   aspect-ratio: 1/1;
   background: red;
 }
+.header-mobile-menu {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.header-mobile-menu .btn-header-menu {
+  padding: 0.5rem;
+}
+
 .top__header {
   width: 100%;
   z-index: 12;

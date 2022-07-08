@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 4223284493,
+    hash: 3982362205,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -32,7 +32,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "h2": "Antes de Empezar",
           "p1": "Este tutorial busca el flujo principal de desarrollo con BeyondJS y demostrar de manera clara los beneficios que este ofrece. El propósito de este tutorial es que los usuarios/programadores puedan  aprender mientras practican, por tanto, los conceptos que definen la estructura de BeyondJS son abordados de forma general, focalizando en hacer un ejercicio rápido, conciso y claro. Para mayor entendimiento de los algunos conceptos, es necesario acceder a las secciones correspondientes en la documentación.",
           "p2": "El tutorial se divide de la siguiente forma: ",
-          "items": ["Dashboard.", "Creación de primer módulo.", "Integración con el backend.", "Navegación."],
+          "items": ["Instalar BeyondJS", "Dashboard.", "Creación de primer módulo.", "Integración con el backend.", "Navegación."],
           "p3": "Sugerimos que este sea completado, para demostrar cómo en poco tiempo logras integrar código de cliente y servidor, utilizando la misma estructura JavaScript.",
           "p4": "Antes de empezar, recomendamos la revisión de los siguientes conceptos para que los tengas presente a medida que avanzas",
           "items2": ["<strong>Bundle</strong>: Representa un conjunto de archivos fuentes que generan un único archivo final, el cual es incluido en el navegador.", "<strong>Module</strong>: Representa uno o múltiples bundles.", "<strong>Processor</strong>: Representa el procesador, compilador o transpilador de código de la tecnología que se está utilizando."]
@@ -136,10 +136,6 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           },
           "p2": "Y otro en el detalle del proyecto:",
           "i1": ["/images/dashboard/v1/bee.png", "Beyond Environment Execution - Dashboard - BeyondJs"],
-          "p3": {
-            "s1": "<strong>El Dashboard</strong> es una herramienta muy potente provista por BeyondJS. Puedes aprender más acerca de esto en",
-            "l1": ["/dashboard", "La seccion de detalle"]
-          },
           "p4": "Para poder implementar la funcionalidad de login con nuestro servidor, debemos importar nuestro objeto auth en el código cliente y asociar el evento onSubmit a nuestro formulario.",
           "p5": "En BeyondJS los proyectos siguen las mismas directrices para especificación y resolución de nombres y paquetes que npm, de la misma forma que lo hace typescript. Deben tener nombre de módulo y pueden manejar un scope también. En nuestro caso, definimos ambos al momento de crear nuestro proyecto y módulo respectivamente.",
           "p6": "A continuación, en nuestro componente Page importamos el objeto Auth",
@@ -151,34 +147,17 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "items": ["Creamos un módulo con un widget de tipo page.", "Creamos una conexión con un backend node por medio del bundle bridge.", "Repasamos la estructura de resolución de módulos para importar el bridge Auth y poder agregar la validación de inicio de sesión."],
           "p10": "Ahora solo nos falta redireccionar al usuario a una pantalla de bienvenida."
         },
-        "routing": {
-          "h1": ["Tutorial", "Routing"],
-          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, si no lo hemos hecho. Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto, Las listamos a continuación:",
-          "items": ["Agregar módulos", "Configuración general del proyecto", "Gestionar archivos estáticos", "Gestionar Templates"],
-          "p2": "Hacemos clic en el ícono para agregar módulos y se abrirá un modal como el siguiente:",
-          "i1": ["/images/dashboard/v1/create-module-1.png", "Create module on beyond project 1"],
-          "p3": "Seleccionamos módulo en blanco. Y en la siguiente pantalla, nos pide el bundle, seleccionamos \"page\":",
-          "i2": ["/images/dashboard/v1/create-module-2.png", "Create module on beyond project 2"],
-          "p4": "En la pantalla final, nos pedirá algunos datos, a continuación, se explica que colocar:",
-          "i3": ["/images/dashboard/v1/create-module-3.png", "Create module on beyond project 3"],
-          "items2": ["Module name: welcome", "Web component name: welcome-page.", "Url: \"/welcome\""],
-          "p5": "Las páginas y layouts en Beyond se resuelven haciendo uso de Web components. Si quieres saber en detalle cómo funcionan y porqué, dirígete a la sección de Web Components.",
-          "p6": "Abrimos el objeto Page creado en el módulo y agregaremos un mensaje simple que diga: ¡Bienvenido!",
-          "p7": "A continuación, Haremos los ajustes necesarios, para redireccionar a nuestro módulo de bienvenida, luego de iniciar sesión. Lo que debemos hacer a continuación, es importar el objeto \"routing\" de Beyond, para usar el método pushState que provee y navegar a la página de Bienvenida.",
-          "h4#imports": "Importación",
-          "c1": "importing",
-          "h4#pushState": "Navegación",
-          "c2": "pushState",
-          "p8": "¡Listo! Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
+        "p3": {
+          "s1": "<strong>El Dashboard</strong> es una herramienta muy potente provista por BeyondJS. Puedes aprender más acerca de esto en",
+          "l1": ["/dashboard", "La seccion de detalle"]
         },
-        "algo": "algo",
         "firstModule": {
           "h1": ["Tutorial", "Primer módulo"],
           "p0": "En el dashboard, también podemos hacer click sobre el proyecto y esto abrirá un nuevo tab con el listado de módulos del mismo.",
           "i1": ["/images/tutorial/project-view.png", "BeyondJS - Project view"],
           "p1": "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “server-start” del cúal se hablará más adelante.",
           "p2": "El Dashboard nos permite hacer las siguientes acciones sobre un módulo",
-          "items1": ["Ver los bundles de un módulo.", "Ver los archivos de los bundles.", "Agregar archivos.", "Editar el código fuente de los archivos.", "Generar declaraciones.", "Visualizar errores de código."],
+          "items1": ["Ver y gestionar módulos.", "Agregar archivos.", "Editar el código fuente de los archivos.", "Generar declaraciones.", "Visualizar errores de código.", "Gestionar configuraciones generales del proyecto", "Gestionar Templates"],
           "p3": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
           "i2": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
           "p10": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
@@ -210,6 +189,25 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
             "l1": ["/template", "Template del proyecto"],
             "s2": "."
           }]
+        },
+        "routing": {
+          "h1": ["Tutorial", "Routing"],
+          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, si no lo hemos hecho. Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto, Las listamos a continuación:",
+          "p2": "Hacemos clic en el ícono para agregar módulos y se abrirá un modal como el siguiente:",
+          "i1": ["/images/dashboard/v1/create-module-1.png", "Create module on beyond project 1"],
+          "p3": "Seleccionamos módulo en blanco. Y en la siguiente pantalla, nos pide el bundle, seleccionamos \"page\":",
+          "i2": ["/images/dashboard/v1/create-module-2.png", "Create module on beyond project 2"],
+          "p4": "En la pantalla final, nos pedirá algunos datos, a continuación, se explica que colocar:",
+          "i3": ["/images/dashboard/v1/create-module-3.png", "Create module on beyond project 3"],
+          "items2": ["Module name: welcome", "Web component name: welcome-page.", "Url: \"/welcome\""],
+          "p5": "Las páginas y layouts en Beyond se resuelven haciendo uso de Web components. Si quieres saber en detalle cómo funcionan y porqué, dirígete a la sección de Web Components.",
+          "p6": "Abrimos el objeto Page creado en el módulo y agregaremos un mensaje simple que diga: ¡Bienvenido!",
+          "p7": "A continuación, Haremos los ajustes necesarios, para redireccionar a nuestro módulo de bienvenida, luego de iniciar sesión. Lo que debemos hacer a continuación, es importar el objeto \"routing\" de Beyond, para usar el método pushState que provee y navegar a la página de Bienvenida.",
+          "h4#imports": "Importación",
+          "c1": "importing",
+          "h4#pushState": "Navegación",
+          "c2": "pushState",
+          "p8": "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y  Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
         }
       };
     }

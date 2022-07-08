@@ -216,7 +216,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "reac
   ***********************************/
 
   ims.set('./templates/backend', {
-    hash: 3367338770,
+    hash: 383171052,
     creator: function (require, exports) {
       "use strict";
 
@@ -234,11 +234,11 @@ import {Auth} from "@testing/login/home/bridge";
 `;
       const connection = {
         view1: {
-          title: 'view.tsx',
+          title: 'home/views/index.tsx',
           tpl: tpl1
         },
         view2: {
-          title: 'view.tsx',
+          title: 'home/views/index.tsx',
           tpl: _pageCode.PageCode
         },
         bridge: {
@@ -418,7 +418,7 @@ function View(): JSX.Element {
   *************************************/
 
   ims.set('./templates/page-code', {
-    hash: 2785092639,
+    hash: 2816005721,
     creator: function (require, exports) {
       "use strict";
 
@@ -428,7 +428,7 @@ function View(): JSX.Element {
       exports.PageCode = void 0;
       const PageCode = `
 import * as React from "react";
-import {Auth} from "@testing/login/home/bridge";
+import { Auth } from "@testing/login/auth";
 
 interface IForm {
     disabled?: boolean;
@@ -454,7 +454,7 @@ function View(): JSX.Element {
             event.preventDefault();
             const response = await model.login(username, password);
             if (response.data?.valid) {
-                console.log('iniciamos sesion');
+                console.log('valid data');
                 return;
             }
             setError(response.error);
