@@ -186,6 +186,11 @@ aside.docs__menu .docs__menu__list * {
   font-size: 0.85rem;
 }
 @media (min-width: 481px) {
+  aside.docs__menu .docs__menu__list.mobile__menu {
+    display: none;
+  }
+}
+@media (min-width: 481px) {
   aside.docs__menu.on-home {
     display: none;
   }

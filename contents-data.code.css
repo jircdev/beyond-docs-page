@@ -16,6 +16,7 @@ code *, pre * {
 
 .page__main-content {
   padding: 2rem;
+  position: relative;
 }
 @media (max-width: 1024px) {
   .page__main-content {
@@ -97,7 +98,7 @@ ul.icon__list li .beyond-icon {
   background: var(--app-opacity-bg);
 }
 .preload-container {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
@@ -272,6 +273,7 @@ ul.icon__list li .beyond-icon {
 }
 .page__main-container .page__main-content {
   max-width: 100%;
+  min-height: 400px;
   overflow: hidden;
 }
 @media (min-width: 1025px) {

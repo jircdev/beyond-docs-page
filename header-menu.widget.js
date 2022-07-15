@@ -226,7 +226,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   *****************************/
 
   ims.set('./views/index', {
-    hash: 1116974950,
+    hash: 517325085,
     creator: function (require, exports) {
       "use strict";
 
@@ -311,7 +311,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
           className: "menu-list__container"
         }, React.createElement("ul", {
           className: "header__menu"
-        }, React.createElement("li", null, React.createElement(_themeButton.ThemeToggleButton, null)), React.createElement("li", null, React.createElement(_languageAction.LanguageAction, null)), React.createElement("li", null, React.createElement("a", {
+        }, React.createElement("li", null, React.createElement("a", {
           href: "/docs/tutorial/start"
         }, texts.tutorial)), React.createElement("li", null, React.createElement("a", {
           href: "/docs/intro"

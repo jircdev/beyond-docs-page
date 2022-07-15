@@ -522,7 +522,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   **********************************/
 
   ims.set('./menu/mobile-menu', {
-    hash: 1244714012,
+    hash: 3970286532,
     creator: function (require, exports) {
       "use strict";
 
@@ -540,7 +540,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
           texts
         } = (0, _context.useMenuContext)();
         return React.createElement(React.Fragment, null, React.createElement("ul", {
-          className: "docs__menu__list"
+          className: "docs__menu__list mobile__menu"
         }, React.createElement("li", null, React.createElement("a", {
           href: "/docs/tutorial/start"
         }, texts.tutorial)), React.createElement("li", null, React.createElement("a", {

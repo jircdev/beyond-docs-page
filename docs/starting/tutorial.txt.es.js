@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 3982362205,
+    hash: 2983384664,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -46,11 +46,15 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           },
           "c1": "npx",
           "p3": "En el comando anterior, se solicitó crear un proyecto de tipo web con backend y se le agregó como scope <strong>testing</strong> y como nombre <strong>login</strong>.",
+          "q6": {
+            "s1": "Puedes aprender más acerca de los tipos de proyecto disponibles en la sección de ",
+            "l1": ["/quick-start", "Inicio Rapido."]
+          },
           "q2": {
             "s1": "El scope y el nombre, son datos que permiten identificar el proyecto y que lo dejan listo para ser publicado como paquete npm o para importarlo desde otro proyecto. Estas configuraciones pueden hacerse de forma manual, el dashboard sólo simplifica el proceso. Puedes ver la explicación de ello en ",
             "l1": ["/project/config", "La seccion de Configuracion de proyecto"]
           },
-          "p5": "Al finalizar el comando, podremos ver que se crearon los siguientes archivos, podremos ver que se creó la carpeta beyond que definimos como container y adentro de ella tendremos la siguiente estructura:",
+          "p5": "Al finalizar el comando, podemos validar la estructura creada adentro del directorio, es la siguiente:",
           "items": ["<strong>beyond.json</strong>: Archivo para manejar el servidor de desarrollo, gestionado por BeyondJS.", "<strong>package.json</strong>: Archivo de dependencias del proyecto", "<strong>projects.json</strong>: Archivo de configuración de proyectos, permite a BeyondJS identificar los proyectos a levantar.", {
             "s1": "<strong>login</strong>: Carpeta del proyecto.",
             "items": ["<strong>project.json</strong>: Contiene la configuración básica del proyecto (puede variar según el tipo y las necesidades del mismo).", {
@@ -58,13 +62,9 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
               "l1": ["/projects/json", "Configuracion de Proyectos"]
             }, {
               "s1": "<strong>template</strong>: Esta carpeta contiene todos los elementos necesarios para definir el template general del proyecto.",
-              "items": ["<strong>template.json</strong>: File that allows adjustments to be done to the project template setting."]
+              "items": ["<strong>template.json</strong>: Archivo que permite realizar ajustes en la configuración del template del proyecto."]
             }]
           }],
-          "q6": {
-            "s1": "Puedes aprender más acerca de los tipos de proyecto disponibles en la sección de ",
-            "l1": ["/quick-start", "Inicio Rapido"]
-          },
           "p7": "Luego de haber ejecutado el comando, ya estamos listos para empezar nuestro proyecto, para ello ejecutamos lo siguiente.",
           "c2": "beyond",
           "p8": {
@@ -130,9 +130,9 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p1": {
             "s1": "El bridge que creamos es un servicio node. Generalmente, para ejecutar un servicio node, es necesario ir a una consola. Sin embargo, en BeyondJS estos servicios funcionan como un ",
             "l1": ["/bee", "BEE (Beyond Environment Service)"],
-            "s2": " y para ejecutarlo podemos debemos ir al ",
+            "s2": " y para ejecutarlo debemos ir al ",
             "l2": ["/dashboard", "Dashboard"],
-            "s3": "y darle al botón de ejecución, que podemos encontrar en la pantalla de detalle del proyecto."
+            "s3": " y darle al botón de ejecución, que podemos encontrar en la pantalla de detalle del proyecto."
           },
           "p2": "Y otro en el detalle del proyecto:",
           "i1": ["/images/dashboard/v1/bee.png", "Beyond Environment Execution - Dashboard - BeyondJs"],
@@ -155,16 +155,18 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "h1": ["Tutorial", "Primer módulo"],
           "p0": "En el dashboard, también podemos hacer click sobre el proyecto y esto abrirá un nuevo tab con el listado de módulos del mismo.",
           "i1": ["/images/tutorial/project-view.png", "BeyondJS - Project view"],
-          "p1": "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “server-start” del cúal se hablará más adelante.",
+          "p1": "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “start-backend” del cúal se hablará más adelante.",
           "p2": "El Dashboard nos permite hacer las siguientes acciones sobre un módulo",
           "items1": ["Ver y gestionar módulos.", "Agregar archivos.", "Editar el código fuente de los archivos.", "Generar declaraciones.", "Visualizar errores de código.", "Gestionar configuraciones generales del proyecto", "Gestionar Templates"],
           "p3": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
           "i2": ["/images/tutorial/navigate-module.png", "BeyondJS - Navigating module"],
-          "p10": "Desde el Dashboard, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto,  hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos.",
           "p4": "La estructura del módulo `home` es la siguiente:",
           "items": ["widget: Carpeta en donde se encuentra el código del componente page", {
             "s1": "ts: ",
-            "items": ["`controller.ts`: Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador.", "`views/index.tsx`: Componente react que renderiza la página."]
+            "items": ["`controller.ts`: Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador.", {
+              "s1": "`views",
+              "items": ["`index.tsx`: Componente react que renderiza la página.\""]
+            }]
           }, "scss: Carpeta para agregar estilos al módulo.", "module.json: Archivo de configuración del módulo (Lugar para definir tipo de bundles y procesadores a utilizar)."],
           "p5": "¡Manos a la obra!",
           "p6": "Teniendo clara la estructura, lo que procede a continuación es crear el formulario de inicio de sesión y agregar algo de estilos, para luego continuar con la conexión al backend node"
@@ -192,7 +194,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
         },
         "routing": {
           "h1": ["Tutorial", "Routing"],
-          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Para eso, debemos acceder a nuestro dashboard y seleccionar el proyecto que estamos trabajando, si no lo hemos hecho. Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto, Las listamos a continuación:",
+          "p1": "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Dashboard. Accedemos al Dashboard y seleccionamos el proyecto (si no lo hemos hecho). Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto.",
           "p2": "Hacemos clic en el ícono para agregar módulos y se abrirá un modal como el siguiente:",
           "i1": ["/images/dashboard/v1/create-module-1.png", "Create module on beyond project 1"],
           "p3": "Seleccionamos módulo en blanco. Y en la siguiente pantalla, nos pide el bundle, seleccionamos \"page\":",
@@ -207,7 +209,11 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "c1": "importing",
           "h4#pushState": "Navegación",
           "c2": "pushState",
-          "p8": "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y  Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
+          "p8": "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y  Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida.",
+          "q1": {
+            "s1": "BeyondJS provee un objeto routing para interactuar con la api de navegación, puedes aprender más al respecto en la sección de ",
+            "l1": ["/docs/routing", " Enrutamiento."]
+          }
         }
       };
     }

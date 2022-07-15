@@ -766,7 +766,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
   **********************/
 
   ims.set('./page', {
-    hash: 3446108731,
+    hash: 1771502837,
     creator: function (require, exports) {
       "use strict";
 
@@ -794,7 +794,16 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
         hmrChanged
       }) {
         const [content, fetching, texts] = (0, _useContent.useContent)(contentId, sub, hmrChanged);
-        if (fetching || !texts) return React.createElement(_loading.PreloadPage, null);
+        const isFetching = fetching || !texts;
+
+        if (isFetching) {
+          return React.createElement("div", {
+            className: "page__main-container is-fetching"
+          }, React.createElement("section", {
+            className: "page__main-content"
+          }, React.createElement(_loading.PreloadPage, null), React.createElement("div", null)));
+        }
+
         const Control = content.control;
         return React.createElement(_context.DocsContext.Provider, {
           value: {

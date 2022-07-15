@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 4065627965,
+    hash: 588928215,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -54,10 +54,8 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "items": ["<strong>beyond.json</strong>: File for managing the development server, managed by BeyondJS", "<strong>package.json</strong>: Project dependencies file", "<strong>projects.json</strong>: Projects configuration file, allows BeyondJS to identify the projects for launch.", {
             "s1": "<strong>login</strong>: Project folder",
             "items": ["<strong>project.json</strong>: Contains the basic configuration of the project (may vary depending on the type and needs of the project).", {
-              "q1": {
-                "s1": "<strong>/modules</strong>: Folder where the default project modules are created. This value is configurable. Reed more about it in the ",
-                "l1": ["/projects/json", "Project Confirguration chapter"]
-              }
+              "s1": "<strong>/modules</strong>: Folder where the default project modules are created. This value is configurable. Reed more about it in the ",
+              "l1": ["/projects/json", "Project Confirguration chapter"]
             }, {
               "s1": "<strong>template</strong>: This folder contains all the needed elements to define the general project template.",
               "items": ["<strong>template.json</strong>: File that allows adjustments to be done to the project template setting."]
@@ -153,7 +151,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "h1#first-module": ["Tutorial", "First module"],
           "p0": "From the dashboard, we can also see the content of these modules. For this, we can click on the project icon at the PreAside. Then you can select the module you want, and then you can see its structure.\n",
           "i1": ["/images/tutorial/project-view.png", "BeyondJS - Navigating module"],
-          "p1": "As can be observed, the project has two modules created, the Home, which is a response to the base URL of the project, and the “server-start” module, which will be addressed later.",
+          "p1": "As can be observed, the project has two modules created, the Home, which is a response to the base URL of the project, and the “start-backend” module, which will be addressed later.",
           "p2": "The dashboard allows us to",
           "items1": ["See and manage modules.", "Add files.", "Edit source code.", "Generate declarations of code.", "Errors handling.", "Manage general settings of the module", "Manage Templates."],
           "p3": "From the Dashboard, we can also navigate the module by accessing the PreAside at the Active project icon. You click on the home module, and it will display the list of bundles contained in the module.",
@@ -161,7 +159,10 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p4": "The structure of the module is as follows",
           "items": ["widget: Folder where the page component code is located.", {
             "s1": "ts: ",
-            "items": ["controller.ts: Component controller object, required to mount the WebComponent in the browser.", "views/index.tsx: React component that renders the page."]
+            "items": ["controller.ts: Component controller object, required to mount the WebComponent in the browser.", {
+              "s1": "views",
+              "items": ["index.tsx: React component that renders the page."]
+            }]
           }, "scss: Folder for adding styles to the module", "module.json: Module configuration file (Place to define the type of bundles and processors to use)."],
           "p5": "Let's get down to business!",
           "p6": "Having a clear idea on the structure, what's next is creating the login form and adding some styles, and then continuing with the connection to the backend node."
@@ -207,6 +208,11 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "c1": "importing",
           "h4#pushState": "Navigation",
           "c2": "pushState",
+          "q1": {
+            "s1": "BeyondJS provides a routing object to interact with the navigation api, you can learn more about it in the section on ",
+            "l1": ["/docs/routing", " Routing "],
+            "s2": " page."
+          },
           "p8": "We are done! now we only need to refresh our form page to let BeyondJS register the new URL. If we retest our form, we'll be able to log in and see how we've been redirected to the welcome page."
         }
       };

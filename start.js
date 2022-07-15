@@ -32,6 +32,20 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     "is": "page",
     "route": "/editor"
   }, {
+    "name": "counter-react",
+    "id": "@beyond/docs/examples/sm/counter-react"
+  }, {
+    "name": "counter-svelte",
+    "id": "@beyond/docs/examples/sm/counter-svelte"
+  }, {
+    "name": "counter-vue",
+    "id": "@beyond/docs/examples/sm/counter-vue"
+  }, {
+    "name": "examples-counter-page",
+    "id": "@beyond/docs/examples/sm/counter",
+    "is": "page",
+    "route": "/examples/sm/counter"
+  }, {
     "name": "docs-header-menu",
     "id": "@beyond/docs/header-menu.widget"
   }, {

@@ -464,7 +464,7 @@ define(["exports"], function (_exports2) {
   *****************************/
 
   ims.set('./ims/exports', {
-    hash: 1949276032,
+    hash: 1011172992,
     creator: function (require, exports) {
       "use strict";
 
@@ -480,7 +480,7 @@ define(["exports"], function (_exports2) {
               // Set the exported property
               self[name] = value; // Check if it is a bundle exported property
 
-              const prop = bexports.descriptor.find(({
+              const prop = bexports.descriptor?.find(({
                 im: id,
                 from
               }) => {
