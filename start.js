@@ -70,6 +70,12 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     "attrs": ["opened", "home"],
     "id": "@beyond/docs/layout/menu.widget",
     "is": "layout"
+  }, {
+    "name": "app-docs-missing",
+    "id": "@beyond/docs/missing.widget",
+    "is": "page",
+    "route": "/not-found",
+    "layout": "home-layout"
   }]);
   const bundles = new Map();
   /**********************
@@ -84,7 +90,7 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     INTERNAL MODULE: ./routing
     *************************/
     ims.set('./routing', {
-      hash: 2451986782,
+      hash: 4159099945,
       creator: function (require, exports) {
         "use strict";
 
@@ -93,6 +99,10 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
         const data = new Map();
 
         _routing.routing.redirect = async function redirect(uri) {};
+
+        _routing.routing.missing = async pathname => {
+          return 'app-docs-missing';
+        };
       }
     });
   });

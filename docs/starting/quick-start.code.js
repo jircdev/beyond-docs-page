@@ -27,7 +27,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
   *************************/
 
   ims.set('./control', {
-    hash: 931942613,
+    hash: 3377061913,
     creator: function (require, exports) {
       "use strict";
 
@@ -58,9 +58,18 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
 
       function QuickStart() {
         return React.createElement(React.Fragment, null, React.createElement(_html.Document, {
+          textId: "requires",
+          moduleId: _beyond_context.module.resource,
+          tpls: tpls
+        }), React.createElement(_html.Document, {
+          textId: "global",
+          moduleId: _beyond_context.module.resource,
+          tpls: tpls
+        }), React.createElement(_html.Document, {
+          textId: "create",
           moduleId: _beyond_context.module.resource,
           tpls: tpls,
-          nextLinks: [["Bridge", "/docs/tutorial/bridge"]]
+          nextLinks: ["/docs/tutorial/start"]
         }));
       }
     }

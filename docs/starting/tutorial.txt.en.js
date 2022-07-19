@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 588928215,
+    hash: 278690393,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -55,7 +55,8 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
             "s1": "<strong>login</strong>: Project folder",
             "items": ["<strong>project.json</strong>: Contains the basic configuration of the project (may vary depending on the type and needs of the project).", {
               "s1": "<strong>/modules</strong>: Folder where the default project modules are created. This value is configurable. Reed more about it in the ",
-              "l1": ["/projects/json", "Project Confirguration chapter"]
+              "l1": ["/docs/projects/json", "Project Confirguration chapter"],
+              "items": ["<strong>backend</strong>: it starts the backend platform", "<strong>home</strong>: basic page module with a default route", "<strong>layouts</strong>: Folder with default layout of the web project"]
             }, {
               "s1": "<strong>template</strong>: This folder contains all the needed elements to define the general project template.",
               "items": ["<strong>template.json</strong>: File that allows adjustments to be done to the project template setting."]

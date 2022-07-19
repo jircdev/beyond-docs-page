@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 3602519394,
+    hash: 3523339500,
     creator: function (require, exports) {
       exports.txt = {
         "handling": {
@@ -33,7 +33,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p2": {
             "s1": "Existen numerosas librerias para la gestión de estado de un proyecto, generalmente asociadas al ",
             "l1": ["/docs/widgets", "Framework de vista"],
-            "s2": " que se esté utilizando. BeyondJS permite integrar la herramienta para manejo de estados que se desee, siempre que esta este preparada para el funcionamiento modular."
+            "s2": " que se esté utilizando. BeyondJS permite integrar la herramienta para manejo de estados que se desee, siempre que esta se encuentre preparada para el funcionamiento modular."
           },
           "q1": {
             "s1": "Puedes ver un ejemplo funcional de un contador que comparte el manejo de estado entre un componente creado con <strong>React</strong>, uno creado con <strong>Svelte</strong> y otro con <strong>Vue</strong> en ",

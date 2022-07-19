@@ -24,36 +24,56 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 2025100062,
+    hash: 2013583062,
     creator: function (require, exports) {
       exports.txt = {
-        "universal": {
-          "h1": ["Typescript Universal", "¿Qué es <span className=\"beyond\">BeyondJS</span>?"],
-          "cc1": "about",
-          "p1": "BeyondJS es un meta-framework basado en typescript, diseñado para crear proyectos que funcionen en diferentes entornos de ejecución JavaScript, manteniendo el foco en garantizar al programador una experiencia universal de desarrollo. Lo hace manteniéndose agnóstico a las librerías y tecnologías existentes, buscando dejar un camino estandarizado que permita su integración.",
-          "p2": "Los factores que garantizan una experiencia de desarrollo homogénea, sin importar el entorno para el que se trabaje son:",
-          "items": ["<strong>HMR en código cliente y código Node</strong>: de forma automática, sin configuraciones adicionales. Además, brinda una API al desarrollador que permite definir cuando y que desea actualizar.", "<strong>Desarrollo modular</strong>: BeyondJS tiene una filosofía de generación de bundles pequeños que son cargados a demanda en el momento en que son requeridos. No trabaja con un árbol de dependencias y por tanto no requiere de empaquetadores cómo webpack o parcel.", "<strong>Gestión de distribuciones</strong>: BeyondJS permite definir distribuciones para las plataformas de desarrollo que desean utilizarse y gestiona la, disponibilización del código final en base a ello."]
-        },
-        "overview": {
-          "h2": "Manejo de proyectos",
-          "p1": "Los proyectos en BeyondJS, tienen un enfoque de compatibilidad con NPM, lo cual les permite ser pensados como paquetes que podrían eventualmente, ser publicados directamente en NPM y posteriormente utilizados en cualquier otro proyecto, tanto de BeyondJS como externo.",
-          "p2": "Un proyecto es definido por medio de la especificación de su scope, nombre y de al menos una distribución. Las distribuciones permiten identificar el entorno de ejecución sobre el cual se espera funcione el proyecto y algunos datos adicionales que pueden resultar relevantes para el proceso de compilación y deployment. Asimismo, se puede configurar múltiples distribuciones en simultáneo, brindándole al desarrollador la flexibilidad de validar el comportamiento de su proyecto en los diferentes ecosistemas configurados.",
-          "p3": {
-            "s1": "Los proyectos contienen ",
-            "l1": ["/docs/modules", "módulos"],
-            "s2": " estos representan la unidad mínima de desarrollo en BeyondJS y tienen la capacidad de definir sobre que plataforma funcionan. Dato que es interpretado por las ",
-            "l2": ["/docs/distributions", "distribuciones"],
-            "s3": " configuradas en el entorno de desarrollo y al momento de realizar deploy de un proyecto."
+        "features": {
+          "h2#modular": "Diseño Modular",
+          "p1": "La arquitectura modular es todo en BeyondJS, permite al programador desarrollar proyectos desacoplados al dividirlos en partes más pequeñas que reciben una configuración mínima y no se ven afectados por el crecimiento del proyecto.\n\n",
+          "p2": "La estructura de los módulos se define por medio de los archivos de configuración `module.json`, con una estructura como la siguiente:\n",
+          "c1": "modulejson",
+          "p3": "Los `module.json` permiten al programador definir los bundles, archivos y tipos de archivos que se incluyen.",
+          "q1": {
+            "s1": "Puedes aprender más sobre el manejo de módulos en BeyondJS en",
+            "l1": ["/docs/modules/introduction", "la sección de Módulos.\n"]
           },
-          "p4": {
-            "s1": "Si quieres conocer más en detalle acerca de esto y sobre cómo crear proyectos en BeyondJSte recomendamos ir a la ",
-            "l1": ["/docs/projects/intro", " sección de Proyectos."]
+          "h2#dev-server": "Dev Server",
+          "p4": "BeyondJS provee el servidor de desarrollo para disponibilizar los bundles a demanda. el browser puede hacer las peticiones de forma normal y Deno soporta los imports HTTP por tanto trabaja de la misma forma y cómo node no soporta los http imports, beyondJS provee un BEE que sirve de proxy para poder interfacear con el servidor de desarrollo y lograr que todos guarden la misma lógica de programación.",
+          "q2": {
+            "s1": "Puedes aprender más acerca del comportamiento del entorno de desarrollo en ",
+            "l1": ["/docs/dev-server", "la sección de DevServer"],
+            "s2": "."
+          },
+          "i1": ["/images/graphs/beyond-js-flow.png", "Beyond dev server flow"],
+          "h2#on-demand": "Carga a demanda",
+          "p7": " Gracias al diseño modular, que segmenta los proyectos en pequeñas piezas o módulos, estos sólo son cargados cuando son requeridos, lo que permite una carga rápida y eficiente de los proyectos.",
+          "p8": "El comportamiento modular funciona igual en entornos de desarrollo y en entornos productivos.",
+          "p9": "Es conveniente usar una distribución optimizada para desarrollo y otra para producción, en ambos casos BeyondJS trabajará construyendo los bundles pero los generará en base a la configuración de cada distribución.",
+          "h2#distributions": "Distribuciones",
+          "p10": "Motivado a algunas incompatbilidades existentes aún en los entornos de ejecución de javascript, BeyondJS permite al programador disponibilizar su código para diversas plataformas  por medio de las distribuciones.",
+          "h2#hmr": "Hot Module Replacement (HMR)",
+          "p11": " El Hot Module Replacement es una característica esencial hoy en día en el desarrollo, comunmente utilizada en las herramientas de frontEnd. BeyondJS lo tiene habilitado por defecto en el DevServer y sin configuraciones adicionales. Además brinda una API básica al desarrollador que permite definir cuando y que desea actualizarse.",
+          "q3": {
+            "s1": "Puedes aprender más sobre esto en ",
+            "l1": ["/docs/foundations/hmr", " la sección de  HMR"],
+            "s2": "."
           }
         },
-        "features": {
-          "h2": "Features",
-          "p1": "A continuación, listamos algunas de las características más relevantes de BeyondJS.",
-          "items1": ["<strong>Universal deployment</strong>: Un mismo código, cualquier entorno.", "<strong>Carga modular y a demanda</strong>: Esto quiere decir que el código sólo carga una vez, cuando es requerido.", "<strong>Dashboard</strong>  o panel de control muy poderoso para desarrolladores.", "<strong>Plug & play</strong> de módulos.", "<strong>Ecosistema</strong> único de desarrollo entre Backend y Frontend. ", "<strong>Real Time</strong>  listo para implementar con web sockets.", "<strong>Integración automática</strong> con frameworks de vistas como React, Vue, Svelte.", "<strong>Typescript más inteligente</strong>: transpilado y chequeo de tipos en paralelo, para mejor productividad y rendimiento.", "<strong>HMR</strong>  modular y en el código backend de forma automática.", "<strong>Sin árbol de dependencias</strong> BeyondJS trabaja bajo un paradigma distinto al que usan empaquetadores como webpack.", "<strong>Jamstack + SSR.</strong>", "Entorno de ejecución de servicios gestionados por BeyondJS.", "Web Components integrados.", "<strong>Multilenguaje</strong> manejado por medio de bundles.", "Manejo de plantillas y sobreescritura."]
+        "universal": {
+          "h1#intro": ["Universal Typescript", "What is BeyondJS?"],
+          "cc1": "about",
+          "p1": "BeyondJS es un meta-framework de nueva generación, basado en Typescript, diseñado para crear código universal y enfocado en el desarrollo modular de proyectos compatibles con diferentes entornos de ejecución Javascript.",
+          "p2": "La arquitectura de BeyondJS permite trabajar de forma eficiente en proyectos grandes o pequeños sin que se afecte la productividad a medida que el proyecto crece, además garantiza al programador una experiencia de desarrollo homogénea.",
+          "h2#why": "¿Por qué Modular+Universal?",
+          "p3": "Deno, NodeJS y los navegadores modernos como Chrome o Edge, están todos basados en la misma tecnología Javascript.",
+          "p4": {
+            "s1": "<strong>El mismo motor, pero no las mismas técnicas de programación.</strong>"
+          },
+          "p5": "El consumo de paquetes en NodeJS se basa en NPM y la carpeta node_modules, Deno directamente consume las dependencias como imports HTTP.\n",
+          "p6": "Los browsers modernos cuentan con la capacidad de consumir módulos (ES, SJS o AMD), pero si programas para web, a diferencia de cuando programas para NodeJS o Deno, seguramente estarás utilizando algún empaquetador como webpack, parcel, rollup, esbuild, etc.\n",
+          "p7": "Los empaquetadores consumen los paquetes publicados en NPM para generar un archivo final .js, llamado ‘bundle’ que incluye las dependencias como react o vue.\n",
+          "p8": "También puedes usar empaquetadores para programar en Deno o NodeJS, algo que se está volviendo popular debido al Isomorfismo o que lo utilizan frameworks como Nest o Next.",
+          "p9": "BeyondJS implementa un diseño modular que sigue las mismas reglas para cualquier plataforma. Los proyectos se componen de pequeñas unidades de código denominadas bundles las cuales son empaquetadas por separado y se disponibilizan por medio de un DevServer en entorno de desarrollo y como archivos compilados en entorno productivo."
         }
       };
     }

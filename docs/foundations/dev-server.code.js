@@ -27,7 +27,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
   ***********************/
 
   ims.set('./index', {
-    hash: 2541833129,
+    hash: 1413224782,
     creator: function (require, exports) {
       "use strict";
 
@@ -60,12 +60,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
         return React.createElement(React.Fragment, null, React.createElement(_html.Document, {
           tpls: tpls,
           moduleId: _beyond_context.module.resource,
-          textId: "server"
-        }), React.createElement(_html.Document, {
-          tpls: tpls,
-          moduleId: _beyond_context.module.resource,
-          textId: "properties",
-          nextLinks: ["/docs/distributions"]
+          nextLinks: ["/docs/foundations/distributions"]
         }));
       }
     }

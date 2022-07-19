@@ -27,7 +27,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
   ***********************/
 
   ims.set('./index', {
-    hash: 2075387734,
+    hash: 67938829,
     creator: function (require, exports) {
       "use strict";
 
@@ -48,14 +48,18 @@ routing.redirect = async function redirect(uri): Promise<string> {
 }`;
       const tpls = {
         tpl1: {
-          tpl: `routing.pushState('/home', [{state}]);`,
+          tpl: `import {routing} from "@beyond-js/kernel/routing";`,
           language: "ts"
         },
         tpl2: {
-          tpl: `routing.replaceState('/home', [{state}]);`,
+          tpl: `routing.pushState('/home', [{state}]);`,
           language: "ts"
         },
         tpl3: {
+          tpl: `routing.replaceState('/home', [{state}]);`,
+          language: "ts"
+        },
+        tpl4: {
           tpl: tpl
         }
       };

@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/styles", "@beyond-js/react-widgets/controllers", "@beyond-js/kernel/core", "@beyond-js/kernel/texts", "react", "@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond/ui/link", "@beyond/docs/store", "@beyond-js/kernel/routing", "@beyond/docs/ui/icons", "@beyond/ui/modal"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13) {
+define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/controllers", "@beyond-js/kernel/core", "@beyond-js/kernel/texts", "react", "@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond/ui/link", "@beyond/docs/store", "@beyond-js/kernel/routing", "@beyond/docs/ui/icons", "@beyond/ui/modal"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -17,7 +17,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   }).package();
 
   ;
-  externals.register(new Map([["react", dependency_6]]));
+  externals.register(new Map([["react", dependency_5]]));
 
   __pkg.dependencies.update(new Set(["@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond/ui/link", "@beyond/docs/store", "@beyond/docs/ui/icons", "@beyond/ui/modal"]));
 

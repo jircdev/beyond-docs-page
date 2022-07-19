@@ -10419,6 +10419,46 @@ body.body-beyond-modal-opened {
   background: #fff;
 }
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;500&display=swap");
+.beyond-element-modal.show-modal.image__modal .modal-content {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+@media (max-width: 600px) {
+  .beyond-element-modal.show-modal.image__modal .modal-content .modal-content {
+    width: 90%;
+    margin: auto;
+  }
+}
+.beyond-element-modal.show-modal.image__modal .close-icon {
+  background: var(--primary);
+  color: var(--text-on-primary);
+  padding: 8px 12px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 200ms ease-in;
+  right: -15px;
+  top: -15px;
+}
+.beyond-element-modal.show-modal.image__modal .close-icon:hover {
+  background: var(--primary-dark);
+}
+.beyond-element-modal.show-modal.image__modal .beyond-element-image {
+  height: 100%;
+  max-height: 60vh;
+  max-width: 800px;
+  margin: 0;
+}
+.beyond-element-modal.show-modal.image__modal .beyond-element-image img {
+  height: 100%;
+  width: 100%;
+}
+
 html, body {
   min-height: 100%;
   overflow-x: hidden;
@@ -10428,7 +10468,7 @@ html, body {
   color: var(--text-color);
   height: 100%;
   margin: 0;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 html {

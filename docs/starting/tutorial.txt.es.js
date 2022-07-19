@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 2983384664,
+    hash: 2580267764,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -59,7 +59,8 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
             "s1": "<strong>login</strong>: Carpeta del proyecto.",
             "items": ["<strong>project.json</strong>: Contiene la configuración básica del proyecto (puede variar según el tipo y las necesidades del mismo).", {
               "s1": "<strong>/modules</strong>:  Carpeta en donde se crean los módulos del proyecto por defecto. Este valor es configurable, puedes leer más de ello en la sección de ",
-              "l1": ["/projects/json", "Configuracion de Proyectos"]
+              "l1": ["/projects/json", "Configuracion de Proyectos"],
+              "items": ["<strong>backend</strong>: it starts the backend platform", "<strong>home</strong>: basic page module with a default route", "<strong>layouts</strong>: Folder with default layout of the web project"]
             }, {
               "s1": "<strong>template</strong>: Esta carpeta contiene todos los elementos necesarios para definir el template general del proyecto.",
               "items": ["<strong>template.json</strong>: Archivo que permite realizar ajustes en la configuración del template del proyecto."]
@@ -209,11 +210,11 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "c1": "importing",
           "h4#pushState": "Navegación",
           "c2": "pushState",
-          "p8": "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y  Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida.",
           "q1": {
             "s1": "BeyondJS provee un objeto routing para interactuar con la api de navegación, puedes aprender más al respecto en la sección de ",
             "l1": ["/docs/routing", " Enrutamiento."]
-          }
+          },
+          "p8": "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y  Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
         }
       };
     }

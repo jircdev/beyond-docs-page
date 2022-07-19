@@ -27,7 +27,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
   ************************/
 
   ims.set('./create', {
-    hash: 823719446,
+    hash: 3730624514,
     creator: function (require, exports) {
       "use strict";
 
@@ -48,12 +48,36 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
           tpl: 'beyond'
         },
         tpl1: {
-          language: 'shell',
-          tpl: 'beyond'
+          language: 'json',
+          tpl: `
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "title": "Project title",
+  "description": "Description"
+  "languages": {
+    "default": "en",
+    "supported": [
+      "en"
+    ]
+  },,
+  "modules": {
+    "path": "modules"
+  }
+}
+`
         },
         tpl2: {
-          language: 'shell',
-          tpl: 'beyond'
+          language: 'json',
+          tpl: '' + `
+
+{
+  "applications": [
+    "path-to-project/project.json"
+  ]
+}
+
+`
         }
       };
       /*bundle*/
@@ -71,7 +95,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
           textId: "createInfo"
         }), React.createElement(_html.Document, { ...attrs,
           textId: "manual",
-          nextLinks: ["/docs/tutorial/bridge"]
+          nextLinks: ["/docs/projects/structure", "/docs/projects/json"]
         }));
       }
     }

@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 153237785,
+    hash: 2237453228,
     creator: function (require, exports) {
       exports.txt = {
         "intro": {
@@ -59,9 +59,9 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p5": "Clicking on any of the mentioned alternatives, a modal is displayed, allowing you to select the type of project to create. This function enables you to start with a blank project or using an already created template. Current choices are:\n",
           "h4#blank-projects": "Tipos de Proyectos en blanco",
           "i2": ["/images/dashboard/new-project.png", "BeyondJS - Project types"],
-          "items2": ["Web: Listo para comenzar un proyecto web que pueda ser distribuido en internet o como aplicación móvil.", "Node: Listo para distribuir como un proyecto a ejecutar en un entorno node.", "Backend: Proyecto node que disponibiliza interfaces que puedan ser consumidas en real-time con web sockets desde otro proyecto node o desde un proyecto cliente.", "Library: Ideal para crear proyectos que esten pensados para ser distribuidos como paquetes NPM.", "web - backend: Genera un proyecto web con una distribución backend"],
+          "items2": ["Web: : Listo para comenzar un proyecto web que pueda ser distribuido en internet o como aplicación móvil.", "Node: Listo para distribuir como un proyecto a ejecutar en un entorno node.", "Backend: Proyecto node que disponibiliza interfaces que puedan ser consumidas en real-time con web sockets desde otro proyecto node o desde un proyecto cliente.", "Library: Ideal para crear proyectos que esten pensados para ser distribuidos como paquetes NPM.", "web - backend: Genera un proyecto con distribuciones Web y Backend integrados."],
           "h4#templates": "Tipos de plantillas",
-          "items4": ["React, vue y svelte apps, proyectos para empezar a trabajar con la libreria de framework de preferencia.", "Express: Proyecto con una estructura inicial para crear un servidor express.", "Template web: Proyecto con una estructura cliente y backend comunicados por medio de web socket"],
+          "items4": ["React, vue y svelte apps, proyectos para empezar a trabajar con la libreria de framework de preferencia.", "Express: Proyecto con una estructura inicial para crear un servidor express.", "Template web: Template basica, con un modulo de ruta por defecto y la inicialización del backend implementada.\n"],
           "p6": {
             "s1": "Se puede trabajar con diferentes librerias/Frameworks de vistas en un mismo proyecto gracias a la estructura de micro-frontends que ofrece BeyondJS. Puede leerse más al respecto en ",
             "l1": ["/docs/widgets", "La sección de widgets"],

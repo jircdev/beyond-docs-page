@@ -42,6 +42,7 @@
   text-decoration: none;
   color: var(--text-color);
   line-height: 23px;
+  font-size: 0.85rem;
   letter-spacing: 0.28px;
 }
 .docs__menu__list a:hover {
@@ -68,10 +69,6 @@
   cursor: pointer;
   align-items: center;
   list-style: none;
-}
-.docs__menu__list li a {
-  font-size: 14px;
-  font-weight: lighter;
 }
 .docs__menu__list li > section {
   display: flex;
@@ -182,8 +179,8 @@ aside.docs__menu .docs__menu__list {
   position: sticky;
   top: 0;
 }
-aside.docs__menu .docs__menu__list * {
-  font-size: 0.85rem;
+aside.docs__menu .docs__menu__list * span, aside.docs__menu .docs__menu__list a {
+  font-size: 14px;
 }
 @media (min-width: 481px) {
   aside.docs__menu .docs__menu__list.mobile__menu {
