@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/controllers", "@beyond-js/kernel/core", "@beyond-js/kernel/texts", "react", "@beyond/docs/code", "@beyond/ui/link", "@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond/docs/ui/icons", "@beyond/ui/modal", "@beyond/ui/icons", "@beyond/docs/header-menu.widget", "@beyond/docs/store", "@beyond/ui/swiper", "@beyond/docs/components/html"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16) {
+define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/controllers", "@beyond-js/kernel/core", "@beyond-js/kernel/texts", "react", "@beyond/docs/code", "@beyond/ui/link", "@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond/docs/ui/icons", "@beyond/ui/modal", "@beyond/ui/icons", "@beyond/docs/header-menu.widget", "@beyond/docs/store", "@beyond/ui/swiper", "@beyond/docs/components/html", "@beyond-js/kernel/styles"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, dependency_11, dependency_12, dependency_13, dependency_14, dependency_15, dependency_16, dependency_17) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -2131,7 +2131,7 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
   *****************************************/
 
   ims.set('./views/sections/solution', {
-    hash: 840908810,
+    hash: 2005610014,
     creator: function (require, exports) {
       "use strict";
 
@@ -2176,9 +2176,9 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           title: jamStack.title,
           img: "isomorphic",
           href: "/docs/widgets/rendering"
-        }, React.createElement(_html.CHtml, null, jamStack.one), React.createElement(_link.Elink, {
+        }, React.createElement(_html.CHtml, null, jamStack.one), " ", React.createElement(_link.Elink, {
           href: "https://jamstack.org/"
-        }, jamStack.jamStack), jamStack.two, React.createElement(_link.Elink, {
+        }, jamStack.jamStack), jamStack.two, " ", React.createElement(_link.Elink, {
           href: "https://micro-frontends.org/"
         }, jamStack.microfrontends), "."), React.createElement(_card.Card, {
           title: frameworks.title,
@@ -2186,11 +2186,11 @@ c0.5-13.6,12.3-24.9,26-25.1C4642.2,2206.5,4653.3,2217.6,4653.3,2232.5z"/>
           href: "/docs/widgets"
         }, frameworks.start, React.createElement(_link.Elink, {
           href: "https://reactjs.org"
-        }, "React"), ",\u00A0", React.createElement(_link.Elink, {
+        }, "React"), ",\u00A0 ", React.createElement(_link.Elink, {
           href: "https://vuejs.org/"
-        }, "Vue"), " ", React.createElement(_link.Elink, {
+        }, "Vue"), " y ", React.createElement(_link.Elink, {
           href: "https://svelte.dev/"
-        }, "Svelte"), ".", frameworks.end));
+        }, "Svelte"), ". ", frameworks.end));
       }
     }
   });

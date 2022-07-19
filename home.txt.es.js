@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 1686205797,
+    hash: 1384799066,
     creator: function (require, exports) {
       exports.txt = {
         "header": {
@@ -54,7 +54,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           },
           "frameworks": {
             "title": "Frameworks de vistas",
-            "start": "Compatible con&nbsp;",
+            "start": "Compatible con ",
             "and": " and ",
             "end": "Preparado para incluir otros frameworks o librerías  de gestión de vistas."
           }

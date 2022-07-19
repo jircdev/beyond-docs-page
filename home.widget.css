@@ -73,6 +73,15 @@
     grid-gap: 1rem;
   }
 }
+@media (min-width: 1000px) {
+  .cards__container .docs__card header h3, .cards__container .docs__card header .beyond-element-image {
+    display: flex;
+    text-align: left;
+    padding: 0.5rem 2rem;
+    justify-content: start;
+    justify-items: start;
+  }
+}
 .main__home__content, .home__header {
   min-width: 100%;
 }
