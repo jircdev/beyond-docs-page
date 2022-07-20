@@ -24,13 +24,14 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 3166615639,
+    hash: 2755411902,
     creator: function (require, exports) {
       exports.txt = {
         "header": {
           "pretitle": "Welcome to BeyondJS",
-          "h1": "The Full Stack <br/>Universal \nTypescript Framework",
-          "description": "Integrates different development stacks and works with them under the same paradigm, prioritizing the developer experience and modular loading, without the need for packagers.."
+          "h1": "The Full Stack Modular + <br/>Universal \nTypescript Framework",
+          "description": "Integrates different development stacks and works with them under the same paradigm, prioritizing the developer experience and modular loading, without the need for packagers..",
+          "copied": "Copied to clipboard"
         },
         "solution": {
           "universalTs": {

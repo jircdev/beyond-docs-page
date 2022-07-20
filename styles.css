@@ -9401,6 +9401,7 @@ body.body-beyond-modal-opened {
   --color-blue-90: #1b6dff;
   --color-blue-100: #0054e9;
   --color-gray-0: #f3f3f3;
+  --color-gray-5: #f5f5f5;
   --color-gray-10: #e4e4e4;
   --color-gray-20: #c8c8c8;
   --color-gray-30: #aeaeae;
@@ -9633,10 +9634,10 @@ body.body-beyond-modal-opened {
   --unnamed-line-spacing-54: 54px;
   --unnamed-text-transform-uppercase: uppercase;
   --primary-surface: #fff;
-  --primary: #FF8056;
-  --primary-dark: #E36152;
-  --primary-light: #FFA789;
-  --primary-accent: #FFA789;
+  --primary: #CB6245;
+  --primary-dark: #9E533E;
+  --primary-light: #E46F4E;
+  --primary-accent: #E36152;
   --text-on-primary: #fff;
   --accent-color: var(--primary);
   --secondary: #121F36;
@@ -9655,7 +9656,7 @@ body.body-beyond-modal-opened {
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
   --app-primary-color: var(--primary-dark);
-  --app-element-surface: var(--color-gray-10);
+  --app-element-surface: var(--color-gray-5);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
   --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
@@ -9683,13 +9684,13 @@ body.body-beyond-modal-opened {
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #FF8056;
-    --primary-dark: #E36152;
-    --primary-light: #FFA789;
+    --primary: #CB6245;
+    --primary-dark: #9E533E;
+    --primary-light: #E46F4E;
     --primary-accent: #E36152;
     --text-on-primary: #fff;
     --accent-color: #FFA385;
-    --secondary: #121F36;
+    --secondary: #424F6E;
     --secondary-dark: #030405;
     --secondary-darker: #0C1525;
     --secondary-light: #617096;
@@ -9731,10 +9732,10 @@ body.body-beyond-modal-opened {
 
 html[data-beyond-mode=light] {
   --primary-surface: #fff;
-  --primary: #FF8056;
-  --primary-dark: #E36152;
-  --primary-light: #FFA789;
-  --primary-accent: #FFA789;
+  --primary: #CB6245;
+  --primary-dark: #9E533E;
+  --primary-light: #E46F4E;
+  --primary-accent: #E36152;
   --text-on-primary: #fff;
   --accent-color: var(--primary);
   --secondary: #121F36;
@@ -9753,7 +9754,7 @@ html[data-beyond-mode=light] {
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
   --app-primary-color: var(--primary-dark);
-  --app-element-surface: var(--color-gray-10);
+  --app-element-surface: var(--color-gray-5);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
   --app-primary-text-gradient: linear-gradient(to right, var(--secondary-light), var(--primary-dark));
@@ -9781,13 +9782,13 @@ html[data-beyond-mode=light] {
 }
 
 html[data-beyond-mode=dark] {
-  --primary: #FF8056;
-  --primary-dark: #E36152;
-  --primary-light: #FFA789;
+  --primary: #CB6245;
+  --primary-dark: #9E533E;
+  --primary-light: #E46F4E;
   --primary-accent: #E36152;
   --text-on-primary: #fff;
   --accent-color: #FFA385;
-  --secondary: #121F36;
+  --secondary: #424F6E;
   --secondary-dark: #030405;
   --secondary-darker: #0C1525;
   --secondary-light: #617096;
@@ -9852,6 +9853,7 @@ html[data-beyond-mode=dark] {
   --color-blue-90: #1b6dff;
   --color-blue-100: #0054e9;
   --color-gray-0: #f3f3f3;
+  --color-gray-5: #f5f5f5;
   --color-gray-10: #e4e4e4;
   --color-gray-20: #c8c8c8;
   --color-gray-30: #aeaeae;

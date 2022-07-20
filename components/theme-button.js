@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond-js/widgets/render"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "react", "@beyond-js/widgets/render"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -16,7 +16,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond-js/widgets/rend
   }).package();
 
   ;
-  externals.register(new Map([["react", dependency_1]]));
+  externals.register(new Map([["react", dependency_2]]));
 
   require('@beyond-js/kernel/styles').styles.register('@beyond/docs/components/theme-button');
 

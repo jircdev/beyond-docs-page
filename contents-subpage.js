@@ -12,7 +12,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
 
   const __pkg = new __Bundle({
     "module": "@beyond/docs/contents-subpage",
-    "bundle": "docs-page"
+    "bundle": "widget"
   }).package();
 
   ;

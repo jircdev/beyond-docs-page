@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/controllers", "react"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/styles", "@beyond-js/react-widgets/controllers", "react"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -16,7 +16,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   }).package();
 
   ;
-  externals.register(new Map([["react", dependency_3]]));
+  externals.register(new Map([["react", dependency_4]]));
 
   require('@beyond-js/widgets/render').widgets.register([{
     "name": "home-layout",

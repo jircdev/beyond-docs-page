@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "react"], function (_exports, dependency_0, dependency_1) {
+define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond-js/kernel/styles"], function (_exports, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {

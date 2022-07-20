@@ -13,11 +13,12 @@
   display: flex;
   flex-direction: column;
   align-content: space-between;
+  justify-items: center;
   border: var(--app-element-border-color-1) 1px solid;
   border-radius: var(--border-radius-base);
   justify-content: space-between;
   transition: all 200ms ease-in;
-  padding-top: 2rem;
+  padding-top: 1.5rem;
 }
 .cards__container .docs__card .beyond-element-image {
   display: flex;
@@ -29,23 +30,32 @@
   height: 50px;
   aspect-ratio: 1/1;
 }
+.cards__container .docs__card header {
+  width: 100%;
+}
 .cards__container .docs__card header .beyond-element-image {
-  padding: 1rem 2rem;
+  padding: 1rem 1.5rem;
 }
 .cards__container .docs__card header h3 {
   border-left: 1px solid var(--primary);
   text-align: center;
+  padding: 0.5rem 1rem;
 }
 .cards__container .docs__card section {
-  padding: 0 2rem 2rem;
+  padding: 0 1.5rem 1.5rem;
 }
 .cards__container .docs__card:hover {
   background: var(--app-element-hover-surface);
 }
-.cards__container .docs__card:hover .beyond-element-image, .cards__container .docs__card:hover h3, .cards__container .docs__card:hover section {
+.cards__container .docs__card:hover .beyond-element-image, .cards__container .docs__card:hover section {
   padding-left: 1rem;
   padding-right: 3rem;
   transition: 300ms ease-in all;
+}
+.cards__container .docs__card:hover h3 {
+  padding: 0.5rem 1rem;
+  transition: 300ms ease-in all;
+  width: calc(100% - 2rem);
 }
 @media (max-width: 1000px) and (min-width: 601px) {
   .cards__container .docs__card {
@@ -90,6 +100,61 @@
     max-width: 1146.6666666667px;
   }
 }
+.clipboard__container {
+  border: 1px solid var(--secondary-light);
+  padding: 1rem;
+  border-radius: var(--border-radius-base);
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 3rem;
+  cursor: pointer;
+  color: var(--secondary-light);
+  position: relative;
+}
+.clipboard__container svg {
+  fill: var(--secondary-light);
+}
+.clipboard__container .action-copied {
+  position: absolute;
+  top: -1.4rem;
+  right: -20%;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: var(--border-radius-base);
+  color: var(--text-on-primary);
+  font-size: 0.6rem;
+  transition: all 300ms linear;
+  display: none;
+}
+.clipboard__container .action-copied.show {
+  display: inline-flex;
+  animation: fadeIn 300ms;
+}
+.clipboard__container .action-copied.hide {
+  animation: fadeOut 300ms;
+}
+@media (max-width: 600px) {
+  .clipboard__container {
+    margin-top: 1.5rem;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .is-floating, .header__animation__container .header__animation__front {
   animation-name: floating;
   animation-duration: 4s;
@@ -132,7 +197,6 @@
 }
 .home__header > .container {
   display: grid;
-  z-index: -1;
   grid-template-columns: 55% 1fr;
   position: relative;
   aspect-ratio: 16/7;
@@ -172,6 +236,7 @@
   height: 100%;
   right: -50px;
   top: -25%;
+  z-index: -1;
 }
 .home__header .beyond__icon svg, .home__header .beyond__surface-icon svg {
   height: 250%;
@@ -184,6 +249,9 @@
   }
 }
 @media (max-width: 600px) {
+  .home__header {
+    padding-bottom: 0;
+  }
   .home__header .beyond__icon, .home__header .beyond__surface-icon {
     top: -10%;
     left: -15%;
@@ -198,7 +266,7 @@ header.home__header .header__content {
   max-width: 700px;
 }
 header.home__header .header__content .main__title {
-  padding: 4rem 0;
+  padding: 4rem 0 2rem;
 }
 header.home__header .header__content .pre__title {
   font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-300) var(--unnamed-font-size-26)/var(--unnamed-line-spacing-30) var(--unnamed-font-family-rubik);
@@ -212,8 +280,6 @@ header.home__header .header__content h1 {
   opacity: 1;
 }
 header.home__header .header__content h1 .special-text {
-  padding-left: 10px;
-  padding-right: 10px;
   display: inline-flex;
   color: var(--app-accent-color);
   position: relative;
@@ -263,9 +329,6 @@ header.header__section h3 {
   font-size: 2.5rem;
   text-align: center;
   margin: 0 0 1rem;
-  background: var(--app-secondary-text-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 header.header__section .subtitle {
   font-size: 1.2rem;
@@ -297,6 +360,9 @@ header.header__section .subtitle {
 }
 .page-section.primary-surface {
   background: var(--app-element-surface);
+}
+.page-section.primary-surface .pretitle {
+  color: var(--secondary-light);
 }
 .page-section .flex-center-v {
   align-items: center;

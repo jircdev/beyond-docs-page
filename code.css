@@ -51,6 +51,9 @@
   padding: 15px;
   font-size: 0.8rem;
 }
+:host-context(html[data-beyond-mode=dark]) .code-container code, :host-context(html[data-beyond-mode=dark]) .code-container pre {
+  font-size: 0.9rem;
+}
 :host-context(html[data-beyond-mode=dark]) .code-container pre {
   overflow-y: hidden;
   overflow-x: auto;
@@ -163,7 +166,7 @@
 }
 :host-context(html[data-beyond-mode=light]) .code-container code, :host-context(html[data-beyond-mode=light]) .code-container pre {
   background: #f5f7ff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 :host-context(html[data-beyond-mode=light]) .code-container pre {
   overflow-y: hidden;

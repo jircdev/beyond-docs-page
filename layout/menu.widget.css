@@ -44,6 +44,9 @@
   line-height: 23px;
   font-size: 0.85rem;
   letter-spacing: 0.28px;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 .docs__menu__list a:hover {
   color: var(--text-color);
@@ -55,6 +58,12 @@
   margin: 5px 0;
 }
 
+.docs__menu__list * {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
 .docs__menu__list > .menu__item--parent > .docs__menu__sublist > li.item--opened > section a {
   font-weight: bolder;
 }
@@ -216,6 +225,11 @@ aside.docs__menu .docs__menu__list * span, aside.docs__menu .docs__menu__list a 
     background: var(--background);
     height: 100vh;
     width: 40%;
+    overflow: auto;
+  }
+  aside.docs__menu .menu-mobile-container li {
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 }
 @media (max-width: 768px) and (max-width: 480px) {

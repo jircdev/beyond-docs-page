@@ -1,4 +1,4 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "swiper", "@beyond/ui/reactive-model"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "@beyond-js/kernel/bundle", "react", "swiper", "@beyond/ui/reactive-model", "@beyond-js/kernel/styles"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {

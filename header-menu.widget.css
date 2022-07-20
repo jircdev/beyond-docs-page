@@ -3,6 +3,8 @@
   padding: 0 15px;
   max-width: 1340px;
   margin: auto;
+  z-index: 3;
+  height: 100%;
 }
 
 .top__header {
@@ -25,12 +27,8 @@
   display: grid;
   align-items: center;
 }
-.top__header .menu-container {
-  z-index: 3;
-}
 .top__header .menu-list__container {
   display: grid;
-  margin: -10px 0;
 }
 .top__header .header__menu {
   z-index: 12;
@@ -45,16 +43,15 @@
   font-family: var(--font-family);
 }
 .top__header .header__menu li {
-  list-style: none;
   position: relative;
-  padding: 5px;
+  padding: 0 5px;
   height: 100%;
   display: flex;
   align-items: center;
 }
 .top__header .header__menu li:after {
   position: absolute;
-  bottom: 2px;
+  bottom: 0;
   left: 0;
   right: 0;
   width: 0;
@@ -75,6 +72,54 @@
 }
 .top__header .header__menu li:hover:after {
   width: 100%;
+}
+.header-mobile-menu .header__all__menu {
+  z-index: 12;
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+  align-content: stretch;
+  flex-shrink: 1;
+}
+.header-mobile-menu .header__all__menu li {
+  display: flex;
+  position: relative;
+  padding: 0 5px;
+  height: 100%;
+  flex-grow: 2;
+  align-items: center;
+}
+.header-mobile-menu .header__all__menu li:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 0;
+  content: " ";
+  transition: width 300ms;
+  height: 1px;
+  background: var(--secondary-accent);
+}
+.header-mobile-menu .header__all__menu li:hover:after {
+  width: 100%;
+}
+.header-mobile-menu button, .header-mobile-menu svg {
+  cursor: pointer;
+}
+.header-mobile-menu button:hover, .header-mobile-menu svg:hover {
+  position: relative;
+}
+.header-mobile-menu button:hover:after, .header-mobile-menu svg:hover:after {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  width: 0;
+  content: " ";
+  transition: width 300ms;
+  height: 1px;
+  background: var(--secondary-accent);
 }
 .beyond-element-modal.modal-languages .modal-content {
   height: 50%;
@@ -99,7 +144,7 @@
 .top__header .mobile__header {
   display: flex;
   width: 100%;
-  align-items: center;
+  height: 100%;
   justify-content: space-between;
 }
 .top__header .mobile__header a {
@@ -290,6 +335,6 @@
   background-color: var(--primary-accent);
 }
 .beyond-icon.language-icon {
-  fill: var(--primary);
+  fill: var(--app-header-link);
 }
 
