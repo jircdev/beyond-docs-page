@@ -128,7 +128,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
   **************************/
 
   ims.set('./template', {
-    hash: 1573031837,
+    hash: 264391420,
     creator: function (require, exports) {
       "use strict";
 

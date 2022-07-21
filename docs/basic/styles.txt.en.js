@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 3042487532,
+    hash: 2389695506,
     creator: function (require, exports) {
       exports.txt = {
         "importOfStyleFiles": {
@@ -57,26 +57,28 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
         },
         "styles": {
           "h1": ["Styles ", "in the template"],
-          "p1": "The handling of styles in the BeyondJS Template system is done through the configuration of the sass style processor. This configuration is simply done at two levels:",
-          "p2": "The above code is the default configuration of the web project template. Basically, you are configuring the sass processor for the application and global templates. The purpose of both is described below.",
-          "p3": "On this page, we assume that the template is located in a folder with that name at the root of the project. If a change was made in the default configuration, the configured location should also be considered."
+          "p1": "El manejo de estilos en el sistema de Template de BeyondJS se realiza por medio de la configuración del procesador de estilos sass, esta configuración se realiza en dos niveles básicamente:",
+          "p2": "El código anterior, es la configuración por defecto de la plantilla de los proyectos web. Básicamente se está configurando el procesador sass para las plantillas de aplicación y global. A continuación se describe la finalidad de ambas.",
+          "p3": "En esta página se asume que el template se encuentra en una carpeta con dicho nombre en la raiz del proyecto, si se hizo un cambio en la configuración por defecto deberá considerarse la ubicación configurada.",
+          "c1": "tpl1"
         },
         "templateApplication": {
           "h2": "template.application",
           "p1": {
-            "s1": "The application property represents the styles.css file included in web platform projects. Intended to add some general styling to the document and define ",
-            "e1": ["https://developer.mozilla.org/en-US/docs/Web/CSS/--*", "custom properties"],
-            "s2": "so they are available in all widgets."
+            "s1": "La propiedad application representa al archivo styles.css incluido en los proyectos con plataforma web. Está contemplada para agregar algún estilo general del documento y la definición de ",
+            "e1": ["https://developer.mozilla.org/en-US/docs/Web/CSS/--*", "propiedades personalizadas"],
+            "s2": " para que esten disponibles en todos los widgets.\n"
           },
-          "p2": "<strong>Custom properties</strong> are the only style values that are available for sharing between widgets, as their inclusion is via Web Components with Shadow DOM.",
-          "p3": "The default style settings for template.application include all scss files found in the ./template/application directory inside the project. These are:",
-          "items": ["./variables.scss: Contains a list of default sass variables.", "./styles.scss: contains very basic styles for the document body.", "./custom-properties/dark.scss: Provides a mixin that defines the variables to use in dark mode styling.", "./custom-properties/light.scss: Provides a mixin that defines the variables to use in light mode styling.", "./custom-properties/material-design.scss - Contains the material design color system css properties.", "./custom-properties/definition.scss: includes the definition of the custom css properties that integrates the use of the mixins defined in the dark.scss and light.scss files."],
-          "p4": "The developer can edit or add any additional file of styles and will be integrated automatically, because a \"*\" has been added in the configuration, which indicates that all the files inside the folder must be processed."
+          "p2": "Las <strong>Propiedades personalizadas</strong>son los únicos valores de estilos que pueden ser compartidos entre los widgets ya que estos se incluyen por medio de Componentes Web con Shadow DOM.\n",
+          "p3": "La configuración por defecto de estilos para template.application, incluye todos los archivos scss que se encuentren en el directorio `./template/application` adentro del proyecto. Estos son:",
+          "items": ["./variables.scss: : contiene una lista de variables sass por defecto.\n", "./styles.scss:  contiene estilos muy básicos para el body del documento.", "./custom-properties/dark.scss: provee un mixin que define las variables a utilizar en el estilo en modo oscuro. ", "./custom-properties/light.scss: provee un mixin que define las variables a utilizar en el estilo en modo claro.", "./custom-properties/material-design.scss: ncluye las propiedades css del sistema de colores de material design.", "./custom-properties/definition.scss: incluye la definición de las propiedades personalizadas css que integra el uso de los mixins definidos en los archivos `dark.scss` y `light.scss`"],
+          "p4": "El programador puede editar o agregar cualquier archivo adicional de estilos y este será integrado de forma automática debido a que en la configuración se tiene agregado un \"*\" que indica que todos los archivos dentro de la carpeta deben ser procesados.\n",
+          "h2#tplapplication": "template.application"
         },
         "templateGlobal": {
           "h3": "template.global",
-          "p1": "The global property represents the global.css file which, unlike styles.css, is intended to share styles that the developer considers global, and therefore must be shared by all widgets. To accomplish this the final file is included within the styles of each widget.",
-          "p2": "The same as with the application property, by default, all the files that are inside the /global folder are included, and by default only a styles.scss file is included."
+          "p1": "La propiedad global representa al archivo global.css que a diferencia del styles.css, tiene como finalidad compartir estilos que el desarrollador considere globales y por tanto deban poder ser compartidos por todos los widgets. Para lograr esto, el archivo final es incluido dentro de los estilos de cada widget.",
+          "p2": "El igual que con la propiedad application, por defecto se incluyen todos los archivos que se encuentren adentro de la carpeta /global y de base sólo viene incluido un archivo`styles.scss`."
         },
         "lightAndDarkTheme": {
           "h1": ["Styles", "Light & Dark theme"],

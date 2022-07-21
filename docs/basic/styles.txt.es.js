@@ -24,7 +24,7 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
   *********************/
 
   ims.set('./txt', {
-    hash: 2007682326,
+    hash: 1069102374,
     creator: function (require, exports) {
       exports.txt = {
         "importOfStyleFiles": {
@@ -42,19 +42,6 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p2": "Para ejemplificarlo, imaginemos que se tiene un módulo llamado form, que incluye un bundle code, el cúal define componentes de un formulario y se requiere importar los estilos desde otro módulo. En el módulo, se creo un archivosass que define estilos para los labels, cuyo nombre es labels.scss. La línea de importación sería:",
           "c3": "tpl3"
         },
-        "modules": {
-          "h1": ["Estilos", "En el módulo"],
-          "p1": {
-            "s1": "Para agregar estilos en un módulo/bundle creado, debe agregarse el ",
-            "e1": ["/processors", "procesador"],
-            "s2": " SASS."
-          },
-          "q2": "Si se usa el dashboard para la creación de proyectos, el procesador sass es incluido por defecto en los bundles de tipo code y widget de cualquier tipo.",
-          "p3": "La configuración estandar de un procesador sass es la siguiente: ",
-          "c1": "tpl1",
-          "p4": "En la configuración anterior, se está definiendo que en el módulo existe una carpeta sass, con ubicación relativa al archivo module.json y que todos los archivos de esta carpeta deben ser tomados en cuenta como archivos de estilo.",
-          "p5": "El bundle contenedor del procesador se encarga de insertar los estilos en el DOM cuando el elemento es renderizado, de esta forma, no es requerido hacer imports con semántica de JavaScript de archivos externos en nuestro código."
-        },
         "stylesInTheTemplate": {
           "h1": ["Estilos", "En el template"],
           "p1": "El manejo de estilos en el sistema de Template de BeyondJS se realiza por medio de la configuración del procesador de estilos sass, esta configuración se realiza en dos niveles básicamente:",
@@ -66,11 +53,11 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p1": {
             "s1": "La propiedad application representa al archivo styles.css incluido en los proyectos con plataforma web. Está contemplada para agregar algún estilo general del documento y la definición de ",
             "e1": ["https://developer.mozilla.org/en-US/docs/Web/CSS/--*", "propiedades personalizadas"],
-            "s2": "para que esten disponibles en todos los widgets."
+            "s2": " para que esten disponibles en todos los widgets."
           },
           "p2": "Las <strong>propiedades personalizadas</strong>  son los únicos valores de estilos que pueden ser compartidos entre los widgets ya que estos se incluyen por medio de Componentes Web con Shadow DOM.",
           "p3": "La configuración por defecto de estilos para template.application, incluye todos los archivos scss que se encuentren en el directorio ./template/application adentro del proyecto. Estos son:",
-          "items": ["./variables.scss: contiene una lista de variables sass por defecto.", "./styles.scss: contiene estilos muy básicos para el body del documento", "./custom-properties/dark.scss: provee un mixin que define las variables a utilizar en el estilo en modo oscuro.", "./custom-properties/light.scss: provee un mixin que define las variables a utilizar en el estilo en modo claro.", "./custom-properties/material-design.scss: incluye las propiedades css del sistema de colores de material design.", "./custom-properties/definition.scss: incluye la definición de las propiedades personalizadas css que integra el uso de los mixins definidos en los archivos dark.scss y light.scss"],
+          "items": ["`./variables.scss`: contiene una lista de variables sass por defecto.", "`./styles.scss`: contiene estilos muy básicos para el body del documento", "`./custom-properties/dark.scss`: provee un mixin que define las variables a utilizar en el estilo en modo oscuro.", "`./custom-properties/light.scss`: provee un mixin que define las variables a utilizar en el estilo en modo claro.", "`./custom-properties/material-design.scss`: incluye las propiedades css del sistema de colores de material design.", "`./custom-properties/definition.scss`: incluye la definición de las propiedades personalizadas css que integra el uso de los mixins definidos en los archivos dark.scss y light.scss"],
           "p4": "El programador puede editar o agregar cualquier archivo adicional de estilos y este será integrado de forma automática debido a que en la configuración se tiene agregado un \"*\" que indica que todos los archivos dentro de la carpeta deben ser procesados."
         },
         "templateGlobal": {
@@ -95,6 +82,13 @@ define(["exports", "@beyond-js/kernel/bundle"], function (_exports, dependency_0
           "p6": "Existen algunos casos, donde podría ser necesario que los widgets se enteren de forma dinámica del cambio de tema, para ello, se puede utilizar la api del objeto widgets",
           "c3": "tpl3",
           "p7": "La línea anterior agrega a todos los widgets existentes el atributo data-beyond-mode con el valor dark."
+        },
+        "styles": {
+          "h1": ["Estilos", "En el template"],
+          "p1": "El manejo de estilos en el sistema de Template de BeyondJS se realiza por medio de la configuración del procesador de estilos sass, esta configuración se realiza en dos niveles básicamente:",
+          "p2": "El código anterior, es la configuración por defecto de la plantilla de los proyectos web. Básicamente se está configurando el procesador sass para las plantillas de aplicación y global. A continuación se describe la finalidad de ambas",
+          "p3": "En esta página se asume que el template se encuentra en una carpeta con dicho nombre en la raiz del proyecto, si se hizo un cambio en la configuración por defecto deberá considerarse la ubicación configurada.",
+          "c1": "tpl1"
         }
       };
     }
