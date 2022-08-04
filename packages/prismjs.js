@@ -1,6 +1,7 @@
 define([], () => {
-const define = void 0;
 const require = () => void 0;
+// Prevent esbuild from considering the context to be amd
+const define = void 0;
 const module = {};
 
 const code = (module, require) => {
@@ -10,6 +11,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+
+var __markAsModule = target => __defProp(target, "__esModule", {
+  value: true
+});
 
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = {
@@ -24,27 +29,32 @@ var __export = (target, all) => {
   });
 };
 
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-      get: () => from[key],
-      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+var __reExport = (target, module2, copyDefault, desc) => {
+  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+    for (let key of __getOwnPropNames(module2)) if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default")) __defProp(target, key, {
+      get: () => module2[key],
+      enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable
     });
   }
 
-  return to;
+  return target;
 };
 
-var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
+var __toESM = (module2, isNodeMode) => {
+  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? {
+    get: () => module2.default,
+    enumerable: true
+  } : {
+    value: module2,
+    enumerable: true
+  })), module2);
+};
 
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-  value: mod,
-  enumerable: true
-}) : target, mod));
-
-var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
-  value: true
-}), mod); // node_modules/prismjs/prism.js
+var __toCommonJS = /* @__PURE__ */(cache => {
+  return (module2, temp) => {
+    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // node_modules/prismjs/prism.js
 
 
 var require_prism = __commonJS({
@@ -1207,22 +1217,21 @@ var require_prism = __commonJS({
     })();
   }
 
-}); // .beyond/uimport/prismjs/1.28.0.js
+}); // .beyond/uimport/prismjs.1.28.0.js
 
 
-var __exports = {};
+var prismjs_1_28_0_exports = {};
 
-__export(__exports, {
-  default: () => __default
+__export(prismjs_1_28_0_exports, {
+  default: () => prismjs_1_28_0_default
 });
 
-module.exports = __toCommonJS(__exports);
-
-__reExport(__exports, __toESM(require_prism()), module.exports);
+__reExport(prismjs_1_28_0_exports, __toESM(require_prism()));
 
 var import_prismjs = __toESM(require_prism());
 
-var __default = import_prismjs.default;
+var prismjs_1_28_0_default = import_prismjs.default;
+module.exports = __toCommonJS(prismjs_1_28_0_exports);
 /**
  * Prism: Lightweight, robust, elegant syntax highlighting
  *

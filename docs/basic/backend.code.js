@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components/html"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "react@17.0.2", "@beyond/docs/components/html"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.BackendPage = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
     "module": "@beyond/docs/docs/basic/backend",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_1]]));
@@ -124,3 +125,4 @@ listen();`;
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7O01BRUEsTUFBTUEsR0FBRyxHQUFHOzs7Ozs7SUFBWjtNQU9BLE1BQU1DLElBQUksR0FBRzs7Ozs7Ozs7OztFQUFiO01BV0EsTUFBTUMsSUFBSSxHQUFHOzs7VUFBYjtNQUtBLE1BQU1DLElBQUksR0FBRztRQUNUQyxJQUFJLEVBQUU7VUFBQ0MsS0FBSyxFQUFFLGFBQVI7VUFBdUJMO1FBQXZCLENBREc7UUFFVEMsSUFBSSxFQUFFO1VBQUNJLEtBQUssRUFBRSxXQUFSO1VBQXFCTCxHQUFHLEVBQUVDO1FBQTFCLENBRkc7UUFHVEMsSUFBSSxFQUFFO1VBQUNHLEtBQUssRUFBRSxXQUFSO1VBQXFCTCxHQUFHLEVBQUVFO1FBQTFCO01BSEcsQ0FBYjtNQU1POztNQUFVLFNBQVVJLFdBQVYsR0FBcUI7UUFDbEMsT0FDSUMsMENBQ0lBLG9CQUFDQyxjQUFERCxFQUFTO1VBQUNKLElBQUksRUFBRUEsSUFBUDtVQUFhTSxRQUFRLEVBQUVDLHVCQUFPQyxRQUE5QjtVQUF3Q0MsTUFBTSxFQUFDO1FBQS9DLENBQVRMLENBREpBLEVBRUlBLG9CQUFDQyxjQUFERCxFQUFTO1VBQUNKLElBQUksRUFBRUEsSUFBUDtVQUFhTSxRQUFRLEVBQUVDLHVCQUFPQyxRQUE5QjtVQUF3Q0MsTUFBTSxFQUFDO1FBQS9DLENBQVRMLENBRkpBLEVBR0lBLG9CQUFDQyxjQUFERCxFQUFTO1VBQ0xKLElBQUksRUFBRUEsSUFERDtVQUVMTSxRQUFRLEVBQUVDLHVCQUFPQyxRQUZaO1VBRXNCQyxNQUFNLEVBQUMsVUFGN0I7VUFHTEMsU0FBUyxFQUFFLENBQUMsc0JBQUQ7UUFITixDQUFUTixDQUhKQSxDQURKO01BV0giLCJuYW1lcyI6WyJ0cGwiLCJ0cGwyIiwidHBsMyIsInRwbHMiLCJ0cGwxIiwidGl0bGUiLCJCYWNrZW5kUGFnZSIsIlJlYWN0IiwiRG9jdW1lbnQiLCJtb2R1bGVJZCIsIm1vZHVsZSIsInJlc291cmNlIiwidGV4dElkIiwibmV4dExpbmtzIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJkb2N1bWVudGF0aW9uL21vZHVsZXMvZG9jcy9iYXNpYy9iYWNrZW5kL2NvZGUvdHMvY29udHJvbC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

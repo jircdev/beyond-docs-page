@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/backend/client"], function (_exports, dependency_0, dependency_1) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/backend/client"], function (_exports, _amd_module, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.BridgeModel = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,15 +14,13 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/backend/client"], fun
   const __pkg = new __Bundle({
     "module": "@beyond/docs/models/contents",
     "bundle": "bridge"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([]));
-
   const {
     ActionsBridge
-  } = require('@beyond-js/backend/client');
-
+  } = brequire('@beyond-js/backend/client');
   const ims = new Map();
   /***********************
   INTERNAL MODULE: ./index
@@ -87,3 +86,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/backend/client"], fun
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUFBQTtNQUVPOztNQUFZOzs7TUFBVSxNQUFPQSxXQUFQLFNBQTJCQyxhQUEzQixDQUF3QztRQUN4RCxNQUFIQyxHQUFHO1VBQ0wsT0FBTyxNQUFNLEtBQUtDLE9BQUwsQ0FBYSx5QkFBYixFQUF3QyxHQUFHQyxTQUEzQyxDQUFiO1FBQ0g7O1FBRVMsTUFBSkMsSUFBSTtVQUNOLE9BQU8sTUFBTSxLQUFLRixPQUFMLENBQWEsMEJBQWIsRUFBeUMsR0FBR0MsU0FBNUMsQ0FBYjtRQUNIOztRQUNERTtVQUNJLE1BQU0sU0FBTixFQUFpQkMsc0JBQWpCO1FBQ0g7O01BVmdFIiwibmFtZXMiOlsiQnJpZGdlTW9kZWwiLCJBY3Rpb25zQnJpZGdlIiwiZ2V0IiwiZXhlY3V0ZSIsImFyZ3VtZW50cyIsImxpc3QiLCJjb25zdHJ1Y3RvciIsImJ1bmRsZSJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL21vZGVscy9jb250ZW50cy9icmlkZ2UvaW5kZXgudHMiXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

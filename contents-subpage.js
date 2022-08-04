@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/core", "@beyond-js/react-widgets/controllers", "@beyond/docs/layout/styles", "react", "@beyond/docs/contents-data.code"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/core", "@beyond-js/react-widgets/page", "@beyond/docs/layout/styles", "react@17.0.2", "@beyond/docs/contents-data.code"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.Controller = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,21 +14,20 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   const __pkg = new __Bundle({
     "module": "@beyond/docs/contents-subpage",
     "bundle": "widget"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_5]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/layout/styles", "@beyond/docs/contents-data.code"]));
 
-  require('@beyond-js/widgets/render').widgets.register([{
+  brequire('@beyond-js/widgets/render').widgets.register([{
     "name": "contents-subpage",
     "id": "@beyond/docs/contents-subpage",
     "is": "page",
     "route": "/docs/${content}/${sub}",
     "layout": "main-layout"
   }]);
-
   const ims = new Map();
   /**************************
   INTERNAL MODULE: ./contents
@@ -110,7 +110,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   ****************************/
 
   ims.set('./controller', {
-    hash: 2179040498,
+    hash: 1916241627,
     creator: function (require, exports) {
       "use strict";
 
@@ -119,15 +119,15 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
       });
       exports.Controller = void 0;
 
-      var _controllers = require("@beyond-js/react-widgets/controllers");
+      var _page = require("@beyond-js/react-widgets/page");
 
       var _contents = require("./contents");
 
-      var _page = require("./views/page");
+      var _page2 = require("./views/page");
       /*bundle*/
 
 
-      class Controller extends _controllers.PageReactWidgetController {
+      class Controller extends _page.PageReactWidgetController {
         createStore() {
           //Todo: @julio @felix question  new Contents(this.body)
           const contents = new _contents.Contents(this.body);
@@ -135,7 +135,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
         }
 
         get Widget() {
-          return _page.Page;
+          return _page2.Page;
         }
 
       }
@@ -214,3 +214,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QSxTQUFaO1VBQXVCTSxTQUFTLEVBQUVBLFNBQWxDO1VBQTZDRCxHQUFHLEVBQUVBO1FBQWxELENBQWJNLENBREo7TUFJSCIsIm5hbWVzIjpbIkNvbnRlbnRzIiwiRXZlbnRzIiwibG9hZGluZyIsImxvYWRlZCIsInZhbHVlIiwiaHlkcmF0ZWQiLCJjb250YWluZXIiLCJjb25zdHJ1Y3RvciIsImZldGNoIiwidHJpZ2dlciIsImh5ZHJhdGUiLCJjYWNoZWQiLCJmb3JFYWNoIiwiY29tcGFueSIsInB1c2giLCJ0b0pTT04iLCJDb250cm9sbGVyIiwiUGFnZVJlYWN0V2lkZ2V0Q29udHJvbGxlciIsImNyZWF0ZVN0b3JlIiwiY29udGVudHMiLCJib2R5IiwiV2lkZ2V0IiwiUGFnZSIsInVyaSIsImNvbXBvbmVudCIsInN0b3JlIiwicHJvcHNDb250ZW50IiwidmFycyIsImdldCIsInN1YiIsImNvbnRlbnRJZCIsInVuZGVmaW5lZCIsImluY2x1ZGVzIiwiaG1yQ2hhbmdlZCIsInNldEhtciIsIlJlYWN0IiwidXNlU3RhdGUiLCJwZXJmb3JtYW5jZSIsIm5vdyIsInVzZUVmZmVjdCIsIm9uQ2hhbmdlIiwiaG1yIiwib24iLCJvZmYiLCJDb250ZW50c1BhZ2UiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbImRvY3VtZW50YXRpb24vbW9kdWxlcy9jb250ZW50cy9zdWJwYWdlL3dpZGdldC90cy9jb250ZW50cy50cyIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9jb250ZW50cy9zdWJwYWdlL3dpZGdldC90cy9jb250cm9sbGVyLnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9jb250ZW50cy9zdWJwYWdlL3dpZGdldC90cy92aWV3cy9wYWdlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbCxudWxsXX0=

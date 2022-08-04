@@ -1,7 +1,9 @@
-define(["@pksilen/reactive-js","react"], (dep_0, dep_1) => {
-const dependencies = new Map([['@pksilen/reactive-js', dep_0],['react', dep_1]]);
-const define = void 0;
+define(["@pksilen/reactive-js@0.1.2","react@17.0.2"], (dep_0, dep_1) => {
+
+const dependencies = new Map([['@pksilen/reactive-js@0.1.2', dep_0],['react@17.0.2', dep_1]]);
 const require = dependency => dependencies.get(dependency);
+// Prevent esbuild from considering the context to be amd
+const define = void 0;
 const module = {};
 
 const code = (module, require) => {
@@ -11,6 +13,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+
+var __markAsModule = target => __defProp(target, "__esModule", {
+  value: true
+});
 
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = {
@@ -25,27 +31,32 @@ var __export = (target, all) => {
   });
 };
 
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-      get: () => from[key],
-      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+var __reExport = (target, module2, copyDefault, desc) => {
+  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+    for (let key of __getOwnPropNames(module2)) if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default")) __defProp(target, key, {
+      get: () => module2[key],
+      enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable
     });
   }
 
-  return to;
+  return target;
 };
 
-var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
+var __toESM = (module2, isNodeMode) => {
+  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? {
+    get: () => module2.default,
+    enumerable: true
+  } : {
+    value: module2,
+    enumerable: true
+  })), module2);
+};
 
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
-  value: mod,
-  enumerable: true
-}) : target, mod));
-
-var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
-  value: true
-}), mod); // node_modules/svelte/internal/index.js
+var __toCommonJS = /* @__PURE__ */(cache => {
+  return (module2, temp) => {
+    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // node_modules/svelte/internal/index.js
 
 
 var require_internal = __commonJS({
@@ -2850,9 +2861,9 @@ var require_Store = __commonJS({
     });
     exports.default = void 0;
 
-    var _reactiveJs = require("@pksilen/reactive-js");
+    var _reactiveJs = require("@pksilen/reactive-js@0.1.2");
 
-    var _react = require("react");
+    var _react = require("react@17.0.2");
 
     var _store = require_store();
 
@@ -5512,22 +5523,21 @@ var require_lib = __commonJS({
     }
   }
 
-}); // .beyond/uimport/temp/universal-model-ng-react-svelte-vue/0.3.3.js
+}); // .beyond/uimport/universal-model-ng-react-svelte-vue.0.3.3.js
 
 
-var __exports = {};
+var universal_model_ng_react_svelte_vue_0_3_3_exports = {};
 
-__export(__exports, {
-  default: () => __default
+__export(universal_model_ng_react_svelte_vue_0_3_3_exports, {
+  default: () => universal_model_ng_react_svelte_vue_0_3_3_default
 });
 
-module.exports = __toCommonJS(__exports);
-
-__reExport(__exports, __toESM(require_lib()), module.exports);
+__reExport(universal_model_ng_react_svelte_vue_0_3_3_exports, __toESM(require_lib()));
 
 var import_universal_model_ng_react_svelte_vue = __toESM(require_lib());
 
-var __default = import_universal_model_ng_react_svelte_vue.default;
+var universal_model_ng_react_svelte_vue_0_3_3_default = import_universal_model_ng_react_svelte_vue.default;
+module.exports = __toCommonJS(universal_model_ng_react_svelte_vue_0_3_3_exports);
 };
 
 code(module, require);

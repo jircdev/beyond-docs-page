@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles"], function (_exports, dependency_0, dependency_1) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles"], function (_exports, _amd_module, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.beyond__styles = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,13 +14,11 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles"], func
   const __pkg = new __Bundle({
     "module": "@beyond/docs/layout/styles",
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([]));
-
-  require('@beyond-js/kernel/styles').styles.register('@beyond/docs/layout/styles');
-
+  brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs/layout/styles');
   const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
@@ -66,3 +65,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles"], func
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUFBTzs7TUFBVyxNQUFNQSxjQUFjLEdBQUcsRUFBdkIiLCJuYW1lcyI6WyJiZXlvbmRfX3N0eWxlcyJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2xheW91dHMvc3R5bGVzL3RzL2NvbnRyb2xsZXIudHMiXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

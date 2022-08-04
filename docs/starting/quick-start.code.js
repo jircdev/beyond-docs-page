@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components/html"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "react@17.0.2", "@beyond/docs/components/html"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.QuickStart = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
     "module": "@beyond/docs/docs/starting/quick-start",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_1]]));
@@ -100,3 +101,4 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7O01BR0EsTUFBTUEsS0FBSyxHQUFJQyxHQUFELEtBQVU7UUFBQ0MsUUFBUSxFQUFFLE9BQVg7UUFBb0JEO01BQXBCLENBQVYsQ0FBZDs7TUFDQSxNQUFNRSxJQUFJLEdBQUc7UUFDVEMsSUFBSSxFQUFFSixLQUFLLENBQUMsd0VBQUQsQ0FERjtRQUVUSyxJQUFJLEVBQUVMLEtBQUssQ0FBQyxrRUFBRCxDQUZGO1FBR1RNLElBQUksRUFBRU4sS0FBSyxDQUFDLFFBQUQsQ0FIRjtRQUlUTyxJQUFJLEVBQUVQLEtBQUssQ0FBQyxpQkFBRCxDQUpGO1FBS1RRLE1BQU0sRUFBRVIsS0FBSyxDQUFDLFFBQUQ7TUFMSixDQUFiO01BUU87O01BQVUsU0FBVVMsVUFBVixHQUFvQjtRQUNqQyxPQUNJQywwQ0FDSUEsb0JBQUNDLGNBQURELEVBQVM7VUFBQ0UsTUFBTSxFQUFDLFVBQVI7VUFBbUJDLFFBQVEsRUFBRUMsdUJBQU9DLFFBQXBDO1VBQThDWixJQUFJLEVBQUVBO1FBQXBELENBQVRPLENBREpBLEVBRUlBLG9CQUFDQyxjQUFERCxFQUFTO1VBQUNFLE1BQU0sRUFBQyxRQUFSO1VBQWlCQyxRQUFRLEVBQUVDLHVCQUFPQyxRQUFsQztVQUE0Q1osSUFBSSxFQUFFQTtRQUFsRCxDQUFUTyxDQUZKQSxFQUdJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUNMRSxNQUFNLEVBQUMsUUFERjtVQUVMQyxRQUFRLEVBQUVDLHVCQUFPQyxRQUZaO1VBR0xaLElBQUksRUFBRUEsSUFIRDtVQUlMYSxTQUFTLEVBQUUsQ0FDUCxzQkFETztRQUpOLENBQVROLENBSEpBLENBREo7TUFjSCIsIm5hbWVzIjpbImJ1aWxkIiwidHBsIiwibGFuZ3VhZ2UiLCJ0cGxzIiwibnB4MSIsIm5weDIiLCJucG0xIiwibnBtMiIsImJleW9uZCIsIlF1aWNrU3RhcnQiLCJSZWFjdCIsIkRvY3VtZW50IiwidGV4dElkIiwibW9kdWxlSWQiLCJtb2R1bGUiLCJyZXNvdXJjZSIsIm5leHRMaW5rcyJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3Mvc3RhcnRpbmcvcXVpY2stc3RhcnQvY29kZS90cy9jb250cm9sLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

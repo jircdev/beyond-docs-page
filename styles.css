@@ -9257,8 +9257,7 @@
 body.body-beyond-modal-opened {
   height: 100vh;
   overflow-y: hidden;
-  padding-right: 15px;
-  /* Avoid width reflow */
+  padding-right: 15px; /* Avoid width reflow */
 }
 
 .beyond-element-modal {
@@ -10022,16 +10021,11 @@ html[data-beyond-mode=dark] {
 
 .gradient-one {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,2a2896+100 */
-  background: rgb(64, 150, 238);
-  /* Old browsers */
-  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0);
-  /* IE6-9 */
+  background: rgb(64, 150, 238); /* Old browsers */
+  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0); /* IE6-9 */
 }
 .beyond-element-modal.modal-languages .modal-content {
   width: 100%;
@@ -10314,8 +10308,7 @@ html[data-beyond-mode=dark] {
 body.body-beyond-modal-opened {
   height: 100vh;
   overflow-y: hidden;
-  padding-right: 15px;
-  /* Avoid width reflow */
+  padding-right: 15px; /* Avoid width reflow */
 }
 
 .beyond-element-modal {

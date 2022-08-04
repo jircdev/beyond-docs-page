@@ -1,0 +1,74 @@
+.beyond-icon-button {
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  display: inline-grid;
+  position: relative;
+  outline: none !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.beyond-icon-button svg.beyond-icon {
+  height: 15px;
+  width: 15px;
+}
+.beyond-icon-button.circle {
+  border-radius: 50%;
+}
+.beyond-icon-button.circle > .beyond-ripple {
+  border-radius: 50%;
+  align-self: center;
+}
+.beyond-icon-button.primary {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+.beyond-icon-button.primary.dark {
+  background: var(--primary-dark);
+}
+.beyond-icon-button.primary.light {
+  background: var(--primary-light);
+}
+.beyond-icon-button.primary svg {
+  fill: var(--text-on-primary);
+}
+.beyond-icon-button.gray {
+  background: var(--gray-light);
+}
+.beyond-icon-button.secondary {
+  background: var(--secondary);
+  fill: var(--text-on-secondary);
+  color: var(--text-on-secondary);
+}
+.beyond-icon-button.secondary.dark {
+  background: var(--secondary-dark);
+}
+.beyond-icon-button.secondary.light {
+  background: var(--secondary-light);
+}
+.beyond-icon-button.small-icon {
+  height: 24px;
+  width: 24px;
+}
+.beyond-icon-button.small-icon .beyond-icon {
+  height: 12px;
+  width: 12px;
+}
+.beyond-icon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+.beyond-icon.circle {
+  border-radius: 50%;
+  padding: 5px;
+}
+.beyond-icon svg {
+  fill: var(--text-on-primary);
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImItdWkvbW9kdWxlcy9pY29ucy9zY3NzL2ItdWlcXG1vZHVsZXNcXGljb25zXFxzY3NzXFxiZXlvbmQtaWNvbi1idXR0b24uc2NzcyIsImItdWkvbW9kdWxlcy9pY29ucy9zY3NzL2ItdWlcXG1vZHVsZXNcXGljb25zXFxzY3NzXFxzdHlsZXMuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUVFO0VBQ0E7RUFDQTtFQUVBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7O0FBRUE7RUFDRTtFQUNBOztBQUlKO0VBQ0U7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBR0Y7RUFDRTs7QUFLSjtFQUNFOztBQUdGO0VBQ0U7RUFDQTtFQUNBOztBQUVBO0VBQ0U7O0FBR0Y7RUFDRTs7QUFJSjtFQUNFO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQ3ZFTjtFQUNFO0VBQ0E7RUFDQTs7QUFFQTtFQUNFO0VBQ0E7O0FBR0Y7RUFDRSIsImZpbGUiOiIiLCJzb3VyY2VSb290IjoiLyJ9 */

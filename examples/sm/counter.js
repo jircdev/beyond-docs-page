@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/controllers", "react", "@beyond/docs/examples-sm-store"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/page", "react@17.0.2", "@beyond/docs/examples-sm-store"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.Page = _exports.Controller = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,14 +14,14 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   const __pkg = new __Bundle({
     "module": "@beyond/docs/examples/sm/counter",
     "bundle": "widget"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_3]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/examples-sm-store"]));
 
-  require('@beyond-js/widgets/render').widgets.register([{
+  brequire('@beyond-js/widgets/render').widgets.register([{
     "name": "examples-counter-page",
     "id": "@beyond/docs/examples/sm/counter",
     "is": "page",
@@ -31,7 +32,6 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   SCSS STYLES
   **********/
 
-
   const legacyStyles = beyondLegacyStyles.register('@beyond/docs/examples/sm/counter', 'undefined.section{background:var(--gray-light);padding:2rem}undefined.section .items{display:grid;flex-grow:2;grid-template-columns:1fr 1fr 1fr}');
   const ims = new Map();
   /****************************
@@ -39,7 +39,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   ****************************/
 
   ims.set('./controller', {
-    hash: 2992203461,
+    hash: 1073942782,
     creator: function (require, exports) {
       "use strict";
 
@@ -48,15 +48,15 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
       });
       exports.Controller = void 0;
 
-      var _controllers = require("@beyond-js/react-widgets/controllers");
+      var _page = require("@beyond-js/react-widgets/page");
 
-      var _page = require("./views/page");
+      var _page2 = require("./views/page");
       /*bundle*/
 
 
-      class Controller extends _controllers.PageReactWidgetController {
+      class Controller extends _page.PageReactWidgetController {
         get Widget() {
-          return _page.Page;
+          return _page2.Page;
         }
 
       }
@@ -131,3 +131,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUFBQTs7TUFDQTtNQUVPOzs7TUFBVSxNQUNYQSxVQURXLFNBQ1FDLCtCQURSLENBQ2lDO1FBQ3BDLElBQU5DLE1BQU07VUFDTixPQUFPQyxXQUFQO1FBQ0g7O01BSDZDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O01DSmxEOztNQUNBO01BRU87OztNQUFVLFNBQ1JBLElBRFEsR0FDSjtRQUNULE1BQU0sQ0FBQ0MsS0FBRCxFQUFRO1VBQUNDO1FBQUQsQ0FBUixJQUEyQkMsdUJBQU1DLG9CQUFORCxFQUFqQzs7UUFDQUEsdUJBQU1FLHlCQUFORixDQUFnQyxDQUFDRixLQUFLLENBQUNLLE9BQVAsQ0FBaENILEVBQWlELENBQUNELGFBQUQsQ0FBakRDOztRQUVBLE9BQ0lJO1VBQUtDLFNBQVMsRUFBQztRQUFmRCxHQUNJQSxrREFBbUJMLGFBQWEsQ0FBQ08sS0FBakNGLENBREpBLEVBRUlBO1VBQUtDLFNBQVMsRUFBQztRQUFmRCxHQUNJQSwwQ0FESkEsRUFFSUEsd0NBRkpBLEVBR0lBLDJDQUhKQSxDQUZKQSxDQURKO01BVUgiLCJuYW1lcyI6WyJDb250cm9sbGVyIiwiUGFnZVJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsIlBhZ2UiLCJzdGF0ZSIsInNlbGVjdG9yQ291bnQiLCJzdG9yZSIsImdldFN0YXRlQW5kU2VsZWN0b3JzIiwidXNlU3RhdGVBbmRTZWxlY3RvcnNSZWFjdCIsImNvdW50ZXIiLCJSZWFjdCIsImNsYXNzTmFtZSIsInZhbHVlIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJkb2N1bWVudGF0aW9uL21vZHVsZXMvZXhhbXBsZXMvY291bnRlci9wYWdlL3dpZGdldC90cy9jb250cm9sbGVyLnRzIiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2V4YW1wbGVzL2NvdW50ZXIvcGFnZS93aWRnZXQvdHMvdmlld3MvcGFnZS50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsLG51bGxdfQ==

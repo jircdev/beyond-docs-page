@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/styles", "@beyond-js/react-widgets/controllers", "react"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/kernel/styles", "@beyond-js/react-widgets/base", "react@17.0.2"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.Controller = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,26 +14,23 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
   const __pkg = new __Bundle({
     "module": "@beyond/docs/layout/home",
     "bundle": "widget"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_4]]));
-
-  require('@beyond-js/widgets/render').widgets.register([{
+  brequire('@beyond-js/widgets/render').widgets.register([{
     "name": "home-layout",
     "id": "@beyond/docs/layout/home",
     "is": "layout"
   }]);
-
-  require('@beyond-js/kernel/styles').styles.register('@beyond/docs/layout/home');
-
+  brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs/layout/home');
   const ims = new Map();
   /****************************
   INTERNAL MODULE: ./controller
   ****************************/
 
   ims.set('./controller', {
-    hash: 2653441698,
+    hash: 2072653922,
     creator: function (require, exports) {
       "use strict";
 
@@ -41,13 +39,13 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
       });
       exports.Controller = void 0;
 
-      var _controllers = require("@beyond-js/react-widgets/controllers");
+      var _base = require("@beyond-js/react-widgets/base");
 
       var _layout = require("./layout");
       /*bundle*/
 
 
-      class Controller extends _controllers.ReactWidgetController {
+      class Controller extends _base.ReactWidgetController {
         get Widget() {
           return _layout.default;
         }
@@ -110,3 +108,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@be
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUFBQTs7TUFDQTtNQUVPOzs7TUFBVSxNQUNYQSxVQURXLFNBQ1FDLDJCQURSLENBQzZCO1FBQ2hDLElBQU5DLE1BQU07VUFDTixPQUFPQyxlQUFQO1FBQ0g7O01BSHlDOzs7Ozs7Ozs7Ozs7Ozs7Ozs7O01DSjlDOztNQVljO1FBQ1YsT0FDSUM7VUFBS0MsU0FBUyxFQUFDO1FBQWZELEdBQ0lBO1VBQUtDLFNBQVMsRUFBQztRQUFmRCxHQUNJQSw2Q0FESkEsRUFFSUE7VUFBYUUsSUFBSSxFQUFDO1FBQWxCRixFQUZKQSxFQUdJQSxrQ0FDSUEsbURBREpBLENBSEpBLENBREpBLENBREo7TUFXSCIsIm5hbWVzIjpbIkNvbnRyb2xsZXIiLCJSZWFjdFdpZGdldENvbnRyb2xsZXIiLCJXaWRnZXQiLCJMYXlvdXQiLCJSZWFjdCIsImNsYXNzTmFtZSIsImhvbWUiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbImRvY3VtZW50YXRpb24vbW9kdWxlcy9sYXlvdXRzL2hvbWUvdHMvY29udHJvbGxlci50cyIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9sYXlvdXRzL2hvbWUvdHMvbGF5b3V0LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbF19

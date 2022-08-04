@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/examples-sm-store"], function (_exports, dependency_0, dependency_1) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond/docs/examples-sm-store"], function (_exports, _amd_module, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.updateCount = _exports.hmr = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,7 +14,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/examples-sm-store"]
   const __pkg = new __Bundle({
     "module": "@beyond/docs/examples-sm-actions",
     "bundle": "ts"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([]));
@@ -74,3 +75,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/examples-sm-store"]
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUFBQTtNQUVPOzs7TUFBVSxTQUNSQSxXQURRLEdBQ0c7UUFDaEIsTUFBTTtVQUFDQztRQUFELElBQVlDLHVCQUFNQyxRQUFORCxFQUFsQjs7UUFDQSxFQUFFRCxPQUFPLENBQUNHLEtBQVY7TUFDSCIsIm5hbWVzIjpbInVwZGF0ZUNvdW50IiwiY291bnRlciIsInN0b3JlIiwiZ2V0U3RhdGUiLCJjb3VudCJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2V4YW1wbGVzL2NvdW50ZXIvc3RvcmUvYWN0aW9ucy90cy9hY3Rpb25zLnRzIl0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

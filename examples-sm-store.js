@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "universal-model-ng-react-svelte-vue"], function (_exports, dependency_0, dependency_1) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "universal-model-ng-react-svelte-vue@0.3.3"], function (_exports, _amd_module, dependency_0, dependency_1) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.store = _exports.hmr = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,7 +14,7 @@ define(["exports", "@beyond-js/kernel/bundle", "universal-model-ng-react-svelte-
   const __pkg = new __Bundle({
     "module": "@beyond/docs/examples-sm-store",
     "bundle": "ts"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["universal-model-ng-react-svelte-vue", dependency_1]]));
@@ -96,3 +97,4 @@ define(["exports", "@beyond-js/kernel/bundle", "universal-model-ng-react-svelte-
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQUFPLE1BQU1BLGlCQUFpQixHQUFHO1FBQzdCQyxLQUFLLEVBQUU7TUFEc0IsQ0FBMUI7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQ0FQOztNQUNBOztNQUVBLE1BQU1DLFlBQVksR0FBRztRQUNqQkMsT0FBTyxFQUFFLG9EQUFlSCx3QkFBZjtNQURRLENBQXJCOztNQUtBLE1BQU1JLG9CQUFvQixHQUFHLE9BQXdCO1FBQ2pEQyxhQUFhLEVBQUdDLEtBQUQsSUFBa0JBLEtBQUssQ0FBQ0gsT0FBTkcsQ0FBY0w7TUFERSxDQUF4QixDQUE3Qjs7TUFHQSxNQUFNTSxxQkFBcUIsR0FBR0gsb0JBQW9CLEVBQWxEO01BRU87O01BQ1AsTUFBTUksS0FBSyxHQUFHLGlEQUFpRE4sWUFBakQsRUFBK0RLLHFCQUEvRCxDQUFkIiwibmFtZXMiOlsiaW5pdGlhbENvdW50U3RhdGUiLCJjb3VudCIsImluaXRpYWxTdGF0ZSIsImNvdW50ZXIiLCJjcmVhdGVDb3VudFNlbGVjdG9ycyIsInNlbGVjdG9yQ291bnQiLCJzdGF0ZSIsImNvdW50ZXJTdGF0ZVNlbGVjdG9ycyIsInN0b3JlIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJkb2N1bWVudGF0aW9uL21vZHVsZXMvZXhhbXBsZXMvY291bnRlci9zdG9yZS90cy9zdGF0ZS50cyIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9leGFtcGxlcy9jb3VudGVyL3N0b3JlL3RzL3N0b3JlLnRzIl0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsXX0=

@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components/html"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "react@17.0.2", "@beyond/docs/components/html"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.Processors = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
     "module": "@beyond/docs/docs/basic/processors",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_1]]));
@@ -113,3 +114,4 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7O01BRUEsTUFBTUEsR0FBRyxHQUFHOzs7Ozs7Ozs7Ozs7Ozs7OztFQUFaO01Ba0JBLE1BQU1DLElBQUksR0FBRztRQUFDQyxVQUFVLEVBQUU7VUFBQ0MsUUFBUSxFQUFFLE1BQVg7VUFBbUJIO1FBQW5CO01BQWIsQ0FBYjtNQUVPOztNQUFVLFNBQVVJLFVBQVYsR0FBb0I7UUFDakMsT0FDSUMsMENBQ0lBLG9CQUFDQyxjQUFERCxFQUFTO1VBQUNFLFFBQVEsRUFBRUMsdUJBQU9DLFFBQWxCO1VBQTRCQyxNQUFNLEVBQUM7UUFBbkMsQ0FBVEwsQ0FESkEsRUFFSUEsb0JBQUNDLGNBQURELEVBQVM7VUFBQ0UsUUFBUSxFQUFFQyx1QkFBT0MsUUFBbEI7VUFBNEJDLE1BQU0sRUFBQztRQUFuQyxDQUFUTCxDQUZKQSxFQUdJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUFFRSxRQUFRLEVBQUVDLHVCQUFPQyxRQUFuQjtVQUE2QkMsTUFBTSxFQUFDO1FBQXBDLENBQVRMLENBSEpBLEVBSUlBLG9CQUFDQyxjQUFERCxFQUFTO1VBQ0xKLElBQUksRUFBRUEsSUFERDtVQUVMTSxRQUFRLEVBQUVDLHVCQUFPQyxRQUZaO1VBRXNCQyxNQUFNLEVBQUMsVUFGN0I7VUFHTEMsU0FBUyxFQUFFLENBQUMsc0JBQUQ7UUFITixDQUFUTixDQUpKQSxDQURKO01BWUgiLCJuYW1lcyI6WyJ0cGwiLCJ0cGxzIiwibW9kdWxlanNvbiIsImxhbmd1YWdlIiwiUHJvY2Vzc29ycyIsIlJlYWN0IiwiRG9jdW1lbnQiLCJtb2R1bGVJZCIsIm1vZHVsZSIsInJlc291cmNlIiwidGV4dElkIiwibmV4dExpbmtzIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJkb2N1bWVudGF0aW9uL21vZHVsZXMvZG9jcy9iYXNpYy9wcm9jZXNzb3JzL2NvZGUvdHMvY29udHJvbC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

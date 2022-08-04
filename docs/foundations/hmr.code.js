@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "react"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "react@17.0.2"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.HMRPage = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
     "module": "@beyond/docs/docs/foundations/hmr",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_2]]));
@@ -82,3 +83,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7TUFHTzs7O01BQVUsU0FBVUEsT0FBVixHQUFpQjtRQUU5QixPQUNJQywwQ0FDSUEsb0JBQUNDLGNBQURELEVBQVM7VUFBQ0UsUUFBUSxFQUFFQyx1QkFBT0MsUUFBbEI7VUFBNEJDLE1BQU0sRUFBQztRQUFuQyxDQUFUTCxDQURKQSxFQUVJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUNMRSxRQUFRLEVBQUVDLHVCQUFPQyxRQURaO1VBQ3NCQyxNQUFNLEVBQUMsUUFEN0I7VUFFTEMsU0FBUyxFQUFFLENBQUMsdUJBQUQ7UUFGTixDQUFUTixDQUZKQSxDQURKO01BU0giLCJuYW1lcyI6WyJITVJQYWdlIiwiUmVhY3QiLCJEb2N1bWVudCIsIm1vZHVsZUlkIiwibW9kdWxlIiwicmVzb3VyY2UiLCJ0ZXh0SWQiLCJuZXh0TGlua3MiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbImRvY3VtZW50YXRpb24vbW9kdWxlcy9kb2NzL2ZvdW5kYXRpb25zL2htci9jb2RlL3RzL2NvbnRyb2wudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

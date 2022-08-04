@@ -1,14 +1,22 @@
-define(["engine.io-parser","engine.io-client"], (dep_0, dep_1) => {
-const dependencies = new Map([['engine.io-parser', dep_0],['engine.io-client', dep_1]]);
-const define = void 0;
+define(["engine.io-parser@5.0.4","@socket.io/component-emitter@3.1.0","engine.io-client@6.2.2","socket.io-parser@4.2.1"], (dep_0, dep_1, dep_2, dep_3) => {
+
+const dependencies = new Map([['engine.io-parser@5.0.4', dep_0],['@socket.io/component-emitter@3.1.0', dep_1],['engine.io-client@6.2.2', dep_2],['socket.io-parser@4.2.1', dep_3]]);
 const require = dependency => dependencies.get(dependency);
+// Prevent esbuild from considering the context to be amd
+const define = void 0;
 const module = {};
 
 const code = (module, require) => {
+var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
+var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
+
+var __markAsModule = target => __defProp(target, "__esModule", {
+  value: true
+});
 
 var __export = (target, all) => {
   for (var name in all) __defProp(target, name, {
@@ -17,36 +25,47 @@ var __export = (target, all) => {
   });
 };
 
-var __copyProps = (to, from, except, desc) => {
-  if (from && typeof from === "object" || typeof from === "function") {
-    for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
-      get: () => from[key],
-      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
+var __reExport = (target, module2, copyDefault, desc) => {
+  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+    for (let key of __getOwnPropNames(module2)) if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default")) __defProp(target, key, {
+      get: () => module2[key],
+      enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable
     });
   }
 
-  return to;
+  return target;
 };
 
-var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
-  value: true
-}), mod); // .beyond/uimport/socket.io-client/4.5.1.js
+var __toESM = (module2, isNodeMode) => {
+  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? {
+    get: () => module2.default,
+    enumerable: true
+  } : {
+    value: module2,
+    enumerable: true
+  })), module2);
+};
+
+var __toCommonJS = /* @__PURE__ */(cache2 => {
+  return (module2, temp) => {
+    return cache2 && cache2.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache2 && cache2.set(module2, temp), temp);
+  };
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // .beyond/uimport/socket.io-client.4.5.1.js
 
 
-var __exports = {};
+var socket_io_client_4_5_1_exports = {};
 
-__export(__exports, {
+__export(socket_io_client_4_5_1_exports, {
   Manager: () => Manager,
   Socket: () => Socket,
   connect: () => lookup,
-  default: () => __default,
+  default: () => socket_io_client_4_5_1_default,
   io: () => lookup,
-  protocol: () => protocol
-});
+  protocol: () => import_socket4.protocol
+}); // node_modules/socket.io-client/build/esm/url.js
 
-module.exports = __toCommonJS(__exports); // node_modules/socket.io-client/build/esm/url.js
 
-var import_engine = require("engine.io-client");
+var import_engine = require("engine.io-client@6.2.2");
 
 function url(uri, path = "", loc) {
   let obj = uri;
@@ -87,471 +106,8 @@ function url(uri, path = "", loc) {
   obj.id = obj.protocol + "://" + host + ":" + obj.port + path;
   obj.href = obj.protocol + "://" + host + (loc && loc.port === obj.port ? "" : ":" + obj.port);
   return obj;
-} // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/index.js
+} // node_modules/socket.io-client/build/esm/on.js
 
-
-var esm_exports = {};
-
-__export(esm_exports, {
-  Decoder: () => Decoder,
-  Encoder: () => Encoder,
-  PacketType: () => PacketType,
-  protocol: () => protocol
-}); // node_modules/@socket.io/component-emitter/index.mjs
-
-
-function Emitter(obj) {
-  if (obj) return mixin(obj);
-}
-
-function mixin(obj) {
-  for (var key in Emitter.prototype) {
-    obj[key] = Emitter.prototype[key];
-  }
-
-  return obj;
-}
-
-Emitter.prototype.on = Emitter.prototype.addEventListener = function (event, fn) {
-  this._callbacks = this._callbacks || {};
-  (this._callbacks["$" + event] = this._callbacks["$" + event] || []).push(fn);
-  return this;
-};
-
-Emitter.prototype.once = function (event, fn) {
-  function on2() {
-    this.off(event, on2);
-    fn.apply(this, arguments);
-  }
-
-  on2.fn = fn;
-  this.on(event, on2);
-  return this;
-};
-
-Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.removeAllListeners = Emitter.prototype.removeEventListener = function (event, fn) {
-  this._callbacks = this._callbacks || {};
-
-  if (arguments.length == 0) {
-    this._callbacks = {};
-    return this;
-  }
-
-  var callbacks = this._callbacks["$" + event];
-  if (!callbacks) return this;
-
-  if (arguments.length == 1) {
-    delete this._callbacks["$" + event];
-    return this;
-  }
-
-  var cb;
-
-  for (var i = 0; i < callbacks.length; i++) {
-    cb = callbacks[i];
-
-    if (cb === fn || cb.fn === fn) {
-      callbacks.splice(i, 1);
-      break;
-    }
-  }
-
-  if (callbacks.length === 0) {
-    delete this._callbacks["$" + event];
-  }
-
-  return this;
-};
-
-Emitter.prototype.emit = function (event) {
-  this._callbacks = this._callbacks || {};
-  var args = new Array(arguments.length - 1),
-      callbacks = this._callbacks["$" + event];
-
-  for (var i = 1; i < arguments.length; i++) {
-    args[i - 1] = arguments[i];
-  }
-
-  if (callbacks) {
-    callbacks = callbacks.slice(0);
-
-    for (var i = 0, len = callbacks.length; i < len; ++i) {
-      callbacks[i].apply(this, args);
-    }
-  }
-
-  return this;
-};
-
-Emitter.prototype.emitReserved = Emitter.prototype.emit;
-
-Emitter.prototype.listeners = function (event) {
-  this._callbacks = this._callbacks || {};
-  return this._callbacks["$" + event] || [];
-};
-
-Emitter.prototype.hasListeners = function (event) {
-  return !!this.listeners(event).length;
-}; // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/is-binary.js
-
-
-var withNativeArrayBuffer = typeof ArrayBuffer === "function";
-
-var isView = obj => {
-  return typeof ArrayBuffer.isView === "function" ? ArrayBuffer.isView(obj) : obj.buffer instanceof ArrayBuffer;
-};
-
-var toString = Object.prototype.toString;
-var withNativeBlob = typeof Blob === "function" || typeof Blob !== "undefined" && toString.call(Blob) === "[object BlobConstructor]";
-var withNativeFile = typeof File === "function" || typeof File !== "undefined" && toString.call(File) === "[object FileConstructor]";
-
-function isBinary(obj) {
-  return withNativeArrayBuffer && (obj instanceof ArrayBuffer || isView(obj)) || withNativeBlob && obj instanceof Blob || withNativeFile && obj instanceof File;
-}
-
-function hasBinary(obj, toJSON) {
-  if (!obj || typeof obj !== "object") {
-    return false;
-  }
-
-  if (Array.isArray(obj)) {
-    for (let i = 0, l = obj.length; i < l; i++) {
-      if (hasBinary(obj[i])) {
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  if (isBinary(obj)) {
-    return true;
-  }
-
-  if (obj.toJSON && typeof obj.toJSON === "function" && arguments.length === 1) {
-    return hasBinary(obj.toJSON(), true);
-  }
-
-  for (const key in obj) {
-    if (Object.prototype.hasOwnProperty.call(obj, key) && hasBinary(obj[key])) {
-      return true;
-    }
-  }
-
-  return false;
-} // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/binary.js
-
-
-function deconstructPacket(packet) {
-  const buffers = [];
-  const packetData = packet.data;
-  const pack = packet;
-  pack.data = _deconstructPacket(packetData, buffers);
-  pack.attachments = buffers.length;
-  return {
-    packet: pack,
-    buffers
-  };
-}
-
-function _deconstructPacket(data, buffers) {
-  if (!data) return data;
-
-  if (isBinary(data)) {
-    const placeholder = {
-      _placeholder: true,
-      num: buffers.length
-    };
-    buffers.push(data);
-    return placeholder;
-  } else if (Array.isArray(data)) {
-    const newData = new Array(data.length);
-
-    for (let i = 0; i < data.length; i++) {
-      newData[i] = _deconstructPacket(data[i], buffers);
-    }
-
-    return newData;
-  } else if (typeof data === "object" && !(data instanceof Date)) {
-    const newData = {};
-
-    for (const key in data) {
-      if (Object.prototype.hasOwnProperty.call(data, key)) {
-        newData[key] = _deconstructPacket(data[key], buffers);
-      }
-    }
-
-    return newData;
-  }
-
-  return data;
-}
-
-function reconstructPacket(packet, buffers) {
-  packet.data = _reconstructPacket(packet.data, buffers);
-  packet.attachments = void 0;
-  return packet;
-}
-
-function _reconstructPacket(data, buffers) {
-  if (!data) return data;
-
-  if (data && data._placeholder === true) {
-    const isIndexValid = typeof data.num === "number" && data.num >= 0 && data.num < buffers.length;
-
-    if (isIndexValid) {
-      return buffers[data.num];
-    } else {
-      throw new Error("illegal attachments");
-    }
-  } else if (Array.isArray(data)) {
-    for (let i = 0; i < data.length; i++) {
-      data[i] = _reconstructPacket(data[i], buffers);
-    }
-  } else if (typeof data === "object") {
-    for (const key in data) {
-      if (Object.prototype.hasOwnProperty.call(data, key)) {
-        data[key] = _reconstructPacket(data[key], buffers);
-      }
-    }
-  }
-
-  return data;
-} // node_modules/socket.io-client/node_modules/socket.io-parser/build/esm/index.js
-
-
-var protocol = 5;
-var PacketType;
-
-(function (PacketType2) {
-  PacketType2[PacketType2["CONNECT"] = 0] = "CONNECT";
-  PacketType2[PacketType2["DISCONNECT"] = 1] = "DISCONNECT";
-  PacketType2[PacketType2["EVENT"] = 2] = "EVENT";
-  PacketType2[PacketType2["ACK"] = 3] = "ACK";
-  PacketType2[PacketType2["CONNECT_ERROR"] = 4] = "CONNECT_ERROR";
-  PacketType2[PacketType2["BINARY_EVENT"] = 5] = "BINARY_EVENT";
-  PacketType2[PacketType2["BINARY_ACK"] = 6] = "BINARY_ACK";
-})(PacketType || (PacketType = {}));
-
-var Encoder = class {
-  constructor(replacer) {
-    this.replacer = replacer;
-  }
-
-  encode(obj) {
-    if (obj.type === PacketType.EVENT || obj.type === PacketType.ACK) {
-      if (hasBinary(obj)) {
-        obj.type = obj.type === PacketType.EVENT ? PacketType.BINARY_EVENT : PacketType.BINARY_ACK;
-        return this.encodeAsBinary(obj);
-      }
-    }
-
-    return [this.encodeAsString(obj)];
-  }
-
-  encodeAsString(obj) {
-    let str = "" + obj.type;
-
-    if (obj.type === PacketType.BINARY_EVENT || obj.type === PacketType.BINARY_ACK) {
-      str += obj.attachments + "-";
-    }
-
-    if (obj.nsp && obj.nsp !== "/") {
-      str += obj.nsp + ",";
-    }
-
-    if (obj.id != null) {
-      str += obj.id;
-    }
-
-    if (obj.data != null) {
-      str += JSON.stringify(obj.data, this.replacer);
-    }
-
-    return str;
-  }
-
-  encodeAsBinary(obj) {
-    const deconstruction = deconstructPacket(obj);
-    const pack = this.encodeAsString(deconstruction.packet);
-    const buffers = deconstruction.buffers;
-    buffers.unshift(pack);
-    return buffers;
-  }
-
-};
-var Decoder = class extends Emitter {
-  constructor(reviver) {
-    super();
-    this.reviver = reviver;
-  }
-
-  add(obj) {
-    let packet;
-
-    if (typeof obj === "string") {
-      if (this.reconstructor) {
-        throw new Error("got plaintext data when reconstructing a packet");
-      }
-
-      packet = this.decodeString(obj);
-
-      if (packet.type === PacketType.BINARY_EVENT || packet.type === PacketType.BINARY_ACK) {
-        this.reconstructor = new BinaryReconstructor(packet);
-
-        if (packet.attachments === 0) {
-          super.emitReserved("decoded", packet);
-        }
-      } else {
-        super.emitReserved("decoded", packet);
-      }
-    } else if (isBinary(obj) || obj.base64) {
-      if (!this.reconstructor) {
-        throw new Error("got binary data when not reconstructing a packet");
-      } else {
-        packet = this.reconstructor.takeBinaryData(obj);
-
-        if (packet) {
-          this.reconstructor = null;
-          super.emitReserved("decoded", packet);
-        }
-      }
-    } else {
-      throw new Error("Unknown type: " + obj);
-    }
-  }
-
-  decodeString(str) {
-    let i = 0;
-    const p = {
-      type: Number(str.charAt(0))
-    };
-
-    if (PacketType[p.type] === void 0) {
-      throw new Error("unknown packet type " + p.type);
-    }
-
-    if (p.type === PacketType.BINARY_EVENT || p.type === PacketType.BINARY_ACK) {
-      const start = i + 1;
-
-      while (str.charAt(++i) !== "-" && i != str.length) {}
-
-      const buf = str.substring(start, i);
-
-      if (buf != Number(buf) || str.charAt(i) !== "-") {
-        throw new Error("Illegal attachments");
-      }
-
-      p.attachments = Number(buf);
-    }
-
-    if (str.charAt(i + 1) === "/") {
-      const start = i + 1;
-
-      while (++i) {
-        const c = str.charAt(i);
-        if (c === ",") break;
-        if (i === str.length) break;
-      }
-
-      p.nsp = str.substring(start, i);
-    } else {
-      p.nsp = "/";
-    }
-
-    const next = str.charAt(i + 1);
-
-    if (next !== "" && Number(next) == next) {
-      const start = i + 1;
-
-      while (++i) {
-        const c = str.charAt(i);
-
-        if (c == null || Number(c) != c) {
-          --i;
-          break;
-        }
-
-        if (i === str.length) break;
-      }
-
-      p.id = Number(str.substring(start, i + 1));
-    }
-
-    if (str.charAt(++i)) {
-      const payload = this.tryParse(str.substr(i));
-
-      if (Decoder.isPayloadValid(p.type, payload)) {
-        p.data = payload;
-      } else {
-        throw new Error("invalid payload");
-      }
-    }
-
-    return p;
-  }
-
-  tryParse(str) {
-    try {
-      return JSON.parse(str, this.reviver);
-    } catch (e) {
-      return false;
-    }
-  }
-
-  static isPayloadValid(type, payload) {
-    switch (type) {
-      case PacketType.CONNECT:
-        return typeof payload === "object";
-
-      case PacketType.DISCONNECT:
-        return payload === void 0;
-
-      case PacketType.CONNECT_ERROR:
-        return typeof payload === "string" || typeof payload === "object";
-
-      case PacketType.EVENT:
-      case PacketType.BINARY_EVENT:
-        return Array.isArray(payload) && payload.length > 0;
-
-      case PacketType.ACK:
-      case PacketType.BINARY_ACK:
-        return Array.isArray(payload);
-    }
-  }
-
-  destroy() {
-    if (this.reconstructor) {
-      this.reconstructor.finishedReconstruction();
-    }
-  }
-
-};
-var BinaryReconstructor = class {
-  constructor(packet) {
-    this.packet = packet;
-    this.buffers = [];
-    this.reconPack = packet;
-  }
-
-  takeBinaryData(binData) {
-    this.buffers.push(binData);
-
-    if (this.buffers.length === this.reconPack.attachments) {
-      const packet = reconstructPacket(this.reconPack, this.buffers);
-      this.finishedReconstruction();
-      return packet;
-    }
-
-    return null;
-  }
-
-  finishedReconstruction() {
-    this.reconPack = null;
-    this.buffers = [];
-  }
-
-}; // node_modules/socket.io-client/build/esm/on.js
 
 function on(obj, ev, fn) {
   obj.on(ev, fn);
@@ -561,6 +117,10 @@ function on(obj, ev, fn) {
 } // node_modules/socket.io-client/build/esm/socket.js
 
 
+var import_socket = require("socket.io-parser@4.2.1");
+
+var import_component_emitter = require("@socket.io/component-emitter@3.1.0");
+
 var RESERVED_EVENTS = Object.freeze({
   connect: 1,
   connect_error: 1,
@@ -569,7 +129,7 @@ var RESERVED_EVENTS = Object.freeze({
   newListener: 1,
   removeListener: 1
 });
-var Socket = class extends Emitter {
+var Socket = class extends import_component_emitter.Emitter {
   constructor(io, nsp, opts) {
     super();
     this.connected = false;
@@ -627,7 +187,7 @@ var Socket = class extends Emitter {
 
     args.unshift(ev);
     const packet = {
-      type: PacketType.EVENT,
+      type: import_socket.PacketType.EVENT,
       data: args
     };
     packet.options = {};
@@ -692,13 +252,13 @@ var Socket = class extends Emitter {
     if (typeof this.auth == "function") {
       this.auth(data => {
         this.packet({
-          type: PacketType.CONNECT,
+          type: import_socket.PacketType.CONNECT,
           data
         });
       });
     } else {
       this.packet({
-        type: PacketType.CONNECT,
+        type: import_socket.PacketType.CONNECT,
         data: this.auth
       });
     }
@@ -721,7 +281,7 @@ var Socket = class extends Emitter {
     if (!sameNamespace) return;
 
     switch (packet.type) {
-      case PacketType.CONNECT:
+      case import_socket.PacketType.CONNECT:
         if (packet.data && packet.data.sid) {
           const id = packet.data.sid;
           this.onconnect(id);
@@ -731,21 +291,21 @@ var Socket = class extends Emitter {
 
         break;
 
-      case PacketType.EVENT:
-      case PacketType.BINARY_EVENT:
+      case import_socket.PacketType.EVENT:
+      case import_socket.PacketType.BINARY_EVENT:
         this.onevent(packet);
         break;
 
-      case PacketType.ACK:
-      case PacketType.BINARY_ACK:
+      case import_socket.PacketType.ACK:
+      case import_socket.PacketType.BINARY_ACK:
         this.onack(packet);
         break;
 
-      case PacketType.DISCONNECT:
+      case import_socket.PacketType.DISCONNECT:
         this.ondisconnect();
         break;
 
-      case PacketType.CONNECT_ERROR:
+      case import_socket.PacketType.CONNECT_ERROR:
         this.destroy();
         const err = new Error(packet.data.message);
         err.data = packet.data.data;
@@ -787,7 +347,7 @@ var Socket = class extends Emitter {
       if (sent) return;
       sent = true;
       self.packet({
-        type: PacketType.ACK,
+        type: import_socket.PacketType.ACK,
         id,
         data: args
       });
@@ -837,7 +397,7 @@ var Socket = class extends Emitter {
   disconnect() {
     if (this.connected) {
       this.packet({
-        type: PacketType.DISCONNECT
+        type: import_socket.PacketType.DISCONNECT
       });
     }
 
@@ -1001,9 +561,13 @@ Backoff.prototype.setJitter = function (jitter) {
 }; // node_modules/socket.io-client/build/esm/manager.js
 
 
-var import_engine2 = require("engine.io-client");
+var import_engine2 = require("engine.io-client@6.2.2");
 
-var Manager = class extends Emitter {
+var parser = __toESM(require("socket.io-parser@4.2.1"), 0);
+
+var import_component_emitter2 = require("@socket.io/component-emitter@3.1.0");
+
+var Manager = class extends import_component_emitter2.Emitter {
   constructor(uri, opts) {
     var _a;
 
@@ -1034,7 +598,7 @@ var Manager = class extends Emitter {
     this._readyState = "closed";
     this.uri = uri;
 
-    const _parser = opts.parser || esm_exports;
+    const _parser = opts.parser || parser;
 
     this.encoder = new _parser.Encoder();
     this.decoder = new _parser.Decoder();
@@ -1277,6 +841,8 @@ var Manager = class extends Emitter {
 
 }; // node_modules/socket.io-client/build/esm/index.js
 
+var import_socket4 = require("socket.io-parser@4.2.1");
+
 var cache = {};
 
 function lookup(uri, opts) {
@@ -1316,9 +882,10 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-}); // .beyond/uimport/socket.io-client/4.5.1.js
+}); // .beyond/uimport/socket.io-client.4.5.1.js
 
-var __default = lookup;
+var socket_io_client_4_5_1_default = lookup;
+module.exports = __toCommonJS(socket_io_client_4_5_1_exports);
 };
 
 code(module, require);

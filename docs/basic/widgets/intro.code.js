@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components/html", "@beyond/docs/code"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "react@17.0.2", "@beyond/docs/components/html", "@beyond/docs/code"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.WidgetsDefinition = _exports.Widgets = _exports.WidgetPage = _exports.WidgetLayout = _exports.WidgetController = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
     "module": "@beyond/docs/docs/basic/widgets/intro",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_1]]));
@@ -27,7 +28,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
   ****************************/
 
   ims.set('./controller', {
-    hash: 3235480478,
+    hash: 2385600600,
     creator: function (require, exports) {
       "use strict";
 
@@ -42,7 +43,7 @@ define(["exports", "@beyond-js/kernel/bundle", "react", "@beyond/docs/components
 
       var _beyond_context = require("beyond_context");
 
-      const tpl = `\rimport {ReactWidgetController} from '@beyond-js/react-widgets/controllers';
+      const tpl = `\rimport {ReactWidgetController} from '@beyond-js/react-widgets/base';
 import {Page} from './views/page';
 export /*bundle*/
 class Controller extends ReactWidgetController {
@@ -282,3 +283,4 @@ class Controller extends ReactWidgetController {
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7O01BRUEsTUFBTUEsR0FBRyxHQUNMOzs7Ozs7O0VBREo7TUFTQSxNQUFNQyxJQUFJLEdBQUc7UUFDVEQsR0FBRyxFQUFFO1VBQUNFLEtBQUssRUFBRSxlQUFSO1VBQXlCRjtRQUF6QjtNQURJLENBQWI7TUFJTzs7TUFBVSxTQUFVRyxnQkFBVixHQUEwQjtRQUN2QyxPQUNJQywwQ0FDSUEsb0JBQUNDLGNBQURELEVBQVM7VUFDTEgsSUFBSSxFQUFFQSxJQUREO1VBRUxLLFFBQVEsRUFBRUMsdUJBQU9DLFFBRlo7VUFHTEMsTUFBTSxFQUFDLFlBSEY7VUFHZUMsU0FBUyxFQUFFLENBQUMsMEJBQUQ7UUFIMUIsQ0FBVE4sQ0FESkEsQ0FESjtNQVFIOzs7Ozs7Ozs7Ozs7Ozs7OztNQzFCRDs7TUFDQTs7TUFDQTtNQUVPOzs7TUFBVSxTQUFVTyxPQUFWLEdBQWlCO1FBQzlCLE9BQ0lQLG9CQUFDQyxjQUFERCxFQUFTO1VBQUNFLFFBQVEsRUFBRUMsdUJBQU9DLFFBQWxCO1VBQTRCQyxNQUFNLEVBQUMsWUFBbkM7VUFBZ0RDLFNBQVMsRUFBRSxDQUFDLDBCQUFEO1FBQTNELENBQVROLENBREo7TUFHSDs7Ozs7Ozs7Ozs7Ozs7Ozs7TUNSRDs7TUFFQTs7TUFDQTtNQUVPOzs7TUFBVSxTQUFVUSxpQkFBVixHQUEyQjtRQUN4QyxPQUNJUiwwQ0FDSUEsb0JBQUNDLGNBQURELEVBQVM7VUFBQ0UsUUFBUSxFQUFFQyx1QkFBT0MsUUFBbEI7VUFBNEJDLE1BQU0sRUFBQyxPQUFuQztVQUEyQ0MsU0FBUyxFQUFFLENBQUMsMEJBQUQ7UUFBdEQsQ0FBVE4sQ0FESkEsQ0FESjtNQUtIOzs7Ozs7Ozs7Ozs7Ozs7OztNQ1hEOztNQUNBOztNQUVBOztNQUVBLE1BQU1KLEdBQUcsR0FBRzs7Ozs7OztFQUFaO01BU0EsTUFBTUMsSUFBSSxHQUFHO1FBQ1RZLElBQUksRUFBRTtVQUFDWCxLQUFLLEVBQUUsYUFBUjtVQUF1QkYsR0FBdkI7VUFBNEJjLFFBQVEsRUFBRTtRQUF0QztNQURHLENBQWI7TUFJTzs7TUFBVSxTQUFVQyxZQUFWLEdBQXNCO1FBQ25DLE9BQ0lYLDBDQUNJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUNMSCxJQUFJLEVBQUVBLElBREQ7VUFFTEssUUFBUSxFQUFFQyx1QkFBT0MsUUFGWjtVQUdMQyxNQUFNLEVBQUMsUUFIRjtVQUdXQyxTQUFTLEVBQUUsQ0FBQywwQkFBRDtRQUh0QixDQUFUTixDQURKQSxDQURKO01BUUg7Ozs7Ozs7Ozs7Ozs7Ozs7O01DM0JEOztNQUNBOztNQUNBOztNQUVBLE1BQU1TLElBQUksR0FBRzs7Ozs7Ozs7O0NBQWI7TUFVQSxNQUFNWixJQUFJLEdBQUc7UUFDVFksSUFBSSxFQUFFO1VBQUNDLFFBQVEsRUFBRSxNQUFYO1VBQW1CZCxHQUFHLEVBQUVhLElBQXhCO1VBQThCWCxLQUFLLEVBQUU7UUFBckMsQ0FERztRQUVUYyxJQUFJLEVBQUU7VUFBQ2hCLEdBQUcsRUFBRTtRQUFOLENBRkc7UUFHVGlCLElBQUksRUFBRTtVQUFDakIsR0FBRyxFQUFFO1FBQU47TUFIRyxDQUFiO01BTU87O01BQVUsU0FBVWtCLFVBQVYsR0FBb0I7UUFDakMsT0FDSWQsMENBRUlBLG9CQUFDQyxjQUFERCxFQUFTO1VBQ0xILElBQUksRUFBRUEsSUFERDtVQUVMSyxRQUFRLEVBQUVDLHVCQUFPQyxRQUZaO1VBR0xDLE1BQU0sRUFBQyxNQUhGO1VBR1NDLFNBQVMsRUFBRSxDQUFDLDBCQUFEO1FBSHBCLENBQVROLENBRkpBLENBREo7TUFTSCIsIm5hbWVzIjpbInRwbCIsInRwbHMiLCJ0aXRsZSIsIldpZGdldENvbnRyb2xsZXIiLCJSZWFjdCIsIkRvY3VtZW50IiwibW9kdWxlSWQiLCJtb2R1bGUiLCJyZXNvdXJjZSIsInRleHRJZCIsIm5leHRMaW5rcyIsIldpZGdldHMiLCJXaWRnZXRzRGVmaW5pdGlvbiIsInRwbDEiLCJsYW5ndWFnZSIsIldpZGdldExheW91dCIsInRwbDIiLCJ0cGwzIiwiV2lkZ2V0UGFnZSJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3MvYmFzaWMvd2lkZ2V0cy9pbnRyby9jb2RlL3RzL2NvbnRyb2xsZXIudHN4IiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3MvYmFzaWMvd2lkZ2V0cy9pbnRyby9jb2RlL3RzL2RlZmluaXRpb24udHN4IiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3MvYmFzaWMvd2lkZ2V0cy9pbnRyby9jb2RlL3RzL2luZGV4LnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9kb2NzL2Jhc2ljL3dpZGdldHMvaW50cm8vY29kZS90cy90eXBlcy9sYXlvdXQudHN4IiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3MvYmFzaWMvd2lkZ2V0cy9pbnRyby9jb2RlL3RzL3R5cGVzL3BhZ2UudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsLG51bGwsbnVsbCxudWxsXX0=

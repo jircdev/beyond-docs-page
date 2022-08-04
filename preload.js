@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "react", "@beyond/docs/ui/icons"], function (_exports, dependency_0, dependency_1, dependency_2, dependency_3) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "react@17.0.2", "@beyond/docs/ui/icons"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.PreloadPage = _exports.BeyondIsotype = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -13,15 +14,14 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "reac
   const __pkg = new __Bundle({
     "module": "@beyond/docs/preload",
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_2]]));
 
   __pkg.dependencies.update(new Set(["@beyond/docs/ui/icons"]));
 
-  require('@beyond-js/kernel/styles').styles.register('@beyond/docs/preload');
-
+  brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs/preload');
   const ims = new Map();
   /**********************
   INTERNAL MODULE: ./icon
@@ -130,3 +130,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond-js/kernel/styles", "reac
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7TUFFTzs7O01BQVUsU0FBVUEsYUFBVixHQUF1QjtRQUNwQyxPQUVJQztVQUFLQyxTQUFTLEVBQUM7UUFBZkQsR0FDSUEsb0JBQUNFLGNBQURGLEVBQVE7VUFBQ0MsU0FBUyxFQUFDLGtCQUFYO1VBQThCRSxJQUFJLEVBQ3RDO1lBQ0lDLE9BQU8sRUFBRSxpQkFEYjtZQUVJRCxJQUFJLEVBQUU7Ozs7Ozs7Ozs7VUFGVjtRQURJLENBQVJILENBREpBLENBRko7TUFxQkg7Ozs7Ozs7Ozs7Ozs7Ozs7O01DekJEOztNQUNBO01BRU87OztNQUFVLFNBQVVLLFdBQVYsR0FBcUI7UUFDbEMsT0FDSUw7VUFBS0MsU0FBUyxFQUFDO1FBQWZELEdBQ0lBO1VBQUtDLFNBQVMsRUFBQztRQUFmRCxFQURKQSxFQUVJQTtVQUFLQyxTQUFTLEVBQUM7UUFBZkQsR0FDSUE7VUFBS0MsU0FBUyxFQUFDO1FBQWZELEdBQ0lBLG9CQUFDRCxtQkFBREMsRUFBYyxJQUFkQSxDQURKQSxDQURKQSxDQUZKQSxDQURKO01BVUgiLCJuYW1lcyI6WyJCZXlvbmRJc290eXBlIiwiUmVhY3QiLCJjbGFzc05hbWUiLCJBcHBJY29uIiwiaWNvbiIsInZpZXdCb3giLCJQcmVsb2FkUGFnZSJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2NvbXBvbmVudHMvcHJlbG9hZC90cy9pY29uLnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9jb21wb25lbnRzL3ByZWxvYWQvdHMvbG9hZGluZy50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsLG51bGxdfQ==

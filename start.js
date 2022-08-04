@@ -3,8 +3,7 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
 
   const {
     Transversal
-  } = require('@beyond-js/kernel/transversals');
-
+  } = brequire('@beyond-js/kernel/transversals');
   const transversal = new Transversal('start', '');
   /*************
   BUNDLE: WIDGET
@@ -12,8 +11,7 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
 
   const {
     widgets
-  } = require('@beyond-js/widgets/render');
-
+  } = brequire('@beyond-js/widgets/render');
   widgets.register([{
     "name": "contents-page",
     "id": "@beyond/docs/contents-page",
@@ -26,11 +24,6 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     "is": "page",
     "route": "/docs/${content}/${sub}",
     "layout": "main-layout"
-  }, {
-    "name": "editor-page",
-    "id": "@beyond/docs/editor",
-    "is": "page",
-    "route": "/editor"
   }, {
     "name": "counter-react",
     "id": "@beyond/docs/examples/sm/counter-react"
@@ -97,7 +90,7 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
     INTERNAL MODULE: ./routing
     *************************/
     ims.set('./routing', {
-      hash: 4159099945,
+      hash: 1835798689,
       creator: function (require, exports) {
         "use strict";
 
@@ -110,6 +103,8 @@ define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-j
         _routing.routing.missing = async pathname => {
           return 'app-docs-missing';
         };
+
+        _routing.routing.setup();
       }
     });
   });

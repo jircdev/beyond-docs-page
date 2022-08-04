@@ -1,10 +1,11 @@
-define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "react"], function (_exports, dependency_0, dependency_1, dependency_2) {
+define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "react@17.0.2"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
     value: true
   });
   _exports.hmr = _exports.DistributionsPage = void 0;
+  const __url = _amd_module.uri;
   const {
     Bundle: __Bundle,
     externals
@@ -14,7 +15,7 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
     "module": "@beyond/docs/docs/foundations/distributions",
     "multibundle": true,
     "bundle": "code"
-  }).package();
+  }, __url).package();
 
   ;
   externals.register(new Map([["react", dependency_2]]));
@@ -100,3 +101,4 @@ define(["exports", "@beyond-js/kernel/bundle", "@beyond/docs/components/html", "
 
   __pkg.initialise(ims);
 });
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BQ0E7O01BQ0E7O01BRUEsTUFBTUEsR0FBRyxHQUFHOzs7OztFQUFaO01BTUEsTUFBTUMsSUFBSSxHQUFHO1FBQ1RELEdBQUcsRUFBRTtVQUFDQSxHQUFEO1VBQU1FLEtBQUssRUFBRTtRQUFiO01BREksQ0FBYjtNQUlPOztNQUFVLFNBQVVDLGlCQUFWLEdBQTJCO1FBQ3hDLE9BQ0lDLDBDQUVJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUFDSCxJQUFJLEVBQUVBLElBQVA7VUFBYUssUUFBUSxFQUFFQyx1QkFBT0MsUUFBOUI7VUFBd0NDLE1BQU0sRUFBQztRQUEvQyxDQUFUTCxDQUZKQSxFQUdJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUFDSCxJQUFJLEVBQUVBLElBQVA7VUFBYUssUUFBUSxFQUFFQyx1QkFBT0MsUUFBOUI7VUFBd0NDLE1BQU0sRUFBQztRQUEvQyxDQUFUTCxDQUhKQSxFQUlJQSxvQkFBQ0MsY0FBREQsRUFBUztVQUNMSCxJQUFJLEVBQUVBLElBREQ7VUFFTEssUUFBUSxFQUFFQyx1QkFBT0MsUUFGWjtVQUVzQkMsTUFBTSxFQUFDLGNBRjdCO1VBR0xDLFNBQVMsRUFBRSxDQUFDLHFCQUFEO1FBSE4sQ0FBVE4sQ0FKSkEsQ0FESjtNQVlIIiwibmFtZXMiOlsidHBsIiwidHBscyIsInRpdGxlIiwiRGlzdHJpYnV0aW9uc1BhZ2UiLCJSZWFjdCIsIkRvY3VtZW50IiwibW9kdWxlSWQiLCJtb2R1bGUiLCJyZXNvdXJjZSIsInRleHRJZCIsIm5leHRMaW5rcyJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2RvY3MvZm91bmRhdGlvbnMvZGlzdHJpYnV0aW9ucy9jb2RlL3RzL2luZGV4LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==
