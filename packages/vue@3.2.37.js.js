@@ -38,7 +38,7 @@ var __toCommonJS = /* @__PURE__ */(cache => {
   return (module2, temp) => {
     return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
   };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // .beyond/uimport/vue.3.2.37.js
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // .beyond/uimport/temp/vue.3.2.37.js
 
 
 var vue_3_2_37_exports = {};
@@ -72,7 +72,7 @@ var compile = () => {
   if (true) {
     (0, import_runtime_dom.warn)(`Runtime compilation is not supported in this build of Vue. Configure your bundler to alias "vue" to "vue/dist/vue.esm-bundler.js".`);
   }
-}; // .beyond/uimport/vue.3.2.37.js
+}; // .beyond/uimport/temp/vue.3.2.37.js
 
 
 __reExport(vue_3_2_37_exports, vue_runtime_esm_bundler_exports);

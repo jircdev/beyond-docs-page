@@ -1217,7 +1217,7 @@ var require_prism = __commonJS({
     })();
   }
 
-}); // .beyond/uimport/prismjs.1.28.0.js
+}); // .beyond/uimport/temp/prismjs.1.28.0.js
 
 
 var prismjs_1_28_0_exports = {};

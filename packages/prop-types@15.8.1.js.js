@@ -803,7 +803,7 @@ var require_prop_types = __commonJS({
     var throwOnDirectAccess;
   }
 
-}); // .beyond/uimport/prop-types.15.8.1.js
+}); // .beyond/uimport/temp/prop-types.15.8.1.js
 
 
 var prop_types_15_8_1_exports = {};

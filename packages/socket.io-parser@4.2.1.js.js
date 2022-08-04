@@ -1009,7 +1009,7 @@ var require_dist = __commonJS({
     };
   }
 
-}); // ../../.beyond/uimport/socket.io-parser.4.2.1.js
+}); // ../../.beyond/uimport/temp/socket.io-parser.4.2.1.js
 
 
 var socket_io_parser_4_2_1_exports = {};

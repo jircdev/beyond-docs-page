@@ -50,7 +50,7 @@ var __toCommonJS = /* @__PURE__ */(cache2 => {
   return (module2, temp) => {
     return cache2 && cache2.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache2 && cache2.set(module2, temp), temp);
   };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // .beyond/uimport/socket.io-client.4.5.1.js
+})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0); // .beyond/uimport/temp/socket.io-client.4.5.1.js
 
 
 var socket_io_client_4_5_1_exports = {};
@@ -882,7 +882,7 @@ Object.assign(lookup, {
   Socket,
   io: lookup,
   connect: lookup
-}); // .beyond/uimport/socket.io-client.4.5.1.js
+}); // .beyond/uimport/temp/socket.io-client.4.5.1.js
 
 var socket_io_client_4_5_1_default = lookup;
 module.exports = __toCommonJS(socket_io_client_4_5_1_exports);

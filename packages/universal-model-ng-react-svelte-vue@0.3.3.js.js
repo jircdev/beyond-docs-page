@@ -5523,7 +5523,7 @@ var require_lib = __commonJS({
     }
   }
 
-}); // .beyond/uimport/universal-model-ng-react-svelte-vue.0.3.3.js
+}); // .beyond/uimport/temp/universal-model-ng-react-svelte-vue.0.3.3.js
 
 
 var universal_model_ng_react_svelte_vue_0_3_3_exports = {};
