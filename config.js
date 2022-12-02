@@ -1,22 +1,20 @@
-define(["exports"], function (_exports) {
+System.register([], function (_export, _context) {
   "use strict";
 
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.default = void 0;
-  var _default = {
-    "package": "@beyond/docs",
-    "version": 1,
-    "languages": {
-      "default": "en",
-      "supported": ["en", "es"]
-    },
-    "local": "web",
-    "backend": {
-      "host": "http://localhost:3033",
-      "local": "backend"
+  return {
+    setters: [],
+    execute: function () {
+      _export("default", {
+        "package": "@beyond/docs",
+        "version": 1,
+        "languages": {
+          "default": "en",
+          "supported": ["en", "es"]
+        },
+        "params": {},
+        "ssr": {},
+        "backend": {}
+      });
     }
   };
-  _exports.default = _default;
 });

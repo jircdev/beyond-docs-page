@@ -1,110 +1,109 @@
-define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/page", "react@17.0.2"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3) {
+System.register(["@beyond-js/widgets@0.1.0/render", "@beyond-js/kernel@0.1.0/bundle", "@beyond-js/react-widgets@18.20.1/page", "react@18.2.0"], function (_export, _context) {
   "use strict";
 
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
-  });
-  _exports.hmr = _exports.Controller = void 0;
-  const __url = _amd_module.uri;
-  const {
-    Bundle: __Bundle,
-    externals
-  } = dependency_0;
+  var dependency_0, dependency_1, dependency_2, dependency_3, bimport, __Bundle, __pkg, ims, Controller, __beyond_pkg, hmr;
+  _export("Controller", void 0);
+  return {
+    setters: [function (_beyondJsWidgets010Render) {
+      dependency_0 = _beyondJsWidgets010Render;
+    }, function (_beyondJsKernel010Bundle) {
+      dependency_1 = _beyondJsKernel010Bundle;
+    }, function (_beyondJsReactWidgets18201Page) {
+      dependency_2 = _beyondJsReactWidgets18201Page;
+    }, function (_react) {
+      dependency_3 = _react;
+    }],
+    execute: function () {
+      bimport = specifier => {
+        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["animatewithsass", "3.2.1"], ["socket.io", "4.5.3"], ["socket.io-client", "4.5.3"], ["@cloudinary/url-gen", "1.8.6"], ["@beyond-js/widgets", "0.1.0"], ["@beyond-js/react-widgets", "18.20.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["dayjs", "1.11.6"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.25.5"], ["slate-react", "0.72.9"], ["svelte", "3.52.0"], ["swiper", "8.4.4"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.43"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+        return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
+      };
+      ({
+        Bundle: __Bundle
+      } = dependency_1);
+      __pkg = new __Bundle({
+        "module": {
+          "vspecifier": "@beyond/docs@1/examples/list"
+        },
+        "type": "widget"
+      }, _context.meta.url).package();
+      ;
+      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/react-widgets/page', dependency_2], ['react', dependency_3]]);
+      brequire('@beyond-js/widgets/render').widgets.register([{
+        "name": "examples-list-page",
+        "vspecifier": "@beyond/docs@1/examples/list",
+        "is": "page",
+        "route": "/examples",
+        "layout": "main-layout"
+      }]);
+      ims = new Map();
+      /****************************
+      INTERNAL MODULE: ./controller
+      ****************************/
+      ims.set('./controller', {
+        hash: 368540843,
+        creator: function (require, exports) {
+          "use strict";
 
-  const __pkg = new __Bundle({
-    "module": "@beyond/docs/examples/list",
-    "bundle": "widget"
-  }, __url).package();
-
-  ;
-  externals.register(new Map([["react", dependency_3]]));
-  brequire('@beyond-js/widgets/render').widgets.register([{
-    "name": "examples-list-page",
-    "id": "@beyond/docs/examples/list",
-    "is": "page",
-    "route": "/examples",
-    "layout": "main-layout"
-  }]);
-  const ims = new Map();
-  /****************************
-  INTERNAL MODULE: ./controller
-  ****************************/
-
-  ims.set('./controller', {
-    hash: 368540843,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Controller = void 0;
-
-      var _page = require("@beyond-js/react-widgets/page");
-
-      var _views = require("./views");
-      /*bundle*/
-
-
-      class Controller extends _page.PageReactWidgetController {
-        get Widget() {
-          return _views.Page;
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Controller = void 0;
+          var _page = require("@beyond-js/react-widgets/page");
+          var _views = require("./views");
+          /*bundle*/
+          class Controller extends _page.PageReactWidgetController {
+            get Widget() {
+              return _views.Page;
+            }
+          }
+          exports.Controller = Controller;
         }
-
-      }
-
-      exports.Controller = Controller;
-    }
-  });
-  /*****************************
-  INTERNAL MODULE: ./views/index
-  *****************************/
-
-  ims.set('./views/index', {
-    hash: 813852795,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
       });
-      exports.Page = Page;
 
-      var React = require("react");
+      /*****************************
+      INTERNAL MODULE: ./views/index
+      *****************************/
 
-      function Page({
-        uri,
-        component,
-        store
+      ims.set('./views/index', {
+        hash: 813852795,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Page = Page;
+          var React = require("react");
+          function Page({
+            uri,
+            component,
+            store
+          }) {
+            return React.createElement("h1", null, "Ejemplos");
+          }
+        }
+      });
+      __pkg.exports.descriptor = [{
+        "im": "./controller",
+        "from": "Controller",
+        "name": "Controller"
+      }];
+      // Module exports
+      __pkg.exports.process = function ({
+        require,
+        prop,
+        value
       }) {
-        return React.createElement("h1", null, "Ejemplos");
-      }
+        (require || prop === 'Controller') && _export("Controller", Controller = require ? require('./controller').Controller : value);
+      };
+      _export("__beyond_pkg", __beyond_pkg = __pkg);
+      _export("hmr", hmr = new function () {
+        this.on = (event, listener) => __pkg.hmr.on(event, listener);
+        this.off = (event, listener) => __pkg.hmr.off(event, listener);
+      }());
+      __pkg.initialise(ims);
     }
-  });
-  __pkg.exports.descriptor = [{
-    "im": "./controller",
-    "from": "Controller",
-    "name": "Controller"
-  }];
-  let Controller; // Module exports
-
-  _exports.Controller = Controller;
-
-  __pkg.exports.process = function ({
-    require,
-    prop,
-    value
-  }) {
-    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
   };
-
-  const hmr = new function () {
-    this.on = (event, listener) => __pkg.hmr.on(event, listener);
-
-    this.off = (event, listener) => __pkg.hmr.off(event, listener);
-  }();
-  _exports.hmr = hmr;
-
-  __pkg.initialise(ims);
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O01BQUE7O01BRUE7TUFHTzs7O01BQVUsTUFDWEEsVUFEVyxTQUNRQywrQkFEUixDQUNpQztRQUdwQyxJQUFOQyxNQUFNO1VBQ04sT0FBT0MsV0FBUDtRQUNIOztNQUw2Qzs7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQ05sRDs7TUFHTSxTQUFVQSxJQUFWLENBQWU7UUFBQ0MsR0FBRDtRQUFNQyxTQUFOO1FBQWlCQztNQUFqQixDQUFmLEVBQXNDO1FBRXhDLE9BQ0lDLDJDQURKO01BS0giLCJuYW1lcyI6WyJDb250cm9sbGVyIiwiUGFnZVJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsIlBhZ2UiLCJ1cmkiLCJjb21wb25lbnQiLCJzdG9yZSIsIlJlYWN0Il0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJkb2N1bWVudGF0aW9uL21vZHVsZXMvZXhhbXBsZXMvbGlzdC90cy9jb250cm9sbGVyLnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9leGFtcGxlcy9saXN0L3RzL3ZpZXdzL2luZGV4LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbF19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1VBQUE7VUFFQTtVQUdPO1VBQVUsTUFDWEEsVUFBVyxTQUFRQywrQkFBeUI7WUFHOUMsSUFBSUMsTUFBTTtjQUNOLE9BQU9DLFdBQUk7WUFDZjs7VUFDSEM7Ozs7Ozs7Ozs7Ozs7Ozs7O1VDWkQ7VUFHTSxTQUFVRCxJQUFJLENBQUM7WUFBQ0UsR0FBRztZQUFFQyxTQUFTO1lBQUVDO1VBQUssQ0FBQztZQUV4QyxPQUNJQywyQ0FFSztVQUViIiwibmFtZXMiOlsiQ29udHJvbGxlciIsIlBhZ2VSZWFjdFdpZGdldENvbnRyb2xsZXIiLCJXaWRnZXQiLCJQYWdlIiwiZXhwb3J0cyIsInVyaSIsImNvbXBvbmVudCIsInN0b3JlIiwiUmVhY3QiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbImRvY3VtZW50YXRpb24vbW9kdWxlcy9leGFtcGxlcy9saXN0L3RzL2NvbnRyb2xsZXIudHN4IiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2V4YW1wbGVzL2xpc3QvdHMvdmlld3MvaW5kZXgudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsXX0=

@@ -13,7 +13,7 @@
     <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
     
     <script>
-    window.__app_package = '@beyond/docs';
+    window.__app_package = {"specifier":"@beyond/docs","vspecifier":"@beyond/docs@1","version":1,"dependencies":[["@beyond/ui","1.0.0"],["animatewithsass","3.2.1"],["socket.io","4.5.3"],["socket.io-client","4.5.3"],["@cloudinary/url-gen","1.8.6"],["@beyond-js/widgets","0.1.0"],["@beyond-js/react-widgets","18.20.1"],["@types/escape-html","1.0.2"],["@types/highlightjs","9.12.2"],["@types/is-hotkey","0.1.7"],["dayjs","1.11.6"],["escape-html","1.0.3"],["is-hotkey","0.2.0"],["perfect-scrollbar","1.5.5"],["prismjs","1.29.0"],["prop-types","15.8.1"],["sequelize","6.25.5"],["slate-react","0.72.9"],["svelte","3.52.0"],["swiper","8.4.4"],["universal-model-ng-react-svelte-vue","0.3.3"],["vue","3.2.43"],["@beyond/docs",1]]};
     
     // Set global baseDir and baseUrl variables
     const baseDir = window.baseDir = '/';
@@ -32,13 +32,29 @@
     </script>
     
     
-    <script src="/packages/@beyond-js/kernel/vendor/require.min.js"></script>
-    <script>
-    requirejs.config({waitSeconds: 30});
-    const paths = {'@beyond/docs': baseUrl.endsWith('/') ? baseUrl.slice(0, baseUrl.length - 1) : baseUrl};
-    requirejs.config({baseUrl: '/packages', paths});
-    require(["@beyond-js/widgets/render","@beyond-js/widgets/application","@beyond-js/widgets/layout","@beyond-js/local/main"]);
-    require(['@beyond/docs/start']);
+    <script src="/packages/@beyond-js/kernel@0.1.0/vendor/s.js"></script>
+    <script type="module">
+    const {specifier, vspecifier} = window.__app_package;
+    const baseDir = '/';
+    System.constructor.prototype.resolve = (id, parent) => {
+        let [resource, qs] = id.split('?');
+        qs = qs ? `?${qs}` : '';
+        const split = resource.split('/');
+        const pkg = split[0].startsWith('@') ? `${split.shift()}/${split.shift()}` : split.shift();
+    
+        const subpath = split.join('/');
+        if ([specifier, vspecifier].includes(pkg)) return `${baseDir}${subpath}.js${qs}`;
+        return `${baseDir}packages/${pkg}${subpath ? `/${subpath}` : ``}.js${qs}`;
+    };
+    Promise.all([
+    	System.import('@beyond-js/widgets@0.1.0/render'),
+    	System.import('@beyond-js/widgets@0.1.0/application'),
+    	System.import('@beyond-js/widgets@0.1.0/layout')
+    ]);
+    Promise.all([
+    	System.import('@beyond-js/kernel@0.1.0/routing'),
+    	System.import('@beyond/docs/start')
+    ]).then(([{routing}]) => routing.setup());
     </script>
     
 </head>

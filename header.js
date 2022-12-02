@@ -1,236 +1,230 @@
-define(["exports", "module", "@beyond-js/kernel/bundle", "@beyond-js/widgets/render", "@beyond-js/react-widgets/base", "@beyond-js/kernel/core", "react@17.0.2", "@beyond/docs/manager", "@beyond/docs/ui/icons", "@beyond/ui/link", "@beyond/ui/image", "@beyond/docs/components/theme-button", "@beyond-js/kernel/styles"], function (_exports, _amd_module, dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10) {
+System.register(["@beyond-js/widgets@0.1.0/render", "@beyond-js/kernel@0.1.0/bundle", "@beyond-js/react-widgets@18.20.1/base", "@beyond-js/kernel@0.1.0/core", "react@18.2.0", "@beyond/docs@1/manager", "@beyond/docs@1/ui/icons", "@beyond/ui@1.0.0/link", "@beyond/ui@1.0.0/image", "@beyond/docs@1/components/theme-button", "@beyond-js/kernel@0.1.0/styles"], function (_export, _context) {
   "use strict";
 
-  Object.defineProperty(_exports, "__esModule", {
-    value: true
+  var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, dependency_8, dependency_9, dependency_10, bimport, __Bundle, __pkg, ims, Controller, Widget, __beyond_pkg, hmr;
+  _export({
+    Controller: void 0,
+    Widget: void 0
   });
-  _exports.hmr = _exports.Widget = _exports.Controller = void 0;
-  const __url = _amd_module.uri;
-  const {
-    Bundle: __Bundle,
-    externals
-  } = dependency_0;
+  return {
+    setters: [function (_beyondJsWidgets010Render) {
+      dependency_0 = _beyondJsWidgets010Render;
+    }, function (_beyondJsKernel010Bundle) {
+      dependency_1 = _beyondJsKernel010Bundle;
+    }, function (_beyondJsReactWidgets18201Base) {
+      dependency_2 = _beyondJsReactWidgets18201Base;
+    }, function (_beyondJsKernel010Core) {
+      dependency_3 = _beyondJsKernel010Core;
+    }, function (_react) {
+      dependency_4 = _react;
+    }, function (_beyondDocs1Manager) {
+      dependency_5 = _beyondDocs1Manager;
+    }, function (_beyondDocs1UiIcons) {
+      dependency_6 = _beyondDocs1UiIcons;
+    }, function (_beyondUi100Link) {
+      dependency_7 = _beyondUi100Link;
+    }, function (_beyondUi100Image) {
+      dependency_8 = _beyondUi100Image;
+    }, function (_beyondDocs1ComponentsThemeButton) {
+      dependency_9 = _beyondDocs1ComponentsThemeButton;
+    }, function (_beyondJsKernel010Styles) {
+      dependency_10 = _beyondJsKernel010Styles;
+    }],
+    execute: function () {
+      bimport = specifier => {
+        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["animatewithsass", "3.2.1"], ["socket.io", "4.5.3"], ["socket.io-client", "4.5.3"], ["@cloudinary/url-gen", "1.8.6"], ["@beyond-js/widgets", "0.1.0"], ["@beyond-js/react-widgets", "18.20.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["dayjs", "1.11.6"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.25.5"], ["slate-react", "0.72.9"], ["svelte", "3.52.0"], ["swiper", "8.4.4"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.43"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+        return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
+      };
+      ({
+        Bundle: __Bundle
+      } = dependency_1);
+      __pkg = new __Bundle({
+        "module": {
+          "vspecifier": "@beyond/docs@1/header"
+        },
+        "type": "widget",
+        "name": "header"
+      }, _context.meta.url).package();
+      ;
+      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/react-widgets/base', dependency_2], ['@beyond-js/kernel/core', dependency_3], ['react', dependency_4], ['@beyond/docs/manager', dependency_5], ['@beyond/docs/ui/icons', dependency_6], ['@beyond/ui/link', dependency_7], ['@beyond/ui/image', dependency_8], ['@beyond/docs/components/theme-button', dependency_9], ['@beyond-js/kernel/styles', dependency_10]]);
+      brequire('@beyond-js/widgets/render').widgets.register([{
+        "name": "beyond-docs-header",
+        "vspecifier": "@beyond/docs@1/header"
+      }]);
+      brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs@1/header');
+      ims = new Map();
+      /****************************
+      INTERNAL MODULE: ./controller
+      ****************************/
+      ims.set('./controller', {
+        hash: 776452222,
+        creator: function (require, exports) {
+          "use strict";
 
-  const __pkg = new __Bundle({
-    "module": "@beyond/docs/header",
-    "bundle": "header"
-  }, __url).package();
-
-  ;
-  externals.register(new Map([["react", dependency_4]]));
-
-  __pkg.dependencies.update(new Set(["@beyond/docs/manager", "@beyond/docs/ui/icons", "@beyond/ui/link", "@beyond/ui/image", "@beyond/docs/components/theme-button"]));
-
-  brequire('@beyond-js/widgets/render').widgets.register([{
-    "name": "beyond-docs-header",
-    "id": "@beyond/docs/header"
-  }]);
-  brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs/header');
-  const ims = new Map();
-  /****************************
-  INTERNAL MODULE: ./controller
-  ****************************/
-
-  ims.set('./controller', {
-    hash: 1154764885,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Controller = void 0;
+          var _base = require("@beyond-js/react-widgets/base");
+          var _core = require("@beyond-js/kernel/core");
+          var _widget = require("./view/widget");
+          class Store extends _core.Events {
+            async fetch() {
+              //code
+            }
+            #value;
+            get value() {
+              return this.#value;
+            }
+            toJSON() {
+              return this.#value;
+            }
+            hydrate(cached) {}
+          }
+          /*bundle*/
+          class Controller extends _base.ReactWidgetController {
+            get Widget() {
+              return _widget.Widget;
+            }
+            async fetch() {}
+            createStore() {
+              return new Store();
+            }
+          }
+          exports.Controller = Controller;
+        }
       });
-      exports.Controller = void 0;
 
-      var _base = require("@beyond-js/react-widgets/base");
+      /********************************
+      INTERNAL MODULE: ./view/hamburger
+      ********************************/
 
-      var _core = require("@beyond-js/kernel/core");
+      ims.set('./view/hamburger', {
+        hash: 3551581010,
+        creator: function (require, exports) {
+          "use strict";
 
-      var _widget = require("./view/widget");
-
-      class Store extends _core.Events {
-        async fetch() {//code
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Hamburger = Hamburger;
+          var React = require("react");
+          var _manager = require("@beyond/docs/manager");
+          function Hamburger({
+            onClick
+          }) {
+            const showMenu = event => {
+              event.preventDefault();
+              _manager.AppManager.menuOpened = !_manager.AppManager.menuOpened;
+            };
+            return React.createElement("button", {
+              className: "hamburger-icon-container",
+              onClick: showMenu
+            }, React.createElement("input", {
+              id: "hamburger__input",
+              type: "checkbox",
+              className: "hamburger-icon"
+            }), React.createElement("label", {
+              htmlFor: "hamburger__input"
+            }, React.createElement("i", null), React.createElement("span", null)), React.createElement("em", null));
+          }
         }
-
-        #value;
-
-        get value() {
-          return this.#value;
-        }
-
-        toJSON() {
-          return this.#value;
-        }
-
-        hydrate(cached) {}
-
-      }
-      /*bundle*/
-
-
-      class Controller extends _base.ReactWidgetController {
-        get Widget() {
-          return _widget.Widget;
-        }
-
-        async fetch() {}
-
-        createStore() {
-          return new Store();
-        }
-
-      }
-
-      exports.Controller = Controller;
-    }
-  });
-  /********************************
-  INTERNAL MODULE: ./view/hamburger
-  ********************************/
-
-  ims.set('./view/hamburger', {
-    hash: 3551581010,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
       });
-      exports.Hamburger = Hamburger;
 
-      var React = require("react");
+      /*****************************
+      INTERNAL MODULE: ./view/notice
+      *****************************/
 
-      var _manager = require("@beyond/docs/manager");
+      ims.set('./view/notice', {
+        hash: 2514501766,
+        creator: function (require, exports) {
+          "use strict";
 
-      function Hamburger({
-        onClick
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Notice = Notice;
+          var React = require("react");
+          function Notice() {
+            return React.createElement("section", {
+              className: "flex-container flex-center header-notice bg-primary-accent pd-5"
+            }, "Beta version");
+          }
+        }
+      });
+
+      /*****************************
+      INTERNAL MODULE: ./view/widget
+      *****************************/
+
+      ims.set('./view/widget', {
+        hash: 149152790,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.Widget = Widget;
+          var React = require("react");
+          var _icons = require("@beyond/docs/ui/icons");
+          var _link = require("@beyond/ui/link");
+          var _hamburger = require("./hamburger");
+          var _notice = require("./notice");
+          var _image = require("@beyond/ui/image");
+          var _themeButton = require("@beyond/docs/components/theme-button");
+          /*bundle*/
+          function Widget() {
+            return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement("header", {
+              className: "docs-header"
+            }, React.createElement("div", {
+              className: "container flex-container space-between ph-15"
+            }, React.createElement("section", {
+              className: "header-logo"
+            }, React.createElement("div", null, React.createElement(_hamburger.Hamburger, null), React.createElement(_link.Link, {
+              href: "/"
+            }, React.createElement(_image.BeyondImage, {
+              src: "/images/beyond-logo.png",
+              className: "img-logo",
+              alt: "Beyond the universal meta framework"
+            })))), React.createElement("div", {
+              className: "flex-center-y right-content"
+            }, React.createElement("span", {
+              className: "version"
+            }, "1.0.0"), React.createElement(_themeButton.ThemeToggleButton, null), React.createElement(_link.Elink, {
+              className: "docs-header__link-icon",
+              href: "http://github.com"
+            }, React.createElement(_icons.AppIcon, {
+              icon: "github"
+            }))))));
+          }
+        }
+      });
+      __pkg.exports.descriptor = [{
+        "im": "./controller",
+        "from": "Controller",
+        "name": "Controller"
+      }, {
+        "im": "./view/widget",
+        "from": "Widget",
+        "name": "Widget"
+      }];
+      // Module exports
+      __pkg.exports.process = function ({
+        require,
+        prop,
+        value
       }) {
-        const showMenu = event => {
-          event.preventDefault();
-          _manager.AppManager.menuOpened = !_manager.AppManager.menuOpened;
-        };
-
-        return React.createElement("button", {
-          className: "hamburger-icon-container",
-          onClick: showMenu
-        }, React.createElement("input", {
-          id: "hamburger__input",
-          type: "checkbox",
-          className: "hamburger-icon"
-        }), React.createElement("label", {
-          htmlFor: "hamburger__input"
-        }, React.createElement("i", null), React.createElement("span", null)), React.createElement("em", null));
-      }
+        (require || prop === 'Controller') && _export("Controller", Controller = require ? require('./controller').Controller : value);
+        (require || prop === 'Widget') && _export("Widget", Widget = require ? require('./view/widget').Widget : value);
+      };
+      _export("__beyond_pkg", __beyond_pkg = __pkg);
+      _export("hmr", hmr = new function () {
+        this.on = (event, listener) => __pkg.hmr.on(event, listener);
+        this.off = (event, listener) => __pkg.hmr.off(event, listener);
+      }());
+      __pkg.initialise(ims);
     }
-  });
-  /*****************************
-  INTERNAL MODULE: ./view/notice
-  *****************************/
-
-  ims.set('./view/notice', {
-    hash: 2514501766,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Notice = Notice;
-
-      var React = require("react");
-
-      function Notice() {
-        return React.createElement("section", {
-          className: "flex-container flex-center header-notice bg-primary-accent pd-5"
-        }, "Beta version");
-      }
-    }
-  });
-  /*****************************
-  INTERNAL MODULE: ./view/widget
-  *****************************/
-
-  ims.set('./view/widget', {
-    hash: 149152790,
-    creator: function (require, exports) {
-      "use strict";
-
-      Object.defineProperty(exports, "__esModule", {
-        value: true
-      });
-      exports.Widget = Widget;
-
-      var React = require("react");
-
-      var _icons = require("@beyond/docs/ui/icons");
-
-      var _link = require("@beyond/ui/link");
-
-      var _hamburger = require("./hamburger");
-
-      var _notice = require("./notice");
-
-      var _image = require("@beyond/ui/image");
-
-      var _themeButton = require("@beyond/docs/components/theme-button");
-      /*bundle*/
-
-
-      function Widget() {
-        return React.createElement(React.Fragment, null, React.createElement(_notice.Notice, null), React.createElement("header", {
-          className: "docs-header"
-        }, React.createElement("div", {
-          className: "container flex-container space-between ph-15"
-        }, React.createElement("section", {
-          className: "header-logo"
-        }, React.createElement("div", null, React.createElement(_hamburger.Hamburger, null), React.createElement(_link.Link, {
-          href: "/"
-        }, React.createElement(_image.BeyondImage, {
-          src: "/images/beyond-logo.png",
-          className: "img-logo",
-          alt: "Beyond the universal meta framework"
-        })))), React.createElement("div", {
-          className: "flex-center-y right-content"
-        }, React.createElement("span", {
-          className: "version"
-        }, "1.0.0"), React.createElement(_themeButton.ThemeToggleButton, null), React.createElement(_link.Elink, {
-          className: "docs-header__link-icon",
-          href: "http://github.com"
-        }, React.createElement(_icons.AppIcon, {
-          icon: "github"
-        }))))));
-      }
-    }
-  });
-  __pkg.exports.descriptor = [{
-    "im": "./controller",
-    "from": "Controller",
-    "name": "Controller"
-  }, {
-    "im": "./view/widget",
-    "from": "Widget",
-    "name": "Widget"
-  }];
-  let Controller, Widget; // Module exports
-
-  _exports.Widget = Widget;
-  _exports.Controller = Controller;
-
-  __pkg.exports.process = function ({
-    require,
-    prop,
-    value
-  }) {
-    (require || prop === 'Controller') && (_exports.Controller = Controller = require ? require('./controller').Controller : value);
-    (require || prop === 'Widget') && (_exports.Widget = Widget = require ? require('./view/widget').Widget : value);
   };
-
-  const hmr = new function () {
-    this.on = (event, listener) => __pkg.hmr.on(event, listener);
-
-    this.off = (event, listener) => __pkg.hmr.off(event, listener);
-  }();
-  _exports.hmr = hmr;
-
-  __pkg.initialise(ims);
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztNQUFBOztNQUNBOztNQUNBOztNQUVBLE1BQU1BLEtBQU4sU0FBb0JDLFlBQXBCLENBQTBCO1FBQ1gsTUFBTEMsS0FBSyxJQUNQO1FBQ0g7O1FBRUQ7O1FBQ1MsSUFBTEMsS0FBSztVQUNMLE9BQU8sS0FBSyxNQUFaO1FBQ0g7O1FBRURDLE1BQU07VUFDRixPQUFPLEtBQUssTUFBWjtRQUNIOztRQUVEQyxPQUFPLENBQUNDLE1BQUQsRUFBZSxDQUNyQjs7TUFmcUI7TUFtQm5COzs7TUFBVSxNQUNYQyxVQURXLFNBQ1FDLDJCQURSLENBQzZCO1FBRWhDLElBQU5DLE1BQU07VUFDTixPQUFPQSxjQUFQO1FBQ0g7O1FBRVUsTUFBTFAsS0FBSyxJQUNWOztRQUVEUSxXQUFXO1VBQ1AsT0FBTyxJQUFJVixLQUFKLEVBQVA7UUFDSDs7TUFYeUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7TUN4QjlDOztNQUNBOztNQUVNLFNBQVVXLFNBQVYsQ0FBb0I7UUFBQ0M7TUFBRCxDQUFwQixFQUE2QjtRQUMvQixNQUFNQyxRQUFRLEdBQUdDLEtBQUssSUFBRztVQUNyQkEsS0FBSyxDQUFDQyxjQUFORDtVQUNBRSxvQkFBV0MsVUFBWEQsR0FBd0IsQ0FBQ0Esb0JBQVdDLFVBQXBDRDtRQUZKOztRQU1BLE9BQ0lFO1VBQVFDLFNBQVMsRUFBQywwQkFBbEJEO1VBQTZDTixPQUFPLEVBQUVDO1FBQXRESyxHQUNJQTtVQUNJRSxFQUFFLEVBQUMsa0JBRFBGO1VBRUlHLElBQUksRUFBQyxVQUZUSDtVQUVvQkMsU0FBUyxFQUFDO1FBRjlCRCxFQURKQSxFQUlJQTtVQUFPSSxPQUFPLEVBQUM7UUFBZkosR0FDSUEsOEJBREpBLEVBRUlBLGlDQUZKQSxDQUpKQSxFQU9JQSwrQkFQSkEsQ0FESjtNQVdIOzs7Ozs7Ozs7Ozs7Ozs7OztNQ3JCRDs7TUFFTSxTQUFVSyxNQUFWLEdBQWdCO1FBQ2xCLE9BQ0lMO1VBQVNDLFNBQVMsRUFBQztRQUFuQkQsR0FBb0YsY0FBcEZBLENBREo7TUFLSDs7Ozs7Ozs7Ozs7Ozs7Ozs7TUNSRDs7TUFDQTs7TUFDQTs7TUFDQTs7TUFDQTs7TUFDQTs7TUFDQTtNQUVPOzs7TUFBVSxTQUNSVCxNQURRLEdBQ0Y7UUFFWCxPQUNJUywwQ0FDSUEsb0JBQUNLLGNBQURMLEVBQU8sSUFBUEEsQ0FESkEsRUFFSUE7VUFBUUMsU0FBUyxFQUFDO1FBQWxCRCxHQUNJQTtVQUFLQyxTQUFTLEVBQUM7UUFBZkQsR0FDSUE7VUFBU0MsU0FBUyxFQUFDO1FBQW5CRCxHQUNJQSxpQ0FDSUEsb0JBQUNQLG9CQUFETyxFQUFVLElBQVZBLENBREpBLEVBRUlBLG9CQUFDTSxVQUFETixFQUFLO1VBQUNPLElBQUksRUFBQztRQUFOLENBQUxQLEVBQ0lBLG9CQUFDUSxrQkFBRFIsRUFBWTtVQUFDUyxHQUFHLEVBQUMseUJBQUw7VUFDQ1IsU0FBUyxFQUFDLFVBRFg7VUFFQ1MsR0FBRyxFQUFDO1FBRkwsQ0FBWlYsQ0FESkEsQ0FGSkEsQ0FESkEsQ0FESkEsRUFZSUE7VUFBS0MsU0FBUyxFQUFDO1FBQWZELEdBQ0lBO1VBQU1DLFNBQVMsRUFBQztRQUFoQkQsR0FBeUIsT0FBekJBLENBREpBLEVBRUlBLG9CQUFDVyw4QkFBRFgsRUFBa0IsSUFBbEJBLENBRkpBLEVBR0lBLG9CQUFDWSxXQUFEWixFQUFNO1VBQUNDLFNBQVMsRUFBQyx3QkFBWDtVQUFvQ00sSUFBSSxFQUFDO1FBQXpDLENBQU5QLEVBQ0lBLG9CQUFDYSxjQUFEYixFQUFRO1VBQUNjLElBQUksRUFBQztRQUFOLENBQVJkLENBREpBLENBSEpBLENBWkpBLENBREpBLENBRkpBLENBREo7TUE2QkgiLCJuYW1lcyI6WyJTdG9yZSIsIkV2ZW50cyIsImZldGNoIiwidmFsdWUiLCJ0b0pTT04iLCJoeWRyYXRlIiwiY2FjaGVkIiwiQ29udHJvbGxlciIsIlJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsImNyZWF0ZVN0b3JlIiwiSGFtYnVyZ2VyIiwib25DbGljayIsInNob3dNZW51IiwiZXZlbnQiLCJwcmV2ZW50RGVmYXVsdCIsIkFwcE1hbmFnZXIiLCJtZW51T3BlbmVkIiwiUmVhY3QiLCJjbGFzc05hbWUiLCJpZCIsInR5cGUiLCJodG1sRm9yIiwiTm90aWNlIiwiTGluayIsImhyZWYiLCJCZXlvbmRJbWFnZSIsInNyYyIsImFsdCIsIlRoZW1lVG9nZ2xlQnV0dG9uIiwiRWxpbmsiLCJBcHBJY29uIiwiaWNvbiJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2xheW91dHMvZG9jcy9oZWFkZXIvd2lkZ2V0L3RzL2NvbnRyb2xsZXIudHMiLCJkb2N1bWVudGF0aW9uL21vZHVsZXMvbGF5b3V0cy9kb2NzL2hlYWRlci93aWRnZXQvdHMvdmlldy9oYW1idXJnZXIudHN4IiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2xheW91dHMvZG9jcy9oZWFkZXIvd2lkZ2V0L3RzL3ZpZXcvbm90aWNlLnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9sYXlvdXRzL2RvY3MvaGVhZGVyL3dpZGdldC90cy92aWV3L3dpZGdldC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsLG51bGwsbnVsbCxudWxsXX0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztVQUFBO1VBR0E7VUFDQTtVQUVBLE1BQU1BLEtBQU0sU0FBUUMsWUFBTTtZQUN0QixNQUFNQyxLQUFLO2NBQ1A7WUFBQTtZQUdKLE1BQU07WUFDTixJQUFJQyxLQUFLO2NBQ0wsT0FBTyxJQUFJLENBQUMsTUFBTTtZQUN0QjtZQUVBQyxNQUFNO2NBQ0YsT0FBTyxJQUFJLENBQUMsTUFBTTtZQUN0QjtZQUVBQyxPQUFPLENBQUNDLE1BQWMsR0FDdEI7O1VBSUc7VUFBVSxNQUNYQyxVQUFXLFNBQVFDLDJCQUFxQjtZQUUxQyxJQUFJQyxNQUFNO2NBQ04sT0FBT0EsY0FBTTtZQUNqQjtZQUVBLE1BQU1QLEtBQUssSUFDWDtZQUVBUSxXQUFXO2NBQ1AsT0FBTyxJQUFJVixLQUFLLEVBQUU7WUFDdEI7O1VBQ0hXOzs7Ozs7Ozs7Ozs7Ozs7OztVQ3RDRDtVQUNBO1VBRU0sU0FBVUMsU0FBUyxDQUFDO1lBQUNDO1VBQU8sQ0FBQztZQUMvQixNQUFNQyxRQUFRLEdBQUdDLEtBQUssSUFBRztjQUNyQkEsS0FBSyxDQUFDQyxjQUFjLEVBQUU7Y0FDdEJDLG1CQUFVLENBQUNDLFVBQVUsR0FBRyxDQUFDRCxtQkFBVSxDQUFDQyxVQUFVO1lBRWxELENBQUM7WUFFRCxPQUNJQztjQUFRQyxTQUFTLEVBQUMsMEJBQTBCO2NBQUNQLE9BQU8sRUFBRUM7WUFBUSxHQUMxREs7Y0FDSUUsRUFBRSxFQUFDLGtCQUFrQjtjQUNyQkMsSUFBSSxFQUFDLFVBQVU7Y0FBQ0YsU0FBUyxFQUFDO1lBQWdCLEVBQUUsRUFDaEREO2NBQU9JLE9BQU8sRUFBQztZQUFrQixHQUM3QkosOEJBQUksRUFDSkEsaUNBQU8sQ0FBUSxFQUNuQkEsK0JBQUssQ0FDQTtVQUVqQjs7Ozs7Ozs7Ozs7Ozs7Ozs7VUNyQkE7VUFFTSxTQUFVSyxNQUFNO1lBQ2xCLE9BQ0lMO2NBQVNDLFNBQVMsRUFBQztZQUFpRSxrQkFFMUU7VUFFbEI7Ozs7Ozs7Ozs7Ozs7Ozs7O1VDUkE7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFFTztVQUFVLFNBQ1JYLE1BQU07WUFFWCxPQUNJVSwwQ0FDSUEsb0JBQUNLLGNBQU0sT0FBRSxFQUNUTDtjQUFRQyxTQUFTLEVBQUM7WUFBYSxHQUMzQkQ7Y0FBS0MsU0FBUyxFQUFDO1lBQThDLEdBQ3pERDtjQUFTQyxTQUFTLEVBQUM7WUFBYSxHQUM1QkQsaUNBQ0lBLG9CQUFDUCxvQkFBUyxPQUFFLEVBQ1pPLG9CQUFDTSxVQUFJO2NBQUNDLElBQUksRUFBQztZQUFHLEdBQ1ZQLG9CQUFDUSxrQkFBVztjQUFDQyxHQUFHLEVBQUMseUJBQXlCO2NBQzdCUixTQUFTLEVBQUMsVUFBVTtjQUNwQlMsR0FBRyxFQUFDO1lBQXFDLEVBQUUsQ0FDckQsQ0FFTCxDQUNBLEVBQ1ZWO2NBQUtDLFNBQVMsRUFBQztZQUE2QixHQUN4Q0Q7Y0FBTUMsU0FBUyxFQUFDO1lBQVMsV0FBYSxFQUN0Q0Qsb0JBQUNXLDhCQUFpQixPQUFFLEVBQ3BCWCxvQkFBQ1ksV0FBSztjQUFDWCxTQUFTLEVBQUMsd0JBQXdCO2NBQUNNLElBQUksRUFBQztZQUFtQixHQUM5RFAsb0JBQUNhLGNBQU87Y0FBQ0MsSUFBSSxFQUFDO1lBQVEsRUFBRSxDQUNwQixDQUNOLENBQ0osQ0FDRCxDQUNWO1VBSVgiLCJuYW1lcyI6WyJTdG9yZSIsIkV2ZW50cyIsImZldGNoIiwidmFsdWUiLCJ0b0pTT04iLCJoeWRyYXRlIiwiY2FjaGVkIiwiQ29udHJvbGxlciIsIlJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsImNyZWF0ZVN0b3JlIiwiZXhwb3J0cyIsIkhhbWJ1cmdlciIsIm9uQ2xpY2siLCJzaG93TWVudSIsImV2ZW50IiwicHJldmVudERlZmF1bHQiLCJBcHBNYW5hZ2VyIiwibWVudU9wZW5lZCIsIlJlYWN0IiwiY2xhc3NOYW1lIiwiaWQiLCJ0eXBlIiwiaHRtbEZvciIsIk5vdGljZSIsIkxpbmsiLCJocmVmIiwiQmV5b25kSW1hZ2UiLCJzcmMiLCJhbHQiLCJUaGVtZVRvZ2dsZUJ1dHRvbiIsIkVsaW5rIiwiQXBwSWNvbiIsImljb24iXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbImRvY3VtZW50YXRpb24vbW9kdWxlcy9sYXlvdXRzL2RvY3MvaGVhZGVyL3dpZGdldC90cy9jb250cm9sbGVyLnRzIiwiZG9jdW1lbnRhdGlvbi9tb2R1bGVzL2xheW91dHMvZG9jcy9oZWFkZXIvd2lkZ2V0L3RzL3ZpZXcvaGFtYnVyZ2VyLnRzeCIsImRvY3VtZW50YXRpb24vbW9kdWxlcy9sYXlvdXRzL2RvY3MvaGVhZGVyL3dpZGdldC90cy92aWV3L25vdGljZS50c3giLCJkb2N1bWVudGF0aW9uL21vZHVsZXMvbGF5b3V0cy9kb2NzL2hlYWRlci93aWRnZXQvdHMvdmlldy93aWRnZXQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsLG51bGwsbnVsbF19
