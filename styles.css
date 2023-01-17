@@ -9257,8 +9257,7 @@
 body.body-beyond-modal-opened {
   height: 100vh;
   overflow-y: hidden;
-  padding-right: 15px;
-  /* Avoid width reflow */
+  padding-right: 15px; /* Avoid width reflow */
 }
 
 .beyond-element-modal {
@@ -9559,6 +9558,7 @@ body.body-beyond-modal-opened {
 }
 
 :root {
+  --sections-width: 1140px;
   --font-family: "Rubik", sans-serif;
   --secondary-font-family: "Roboto", sans-serif;
   --title-font: "Rubik", sans-serif;
@@ -9566,11 +9566,11 @@ body.body-beyond-modal-opened {
   --bg-header: var(--secondary-background);
   --gray-base: #000000;
   --gray-darker: #333333;
-  --gray-dark: #5E5F5C;
-  --gray: #82837F;
-  --gray-light: #E4E5DC;
-  --success: #6AAC7D;
-  --warning: #F7C700;
+  --gray-dark: #5e5f5c;
+  --gray: #82837f;
+  --gray-light: #e4e5dc;
+  --success: #6aac7d;
+  --warning: #f7c700;
   --error: #f04141;
   --chat-online: #43fc22;
   --preload: $secondary;
@@ -9634,20 +9634,22 @@ body.body-beyond-modal-opened {
   --unnamed-line-spacing-54: 54px;
   --unnamed-text-transform-uppercase: uppercase;
   --primary-surface: #fff;
-  --primary: #CB6245;
-  --primary-dark: #9E533E;
-  --primary-light: #E46F4E;
-  --primary-accent: #E36152;
+  --primary: #cb6245;
+  --primary-dark: #9e533e;
+  --primary-light: #e46f4e;
+  --primary-accent: #e36152;
   --text-on-primary: #fff;
   --accent-color: var(--primary);
-  --secondary: #121F36;
-  --secondary-dark: #121F36;
-  --secondary-light: #313C50;
-  --secondary-accent: #424F6E;
-  --text-on-secondary: #FFFFFF;
-  --secondary-background: #4B6378;
+  --secondary: #121f36;
+  --secondary-dark: #121f36;
+  --secondary-light: #313c50;
+  --secondary-accent: #424f6e;
+  --text-on-secondary: #ffffff;
+  --secondary-background: #4b6378;
+  --surface: #f5f5f5;
   --background: #fff;
   --text-color: #000;
+  --secondary-text-color: #99a3b1;
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -9667,13 +9669,17 @@ body.body-beyond-modal-opened {
   --app-link-color: var(--primary);
   --app-link-hover-color: var(--primary-dark);
   --app-aside-link-selected: var(--text-color);
+  --app-bg-svg-color: #fff;
+  --app-bg-svg-secondary-color: var(var(--secondary-light));
+  --app-logo-bg: #fff;
+  --app-clipboard-bg: #fff;
   /**
   highlight content
    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
-  --app-opacity-bg: rgba(0, 0, 0, .3);
-  --app-editor-bg: #1D2B3D;
+  --app-opacity-bg: rgba(0, 0, 0, 0.3);
+  --app-editor-bg: #1d2b3d;
   --app-surface-notes: var(--color-gray-10);
   --app-icon-bg: var(--color-gray-10);
   /**
@@ -9681,24 +9687,27 @@ body.body-beyond-modal-opened {
    */
   --app-scrollbar-color: var(--color-gray-10);
   --app-scrollbar-track: var(--color-gray-10);
+  --gh-icon-color: #000;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: #CB6245;
-    --primary-dark: #9E533E;
-    --primary-light: #E46F4E;
-    --primary-accent: #E36152;
+    --primary: #cb6245;
+    --primary-dark: #9e533e;
+    --primary-light: #e46f4e;
+    --primary-accent: #e36152;
     --text-on-primary: #fff;
-    --accent-color: #FFA385;
-    --secondary: #424F6E;
+    --accent-color: #ffa385;
+    --secondary: #424f6e;
     --secondary-dark: #030405;
-    --secondary-darker: #0C1525;
+    --secondary-darker: #0c1525;
     --secondary-light: #617096;
-    --secondary-accent: #8E99BB;
-    --text-on-secondary: #FFFFFF;
+    --secondary-accent: #8e99bb;
+    --text-on-secondary: #ffffff;
     --secondary-background: #000012;
-    --text-color: rgba(255, 255, 255, .6);
-    --text-title-color: var(--text-on-primary);
+    --surface: #112036;
+    --text-color: #fff;
+    --secondary-text-color: #99a3b1;
+    --text-title-color: var(--text-color);
     --text-second-color: var(--gray-dark);
     --text-hover-color: var(--primary);
     --bg-element: var(--secondary-dark);
@@ -9716,36 +9725,43 @@ body.body-beyond-modal-opened {
     --app-primary-color: var(--primary-dark);
     --app-icon-bg: #2b3853;
     --app-animation-color: #222d42;
+    --app-bg-svg-color: var(--secondary-dark);
+    --app-bg-svg-secondary-color: var(--secondary-light);
+    --app-logo-bg: var(--surface);
+    --app-clipboard-bg: #fff;
     --app-link-color: var(--primary);
     --app-link-hover-color: var(--primary-dark);
     --app-header-link: var(--text-on-primary);
     --app-insight-surface: var(--secondary-light-light);
     --app-link-hover-bg: rgba(255, 128, 86, 0.3);
-    --app-opacity-bg: rgba(0, 0, 0, .3);
+    --app-opacity-bg: rgba(0, 0, 0, 0.3);
     --app-surface-notes: var(--app-opacity-bg);
-    --app-editor-bg: #1D2B3D;
+    --app-editor-bg: #1d2b3d;
     --app-scrollbar-color: var(--secondary-light);
     --app-scrollbar-track: var(--color-carbon-95);
     --app-accent-color: #617096;
+    --gh-icon-color: #fff;
   }
 }
 
 html[data-beyond-mode=light] {
   --primary-surface: #fff;
-  --primary: #CB6245;
-  --primary-dark: #9E533E;
-  --primary-light: #E46F4E;
-  --primary-accent: #E36152;
+  --primary: #cb6245;
+  --primary-dark: #9e533e;
+  --primary-light: #e46f4e;
+  --primary-accent: #e36152;
   --text-on-primary: #fff;
   --accent-color: var(--primary);
-  --secondary: #121F36;
-  --secondary-dark: #121F36;
-  --secondary-light: #313C50;
-  --secondary-accent: #424F6E;
-  --text-on-secondary: #FFFFFF;
-  --secondary-background: #4B6378;
+  --secondary: #121f36;
+  --secondary-dark: #121f36;
+  --secondary-light: #313c50;
+  --secondary-accent: #424f6e;
+  --text-on-secondary: #ffffff;
+  --secondary-background: #4b6378;
+  --surface: #f5f5f5;
   --background: #fff;
   --text-color: #000;
+  --secondary-text-color: #99a3b1;
   --text-title-color: var(--secondary-dark);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
@@ -9765,13 +9781,17 @@ html[data-beyond-mode=light] {
   --app-link-color: var(--primary);
   --app-link-hover-color: var(--primary-dark);
   --app-aside-link-selected: var(--text-color);
+  --app-bg-svg-color: #fff;
+  --app-bg-svg-secondary-color: var(var(--secondary-light));
+  --app-logo-bg: #fff;
+  --app-clipboard-bg: #fff;
   /**
   highlight content
    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
-  --app-opacity-bg: rgba(0, 0, 0, .3);
-  --app-editor-bg: #1D2B3D;
+  --app-opacity-bg: rgba(0, 0, 0, 0.3);
+  --app-editor-bg: #1d2b3d;
   --app-surface-notes: var(--color-gray-10);
   --app-icon-bg: var(--color-gray-10);
   /**
@@ -9779,24 +9799,27 @@ html[data-beyond-mode=light] {
    */
   --app-scrollbar-color: var(--color-gray-10);
   --app-scrollbar-track: var(--color-gray-10);
+  --gh-icon-color: #000;
 }
 
 html[data-beyond-mode=dark] {
-  --primary: #CB6245;
-  --primary-dark: #9E533E;
-  --primary-light: #E46F4E;
-  --primary-accent: #E36152;
+  --primary: #cb6245;
+  --primary-dark: #9e533e;
+  --primary-light: #e46f4e;
+  --primary-accent: #e36152;
   --text-on-primary: #fff;
-  --accent-color: #FFA385;
-  --secondary: #424F6E;
+  --accent-color: #ffa385;
+  --secondary: #424f6e;
   --secondary-dark: #030405;
-  --secondary-darker: #0C1525;
+  --secondary-darker: #0c1525;
   --secondary-light: #617096;
-  --secondary-accent: #8E99BB;
-  --text-on-secondary: #FFFFFF;
+  --secondary-accent: #8e99bb;
+  --text-on-secondary: #ffffff;
   --secondary-background: #000012;
-  --text-color: rgba(255, 255, 255, .6);
-  --text-title-color: var(--text-on-primary);
+  --surface: #112036;
+  --text-color: #fff;
+  --secondary-text-color: #99a3b1;
+  --text-title-color: var(--text-color);
   --text-second-color: var(--gray-dark);
   --text-hover-color: var(--primary);
   --bg-element: var(--secondary-dark);
@@ -9814,17 +9837,22 @@ html[data-beyond-mode=dark] {
   --app-primary-color: var(--primary-dark);
   --app-icon-bg: #2b3853;
   --app-animation-color: #222d42;
+  --app-bg-svg-color: var(--secondary-dark);
+  --app-bg-svg-secondary-color: var(--secondary-light);
+  --app-logo-bg: var(--surface);
+  --app-clipboard-bg: #fff;
   --app-link-color: var(--primary);
   --app-link-hover-color: var(--primary-dark);
   --app-header-link: var(--text-on-primary);
   --app-insight-surface: var(--secondary-light-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.3);
-  --app-opacity-bg: rgba(0, 0, 0, .3);
+  --app-opacity-bg: rgba(0, 0, 0, 0.3);
   --app-surface-notes: var(--app-opacity-bg);
-  --app-editor-bg: #1D2B3D;
+  --app-editor-bg: #1d2b3d;
   --app-scrollbar-color: var(--secondary-light);
   --app-scrollbar-track: var(--color-carbon-95);
   --app-accent-color: #617096;
+  --gh-icon-color: #fff;
 }
 :root {
   --bynd-aside-width: 250px;
@@ -10022,16 +10050,11 @@ html[data-beyond-mode=dark] {
 
 .gradient-one {
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#4096ee+0,2a2896+100 */
-  background: rgb(64, 150, 238);
-  /* Old browsers */
-  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0);
-  /* IE6-9 */
+  background: rgb(64, 150, 238); /* Old browsers */
+  background: -moz-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, var(--secondary) 0%, var(--secondary-dark) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, var(--secondary) 0%, var(--secondary-dark) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#4096ee", endColorstr="#2a2896", GradientType=0); /* IE6-9 */
 }
 .beyond-element-modal.modal-languages .modal-content {
   width: 100%;
@@ -10314,8 +10337,7 @@ html[data-beyond-mode=dark] {
 body.body-beyond-modal-opened {
   height: 100vh;
   overflow-y: hidden;
-  padding-right: 15px;
-  /* Avoid width reflow */
+  padding-right: 15px; /* Avoid width reflow */
 }
 
 .beyond-element-modal {

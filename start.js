@@ -1,117 +1,124 @@
-define(["@beyond-js/kernel/bundle", "@beyond-js/kernel/transversals", "@beyond-js/widgets/render", "@beyond-js/kernel/routing"], function (dependency_0, dependency_1, dependency_2, dependency_3) {
+System.register(["@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/transversals", "@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/routing"], function (_export, _context) {
   "use strict";
 
-  const {
-    Transversal
-  } = require('@beyond-js/kernel/transversals');
+  var dependency_0, dependency_1, dependency_2, dependency_3, Transversal, __beyond_transversal, widgets, bundles;
+  return {
+    setters: [function (_beyondJsKernel017Bundle) {
+      dependency_0 = _beyondJsKernel017Bundle;
+    }, function (_beyondJsKernel017Transversals) {
+      dependency_1 = _beyondJsKernel017Transversals;
+    }, function (_beyondJsWidgets012Render) {
+      dependency_2 = _beyondJsWidgets012Render;
+    }, function (_beyondJsKernel017Routing) {
+      dependency_3 = _beyondJsKernel017Routing;
+    }],
+    execute: function () {
+      ({
+        Transversal
+      } = brequire('@beyond-js/kernel/transversals'));
+      _export("__beyond_transversal", __beyond_transversal = new Transversal('start', ''));
+      __beyond_transversal.dependencies.update([['@beyond-js/kernel/transversals', dependency_1], ['@beyond-js/widgets/render', dependency_2], ['@beyond-js/kernel/routing', dependency_3]]);
 
-  const transversal = new Transversal('start', '');
-  /*************
-  BUNDLE: WIDGET
-  *************/
-
-  const {
-    widgets
-  } = require('@beyond-js/widgets/render');
-
-  widgets.register([{
-    "name": "contents-page",
-    "id": "@beyond/docs/contents-page",
-    "is": "page",
-    "route": "/docs/${content}",
-    "layout": "main-layout"
-  }, {
-    "name": "contents-subpage",
-    "id": "@beyond/docs/contents-subpage",
-    "is": "page",
-    "route": "/docs/${content}/${sub}",
-    "layout": "main-layout"
-  }, {
-    "name": "editor-page",
-    "id": "@beyond/docs/editor",
-    "is": "page",
-    "route": "/editor"
-  }, {
-    "name": "counter-react",
-    "id": "@beyond/docs/examples/sm/counter-react"
-  }, {
-    "name": "counter-svelte",
-    "id": "@beyond/docs/examples/sm/counter-svelte"
-  }, {
-    "name": "counter-vue",
-    "id": "@beyond/docs/examples/sm/counter-vue"
-  }, {
-    "name": "examples-counter-page",
-    "id": "@beyond/docs/examples/sm/counter",
-    "is": "page",
-    "route": "/examples/sm/counter",
-    "layout": "main-layout"
-  }, {
-    "name": "examples-list-page",
-    "id": "@beyond/docs/examples/list",
-    "is": "page",
-    "route": "/examples",
-    "layout": "main-layout"
-  }, {
-    "name": "docs-header-menu",
-    "id": "@beyond/docs/header-menu.widget"
-  }, {
-    "name": "home-page",
-    "id": "@beyond/docs/home.widget",
-    "is": "page",
-    "route": "/",
-    "layout": "home-layout"
-  }, {
-    "name": "beyond-docs-header",
-    "id": "@beyond/docs/header"
-  }, {
-    "name": "main-layout",
-    "id": "@beyond/docs/layout/main",
-    "is": "layout"
-  }, {
-    "name": "home-layout",
-    "id": "@beyond/docs/layout/home",
-    "is": "layout"
-  }, {
-    "name": "menu-layout",
-    "attrs": ["opened", "home"],
-    "id": "@beyond/docs/layout/menu.widget",
-    "is": "layout"
-  }, {
-    "name": "app-docs-missing",
-    "id": "@beyond/docs/missing.widget",
-    "is": "page",
-    "route": "/not-found",
-    "layout": "home-layout"
-  }]);
-  const bundles = new Map();
-  /**********************
-  MODULE: unnamed/routing
-  **********************/
-
-  bundles.set({
-    "module": "@beyond/docs/unnamed/routing",
-    "bundle": "start"
-  }, function (ims, exports) {
-    /*************************
-    INTERNAL MODULE: ./routing
-    *************************/
-    ims.set('./routing', {
-      hash: 4159099945,
-      creator: function (require, exports) {
-        "use strict";
-
-        var _routing = require("@beyond-js/kernel/routing");
-
-        const data = new Map();
-
-        _routing.routing.redirect = async function redirect(uri) {};
-
-        _routing.routing.missing = async pathname => {
-          return 'app-docs-missing';
+      /*************
+      BUNDLE: WIDGET
+      *************/
+      ({
+        widgets
+      } = brequire('@beyond-js/widgets/render'));
+      widgets.register([{
+        "name": "menu-layout",
+        "attrs": ["opened", "home"],
+        "vspecifier": "@beyond/docs@1/layout/menu.widget",
+        "is": "layout"
+      }, {
+        "name": "contents-page",
+        "vspecifier": "@beyond/docs@1/contents-page",
+        "is": "page",
+        "route": "/docs/${content}",
+        "layout": "main-layout"
+      }, {
+        "name": "contents-subpage",
+        "vspecifier": "@beyond/docs@1/contents-subpage",
+        "is": "page",
+        "route": "/docs/${content}/${sub}",
+        "layout": "main-layout"
+      }, {
+        "name": "app-home-header",
+        "vspecifier": "@beyond/docs@1/home-header"
+      }, {
+        "name": "home-page",
+        "vspecifier": "@beyond/docs@1/home.widget",
+        "is": "page",
+        "route": "/",
+        "layout": "home-layout"
+      }, {
+        "name": "icons-view",
+        "vspecifier": "@beyond/docs@1/icons/page",
+        "is": "page",
+        "route": "/icons"
+      }, {
+        "name": "beyond-docs-header",
+        "vspecifier": "@beyond/docs@1/header"
+      }, {
+        "name": "main-layout",
+        "vspecifier": "@beyond/docs@1/layout/main",
+        "is": "layout"
+      }, {
+        "name": "docs-header-menu",
+        "vspecifier": "@beyond/docs@1/header-menu.widget"
+      }, {
+        "name": "home-layout",
+        "vspecifier": "@beyond/docs@1/layout/home",
+        "is": "layout"
+      }, {
+        "name": "app-docs-missing",
+        "vspecifier": "@beyond/docs@1/missing.widget",
+        "is": "page",
+        "route": "/not-found",
+        "layout": "home-layout"
+      }, {
+        "name": "app-test",
+        "vspecifier": "@beyond/docs@1/test",
+        "is": "page",
+        "route": "/test"
+      }, {
+        "name": "app-under-construction",
+        "vspecifier": "@beyond/docs@1/under-construction.widget"
+      }]);
+      bundles = [];
+      /***********************************
+      MODULE: @beyond/docs/unnamed/routing
+      ***********************************/
+      bundles.push([{
+        "module": {
+          "vspecifier": "@beyond/docs@1/unnamed/routing"
+        },
+        "type": "start"
+      }, function (ims, exports) {
+        const bimport = specifier => {
+          const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.0"], ["swiper", "8.4.5"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+          return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
         };
-      }
-    });
-  });
-  transversal.initialise(bundles);
+        /*************************
+        INTERNAL MODULE: ./routing
+        *************************/
+
+        ims.set('./routing', {
+          hash: 507395067,
+          creator: function (require, exports) {
+            "use strict";
+
+            var _routing = require("@beyond-js/kernel/routing");
+            _routing.routing.missing = async pathname => {
+              return 'app-docs-missing';
+            };
+          }
+        });
+        return {
+          dependencies: ['@beyond-js/kernel/routing']
+        };
+      }]);
+      __beyond_transversal.initialise(bundles);
+    }
+  };
 });
