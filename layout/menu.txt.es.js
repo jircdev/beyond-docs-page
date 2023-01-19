@@ -9,7 +9,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
     }],
     execute: function () {
       bimport = specifier => {
-        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.0"], ["swiper", "8.4.5"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.1"], ["swiper", "8.4.6"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
         return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
       };
       ({
@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 3660534566,
+        hash: 3805578452,
         creator: function (require, exports) {
           exports.txt = {
             "/docs/intro": "Introducción",
@@ -45,6 +45,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/": "HOME",
             "getting-start": "Empezando",
             "fundamentals": "Fundamentos",
+            "packages": "Paquetes",
             "configuration": "Configuración",
             "projects": "Proyectos",
             "modules": "Módulos",
@@ -59,11 +60,13 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/tutorial/bridge": "Bridge",
             "/docs/tutorial/routing": "Enrutamiento",
             "concepts": "Conceptos básicos",
-            "/docs/projects/create": "Crear un proyecto",
-            "/docs/projects/structure": "Estructura",
-            "/docs/projects/json": "project.json",
-            "/docs/projects/import": "Importar un proyecto",
-            "/docs/projects/dependencies": "Dependencias",
+            "/docs/packages/create": "Crear un proyecto",
+            "/docs/packages/json": "package.json",
+            "/docs/packages/import": "Importar un proyecto",
+            "/docs/packages/dependencies": "Dependencias",
+            "/docs/packages/types": "Tipos de paquetes",
+            "/docs/packages/distributions": "Distribuciones",
+            "/docs/packages/publish": "Publicar en NPM",
             "/docs/modules/introduction": "Modulos en Beyond",
             "/docs/modules/create": "Crear un módulo",
             "/docs/modules/json": "Configuración",
@@ -85,7 +88,6 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/styles/themes": "Light & Dark theme",
             "/docs/styles/imports": "Importación",
             "/docs/dev-server": "Servidor de desarrollo",
-            "/docs/foundations/distributions": "Distribuciones",
             "/docs/bee": "BEE",
             "/docs/ssr": "SSR",
             "/docs/multilanguage": "Multilenguaje",

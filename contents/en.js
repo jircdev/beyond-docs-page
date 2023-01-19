@@ -10,7 +10,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0/jsx-runtime"], 
     }],
     execute: function () {
       bimport = specifier => {
-        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.0"], ["swiper", "8.4.5"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.1"], ["swiper", "8.4.6"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
         return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
       };
       ({
@@ -25,160 +25,9 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0/jsx-runtime"], 
       ;
       __pkg.dependencies.update([['react/jsx-runtime', dependency_1]]);
       ims = new Map();
-      /*****************************
-      INTERNAL MODULE: ./backend.mdx
-      *****************************/
-      ims.set('./backend.mdx', {
-        hash: 908032487,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-                p: "p",
-                ul: "ul",
-                li: "li",
-                strong: "strong"
-              }, props.components),
-              {
-                Subtitle
-              } = _components;
-            if (!Subtitle) _missingMdxReference("Subtitle", true);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Backend-code"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS provides a safe and efficient environment for creating backend code, whether you need to work with stand-alone services, task-specific, or looking to implement a client project connected to a backend API."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "For BeyondJS purposes, we can classify these code structures into two types:"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Backend services"
-                  }), ": Node code representing a service running on the backend and can only be used by modules that runs on the backend as well."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Backend APIs"
-                  }), ": Allows the connection between the backend-code and the client-code."]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                children: "API Server"
-              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(Subtitle, {
-                children: "bundle-bridge"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Server APIs in BeyondJS represent functions that execute code on the server and can be consumed from client-code. They handle the logic for connecting to a backend and returning data. It's achieved simply by creating a ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/bundles#bridge",
-                  children: "Bundle-bridge"
-                }), "."]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["To execute backend-code in BeyondJS, is necessary to have the needed distributions configured. If the project is created from the web-backend project type, then is already configured. You can find more information in the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/distributions",
-                  children: "Distributions Chapter."
-                })]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-    {
-        "name": "module-name",
-        "bridge": {
-            "path": "ts",
-            "files": ["*"]
-        },
-        "platforms": ["*"]
-    }
-`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Like any module or bundle, it can be managed from the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/dashboard",
-                  children: "Dashboard"
-                }), " or manually."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "As its name indicates, the bridge-type bundle function as a bridge between client-logic and server-logic. Generally, logic is associated with data management or file management implemented on the server. The bridge enables the implementation and availability of features that are required to be queried from the client and keeps encapsulate on the server those that don’t."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The code for a bundle bridge looks like this:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-export /*actions*//*bundle*/
-class Auth {
-    async login(user :string, password: string) {
-        if (user !== data.user || password !== data.password) {
-            return {status: true, error: "Invalid data" };
-        }
-
-        return {status: true, data: {valid: true} }
-    }
-
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "An ordinary Javascript object, right?"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS generates a client object that makes the web-socket connection to the server, executes the code implemented by the developer, and makes the response available in the client code. This enables the developer to abstract from the need to worry about the connection between the client and server layers and allows the code to function as part of the same ecosystem."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Now all you need to do is initialize the server. To do this, it is necessary to create a module with a bundle start that is in charge of starting the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/bee",
-                  children: "BEE."
-                }), " The code for the bundle start is as follows:"]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-import { listen } from "@beyond-js/backend/listen/ts";
-listen();
-`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["In the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/tutorial/web",
-                  children: "Web Tutorial"
-                }), " available, an implemented bridge allows you to see the operation of the BeyondJS backend APIs in action."]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Magical comments"
-              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(Subtitle, {
-                children: "bundle “backend”"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Backend bundles represent JavaScript code executed on the server and used only by modules that also run on the server. In other words, they are like any typical NodeJS service, with the exception that in a development environment are executed through a BEE or BeyondJS process, which increases productivity by enabling it to work with HMR in an automated way and without configuration."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/modules/create",
-                    children: "Create a module"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/bundles",
-                    children: "Bundles"
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-          function _missingMdxReference(id, component) {
-            throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
-          }
-        }
-      });
-
       /*************************
       INTERNAL MODULE: ./bee.mdx
       *************************/
-
       ims.set('./bee.mdx', {
         hash: 2304471627,
         creator: function (require, exports) {
@@ -675,7 +524,7 @@ class Controller extends ReactWidgetController {
       *************************************/
 
       ims.set('./create-a-module.mdx', {
-        hash: 4294455572,
+        hash: 174621311,
         creator: function (require, exports) {
           "use strict";
 
@@ -704,13 +553,13 @@ class Controller extends ReactWidgetController {
                   children: "module introduction.."
                 })]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The modules are created and managed through the module.json configuration files. These have the alternative of being created manually or through the Dashboard interface."
+                children: "The modules are created and managed through the module.json configuration files. These have the alternative of being created manually or through the Workspace interface."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Creation from the Dashboard"
+                children: "Creation from the Workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "To be able to create a module, first you must have created a project before, and this needs to be active in the Dashboard."
+                children: "To be able to create a module, first you must have created a project before, and this needs to be active in the Workspace."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The option to create projects is a feature available when a project is active on the Dashboard. In order to see them, it is necessary to open the project by accessing its detail board."
+                children: "The option to create projects is a feature available when a project is active on the Workspace. In order to see them, it is necessary to open the project by accessing its detail board."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "When the project is active, you can see the option in the PreAside. By clicking on it, a modal will appear, allowing you the alternative to create a blank module or select a template."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -808,218 +657,12 @@ class Controller extends ReactWidgetController {
         }
       });
 
-      /**************************************
-      INTERNAL MODULE: ./create-a-project.mdx
-      **************************************/
-
-      ims.set('./create-a-project.mdx', {
-        hash: 2578539443,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              ul: "ul",
-              li: "li",
-              strong: "strong"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Managing a project"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Projects, like all other BeyondJS elements, are configured using objects in .json files. Project configuration files are generally named ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/json",
-                  children: "project.json"
-                }), " as a convention and allow a wide range of configurations."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Projects can be configured in two ways: through the Dashboard interface and manually."
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Using the Dashboard"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["To create a project from the dashboard, you first need to make sure BeyondJS is running in the folder where you want to work on your projects. As explained in the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/intro",
-                  children: "introducción"
-                }), ", BeyondJS, is developed to handle projects simultaneously, so keep in mind that the run directory may be one where you want to add \"multiple\" projects."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Let's start BeyondJS::"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: "beyond run"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Then, we access the dashboard, which will be available at ", (0, _jsxRuntime.jsx)(_html.ELink, {
-                  to: "https://workspace.beyondjs.com/",
-                  children: "https://workspace.beyondjs.com/"
-                }), "."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The dashboard has three ways to access the project creation process:"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["In the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/dashboard#preaside",
-                    children: "Preaside"
-                  }), " by using the icon."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/dashboard#board",
-                    children: "Board"
-                  }), " at the top right, the option \"create project.\""]
-                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                  children: "When no project created, a message is displayed inviting you to create a project, as seen in the above reference image."
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Clicking on any of the mentioned alternatives, a modal is displayed, allowing you to select the type of project to create. This function enables you to start with a blank project or using an already created template. Current choices are:"
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Blank Project Types"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Web:"
-                  }), " Ready to start a web project that can be distributed on the internet or as a mobile application."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Node:"
-                  }), " Ready to distribute as a project to run in a node environment"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Backend:"
-                  }), " Node project that makes available interfaces that could be consumed in real-time with web sockets from another node project or a client project."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Library:"
-                  }), " Ideal for creating projects intended to be distributed as ", (0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "NPM"
-                  }), " packages"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "web - backend:"
-                  }), " Generates a web project with a backend distribution."]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Template types"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "React, vue y svelte"
-                  }), " apps, Projects to start working with the preferred framework library."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Express:"
-                  }), " Project with an initial structure to create an express server."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Template web:"
-                  }), " Project with a client and backend structure communicated through a web socket."]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["It is possible to work with different view libraries/Frameworks in the same project, thanks to the micro-frontend structure offered by BeyondJS. Read more about it in ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/widgets/intro",
-                  children: "the Widgets chapter."
-                })]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Project Information"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "After seleting the project type, a form appears requesting the scope and name of the project, the port on which it will run, and additionally, an optional title and description. After filling in the necessary data, the dashboard is responsible for creating the project with the file structure, and the project is available to be accessed on the configured port."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "All projects have dependencies on NPM packages, which can optionally installed them from the dashboard. If you haven't done it before, you need to install dependencies manually for the project to work."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: (0, _jsxRuntime.jsx)(_components.strong, {
-                  children: "Creación manual"
-                })
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The definition of a project is done through the project.json file."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The minimum structure required to create a project is as follows:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-{
-  "name": "project-name",
-  "version": "1.0.0",
-  "title": "Project title",
-  "description": "Description"
-  "languages": {
-    "default": "en",
-    "supported": [
-      "en"
-    ]
-  },,
-  "modules": {
-    "path": "modules"
-  }
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Having created the project.json file, it only left creating the BeyondJS server configuration file, which is called beyond.json and whose basic structure is as follows:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-{
-  "applications": [
-    "path-to-project/project.json"
-  ]
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The applications' input is an array that can contain a list of paths relative to project configuration files."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Read more about BeyondJS configuration options in the development environment in the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dev-server",
-                  children: "Development Server chapter."
-                })]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/create",
-                    children: "Create a project"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/distributions",
-                    children: "Distributions"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/json",
-                    children: "project.json"
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
       /****************************************
       INTERNAL MODULE: ./development-server.mdx
       ****************************************/
 
       ims.set('./development-server.mdx', {
-        hash: 3115831507,
+        hash: 2789909137,
         creator: function (require, exports) {
           "use strict";
 
@@ -1076,9 +719,7 @@ class Controller extends ReactWidgetController {
                 children: "BeyondJS aims to provide a universal typescript development environment.\r\nUnlike Deno, which stably supports HTTP imports since its inception, NodeJS implements it in recent versions and is still in an experimental phase."
               }), "\n", (0, _jsxRuntime.jsx)(_html.ELink, {
                 to: "https://nodejs.org/api/esm.html#https-and-http-imports",
-                children: (0, _jsxRuntime.jsx)(_components.p, {
-                  children: "https://nodejs.org/api/esm.html#https-and-http-imports"
-                })
+                children: "https://nodejs.org/api/esm.html#https-and-http-imports"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["To provide a homogeneous experience, BeyondJS offers an execution environment (", (0, _jsxRuntime.jsx)(_components.strong, {
                   children: "BEE:"
@@ -1102,7 +743,7 @@ class Controller extends ReactWidgetController {
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["The ", (0, _jsxRuntime.jsx)(_components.code, {
                   children: "beyond.json"
-                }), " file can be edited manually or through the dashboard which is available by default at ", (0, _jsxRuntime.jsx)(_html.ELink, {
+                }), " file can be edited manually or through the workspace which is available by default at ", (0, _jsxRuntime.jsx)(_html.ELink, {
                   to: "https://workspace.beyondjs.com/",
                   children: "https://workspace.beyondjs.com/"
                 })]
@@ -1125,7 +766,7 @@ class Controller extends ReactWidgetController {
                   children: ["applications ", (0, _jsxRuntime.jsx)(_html.Link, {
                     to: "/aoc",
                     children: "AOC:"
-                  }), " Receive an array with the list of projects or applications configured so that BeyondJS can read and launch them. This file is managed by BeyondJS if the dashboard is being used."]
+                  }), " Receive an array with the list of projects or applications configured so that BeyondJS can read and launch them. This file is managed by BeyondJS if the workspace is being used."]
                 }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
                   children: "bundles object: Allows you to configure the inclusion of bundles created by the developer."
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
@@ -1871,7 +1512,7 @@ import {Auth} from '@company/project/login/code';
       **********************************/
 
       ims.set('./project-json.mdx', {
-        hash: 667548966,
+        hash: 1467942270,
         creator: function (require, exports) {
           "use strict";
 
@@ -1975,7 +1616,7 @@ import {Auth} from '@company/project/login/code';
                     }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
                       to: "/glossary#eac",
                       children: "EAC"
-                    }), " optional: Object that allows configuration of development environments, which are defined through the distributions entry. Distributions can be added from the dashboard functionality for it or manually. To understand how they work, you can go to the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    }), " optional: Object that allows configuration of development environments, which are defined through the distributions entry. Distributions can be added from the workspace functionality for it or manually. To understand how they work, you can go to the ", (0, _jsxRuntime.jsx)(_html.Link, {
                       to: "/project/distributions",
                       children: "Distribution chapter."
                     })]
@@ -2014,7 +1655,7 @@ import {Auth} from '@company/project/login/code';
       ***************************************/
 
       ims.set('./project-structure.mdx', {
-        hash: 2583062004,
+        hash: 2830083498,
         creator: function (require, exports) {
           "use strict";
 
@@ -2037,7 +1678,7 @@ import {Auth} from '@company/project/login/code';
               children: [(0, _jsxRuntime.jsx)(_html.Title, {
                 children: "Structure of a project"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS has a configurable architecture that allows for flexible project structures. However, when creating a project through the Dashboard or ´beyond-first-project´, the initial structure is created as follows:"
+                children: "BeyondJS has a configurable architecture that allows for flexible project structures. However, when creating a project through the Workspace or ´beyond-first-project´, the initial structure is created as follows:"
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Structure"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -2106,7 +1747,7 @@ import {Auth} from '@company/project/login/code';
       *************************************/
 
       ims.set('./projects-import.mdx', {
-        hash: 107412753,
+        hash: 1256433355,
         creator: function (require, exports) {
           "use strict";
 
@@ -2150,9 +1791,9 @@ import {Auth} from '@company/project/login/code';
                   children: "project.json"
                 }), "and the projects must be added to the project's entry of beyond.json."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "If the projects are created through the Dashboard, the file beyond.json is modified automatically."
+                children: "If the projects are created through the Workspace, the file beyond.json is modified automatically."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "If the projects are created through the Dashboard, the file beyond.json is modified automatically."
+                children: "If the projects are created through the Workspace, the file beyond.json is modified automatically."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "Following the mentioned example, the project with the modules that manage the data and connects to the database, could be called models, and in ordet to be imported into the other projects, the following code should have to be added to the project.json."
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
@@ -2257,7 +1898,7 @@ import {Auth} from '@company/project/login/code';
       *********************************/
 
       ims.set('./quick-start.mdx', {
-        hash: 1672220032,
+        hash: 1772231228,
         creator: function (require, exports) {
           "use strict";
 
@@ -2355,7 +1996,7 @@ npx beyond-first-project -name @scope/name [-type node] [-container folderName]
 npm start
 `
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Done! Now you can start programming and testing the project. The dashboard is accessed through: ", (0, _jsxRuntime.jsx)(ELink, {
+                children: ["Done! Now you can start programming and testing the project. The workspace is accessed through: ", (0, _jsxRuntime.jsx)(ELink, {
                   to: "https://workspace.beyondjs.com/",
                   children: "https://workspace.beyondjs.com/"
                 }), " and the project created is available at ", (0, _jsxRuntime.jsx)(ELink, {
@@ -2363,8 +2004,8 @@ npm start
                   children: "http://localhost:6500"
                 })]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["The dashboard is a system that BeyondJS provides the developer with a better user experience. You can read more about him ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dashboard",
+                children: ["The workspace is a system that BeyondJS provides the developer with a better user experience. You can read more about him ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/workspace",
                   children: "here."
                 })]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
@@ -2394,12 +2035,12 @@ npm i --location=global beyond
 beyond run
 `
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["If everything goes smothly, a message will appear saying that BeyondJS is running and that you can access the dashboard at ", (0, _jsxRuntime.jsx)(ELink, {
+                children: ["If everything goes smothly, a message will appear saying that BeyondJS is running and that you can access the workspace at ", (0, _jsxRuntime.jsx)(ELink, {
                   to: "https://workspace.beyondjs.com/",
                   children: "https://workspace.beyondjs.com/"
-                }), ", from where a project is created through the dashboard graphical."]
+                }), ", from where a project is created through the workspace graphical."]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Also at the dashboard, you can create a project from the graphical interface. See how you can do it ", (0, _jsxRuntime.jsx)(_html.Link, {
+                children: ["Also at the workspace, you can create a project from the graphical interface. See how you can do it ", (0, _jsxRuntime.jsx)(_html.Link, {
                   to: "/docs/projects/create",
                   children: "here."
                 })]
@@ -2714,7 +2355,7 @@ routing.missing = async (pathname: String) => {
       ***********************************/
 
       ims.set('./styles-module.mdx', {
-        hash: 3018377478,
+        hash: 3486913752,
         creator: function (require, exports) {
           "use strict";
 
@@ -2741,7 +2382,7 @@ routing.missing = async (pathname: String) => {
                   children: "processor"
                 }), " must be added."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "If the dashboard is used to create projects, the sass processor is included by default in the bundles of type code and widget of any type."
+                children: "If the workspace is used to create projects, the sass processor is included by default in the bundles of type code and widget of any type."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "The standard sass processor configuration is as follows:"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -3068,7 +2709,7 @@ routing.missing = async (pathname: String) => {
       *******************************/
 
       ims.set('./templates.mdx', {
-        hash: 1715470001,
+        hash: 278070280,
         creator: function (require, exports) {
           "use strict";
 
@@ -3128,8 +2769,8 @@ routing.missing = async (pathname: String) => {
                 })]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["The template can be managed from the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dashboard",
-                  children: "Dashboard."
+                  to: "/docs/workspace",
+                  children: "Workspace."
                 }), " And when a project is created, the default structure is already configured for its management."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "Explained below, are the configuration properties."
@@ -3214,7 +2855,7 @@ routing.missing = async (pathname: String) => {
       ************************************/
 
       ims.set('./tutorial-start.mdx', {
-        hash: 1601777107,
+        hash: 750329615,
         creator: function (require, exports) {
           "use strict";
 
@@ -3252,7 +2893,7 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "The tutorial is structures as follows:"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Dashboard.\r\nCreation of the first module.\r\nBack-end integration\r\nNavigation"
+                children: "Workspace.\r\nCreation of the first module.\r\nBack-end integration\r\nNavigation"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "We suggest completing the tutorial, to prove how in a short amount of time you´ll be able to integrate client and server-code using the same JavaScript structure."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -3285,7 +2926,7 @@ routing.missing = async (pathname: String) => {
                   children: "login"
                 }), "."]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["The scope and name, are data that allow the project to be identified and be ready to be published as an npm bundle, or to be imported from another project. These settings can be done manually, but the dashboard just makes the process much simpler. You can see the explanation of it in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                children: ["The scope and name, are data that allow the project to be identified and be ready to be published as an npm bundle, or to be imported from another project. These settings can be done manually, but the workspace just makes the process much simpler. You can see the explanation of it in the ", (0, _jsxRuntime.jsx)(_html.Link, {
                   to: "/project/config",
                   children: "Project Settings chapter."
                 })]
@@ -3328,10 +2969,10 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
                 children: "npm start"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["After executing the command, a message will appear indicating that the dashboard is available at ", (0, _jsxRuntime.jsx)(_html.ELink, {
+                children: ["After executing the command, a message will appear indicating that the workspace is available at ", (0, _jsxRuntime.jsx)(_html.ELink, {
                   to: "https://workspace.beyondjs.com/",
                   children: "https://workspace.beyondjs.com/"
-                }), " While navigating it, you will be able to see the Dashboard interface with the project list board, where the created project appears with the link to navigate it below the title. If we click on it, the screen will split into two, and we will be able to navigate the project from the dashboard."]
+                }), " While navigating it, you will be able to see the Workspace interface with the project list board, where the created project appears with the link to navigate it below the title. If we click on it, the screen will split into two, and we will be able to navigate the project from the workspace."]
               })]
             });
           }
@@ -3348,6 +2989,876 @@ routing.missing = async (pathname: String) => {
           function _missingMdxReference(id, component) {
             throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
           }
+        }
+      });
+
+      /**************************************
+      INTERNAL MODULE: ./tutorial/backend.mdx
+      **************************************/
+
+      ims.set('./tutorial/backend.mdx', {
+        hash: 2318652868,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+                p: "p",
+                ul: "ul",
+                li: "li",
+                strong: "strong"
+              }, props.components),
+              {
+                Subtitle
+              } = _components;
+            if (!Subtitle) _missingMdxReference("Subtitle", true);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Backend-code"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "BeyondJS provides a safe and efficient environment for creating backend code, whether you need to work with stand-alone services, task-specific, or looking to implement a client project connected to a backend API."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "For BeyondJS purposes, we can classify these code structures into two types:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Backend services"
+                  }), ": Node code representing a service running on the backend and can only be used by modules that runs on the backend as well."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Backend APIs"
+                  }), ": Allows the connection between the backend-code and the client-code."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "API Server"
+              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(Subtitle, {
+                children: "bundle-bridge"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Server APIs in BeyondJS represent functions that execute code on the server and can be consumed from client-code. They handle the logic for connecting to a backend and returning data. It's achieved simply by creating a ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/bundles#bridge",
+                  children: "Bundle-bridge"
+                }), "."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["To execute backend-code in BeyondJS, is necessary to have the needed distributions configured. If the project is created from the web-backend project type, then is already configured. You can find more information in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/distributions",
+                  children: "Distributions Chapter."
+                })]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+    {
+        "name": "module-name",
+        "bridge": {
+            "path": "ts",
+            "files": ["*"]
+        },
+        "platforms": ["*"]
+    }
+`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Like any module or bundle, it can be managed from the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/workspace",
+                  children: "Workspace"
+                }), " or manually."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "As its name indicates, the bridge-type bundle function as a bridge between client-logic and server-logic. Generally, logic is associated with data management or file management implemented on the server. The bridge enables the implementation and availability of features that are required to be queried from the client and keeps encapsulate on the server those that don’t."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The code for a bundle bridge looks like this:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+export /*actions*//*bundle*/
+class Auth {
+    async login(user :string, password: string) {
+        if (user !== data.user || password !== data.password) {
+            return {status: true, error: "Invalid data" };
+        }
+
+        return {status: true, data: {valid: true} }
+    }
+
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "An ordinary Javascript object, right?"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "BeyondJS generates a client object that makes the web-socket connection to the server, executes the code implemented by the developer, and makes the response available in the client code. This enables the developer to abstract from the need to worry about the connection between the client and server layers and allows the code to function as part of the same ecosystem."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Now all you need to do is initialize the server. To do this, it is necessary to create a module with a bundle start that is in charge of starting the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/bee",
+                  children: "BEE."
+                }), " The code for the bundle start is as follows:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+import { listen } from "@beyond-js/backend/listen/ts";
+listen();
+`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["In the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/tutorial/web",
+                  children: "Web Tutorial"
+                }), " available, an implemented bridge allows you to see the operation of the BeyondJS backend APIs in action."]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Magical comments"
+              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(Subtitle, {
+                children: "bundle “backend”"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Backend bundles represent JavaScript code executed on the server and used only by modules that also run on the server. In other words, they are like any typical NodeJS service, with the exception that in a development environment are executed through a BEE or BeyondJS process, which increases productivity by enabling it to work with HMR in an automated way and without configuration."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/modules/create",
+                    children: "Create a module"
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/bundles",
+                    children: "Bundles"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+          function _missingMdxReference(id, component) {
+            throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+          }
+        }
+      });
+
+      /*************************************
+      INTERNAL MODULE: ./tutorial/bridge.mdx
+      *************************************/
+
+      ims.set('./tutorial/bridge.mdx', {
+        hash: 2002777494,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+                p: "p",
+                em: "em",
+                ul: "ul",
+                li: "li"
+              }, props.components),
+              {
+                Code,
+                Link
+              } = _components;
+            if (!Code) _missingMdxReference("Code", true);
+            if (!Link) _missingMdxReference("Link", true);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_components.p, {
+                children: "Tutorial\r\nBridge Code\r\nAs we mentioned before, in this moment, usually, each project has its logic for session validation. The intention today is not to focus on how should this be handled. What you will do, is create a basic code that allows you to connect our client code with the backend node. You'll add this to the existing bridge.ts file in the module you just created."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "bridge.ts"
+              }), "\n", (0, _jsxRuntime.jsx)(Code, {
+                children: `
+const data = {
+    user: 'admin',
+    password: '123456.'
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(Code, {
+                children: `
+export /*actions*//*bundle*/
+class Auth {
+
+    async login(user: string, password: string) {
+        if (user !== data.user || password !== data.password) {
+            return {status: true, error: 'Invalid data'};
+        }
+
+        return {status: true, data: {valid: true}}
+    }
+
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The code is quite simple, but there are several interesting points to highlight:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["The magic comment /", (0, _jsxRuntime.jsx)(_components.em, {
+                  children: "bundle"
+                }), "/, is used by Beyond to identify that the code below should be considered as a code to be exported in the final bundle. If you want to read more about how bundles and modules work, we recommend you go to the modules chapter of the documentation.\r\nThe magic comment /", (0, _jsxRuntime.jsx)(_components.em, {
+                  children: "actions"
+                }), "/ is used by BeyondJS to identify which segments of the bundle bridge should be made available as actions that can be consumed by the client.\r\nThe response of the login method is a flat object that arrives with the defined structure to the client.\r\nConnect client and server\r\nThe bridge we created is a node service. Generally, to run a node service, it is necessary to go to a console. However, in BeyondJS, these services work as a BEE (Beyond Environment Service)and to execute it, we must go to theWorkspace and click on the execution button, which we can find on the project detail screen"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "And another in the project detail:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Beyond Environment Execution - Workspace - BeyondJs\r\nTo implement the login functionality with our server, we must import our auth object in the client code and associate the onSubmit event to our form."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Projects in BeyondJS follow the same guidelines for specification and resolution of names and packages, as npm, in the same way that typescript does. They must have a module name and can handle a scope as well. In our case, we define both when creating our project and module respectively."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Next, in our Page component we import the Auth object"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: [(0, _jsxRuntime.jsx)(Code, {
+                  children: `import {Auth} from "@testing/login/home/bridge";`
+                }), "\r\nWe add our onSubmity function and associate it to the form, our code should be as follows:"]
+              }), "\n", (0, _jsxRuntime.jsx)(Code, {
+                children: `
+import * as React from 'react';
+import { Auth } from '@testing/login/auth';
+
+interface IForm {
+disabled?: boolean;
+}
+const model = new Auth();
+export /_page_/
+function View(): JSX.Element {
+const defaultValues = {username: '', password: '', fetching: false};
+const [values, setValues] = React.useState(defaultValues);
+const [error, setError] = React.useState();
+const handleChange = ({currentTarget: target}) => {
+const currentValue = {...values};
+currentValue[target.name] = target.value;
+setValues(currentValue);
+};
+const formDisabled: IForm = {};
+const {username, password} = values;
+if (!username || !password) {
+formDisabled.disabled = true;
+}
+const onSubmit = async event => {
+try {
+event.preventDefault();
+const response = await model.login(username, password);
+if (response.data?.valid) {
+console.log('valid data');
+return;
+}
+setError(response.error);
+} catch (e) {
+console.log(e)
+}
+}
+
+     return (
+        <div className="page__container">
+            <form onSubmit={onSubmit}>
+                {
+                    error &&
+                    <div className="form__error">
+                        {error}
+                    </div>
+                }
+                <label>User: </label>
+                <input onChange={handleChange} type="text" name="username"/>
+                <label>Password</label>
+                <input onChange={handleChange} type="password" name="password"/>
+                <div className="form__actions">
+                    <button onClick={onSubmit} {...formDisabled}>Login</button>
+                </div>
+            </form>
+        </div>
+    );
+
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Time to test our form. If we add the correct data, we can see a message appearing in the browser console indicating that the data was validated, and you can log in. If, on the contrary, we add incorrect data, we can see how the error message \"Invalid data\" appears. Which we update in the component's state variable."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Summary:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "We create a module with a page type widget\r\nWe create a connection with a backend node through the bundle bridge.\r\nWe review the module resolution structure to import the Auth bridge and be able to add the login validation.\r\nNow we just need to redirect the user to a welcome screen."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(Link, {
+                    to: "/docs/tutorial/routing",
+                    children: "Routing"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+          function _missingMdxReference(id, component) {
+            throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
+          }
+        }
+      });
+
+      /***********************************************
+      INTERNAL MODULE: ./tutorial/create-a-project.mdx
+      ***********************************************/
+
+      ims.set('./tutorial/create-a-project.mdx', {
+        hash: 3742291707,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Managing a project"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Projects, like all other BeyondJS elements, are configured using objects in .json files. Project configuration files are generally named ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/projects/json",
+                  children: "project.json"
+                }), " as a convention and allow a wide range of configurations."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Projects can be configured in two ways: through the Workspace interface and manually."
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "Using the Workspace"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["To create a project from the workspace, you first need to make sure BeyondJS is running in the folder where you want to work on your projects. As explained in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/projects/intro",
+                  children: "introducción"
+                }), ", BeyondJS, is developed to handle projects simultaneously, so keep in mind that the run directory may be one where you want to add \"multiple\" projects."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Let's start BeyondJS::"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "beyond run"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Then, we access the workspace, which will be available at ", (0, _jsxRuntime.jsx)(_html.ELink, {
+                  to: "https://workspace.beyondjs.com/",
+                  children: "https://workspace.beyondjs.com/"
+                }), "."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The workspace has three ways to access the project creation process:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "// Img"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["In the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/workspace#preaside",
+                    children: "Preaside"
+                  }), " by using the icon."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/workspace#board",
+                    children: "Board"
+                  }), " at the top right, the option \"create project.\""]
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "When no project created, a message is displayed inviting you to create a project, as seen in the above reference image."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Clicking on any of the mentioned alternatives, a modal is displayed, allowing you to select the type of project to create. This function enables you to start with a blank project or using an already created template. Current choices are:"
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "Blank Project Types"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "// Img"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Web:"
+                  }), " Ready to start a web project that can be distributed on the internet or as a mobile application."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Node:"
+                  }), " Ready to distribute as a project to run in a node environment"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Backend:"
+                  }), " Node project that makes available interfaces that could be consumed in real-time with web sockets from another node project or a client project."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Library:"
+                  }), " Ideal for creating projects intended to be distributed as ", (0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "NPM"
+                  }), " packages"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "web - backend:"
+                  }), " Generates a web project with a backend distribution."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "Template types"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "React, vue y svelte"
+                  }), " apps, Projects to start working with the preferred framework library."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Express:"
+                  }), " Project with an initial structure to create an express server."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Template web:"
+                  }), " Project with a client and backend structure communicated through a web socket."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["It is possible to work with different view libraries/Frameworks in the same project, thanks to the micro-frontend structure offered by BeyondJS. Read more about it in ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/widgets/intro",
+                  children: "the Widgets chapter."
+                })]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "Project Information"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "After seleting the project type, a form appears requesting the scope and name of the project, the port on which it will run, and additionally, an optional title and description. After filling in the necessary data, the workspace is responsible for creating the project with the file structure, and the project is available to be accessed on the configured port."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "// Img"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "All projects have dependencies on NPM packages, which can optionally installed them from the workspace. If you haven't done it before, you need to install dependencies manually for the project to work."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "Creación manual"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The definition of a project is done through the project.json file."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The minimum structure required to create a project is as follows:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+{
+  "name": "project-name",
+  "version": "1.0.0",
+  "title": "Project title",
+  "description": "Description"
+  "languages": {
+    "default": "en",
+    "supported": [
+      "en"
+    ]
+  },,
+  "modules": {
+    "path": "modules"
+  }
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Having created the project.json file, it only left creating the BeyondJS server configuration file, which is called beyond.json and whose basic structure is as follows:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+{
+  "applications": [
+    "path-to-project/project.json"
+  ]
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The applications' input is an array that can contain a list of paths relative to project configuration files."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Read more about BeyondJS configuration options in the development environment in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/dev-server",
+                  children: "Development Server chapter."
+                })]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/projects/create",
+                    children: "Create a project"
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/projects/distributions",
+                    children: "Distributions"
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/projects/json",
+                    children: "project.json"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /*******************************************
+      INTERNAL MODULE: ./tutorial/first-module.mdx
+      *******************************************/
+
+      ims.set('./tutorial/first-module.mdx', {
+        hash: 126487021,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              code: "code"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Tutorial",
+                title: "First module"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "From the workspace, we can also see the content of these modules. For this, we can click on the project icon at the PreAside. Then you can select the module you want, and then you can see its structure."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "As can be observed, the project has two modules created, the Home, which is a response to the base URL of the project, and the “start-backend” module, which will be addressed later."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The workspace allows us to"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "See and manage modules."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Add files."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Edit source code."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Generate declarations of code."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Errors handling."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Manage general settings of the module"
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Manage Templates."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "From the Workspace, we can also navigate the module by accessing the PreAside at the Active project icon. You click on the home module, and it will display the list of bundles contained in the module."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The structure of the module is as follows"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "widget: Folder where the page component code is located."
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "ts:"
+                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: [(0, _jsxRuntime.jsx)(_components.code, {
+                        children: "controller.ts"
+                      }), ": Component controller object, required to mount the WebComponent in the browser."]
+                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: ["`views", "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                        children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                          children: [(0, _jsxRuntime.jsx)(_components.code, {
+                            children: "index.tsx"
+                          }), ": React component that renders the page."]
+                        }), "\n"]
+                      }), "\n"]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "scss: Folder for adding styles to the module"
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "module.json: Module configuration file (Place to define the type of bundles and processors to use)."
+                  }), "\n"]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Let's get down to business!"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Having a clear idea on the structure, what's next is creating the login form and adding some styles, and then continuing with the connection to the backend node."
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Form Creation"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "If you have previously worked with React, what follows is the part you will probably know best, for sure, with some subtleties. Next, you will edit our page.tsx file to create a login form and a basic functionality to update status."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "IDE or from the integrated Workspace Editor, which speciallty is providing help to the developer for specific cases. But for the purposes of the tutorial, we recommend using it by clicking on the required file from the side."
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+import * as React from 'react';
+
+interface IForm {
+disabled?: boolean;
+}
+
+export /*page*/
+function View(): JSX.Element {
+    const defaultValues = {username: '', password: '', fetching: false};
+    const [values, setValues] = React.useState(defaultValues);
+    const [error, setError] = React.useState();
+    const handleChange = ({currentTarget: target}) => {
+        const currentValue = {...values};
+        currentValue[target.name] = target.value;
+        setValues(currentValue);
+    };
+    const formDisabled: IForm = {};
+    const {username, password} = values;
+    if (!username || !password) {
+        formDisabled.disabled = true;
+    }
+     return (
+        <div className="page__container">
+            <form>
+                {
+                    error &&
+                    <div className="form__error">
+                        {error}
+                    </div>
+                }
+                <label>User: </label>
+                <input onChange={handleChange} type="text" name="username"/>
+                <label>Password</label>
+                <input onChange={handleChange} type="password" name="password"/>
+                <div className="form__actions">
+                    <button {...formDisabled}>Login</button>
+                </div>
+            </form>
+        </div>
+    );
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Styles"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "BeyondJS handles styling by default with the SASS preprocessor. Let's go to our styles.scss file and add some styling to the form."
+              }), "\n", (0, _jsxRuntime.jsx)("div", {
+                className: "block__note",
+                children: (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["SASS is a processor in BeyondJS. To read in-depth about the processor's mechanism, you can find further details in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/processors",
+                    children: "Processors chapter"
+                  })]
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+.page\_\_container {
+display: flex;
+padding: 20px;
+height: 100%;
+margin: 0;
+flex-direction: column;
+align-items: center;
+align-content: center;
+justify-content: center;
+
+.form\_\_error {
+padding: 15px;
+display: grid;
+background: var(--error);
+color: var(--text-on-primary);
+}
+
+form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+background: var(--bg-element);
+padding: 30px;
+width: 100%;
+max-width: 500px;
+
+    input {
+      padding: 8px;
+      border: 1px solid var(--gray-light);
+      transition: all 300ms ease-in;
+
+      &:hover, &:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+    }
+
+    .form__actions {
+      display: flex;
+      justify-content: end;
+
+      button {
+        background: var(--primary);
+        cursor: pointer;
+        border: 1px solid var(--primary-dark);
+        color: var(--text-on-primary);
+        padding: .5rem 2rem;
+        transition: all 300ms ease-in;
+
+        &:disabled {
+          opacity: .6;
+          cursor: not-allowed;
+        }
+
+        &:hover {
+          background: var(--primary-dark);
+        }
+      }
+    }
+
+}
+
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Let's explain a bit the above code."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "We add basic styling to the form, the inputs, the submit button, and for handling an error message."
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: ["Custom properties: the custom properties used are a simple structure for handling variables included by beyond in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/template",
+                      children: "Project Template."
+                    })]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/tutorial/backend",
+                    children: "Backend"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /**************************************
+      INTERNAL MODULE: ./tutorial/routing.mdx
+      **************************************/
+
+      ims.set('./tutorial/routing.mdx', {
+        hash: 3610803735,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Tutorial",
+                title: "Routing"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "The first thing we must do is create a new module with a bundle of type Page. For this, we going to repeat the process that we used to create our Bridge bundle."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "We click on the icon to add modules and a modal like the following will open:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "We select blank module. On the next screen, it request the bundle, we then select “page”:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "On the final screen, it will require us for some information, below it is explained what to place on it:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Module name: welcome"
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Web component name: welcome-page."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Url: \"/welcome\""
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Pages and layouts in Beyond are resolved using Web components. If you want to know in detail how they work and why, go to the Web Components Section."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "We then open the Page object created in the module and add a simple message that says: Welcome!"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Next, we will make the necessary adjustments to redirect to our welcome module after logging in. What we need to do after is import the \"routing\" object from Beyond, use the pushState method as it provides, and navigate to the welcome page."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "Imports"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `import { routing } from '@beyond-js/kernel/routing';`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "Navigation"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `routing.pushState('/welcome');`
+              }), "\n", (0, _jsxRuntime.jsx)("div", {
+                className: "block__note",
+                children: (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["BeyondJS provides a routing object to interact with the navigation api, you can learn more about it in the section\r\non ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/routing",
+                    children: "Routing page."
+                  })]
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "We are done! now we only need to refresh our form page to let BeyondJS register the new URL. If we retest our form, we'll be able to log in and see how we've been redirected to the welcome page."
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
         }
       });
 
@@ -3478,7 +3989,7 @@ routing.missing = async (pathname: String) => {
       *************************************/
 
       ims.set('./widget-creation.mdx', {
-        hash: 2974039720,
+        hash: 3124233802,
         creator: function (require, exports) {
           "use strict";
 
@@ -3557,16 +4068,16 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "The code above defines a bundle of type widget with the name of the web component as web login and with typescript as renderer."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Creation with the dashboard"
+                children: "Creation with the workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "// Img"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["All bundles can be created from the module creation form in the ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dashboard",
+                  to: "/docs/workspace",
                   children: "workspace"
                 }), " By doing this, BeyondJS takes care of generating the necessary files and folder structure, including the Controller definition and the module.json and .tsconfig files."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "When bundles are created through the dashboard, the files will be generated and modified by the development service."
+                children: "When bundles are created through the workspace, the files will be generated and modified by the development service."
               })]
             });
           }
@@ -3868,7 +4379,7 @@ routing.missing = async (pathname: String) => {
       *******************************/
 
       ims.set('./workspace.mdx', {
-        hash: 1187854600,
+        hash: 3430655844,
         creator: function (require, exports) {
           "use strict";
 
@@ -3893,7 +4404,7 @@ routing.missing = async (pathname: String) => {
               children: [(0, _jsxRuntime.jsx)(_html.Title, {
                 children: "Workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS provides an integrated Dashboard, which seeks to improve the development experience in several ways, all focused on giving support to the developer in daily tasks that are often time-consuming. These tasks span the entire development loop, from creating a new project to deploying it."
+                children: "BeyondJS provides an integrated Workspace, which seeks to improve the development experience in several ways, all focused on giving support to the developer in daily tasks that are often time-consuming. These tasks span the entire development loop, from creating a new project to deploying it."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["It is available whenever the development server is started at ", (0, _jsxRuntime.jsx)(_html.ELink, {
                   to: "https://workspace.beyondjs.com/",
@@ -3938,7 +4449,7 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "// Img"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The Dashboard works as a framework (Workspace), and each component that integrates it has a defined name that allows its identification. These are:"
+                children: "The Workspace works as a framework (Workspace), and each component that integrates it has a defined name that allows its identification. These are:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ol, {
                 children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
                   children: "PreAside: First left panel, iconography of general access to actions which vary depending on whether or not you have a project open"
@@ -3954,7 +4465,7 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: [(0, _jsxRuntime.jsx)(_components.strong, {
                   children: "Typescript"
-                }), " is a typed language, and type checking is a heavy task. The Dashboard utilizes the typescript compiler to detect errors that may exist in the code in real-time and provide information about them to the developer at three different levels:"]
+                }), " is a typed language, and type checking is a heavy task. The Workspace utilizes the typescript compiler to detect errors that may exist in the code in real-time and provide information about them to the developer at three different levels:"]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: [(0, _jsxRuntime.jsx)(_components.strong, {
@@ -3978,11 +4489,11 @@ routing.missing = async (pathname: String) => {
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Editor and Browser included"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "The dashboard has a built-in code editor that can be extremely useful for quickly accessing files and correcting detected errors, working with styles or bridges. Likewise, it also has a Board that allows you to navigate the projects."
+                children: "The workspace has a built-in code editor that can be extremely useful for quickly accessing files and correcting detected errors, working with styles or bridges. Likewise, it also has a Board that allows you to navigate the projects."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Project deployment"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["The Dashboard generates the necessary and optimized code to deploy the projects. Read in detail how it works in the ", (0, _jsxRuntime.jsx)(_html.Link, {
+                children: ["The Workspace generates the necessary and optimized code to deploy the projects. Read in detail how it works in the ", (0, _jsxRuntime.jsx)(_html.Link, {
                   to: "/docs/deployment",
                   children: "Project Deployment chapter."
                 })]
@@ -4017,4 +4528,4 @@ routing.missing = async (pathname: String) => {
     }
   };
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,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STs7NEJBQ0E7OzRCQUNBOzs0QkFDQTs7OzBCQUVNOzs7NEJBRVI7b0JBQVk7Ozs7OEJBRVI7c0JBQXdCOzs7OEJBQ3hCO3NCQUFlOzs7OEJBQ2Y7c0JBQVk7OzswQkFFbEI7OzBCQUVBOzswQkFFQTs7MEJBRVU7OzBCQUVWOzswQkFFVTs7MkJBRVY7OzRCQUFnSiIsIm5hbWVzIjpbImNvbnRlbnQiLCJ1c2VySWQiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbIm1keC9iYWNrZW5kLm1keCIsIm1keC9iZWUubWR4IiwibWR4L2JleW9uZC1qcy1kZXBlbmRlbmNpZXMubWR4IiwibWR4L2J1bmRsZXMubWR4IiwibWR4L2NvbnRyb2xsZXItb2JqZWN0Lm1keCIsIm1keC9jcmVhdGUtYS1tb2R1bGUubWR4IiwibWR4L2NyZWF0ZS1hLXByb2plY3QubWR4IiwibWR4L2RldmVsb3BtZW50LXNlcnZlci5tZHgiLCJtZHgvZ2xvc2FyeS5tZHgiLCJtZHgvaG1yLm1keCIsIm1keC9pbnRyby5tZHgiLCJtZHgvbGF5b3V0Lm1keCIsIm1keC9saWdodC1kYXJrLXRoZW1lLm1keCIsIm1keC9tb2R1bGUtY29uZmlnLm1keCIsIm1keC9tb2R1bGVzLm1keCIsIm1keC9wcm9jZXNzb3JzLm1keCIsIm1keC9wcm9qZWN0LWpzb24ubWR4IiwibWR4L3Byb2plY3Qtc3RydWN0dXJlLm1keCIsIm1keC9wcm9qZWN0cy1pbXBvcnQubWR4IiwibWR4L3Byb2plY3RzLm1keCIsIm1keC9xdWljay1zdGFydC5tZHgiLCJtZHgvcm91dGluZy5tZHgiLCJtZHgvc3RhdGUtbWFuYWdlbWVudC5tZHgiLCJtZHgvc3R5bGVzLWltcG9ydGF0aW9uLm1keCIsIm1keC9zdHlsZXMtbW9kdWxlLm1keCIsIm1keC9zdHlsZXMubWR4IiwibWR4L3RlbXBsYXRlLXN5c3RlbS5tZHgiLCJtZHgvdGVtcGxhdGVzLm1keCIsIm1keC90dXRvcmlhbC1zdGFydC5tZHgiLCJtZHgvdXJpLm1keCIsIm1keC93aWRnZXQtY3JlYXRpb24ubWR4IiwibWR4L3dpZGdldC1vYmplY3QubWR4IiwibWR4L3dpZGdldHMtcGFnZS5tZHgiLCJtZHgvd2lkZ2V0cy5tZHgiLCJtZHgvd29ya3NwYWNlLm1keCJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,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STs7NEJBQ0E7OzRCQUNBOzs0QkFDQTs7OzBCQUVNOzs7NEJBRVI7b0JBQVk7Ozs7OEJBRVI7c0JBQXdCOzs7OEJBQ3hCO3NCQUFlOzs7OEJBQ2Y7c0JBQVk7OzswQkFFbEI7OzBCQUVBOzswQkFFQTs7MEJBRVU7OzBCQUVWOzswQkFFVTs7MkJBRVY7OzRCQUFnSiIsIm5hbWVzIjpbImNvbnRlbnQiLCJ1c2VySWQiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbIm1keC9iZWUubWR4IiwibWR4L2JleW9uZC1qcy1kZXBlbmRlbmNpZXMubWR4IiwibWR4L2J1bmRsZXMubWR4IiwibWR4L2NvbnRyb2xsZXItb2JqZWN0Lm1keCIsIm1keC9jcmVhdGUtYS1tb2R1bGUubWR4IiwibWR4L2RldmVsb3BtZW50LXNlcnZlci5tZHgiLCJtZHgvZ2xvc2FyeS5tZHgiLCJtZHgvaG1yLm1keCIsIm1keC9pbnRyby5tZHgiLCJtZHgvbGF5b3V0Lm1keCIsIm1keC9saWdodC1kYXJrLXRoZW1lLm1keCIsIm1keC9tb2R1bGUtY29uZmlnLm1keCIsIm1keC9tb2R1bGVzLm1keCIsIm1keC9wcm9jZXNzb3JzLm1keCIsIm1keC9wcm9qZWN0LWpzb24ubWR4IiwibWR4L3Byb2plY3Qtc3RydWN0dXJlLm1keCIsIm1keC9wcm9qZWN0cy1pbXBvcnQubWR4IiwibWR4L3Byb2plY3RzLm1keCIsIm1keC9xdWljay1zdGFydC5tZHgiLCJtZHgvcm91dGluZy5tZHgiLCJtZHgvc3RhdGUtbWFuYWdlbWVudC5tZHgiLCJtZHgvc3R5bGVzLWltcG9ydGF0aW9uLm1keCIsIm1keC9zdHlsZXMtbW9kdWxlLm1keCIsIm1keC9zdHlsZXMubWR4IiwibWR4L3RlbXBsYXRlLXN5c3RlbS5tZHgiLCJtZHgvdGVtcGxhdGVzLm1keCIsIm1keC90dXRvcmlhbC1zdGFydC5tZHgiLCJtZHgvdHV0b3JpYWwvdHV0b3JpYWxcXGJhY2tlbmQubWR4IiwibWR4L3R1dG9yaWFsL3R1dG9yaWFsXFxicmlkZ2UubWR4IiwibWR4L3R1dG9yaWFsL3R1dG9yaWFsXFxjcmVhdGUtYS1wcm9qZWN0Lm1keCIsIm1keC90dXRvcmlhbC90dXRvcmlhbFxcZmlyc3QtbW9kdWxlLm1keCIsIm1keC90dXRvcmlhbC90dXRvcmlhbFxccm91dGluZy5tZHgiLCJtZHgvdXJpLm1keCIsIm1keC93aWRnZXQtY3JlYXRpb24ubWR4IiwibWR4L3dpZGdldC1vYmplY3QubWR4IiwibWR4L3dpZGdldHMtcGFnZS5tZHgiLCJtZHgvd2lkZ2V0cy5tZHgiLCJtZHgvd29ya3NwYWNlLm1keCJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF19

@@ -1,7 +1,7 @@
-System.register(["engine.io-parser@5.0.5","@socket.io/component-emitter@3.1.0"], (_exports, _context) => {
+System.register(["engine.io-parser@5.0.6","@socket.io/component-emitter@3.1.0"], (_exports, _context) => {
 
 const bimport = specifier => {
-	const dependencies = new Map([["engine.io-parser","5.0.5"],["@socket.io/component-emitter","3.1.0"],["engine.io-client","6.2.3"]]);
+	const dependencies = new Map([["engine.io-parser","5.0.6"],["@socket.io/component-emitter","3.1.0"],["engine.io-client","6.2.3"]]);
 	return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
 };
 
@@ -9,7 +9,7 @@ const bimport = specifier => {
 var dependencies = new Map();
 var require = dependency => dependencies.get(dependency);
 return {
-setters: [dep => dependencies.set('engine.io-parser@5.0.5', dep), dep => dependencies.set('@socket.io/component-emitter@3.1.0', dep)],
+setters: [dep => dependencies.set('engine.io-parser@5.0.6', dep), dep => dependencies.set('@socket.io/component-emitter@3.1.0', dep)],
 execute: function() {
 // Prevent esbuild from considering the context to be amd
 const define = void 0;
@@ -114,7 +114,7 @@ function utf8Length(str) {
 }
 
 // node_modules/engine.io-client/build/esm/transport.js
-var import_engine = require("engine.io-parser@5.0.5");
+var import_engine = require("engine.io-parser@5.0.6");
 var import_component_emitter = require("@socket.io/component-emitter@3.1.0");
 var TransportError = class extends Error {
   constructor(reason, description, context) {
@@ -248,7 +248,7 @@ function XHR(opts) {
 }
 
 // node_modules/engine.io-client/build/esm/transports/polling.js
-var import_engine2 = require("engine.io-parser@5.0.5");
+var import_engine2 = require("engine.io-parser@5.0.6");
 var import_component_emitter2 = require("@socket.io/component-emitter@3.1.0");
 function empty() {}
 var hasXHR2 = function () {
@@ -521,7 +521,7 @@ var usingBrowserWebSocket = true;
 var defaultBinaryType = "arraybuffer";
 
 // node_modules/engine.io-client/build/esm/transports/websocket.js
-var import_engine3 = require("engine.io-parser@5.0.5");
+var import_engine3 = require("engine.io-parser@5.0.6");
 var isReactNative = typeof navigator !== "undefined" && typeof navigator.product === "string" && navigator.product.toLowerCase() === "reactnative";
 var WS = class extends Transport {
   constructor(opts) {
@@ -680,7 +680,7 @@ function queryKey(uri, query) {
 
 // node_modules/engine.io-client/build/esm/socket.js
 var import_component_emitter3 = require("@socket.io/component-emitter@3.1.0");
-var import_engine4 = require("engine.io-parser@5.0.5");
+var import_engine4 = require("engine.io-parser@5.0.6");
 var Socket = class extends import_component_emitter3.Emitter {
   constructor(uri, opts = {}) {
     super();

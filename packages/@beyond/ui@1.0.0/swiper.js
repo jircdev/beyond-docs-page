@@ -1,4 +1,4 @@
-System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0", "swiper@8.4.5", "@beyond/ui@1.0.0/reactive-model", "@beyond-js/kernel@0.1.7/styles"], function (_export, _context) {
+System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0", "swiper@8.4.6", "@beyond/ui@1.0.0/reactive-model", "@beyond-js/kernel@0.1.7/styles"], function (_export, _context) {
   "use strict";
 
   var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, bimport, __Bundle, __pkg, ims, BeyondSwiperContext, useBeyondSwiperContext, BeyondSwiperSlider, __beyond_pkg, hmr;

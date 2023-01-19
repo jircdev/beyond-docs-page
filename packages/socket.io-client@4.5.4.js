@@ -1,7 +1,7 @@
-System.register(["engine.io-parser@5.0.5","@socket.io/component-emitter@3.1.0","engine.io-client@6.2.3","socket.io-parser@4.2.1"], (_exports, _context) => {
+System.register(["engine.io-parser@5.0.6","@socket.io/component-emitter@3.1.0","engine.io-client@6.2.3","socket.io-parser@4.2.1"], (_exports, _context) => {
 
 const bimport = specifier => {
-	const dependencies = new Map([["engine.io-parser","5.0.5"],["@socket.io/component-emitter","3.1.0"],["engine.io-client","6.2.3"],["socket.io-client","4.5.4"],["socket.io-parser","4.2.1"]]);
+	const dependencies = new Map([["engine.io-parser","5.0.6"],["@socket.io/component-emitter","3.1.0"],["engine.io-client","6.2.3"],["socket.io-client","4.5.4"],["socket.io-parser","4.2.1"]]);
 	return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
 };
 
@@ -9,7 +9,7 @@ const bimport = specifier => {
 var dependencies = new Map();
 var require = dependency => dependencies.get(dependency);
 return {
-setters: [dep => dependencies.set('engine.io-parser@5.0.5', dep), dep => dependencies.set('@socket.io/component-emitter@3.1.0', dep), dep => dependencies.set('engine.io-client@6.2.3', dep), dep => dependencies.set('socket.io-parser@4.2.1', dep)],
+setters: [dep => dependencies.set('engine.io-parser@5.0.6', dep), dep => dependencies.set('@socket.io/component-emitter@3.1.0', dep), dep => dependencies.set('engine.io-client@6.2.3', dep), dep => dependencies.set('socket.io-parser@4.2.1', dep)],
 execute: function() {
 // Prevent esbuild from considering the context to be amd
 const define = void 0;

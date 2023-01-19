@@ -1,17 +1,26 @@
 System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0/jsx-runtime", "@beyond/docs@1/components/html", "@beyond/docs@1/code"], function (_export, _context) {
   "use strict";
 
-  var dependency_0, dependency_1, dependency_2, dependency_3, bimport, __Bundle, __pkg, ims, Intro, Cli, QuickStart, TutorialStart, BareSpecifiers, Modular, Universal, Distributions, DevServer, __beyond_pkg, hmr;
+  var dependency_0, dependency_1, dependency_2, dependency_3, bimport, __Bundle, __pkg, ims, Intro, Cli, QuickStart, TutorialStart, TutorialBackend, TutorialBridge, TutorialRouting, TutorialFirstModule, PackagesCreate, PackagesTypes, PackagesDistributions, PackagesJson, PackagesPublish, BareSpecifiers, Modular, Universal, DevServer, Steps, __beyond_pkg, hmr;
   _export({
     Intro: void 0,
     Cli: void 0,
     QuickStart: void 0,
     TutorialStart: void 0,
+    TutorialBackend: void 0,
+    TutorialBridge: void 0,
+    TutorialRouting: void 0,
+    TutorialFirstModule: void 0,
+    PackagesCreate: void 0,
+    PackagesTypes: void 0,
+    PackagesDistributions: void 0,
+    PackagesJson: void 0,
+    PackagesPublish: void 0,
     BareSpecifiers: void 0,
     Modular: void 0,
     Universal: void 0,
-    Distributions: void 0,
-    DevServer: void 0
+    DevServer: void 0,
+    Steps: void 0
   });
   return {
     setters: [function (_beyondJsKernel017Bundle) {
@@ -25,7 +34,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0/jsx-runtime", "
     }],
     execute: function () {
       bimport = specifier => {
-        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.0"], ["swiper", "8.4.5"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
+        const dependencies = new Map([["@beyond/ui", "1.0.0"], ["@beyond-js/react-widgets", "18.21.1"], ["@beyond-js/widgets", "0.1.2"], ["@beyond-js/kernel", "0.1.7"], ["@cloudinary/url-gen", "1.8.7"], ["@mdx-js/mdx", "2.2.1"], ["@mdx-js/react", "2.2.1"], ["@types/escape-html", "1.0.2"], ["@types/highlightjs", "9.12.2"], ["@types/is-hotkey", "0.1.7"], ["animatewithsass", "3.2.1"], ["dayjs", "1.11.7"], ["escape-html", "1.0.3"], ["is-hotkey", "0.2.0"], ["perfect-scrollbar", "1.5.5"], ["prismjs", "1.29.0"], ["prop-types", "15.8.1"], ["sequelize", "6.28.0"], ["slate-react", "0.72.9"], ["socket.io", "4.5.4"], ["socket.io-client", "4.5.4"], ["svelte", "3.55.1"], ["swiper", "8.4.6"], ["universal-model-ng-react-svelte-vue", "0.3.3"], ["vue", "3.2.45"], ["@beyond/docs", 1], ["@beyond/docs", 1]]);
         return globalThis.bimport(globalThis.bimport.resolve(specifier, dependencies));
       };
       ({
@@ -40,150 +49,9 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "react@18.2.0/jsx-runtime", "
       ;
       __pkg.dependencies.update([['react/jsx-runtime', dependency_1], ['@beyond/docs/components/html', dependency_2], ['@beyond/docs/code', dependency_3]]);
       ims = new Map();
-      /*****************************************
-      INTERNAL MODULE: ./mdx/backend/backend.mdx
-      *****************************************/
-      ims.set('./mdx/backend/backend.mdx', {
-        hash: 2425389162,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-                p: "p",
-                ul: "ul",
-                li: "li",
-                strong: "strong"
-              }, props.components),
-              {
-                Subtitle
-              } = _components;
-            if (!Subtitle) _missingMdxReference("Subtitle", true);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Código Backend"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS disponibiliza un entorno seguro y eficiente pare crear código backend, bien sea que se requiera para trabajar con servicios independientes, encargados de tareas específicas o que busque implementar una conexión de un proyecto cliente con una api backend. Para efectos de BeyondJS,\r\npodemos clasificar estas estructuras de código en dos tipos:"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Servicios Backend"
-                  }), ": Código node que representa un servicio en ejecución en el backend y sólo puede ser utilizado por módulos que tambien se ejecuten en el backend."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                    children: "Api backend"
-                  }), ": permiten la conexión entre el código backend\r\ny el código cliente."]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Api Servidor"
-              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(Subtitle, {
-                children: "Bundle bridge"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Las APIs servidor en BeyondJS representan funciones que ejecutan código en el servidor y pueden ser consumidas desde el código cliente. Manejan la lógica para conectarse a un backend y retornar data. Esto se lógra de forma simple, con la creación de un ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/bundles#bridge",
-                  children: "Bundle Bridge."
-                })]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Para que se pueda ejecutar código Backend en BeyondJS es necesario tener configuradas las distribuciones necesarias. Si el proyecto se creo a partir del tipo de proyecto web-backend, la misma ya se encuentra configurada. Puedes encontrar más información en ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/distributions",
-                  children: "La sección de distribuciones."
-                })]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-    {
-        "name": "module-name",
-        "bridge": {
-            "path": "ts",
-            "files": ["*"]
-        },
-        "platforms": ["*"]
-    }
-`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Al igual que cualquier módulo o bundle, este puede ser gestionado desde el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/dashboard",
-                  children: "Dashboard"
-                }), " o de forma manual.\r\nCómo su nombre lo indica, el bundle de tipo bridge, sirve de puente entre la lógica cliente y la lógica servidor. Generalmente, en el servidor se impmenentan lógicas asociadas al manejo de datos o manipulación de archivos, el bridge Permite implementar y dejar disponibles funcionalidades que necesiten ser consultadas desde el cliente y mantener encapsuladas en el servidor aquellas que no.\r\nEl código de un bundle bridge luce así:"]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-export /*actions*//*bundle*/
-class Auth {
-    async login(user :string, password: string) {
-        if (user !== data.user || password !== data.password) {
-            return {status: true, error: "Invalid data" };
-        }
-
-        return {status: true, data: {valid: true} }
-    }
-
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Un objeto Javascript común y corriente ¿Verdad?\r\nBeyondJS genera un objeto cliente que realiza la conexión web-socket al servidor, ejecuta el código implementado por el desarrollador y deja disponible la respuesta en el código cliente, abstrayendo al programador de la necesidad de procuparse por la conexión entre las capas cliente y servidor y permitiendo que el código funcione como parte de un mismo ecosistema.\r\nAhora sólo es necesario inicializar el servidor. Para ello es necesario crear un módulo con un bundle start que se encargue de iniciar el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/bee",
-                  children: "BEE."
-                }), " El código del bundle start es el siguiente:"]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-import { listen } from "@beyond-js/backend/listen/ts";
-listen();
-`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/tutorial/web",
-                  children: "Tutorial Web"
-                }), " disponible, se implementa un bridge que permite ver en acción el funcionamiento de las apis backend de BeyondJS."]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Comentarios mágicos"
-              }), "\n", (0, _jsxRuntime.jsx)(Subtitle, {
-                children: "bundle backend"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Los bundles backend representan código JavaScript que es ejecutado en el servidor y sólo pueden ser utilizados por módulos que tambien funcionen en el servidor. Dicho en otras palabras, representan cualquier servicio típico de NodeJS, con la salvedad de que, en entorno de desarrollo, son ejecutados por medio de un BEE o proceso BeyondJS lo cual aumenta la productividad al poder trabajar con HMR de forma automatizada y sin configuración."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/modules/create",
-                    children: "Crear un módulo"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/bundles",
-                    children: "Bundles"
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-          function _missingMdxReference(id, component) {
-            throw new Error("Expected " + (component ? "component" : "object") + " `" + id + "` to be defined: you likely forgot to import, pass, or provide it.");
-          }
-        }
-      });
-
       /*************************************
       INTERNAL MODULE: ./mdx/backend/bee.mdx
       *************************************/
-
       ims.set('./mdx/backend/bee.mdx', {
         hash: 2797010715,
         creator: function (require, exports) {
@@ -272,7 +140,7 @@ listen();
       ****************************************************/
 
       ims.set('./mdx/backend/development-server.mdx', {
-        hash: 266410751,
+        hash: 3805958726,
         creator: function (require, exports) {
           "use strict";
 
@@ -335,9 +203,7 @@ listen();
                 children: "El objetivo de BeyondJS es ofrecer un entorno de desarrollo typescript universal.\r\nA diferencia de Deno, que soporta imports HTTP de manera estable desde sus inicios, NodeJS lo implementa en versiones recientes y aún en fase experimental."
               }), "\n", (0, _jsxRuntime.jsx)(_html.ELink, {
                 to: "https://nodejs.org/api/esm.html#https-and-http-imports",
-                children: (0, _jsxRuntime.jsx)(_components.p, {
-                  children: "https://nodejs.org/api/esm.html#https-and-http-imports"
-                })
+                children: "https://nodejs.org/api/esm.html#https-and-http-imports"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["Para brindar una experiencia homogénea, BeyondJS ofrece un entorno de ejecución (", (0, _jsxRuntime.jsx)(_components.strong, {
                   children: "BEE"
@@ -384,7 +250,7 @@ listen();
                   children: ["applications ", (0, _jsxRuntime.jsx)(_html.Link, {
                     to: "/aoc",
                     children: "AOC:"
-                  }), " Recibe un arreglo con la lista de proyectos o aplicaciones configuradas para que BeyondJS pueda leerlas y levantarlas. Este archivo, es gestionado por BeyondJS si se hace uso del dashboard."]
+                  }), " Recibe un arreglo con la lista de proyectos o aplicaciones configuradas para que BeyondJS pueda leerlas y levantarlas. Este archivo, es gestionado por BeyondJS si se hace uso del workspace."]
                 }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
                   children: "bundles object: Permite configurar la inclusión de bundles creados por el programador."
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
@@ -405,6 +271,159 @@ listen();
                 children: "También puedes usar empaquetadores para programar en Deno o NodeJS, algo que se está volviendo popular debido al Isomorfismo."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "Actualmente están disponibles los ES modules, algo reciente y que simplifica mucho el escenario. Tanto el browser, como NodeJS, como Deno pueden cargar módulos ES de manera nativa."
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /************************************
+      INTERNAL MODULE: ./mdx/cli/module.mdx
+      ************************************/
+
+      ims.set('./mdx/cli/module.mdx', {
+        hash: 2547198555,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              h1: "h1",
+              p: "p",
+              h2: "h2",
+              ul: "ul",
+              li: "li",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_components.h1, {
+                children: "Comando: beyond add module"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Crear un módulo específico dentro de un paquete hecho con BeyondJS.\r\nGenera una estructura de directorios y archivos para un módulo dentro de un paquete especificado."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.h2, {
+                children: "Parámetros"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "package"
+                  }), ": Nombre del paquete en el cual se creará el módulo."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "subpath"
+                  }), ": Subpath o name del módulo a crear."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Module type"
+                  }), ": Representa el tipo de módulo, puede ser: \"page\", \"widget\", \"layout\", \"code\", \"ts\", \"start\"."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Web component name"
+                  }), ": Define el nombre del web component sí es un módulo tipo \"page\", \"widget\" o \"layout\"."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "url"
+                  }), ": Define la URL para un módulo tipo page."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "about"
+                  }), ": Descripción del módulo."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "styles"
+                  }), ": Indica si el módulo tiene hojas de estilo."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Multilanguage"
+                  }), ": Indica si el módulo tiene multilenguaje."]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /*************************************
+      INTERNAL MODULE: ./mdx/cli/package.mdx
+      *************************************/
+
+      ims.set('./mdx/cli/package.mdx', {
+        hash: 495858687,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              h1: "h1",
+              p: "p",
+              h2: "h2",
+              ul: "ul",
+              li: "li",
+              strong: "strong",
+              h3: "h3"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_components.h1, {
+                children: "Comando: beyond add package"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Crear un nuevo paquete con BeyondJS.\r\nEste comando crea una estructura de directorios y archivos para un paquete en BeyondJS, según el tipo de paquete y una serie de parámetros que defina el usuario."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.h2, {
+                children: "Parámetros"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Specifier"
+                  }), ": Especificador del paquete."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Title"
+                  }), ": Título del paquete."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "About"
+                  }), ": Descripción del paquete."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Package type"
+                  }), ": es el nombre de la plantilla que se desea utilizar para el paquete."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.h3, {
+                children: "Tipos de paquetes en BeyondJS:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "web: proporciona una estructura básica para una aplicación web.\r\nbackend: proporciona una estructura básica para una aplicación de backend en Node.js.\r\nnode: proporciona una estructura básica para un proyecto de Node.js.\r\nexpress: proporciona una estructura básica para una aplicación web utilizando el framework Express en Node.js.\r\nreact: proporciona una estructura básica para un paquete con react.\r\nsvelte: proporciona una estructura básica para un paquete con svelte.\r\nvue: proporciona una estructura básica para un paquete con vue.\r\nweb-backend: proporciona una estructura básica para una aplicación web con un backend en Node.js.\r\nempty: proporciona una estructura mínima requerida para un paquete en BeyondJS."
               })]
             });
           }
@@ -690,171 +709,6 @@ listen();
                     href: "/distributions",
                     children: "sección de Distribuciones"
                   }), "."]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
-      /***************************************************
-      INTERNAL MODULE: ./mdx/foundations/distributions.mdx
-      ***************************************************/
-
-      ims.set('./mdx/foundations/distributions.mdx', {
-        hash: 1830528247,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              blockquote: "blockquote",
-              code: "code",
-              ul: "ul",
-              li: "li"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
-                id: "intro",
-                pretitle: "Fundamentos",
-                title: "Distribuciones"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Las Distribuciones son una funcionalidad que permite definir el comportamiento\r\nque debe tener el DevServer de BeyondJS en el entorno de desarrollo y las caracteristicas para el\r\nempaquetado del proyecto durante el proceso de despliegue"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
-                children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
-                  children: "Al crear un nuevo proyecto, este viene con una distribución configurada de forma predeterminada.\r\nEn este documento se describen en detalle todas las opciones de configuración de las distribuciones,\r\nnecesarias para trabajar con diferentes entornos de ejecución o tipos de resolución de módulos."
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                id: "definition",
-                tag: "h2",
-                text: "Definición"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Las distribuciones se definen en el archivo ", (0, _jsxRuntime.jsx)(_components.code, {
-                  children: "project.json"
-                }), ", en la propiedad ", (0, _jsxRuntime.jsx)(_components.code, {
-                  children: "distirbutions"
-                }), "\r\ndel entry point ", (0, _jsxRuntime.jsx)(_components.code, {
-                  children: "development"
-                }), "."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Un ejemplo de una distribución es:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: ` {
-    "name": "web",
-    "platform": "web",
-    "environment": "development",
-    "ports": {
-        "bundles": 3500
-    }
-},
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
-                id: "properties",
-                tag: "h2",
-                text: "Propiedades"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                      type: "string",
-                      children: "name"
-                    }), " Nombre identificador de la distribución."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                      type: "string",
-                      children: "platform"
-                    }), " identificador de la plataforma que utiliza la distribución. Puede\r\nver los identificadores de plataformas en la ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      href: "/platforms",
-                      children: "sección de Plataformas"
-                    })]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                      type: "string",
-                      children: "environment"
-                    }), " soporta los valores ", (0, _jsxRuntime.jsx)(_components.code, {
-                      children: "deployment"
-                    }), " y ", (0, _jsxRuntime.jsx)(_components.code, {
-                      children: "production"
-                    }), "."]
-                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                        type: "object",
-                        children: "ports"
-                      }), " recibe un objeto con las siguientes propiedades :"]
-                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                        type: "number",
-                        children: "bundles"
-                      }), " puerto en el que el DevServer devolverá los bundles."]
-                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                        type: "number",
-                        children: "http"
-                      }), " Puerto para conectar debuggers o inspectores de código. Puede\r\nleer más sobre inspección remota en ", (0, _jsxRuntime.jsx)(_html.Link, {
-                        href: "/remote-inspection",
-                        children: "sección de inspección remota."
-                      })]
-                    }), "\n"]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
-                      type: "object",
-                      children: "ts"
-                    }), " Objeto manejado para gestionar configuraciones del compilador typescript,\r\nactualmente soporta las siguientes propiedades:"]
-                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                      children: ["\n", (0, _jsxRuntime.jsx)(_html.ItemProperty, {
-                        type: "string",
-                        optional: true,
-                        label: "compiler",
-                        children: (0, _jsxRuntime.jsxs)(_components.p, {
-                          children: ["acepta los valores ", (0, _jsxRuntime.jsx)(_components.code, {
-                            children: "ts"
-                          }), " y ", (0, _jsxRuntime.jsx)(_components.code, {
-                            children: "transpiler"
-                          }), "."]
-                        })
-                      }), "\n"]
-                    }), "\n"]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.ItemProperty, {
-                    type: "string",
-                    optional: true,
-                    label: "backend",
-                    children: (0, _jsxRuntime.jsxs)(_components.p, {
-                      children: ["Esta propiedad es requerida si el paquete utiliza una conexión con un backend por medio de websockets. Puedes\r\nleer más acerca de esto en la ", (0, _jsxRuntime.jsx)(_html.Link, {
-                        href: "/bridges",
-                        children: "sección de Bridges"
-                      }), " ."]
-                    })
-                  }), "\n"]
                 }), "\n"]
               })]
             });
@@ -1824,7 +1678,7 @@ html[data-beyond-mode="dark"] {
       *******************************************************/
 
       ims.set('./mdx/frontend/styles/styles-module.mdx', {
-        hash: 219004925,
+        hash: 564784327,
         creator: function (require, exports) {
           "use strict";
 
@@ -1851,7 +1705,7 @@ html[data-beyond-mode="dark"] {
                   children: "procesador"
                 }), " SASS."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Si se usa el dashboard para la creación de proyectos, el procesador sass es incluido por defecto en los bundles de tipo code y widget de cualquier tipo."
+                children: "Si se usa el workspace para la creación de proyectos, el procesador sass es incluido por defecto en los bundles de tipo code y widget de cualquier tipo."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "La configuración estandar de un procesador sass es la siguiente:"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -2180,7 +2034,7 @@ html[data-beyond-mode="dark"] {
       *****************************************************/
 
       ims.set('./mdx/frontend/template/templates.mdx', {
-        hash: 395117349,
+        hash: 2170278434,
         creator: function (require, exports) {
           "use strict";
 
@@ -2240,8 +2094,8 @@ html[data-beyond-mode="dark"] {
                 })]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["La plantilla puede ser manejada desde el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dashboard",
-                  children: "Dashboard"
+                  to: "/docs/workspace",
+                  children: "Workspace"
                 }), " y cuando se crea un proyecto ya viene configurada la estructura por defecto para su manejo."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "A continuación se explican las propiedades de configuración"
@@ -2326,7 +2180,7 @@ html[data-beyond-mode="dark"] {
       **********************************************************/
 
       ims.set('./mdx/frontend/widgets/widget-creation.mdx', {
-        hash: 1004480552,
+        hash: 1814727977,
         creator: function (require, exports) {
           "use strict";
 
@@ -2405,16 +2259,16 @@ html[data-beyond-mode="dark"] {
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "El código anterior, define un bundle de tipo widget con el nombre del web-component como web-login y con typescript como procesador."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Creación con el dashboard"
+                children: "Creación con el workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "// Img"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["Todos los bundles pueden crearse desde el formulario de creación de módulos en el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/dashboard",
+                  to: "/docs/workspace",
                   children: "workspace"
                 }), " y de este modo, BeyondJS se encarga de generar la estructura de carpetas y los archivos necesarios, incluyendo la definición del Controller y los archivos module.json y .tsconfig."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Cuando los bundles son creados por medio del dashboard, los archivos son generados y módificados por el servicio de desarrollo."
+                children: "Cuando los bundles son creados por medio del workspace, los archivos son generados y módificados por el servicio de desarrollo."
               })]
             });
           }
@@ -2848,7 +2702,7 @@ html[data-beyond-mode="dark"] {
       *************************************************/
 
       ims.set('./mdx/modules/create-a-module.mdx', {
-        hash: 3358371588,
+        hash: 3925964110,
         creator: function (require, exports) {
           "use strict";
 
@@ -2877,13 +2731,13 @@ html[data-beyond-mode="dark"] {
                   children: "introducción de módulos."
                 })]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Los módulos se crean y gestionan por medio de los archivos de configuración module.json, estos pueden ser creados de forma manual o a través de la interfaz del Dashboard."
+                children: "Los módulos se crean y gestionan por medio de los archivos de configuración module.json, estos pueden ser creados de forma manual o a través de la interfaz del Workspace."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Creación desde el Dashboard"
+                children: "Creación desde el Workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Para crear un módulo debe haberse creado previamente un proyecto y estar activo en el Dashboard."
+                children: "Para crear un módulo debe haberse creado previamente un proyecto y estar activo en el Workspace."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "La opción de crear proyectos es una funcionalidad disponible cuando un proyecto se encuentra activo en el Dashboard. Para poder verlas, es necesario abrir el proyecto accediendo al board de detalle del mismo."
+                children: "La opción de crear proyectos es una funcionalidad disponible cuando un proyecto se encuentra activo en el Workspace. Para poder verlas, es necesario abrir el proyecto accediendo al board de detalle del mismo."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["Cuando el proyecto se encuentra activo, se puede ver la opción en el ", (0, _jsxRuntime.jsx)(_components.strong, {
                   children: "PreAside"
@@ -3370,12 +3224,12 @@ import {Auth} from '@company/project/login/code';
         }
       });
 
-      /***************************************************
-      INTERNAL MODULE: ./mdx/packages/create-a-project.mdx
-      ***************************************************/
+      /*******************************************
+      INTERNAL MODULE: ./mdx/packages/creation.mdx
+      *******************************************/
 
-      ims.set('./mdx/packages/create-a-project.mdx', {
-        hash: 2806987994,
+      ims.set('./mdx/packages/creation.mdx', {
+        hash: 4142438416,
         creator: function (require, exports) {
           "use strict";
 
@@ -3391,60 +3245,592 @@ import {Auth} from '@company/project/login/code';
           function _createMdxContent(props) {
             const _components = Object.assign({
               p: "p",
+              code: "code",
+              blockquote: "blockquote",
               ul: "ul",
-              li: "li",
+              li: "li"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Basics",
+                title: "Paquetes"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["En ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " los proyectos o aplicaciones son manejados como un paquete javascript que puede ser publicado en NPM de forma directa si se desea."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["El archivo ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "package.json"
+                }), " tiene una función similar al de cualquier proyecto de npm,\r\nya que es donde se definen las dependencias y configuraciones del proyecto. Sin embargo, ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " agrega un conjunto de entry points adicionales\r\nal package.json, que le permiten a los desarrolladores gestionar los paquetes de forma universal y poder posteriormente ejecutarlos y publicarlos\r\nen cualquier plataforma."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["En este documento se explica como funciona la creación de paquetes.\r\nPuedes leer en detalle todas las opciones de configuración que gestiona ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " sobre los paquetes\r\nen ", (0, _jsxRuntime.jsxs)(_html.Link, {
+                    href: "/docs/packages/json",
+                    children: ["la sección del ", (0, _jsxRuntime.jsx)(_components.code, {
+                      children: "package.json"
+                    })]
+                  }), "."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "En resumen, el package.json en BeyondJS es un archivo fundamental para la configuración y gestión de proyectos.\r\nAdemás de las funciones comunes de un package.json, BeyondJS agrega entry points adicionales que permiten gestionar los paquetes de forma universal,\r\ndefinir distribuciones, especificar rutas de los paquetes, configurar templates, establecer idiomas soportados y definir parámetros globales del proyecto."
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h2",
+                text: "Crear un paquete"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Los paquetes en ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " pueden crearse de tres maneras:"]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["ejecutando el comando ", (0, _jsxRuntime.jsx)(_components.code, {
+                    children: "beyond add package"
+                  }), " en la consola de comandos."]
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Haciendo uso del BeyondJS Workspace."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Manualmente."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Creación usando el CLI"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Para Crear un proyecto por medio del cli sólo debes ejecutar el siguiente comando:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "beyond add package."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["Para hacer uso del CLI de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " debes tener ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " instalado de forma global. Puedes ver todos los comandos provistos\r\nen ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    href: "/docs/cli",
+                    children: "la sección del cli"
+                  }), " de esta documentación."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Y crear un archivo ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "beyond.json"
+                }), " que registre al paquete para que el DevServer de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " lo reconozca. El archivo beyond.json\r\ntendría que tener la siguiente estructura."]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Creación usando BeyondJS Workspace"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Puedes crear paquetes directamente desde el BeyondJS Workspace, para hacerlo debes seguir los siguientes pasos:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["Ejecutar ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " en la carpeta que desees gestionar tus proyectos."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["Acceder a ", (0, _jsxRuntime.jsx)(_html.ELink, {
+                    href: "https://workspace.beyondjs.com",
+                    children: " https://workspace.beyondjs.com"
+                  }), " y crear el proyecto por medio de su interfaz gráfica.\r\nPuedes leer más acerca de cómo funciona el Workspace en la ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    href: "/docs/workspace",
+                    children: "sección de BeyondJS Workspace"
+                  }), "."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Creación manual"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Puedes crear los paquetes de forma manual, para ello sólo debes crear un package.json con su estructura mínima, la cúal debe incluir\r\nel nombre del paquete."
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                name: "package.json",
+                children: `{
+ "name": "package-name",
+}`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Además, tendrás que crear el archivo ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "beyond.json"
+                }), " para que el DevServer de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " pueda reconocerlo. El archivo debe tener la siguiente estrucutra"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                name: "beyond.json",
+                children: `{
+    "applications": ["./project.json"]
+}`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["Puedes crear el package.json con herramientas de terceros cómo NPM o Yarn, luego registrarlos en el archivo ", (0, _jsxRuntime.jsx)(_components.code, {
+                    children: "beyond.json"
+                  }), ". Debes asegurarte\r\nde tener las propiedades del paquete que ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " requiere."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.NextLinks, {
+                items: ["packages/distributions", "packages/json"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /************************************************
+      INTERNAL MODULE: ./mdx/packages/distributions.mdx
+      ************************************************/
+
+      ims.set('./mdx/packages/distributions.mdx', {
+        hash: 1830528247,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              blockquote: "blockquote",
+              code: "code",
+              ul: "ul",
+              li: "li"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                id: "intro",
+                pretitle: "Fundamentos",
+                title: "Distribuciones"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Las Distribuciones son una funcionalidad que permite definir el comportamiento\r\nque debe tener el DevServer de BeyondJS en el entorno de desarrollo y las caracteristicas para el\r\nempaquetado del proyecto durante el proceso de despliegue"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                  children: "Al crear un nuevo proyecto, este viene con una distribución configurada de forma predeterminada.\r\nEn este documento se describen en detalle todas las opciones de configuración de las distribuciones,\r\nnecesarias para trabajar con diferentes entornos de ejecución o tipos de resolución de módulos."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                id: "definition",
+                tag: "h2",
+                text: "Definición"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Las distribuciones se definen en el archivo ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "project.json"
+                }), ", en la propiedad ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "distirbutions"
+                }), "\r\ndel entry point ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "development"
+                }), "."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Un ejemplo de una distribución es:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: ` {
+    "name": "web",
+    "platform": "web",
+    "environment": "development",
+    "ports": {
+        "bundles": 3500
+    }
+},
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                id: "properties",
+                tag: "h2",
+                text: "Propiedades"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                      type: "string",
+                      children: "name"
+                    }), " Nombre identificador de la distribución."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                      type: "string",
+                      children: "platform"
+                    }), " identificador de la plataforma que utiliza la distribución. Puede\r\nver los identificadores de plataformas en la ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      href: "/platforms",
+                      children: "sección de Plataformas"
+                    })]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                      type: "string",
+                      children: "environment"
+                    }), " soporta los valores ", (0, _jsxRuntime.jsx)(_components.code, {
+                      children: "deployment"
+                    }), " y ", (0, _jsxRuntime.jsx)(_components.code, {
+                      children: "production"
+                    }), "."]
+                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                        type: "object",
+                        children: "ports"
+                      }), " recibe un objeto con las siguientes propiedades :"]
+                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                        type: "number",
+                        children: "bundles"
+                      }), " puerto en el que el DevServer devolverá los bundles."]
+                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                        type: "number",
+                        children: "http"
+                      }), " Puerto para conectar debuggers o inspectores de código. Puede\r\nleer más sobre inspección remota en ", (0, _jsxRuntime.jsx)(_html.Link, {
+                        href: "/remote-inspection",
+                        children: "sección de inspección remota."
+                      })]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_html.ObjectProperty, {
+                      type: "object",
+                      children: "ts"
+                    }), " Objeto manejado para gestionar configuraciones del compilador typescript,\r\nactualmente soporta las siguientes propiedades:"]
+                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: ["\n", (0, _jsxRuntime.jsx)(_html.ItemProperty, {
+                        type: "string",
+                        optional: true,
+                        label: "compiler",
+                        children: (0, _jsxRuntime.jsxs)(_components.p, {
+                          children: ["acepta los valores ", (0, _jsxRuntime.jsx)(_components.code, {
+                            children: "ts"
+                          }), " y ", (0, _jsxRuntime.jsx)(_components.code, {
+                            children: "transpiler"
+                          }), "."]
+                        })
+                      }), "\n"]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.ItemProperty, {
+                    type: "string",
+                    optional: true,
+                    label: "backend",
+                    children: (0, _jsxRuntime.jsxs)(_components.p, {
+                      children: ["Esta propiedad es requerida si el paquete utiliza una conexión con un backend por medio de websockets. Puedes\r\nleer más acerca de esto en la ", (0, _jsxRuntime.jsx)(_html.Link, {
+                        href: "/bridges",
+                        children: "sección de Bridges"
+                      }), " ."]
+                    })
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /*****************************************
+      INTERNAL MODULE: ./mdx/packages/import.mdx
+      *****************************************/
+
+      ims.set('./mdx/packages/import.mdx', {
+        hash: 1011900300,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
               strong: "strong"
             }, props.components);
             return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
               children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Gestión de un proyecto"
+                children: "Importación de proyectos"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "project.json"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+"libraries": {
+    "imports": [
+      "@project/models"
+    ]
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "En BeyondJS un proyecto puede ser importado por otro y funcionar como una librería, brindando al proyecto principal acceso a los módulos de este. Esta funcionalidad es clave para pensar en soluciones con estructuras de microservicios interconectados entre sí o de librerías que contengan código reutilizable."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Para ejemplificarlo, podemos hablar de una solución que maneja una página web, una aplicación móvil y un panel administrativo, todos como proyectos independientes que alimentan una misma fuente de datos. La importación de proyectos permite que se maneje toda la lógica de datos en un proyecto independiente que es utilizado por los tres aplicativos, permitiendo así reutilizar el código."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Los proyectos, al igual que el resto de elementos de BeyondJS, se configuran por medio de objetos en archivos .json. Generalmente, los archivos de configuración de proyectos llevan por nombre ", (0, _jsxRuntime.jsx)(_html.Link, {
+                children: ["La importación de proyectos se realiza desde el ", (0, _jsxRuntime.jsx)(_html.Link, {
                   to: "/docs/projects/json",
                   children: "project.json"
-                }), " como convención y permiten una variedad amplia de configuraciones."]
+                }), " y es necesario que los proyectos se encuentren agregados en la entrada projects del beyond.json."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Los proyectos se pueden configurar de dos formas: por medio de la interfaz del Dashboard y manualmente."
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Usando el Dashboard"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Para crear un proyecto desde el dashboard, en primer lugar debe asegurarse de que BeyondJS esté ejecutandose en la carpeta donde desee trabajar sus proyectos. Como se explica en la ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/intro",
-                  children: "introducción"
-                }), ", BeyondJS está hecho para manejar proyectos en simultáneo, por lo que es importante tener presente que el directorio de ejecución puede ser uno donde se deseen agregar \"varios\" proyectos."]
+                children: "Si los proyectos se crean por medio del Workspace, el archivo beyond.json se modifica de forma automática."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Iniciamos BeyondJS:"
+                children: "Siguiendo el ejemplo mencionado, el proyecto con los módulos que gestionan los datos y se conectan a la base de datos podría llamarse models y para importarlo en los otros proyectos, tendría que agregarse el siguiente código en el project.json"
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: "beyond run"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Luego accedemos al dashboard el cual estará disponible en ", (0, _jsxRuntime.jsx)(_html.ELink, {
-                  to: "https://workspace.beyondjs.com/",
-                  children: "https://workspace.beyondjs.com/"
-                }), "."]
+                children: `
+"libraries": {
+    "imports": [
+      "@project/models"
+    ]
+}
+
+`
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "El dashboard posee tres maneras de acceder al proceso de creación de proyectos"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
+                children: "La propiedad imports recibe un arreglo de ítems, lo que permite importar múltiples proyectos en caso de ser requerido."
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /***************************************
+      INTERNAL MODULE: ./mdx/packages/json.mdx
+      ***************************************/
+
+      ims.set('./mdx/packages/json.mdx', {
+        hash: 3064715624,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              ul: "ul",
+              li: "li",
+              p: "p",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Packages",
+                title: "package.json"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/dashboard#preaside",
-                    children: "Preaside"
-                  }), " por medio del icono"]
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "name"
+                    }), " string: string Es el nombre para identificar el proyecto, sigue el estándar de npm, por tanto, sólo puede contener caracteres seguros para URLs, sin puntos o guiones bajos."]
+                  }), "\n"]
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/dashboard#board",
-                    children: "Board"
-                  }), " de proyectos, en la parte superior derecha, la opción \"crear proyecto\""]
-                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                  children: "Cuando no existe ningún proyecto creado, se muestra un mensaje invitando a crearlo como se ve en la imagen de referencia."
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "scope"
+                    }), " string optional: Al igual que en npm, sirve para agrupar paquetes y como los proyectos pueden ser publicados como paquetes npm, en caso de agregarse un scope, este debe ser único y sólo puede ser manejado por la organización o usuario que lo utiliza. La validación de unicidad del scope es hecha por npm, sólo si el programador intenta publicar su proyecto como paquete."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "title"
+                    }), " string optional: Titulo descriptivo del proyecto, no debe poseer más de 100 caracteres."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "description"
+                    }), " string optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "template"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eoc",
+                      children: "EOC"
+                    }), " optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "layout"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eoc",
+                      children: "EOC"
+                    }), " optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "params"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eoc",
+                      children: "EOC"
+                    }), " optional: Objeto que permite agregar parámetros generales que se requieran utilizar en todo el proyecto, tiene la posibilidad de definir valores por entorno. Para entender más, puedes dirigirte a la sección ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/project/params",
+                      children: "Parámetros del proyecto."
+                    })]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "modules"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eoc",
+                      children: "EOC"
+                    }), " optional: Recibe un objeto con una entrada path que permite definir el directorio de los módulos, por defecto es \"module\""]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "deployment"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eoc",
+                      children: "EOC"
+                    }), " optional: Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada deployment"]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                      children: "Deployment"
+                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/glossary#eac",
+                      children: "EAC"
+                    }), " optional: Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada distributions. Las distribuciones pueden agregarse desde la funcionalidad del workspace para ello o de forma manual. Para entender cómo funcionan puedes dirigirte a la ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/project/distributions",
+                      children: "Sección de distribuciones."
+                    })]
+                  }), "\n"]
                 }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Al hacer click en alguna de las opciones mencionadas, se mostrará un modal que permite seleccionar el tipo de proyecto a crear, dando oportunidad de comenzar con un proyecto en blanco o de usar una plantilla creada. Las opciones actuales son:"
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /******************************************
+      INTERNAL MODULE: ./mdx/packages/publish.mdx
+      ******************************************/
+
+      ims.set('./mdx/packages/publish.mdx', {
+        hash: 3100405436,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              code: "code",
+              h3: "h3"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Paquetes",
+                title: "Publicación  en NPM"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Para publicar un paquete en NPM actualmente debes agregar una distribución npm en el ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "package.json"
+                }), ".\r\nLa distribución debe contener una propiedad \"platforms\" con un objeto que indique las plataformas que se desean compilar y la distribución asociada\r\na esta plataforma."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.h3, {
+                children: "Ejemplo"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+{
+  "name": "npm",
+  "npm": {
+    "platforms": {
+      "web": "web" //
+    }
+  }
+}
+`
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /****************************************
+      INTERNAL MODULE: ./mdx/packages/types.mdx
+      ****************************************/
+
+      ims.set('./mdx/packages/types.mdx', {
+        hash: 496559445,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              ul: "ul",
+              li: "li",
+              strong: "strong",
+              p: "p"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Packages",
+                text: "Gestión de un proyecto"
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Tipos de Proyectos en blanco"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: [(0, _jsxRuntime.jsx)(_components.strong, {
@@ -3493,11 +3879,11 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Datos del Proyecto"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Luego de la selección del tipo de proyecto, aparece un formulario que solicita el scope y nombre del proyecto, el puerto sobre el cúal correrá, y adicionalmente, un titulo y descripción opcionales. Luego de llenar los datos necesarios, el Dashboard se encarga de crear el proyecto con la estructura de archivos y el proyecto queda disponible para ser accedido en el puerto configurado."
+                children: "Luego de la selección del tipo de proyecto, aparece un formulario que solicita el scope y nombre del proyecto, el puerto sobre el cúal correrá, y adicionalmente, un titulo y descripción opcionales. Luego de llenar los datos necesarios, el Workspace se encarga de crear el proyecto con la estructura de archivos y el proyecto queda disponible para ser accedido en el puerto configurado."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "// Img"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Todos los proyectos tienen dependencias de paquetes npm que pueden opcionalmente ser instalados desde el dashboard. En caso de no haberlo hecho, para que el proyecto funcione es necesario instalar las dependencias manualmente."
+                children: "Todos los proyectos tienen dependencias de paquetes npm que pueden opcionalmente ser instalados desde el workspace. En caso de no haberlo hecho, para que el proyecto funcione es necesario instalar las dependencias manualmente."
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: (0, _jsxRuntime.jsx)(_components.strong, {
                   children: "Creación manual"
@@ -3576,399 +3962,12 @@ import {Auth} from '@company/project/login/code';
         }
       });
 
-      /***********************************************
-      INTERNAL MODULE: ./mdx/packages/project-json.mdx
-      ***********************************************/
-
-      ims.set('./mdx/packages/project-json.mdx', {
-        hash: 1938654379,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              ul: "ul",
-              li: "li",
-              strong: "strong"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Project.json"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Propiedades project.json:"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "name"
-                    }), " string optional: string Es el nombre para identificar el proyecto, sigue el estándar de npm, por tanto, sólo puede contener caracteres seguros para URLs, sin puntos o guiones bajos."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "scope"
-                    }), " string optional: Al igual que en npm, sirve para agrupar paquetes y como los proyectos pueden ser publicados como paquetes npm, en caso de agregarse un scope, este debe ser único y sólo puede ser manejado por la organización o usuario que lo utiliza. La validación de unicidad del scope es hecha por npm, sólo si el programador intenta publicar su proyecto como paquete."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "title"
-                    }), " string optional: Titulo descriptivo del proyecto, no debe poseer más de 100 caracteres."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "description"
-                    }), " string optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "template"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eoc",
-                      children: "EOC"
-                    }), " optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "layout"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eoc",
-                      children: "EOC"
-                    }), " optional: Espacio para explicar de forma resumida cuales son las características del proyecto."]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "params"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eoc",
-                      children: "EOC"
-                    }), " optional: Objeto que permite agregar parámetros generales que se requieran utilizar en todo el proyecto, tiene la posibilidad de definir valores por entorno. Para entender más, puedes dirigirte a la sección ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/project/params",
-                      children: "Parámetros del proyecto."
-                    })]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "modules"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eoc",
-                      children: "EOC"
-                    }), " optional: Recibe un objeto con una entrada path que permite definir el directorio de los módulos, por defecto es \"module\""]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "deployment"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eoc",
-                      children: "EOC"
-                    }), " optional: Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada deployment"]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "Deployment"
-                    }), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/glossary#eac",
-                      children: "EAC"
-                    }), " optional: Objeto que permite realizar las configuraciones de los entornos de desarrollo, las cuales son definidas por medio de la entrada distributions. Las distribuciones pueden agregarse desde la funcionalidad del dashboard para ello o de forma manual. Para entender cómo funcionan puedes dirigirte a la ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/project/distributions",
-                      children: "Sección de distribuciones."
-                    })]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "libraries"
-                    }), " object optional: Define la importación de proyectos a ser usados como librerías en el proyecto definido."]
-                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                      children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                        children: "imports"
-                      }), " string optional: Cada entrada representa un proyecto importado, la importación se hace agregando el scope y nombre del proyecto importado."]
-                    }), "\n"]
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
-      /****************************************************
-      INTERNAL MODULE: ./mdx/packages/project-structure.mdx
-      ****************************************************/
-
-      ims.set('./mdx/packages/project-structure.mdx', {
-        hash: 268576641,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              ul: "ul",
-              li: "li"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Estructura de un proyecto"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS posee una arquitectura configurable que permite tener estructuras flexibles en los proyectos. Sin embargo, al crear un proyecto por medio del Dashboard o de ´beyond-first-project´, la estructura inicial creada es la siguiente:"
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Estructura"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Este comando crea la siguiente estructura:"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "// Img"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["Un archivo ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/project/json",
-                    children: "project.json"
-                  }), ", con la configuración del proyecto."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["Un archivo ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/beyond/json",
-                    children: "beyond.json"
-                  }), " que permite gestionar configuraciones para el servidor de desarrollo."]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["template/carpeta con la estructura de la plantilla del proyecto. Esta carpeta aplica para los proyectos web y móvil. Puedes leer más en detalle sobre el sistema de plantillas ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/basics/template",
-                    children: "aqui."
-                  })]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "La estructura de carpetas puede variar y extenderse según las consideraciones del proyecto."
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Gestión de directorios"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS sigue una estructura de directorios basada en mantener una semántica simple y concisa que permita al programador ubicarse a partir de los nombres de carpeta. Sin embargo, el programador puede tener un estandar de estructura que desee seguir, para lo cual se permite hacer cambios en la configuración de directorios."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "La ubicación de los módulos de un proyecto, suele estar por convención en la carpeta modules, esto se define en el project.json, en la propiedad module"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-"modules": {
-    "path": "modules"
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Al igual que todas las propiedades configurativas de directorios. la propiedad module.path evalúa el valor recibido de forma relativa al directorio en donde se encuentra, dicho en otras palabras, la carpeta modules debe encontrarse, según el ejemplo a la misma altura que el archivo project.json, si esta propiedad se remueve, BeyondJS intentará encontrar los módulos en el directorio raíz del proyecto, el cúal corresponde a el lugar en donde se encuentra el module.json"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/json",
-                    children: "project.json"
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
-      /**************************************************
-      INTERNAL MODULE: ./mdx/packages/projects-import.mdx
-      **************************************************/
-
-      ims.set('./mdx/packages/projects-import.mdx', {
-        hash: 1501105833,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              strong: "strong"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                children: "Importación de proyectos"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: (0, _jsxRuntime.jsx)(_components.strong, {
-                  children: "project.json"
-                })
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-"libraries": {
-    "imports": [
-      "@project/models"
-    ]
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "En BeyondJS un proyecto puede ser importado por otro y funcionar como una librería, brindando al proyecto principal acceso a los módulos de este. Esta funcionalidad es clave para pensar en soluciones con estructuras de microservicios interconectados entre sí o de librerías que contengan código reutilizable."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Para ejemplificarlo, podemos hablar de una solución que maneja una página web, una aplicación móvil y un panel administrativo, todos como proyectos independientes que alimentan una misma fuente de datos. La importación de proyectos permite que se maneje toda la lógica de datos en un proyecto independiente que es utilizado por los tres aplicativos, permitiendo así reutilizar el código."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["La importación de proyectos se realiza desde el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/json",
-                  children: "project.json"
-                }), " y es necesario que los proyectos se encuentren agregados en la entrada projects del beyond.json."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Si los proyectos se crean por medio del Dashboard, el archivo beyond.json se modifica de forma automática."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Siguiendo el ejemplo mencionado, el proyecto con los módulos que gestionan los datos y se conectan a la base de datos podría llamarse models y para importarlo en los otros proyectos, tendría que agregarse el siguiente código en el project.json"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `
-"libraries": {
-    "imports": [
-      "@project/models"
-    ]
-}
-
-`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "La propiedad imports recibe un arreglo de ítems, lo que permite importar múltiples proyectos en caso de ser requerido."
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
-      /*******************************************
-      INTERNAL MODULE: ./mdx/packages/projects.mdx
-      *******************************************/
-
-      ims.set('./mdx/packages/projects.mdx', {
-        hash: 8956999,
-        creator: function (require, exports) {
-          "use strict";
-
-          Object.defineProperty(exports, "__esModule", {
-            value: true
-          });
-          exports.default = void 0;
-          var _jsxRuntime = require("react/jsx-runtime");
-          var _html = require("@beyond/docs/components/html");
-          var _code = require("@beyond/docs/code");
-          /*@jsxRuntime automatic @jsxImportSource react*/
-
-          function _createMdxContent(props) {
-            const _components = Object.assign({
-              p: "p",
-              strong: "strong",
-              ul: "ul",
-              li: "li"
-            }, props.components);
-            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
-              children: [(0, _jsxRuntime.jsxs)(_components.p, {
-                children: [(0, _jsxRuntime.jsx)(_html.Title, {
-                  children: "Proyectos"
-                }), ";"]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS ofrece una arquitectura enfocada en proveer una forma eficiente de implementar soluciones basadas en microservicios interconectados con otros microservicios en el backend y con aplicativos con estructuras de micro-frontends si hablamos del cliente, esto sin dejar de lado la posibilidad de crear proyectos más sencillos en pocos pasos."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Para explicar el concepto, se puede pensar en un servicio que ofrece la gestión de autenticación en aplicaciones. Es natural pensar que pueden existir desarrolladores que requieran consumir el servicio desde un proyecto web, con código cliente y desarrolladores que estén trabajando en el backend y también puedan consumir el servicio para validar la sesión previo a determinada acción."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Desde la óptica de BeyondJS el servicio de Auth puede ser visto como un proyecto que contiene dos distribuciones, una para generar el código cliente y una para generar el código backend, ambas con un único código fuente. El código desplegado de las distribuciones podría disponibilizarse en las dos distribuciones como paquete ", (0, _jsxRuntime.jsx)(_components.strong, {
-                  children: "NPM"
-                }), " y quedar disponible para ser usados por cualquier programador en proyectos hechos o no con BeyondJS."]
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Asimismo, si los proyectos que consumen ´Auth´ son proyectos BeyondJS también podrían importar a ´Auth´ por medio del sistema de importación de módulos de BeyondJS."
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/create",
-                    children: "Crear un proyecto"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/distributions",
-                    children: "Distribuciones"
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/json",
-                    children: "project.json"
-                  }), "\n"]
-                }), "\n"]
-              })]
-            });
-          }
-          function MDXContent(props = {}) {
-            const {
-              wrapper: MDXLayout
-            } = props.components || {};
-            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
-              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
-            })) : _createMdxContent(props);
-          }
-          var _default = MDXContent;
-          exports.default = _default;
-        }
-      });
-
       /**************************************
       INTERNAL MODULE: ./mdx/starting/cli.mdx
       **************************************/
 
       ims.set('./mdx/starting/cli.mdx', {
-        hash: 677233489,
+        hash: 859914673,
         creator: function (require, exports) {
           "use strict";
 
@@ -4003,10 +4002,10 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["El comando ", (0, _jsxRuntime.jsx)(_components.code, {
                   children: "run"
-                }), " inicializa el DevServer de ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), " y habilita la conexión con\r\nel ", (0, _jsxRuntime.jsx)(_html.Link, {
+                }), " inicializa el DevServer de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " y habilita la conexión con\r\nel ", (0, _jsxRuntime.jsx)(_html.Link, {
                   href: "/workspace",
                   children: "BeyondJS Workspace"
-                }), ", lo que facilita el proceso de depuración y gestión de paquetes.\r\nEs necesario ejecutarlo para comenzar a trabajar con ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), "."]
+                }), ", lo que facilita el proceso de depuración y gestión de paquetes.\r\nEs necesario ejecutarlo para comenzar a trabajar con ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), "."]
               }), "\n", (0, _jsxRuntime.jsx)(_components.h5, {
                 children: "Parametros:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
@@ -4014,7 +4013,7 @@ import {Auth} from '@company/project/login/code';
                   children: ["--workspace: Es opcional. Este parametro define el puerto de conexión websocket para que el\r\n", (0, _jsxRuntime.jsx)(_html.Link, {
                     href: "/workspace",
                     children: " Workspace"
-                  }), " pueda obtener información acerca de los paquetes disponibles en el DevServer.\r\nsino es pasado, ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), " tomará por defecto el puerto 4000. A partir de la instalación, sólo es necesario ir a\r\nla carpeta en donde se desee crear el o los proyectos e inicializar BeyondJS desde la línea de comandos de la siguiente\r\nforma:"]
+                  }), " pueda obtener información acerca de los paquetes disponibles en el DevServer.\r\nsino es pasado, ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " tomará por defecto el puerto 4000. A partir de la instalación, sólo es necesario ir a la\r\ncarpeta en donde se desee crear el o los proyectos e inicializar BeyondJS desde la línea de comandos de la siguiente\r\nforma:"]
                 }), "\n"]
               }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
                 tag: "h4",
@@ -4043,7 +4042,7 @@ import {Auth} from '@company/project/login/code';
                 tag: "h4",
                 text: "--version"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Permite verificar la versión de ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), " instalada."]
+                children: ["Permite verificar la versión de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " instalada."]
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
                 children: `beyond --version`
               })]
@@ -4143,7 +4142,7 @@ import {Auth} from '@company/project/login/code';
       **********************************************/
 
       ims.set('./mdx/starting/quick-start.mdx', {
-        hash: 1982186323,
+        hash: 822228523,
         creator: function (require, exports) {
           "use strict";
 
@@ -4158,146 +4157,486 @@ import {Auth} from '@company/project/login/code';
 
           function _createMdxContent(props) {
             const _components = Object.assign({
-              h4: "h4",
+              p: "p",
               ul: "ul",
               li: "li",
-              p: "p",
+              pre: "pre",
               code: "code",
-              strong: "strong",
               blockquote: "blockquote"
             }, props.components);
             return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
               children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
                 pretitle: "Introducción",
                 title: "Comienzo rápido"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.h4, {
-                children: "Prerequisitos"
+              }), "\n", (0, _jsxRuntime.jsxs)(_html.Info, {
+                children: [(0, _jsxRuntime.jsx)(_components.p, {
+                  children: "Para entender esta documentación, debes tener en cuenta los siguientes puntos:"
+                }), (0, _jsxRuntime.jsx)(_components.p, {
+                  children: "Tener instalado Node ^14.17.4.\r\nEstar familiarizado con manejadores de dependencias como npm o yarn."
+                })]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: [(0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " puede ser instalado mediante dos comandos:"]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
-                  children: "Node ^14.17.4."
+                  children: "Instalación global con npm: npm i -g beyond."
                 }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                  children: "Estar familiarizado con manejadores de dependencias como npm o yarn."
+                  children: "Instalación y creación de un proyecto con npx: npx @beyond-js/create-package."
                 }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "beyond-first-project"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Para empezar, posiblemente la manera más sencilla de arrancar un proyecto en BeyondJS sea por medio del ", (0, _jsxRuntime.jsx)(_components.code, {
-                  children: "beyond-first-project"
-                }), "."]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `npx beyond-first-project -name @scope/name [-type node] [-container folderName]`
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Instalar y crear un proyecto"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Opciones del comando:"
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                    children: ["name: Permite definir el ", (0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "scope y nombre"
-                    }), " del proyecto. Los proyectos, siguen el estándar de ", (0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "NPM"
-                    }), ", puedes leer más\r\nsobre ello ", (0, _jsxRuntime.jsx)(_html.Link, {
-                      to: "/docs/intro#projects",
-                      children: "aquí."
-                    })]
-                  }), "\n"]
-                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
-                    children: "type: Permite definir el tipo de proyecto a crear, es opcional, sino se pasa se crea un proyecto de tipo web por defecto.\r\nLos valores aceptados son:"
-                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                    children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
-                      children: "web"
-                    }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                      children: "node"
-                    }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                      children: "backend"
-                    }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                      children: "library"
-                    }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
-                      children: "web-backend"
-                    }), "\n"]
-                  }), "\n"]
-                }), "\n"]
+                children: "Puedes instalar y crear un proyecto al mismo tiempo mediante el siguiente comando de npx:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.pre, {
+                children: (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "npx @beyond/create-package\n"
+                })
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Puedes leer más información sobre los tipos de proyecto ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/types",
-                  children: "aquí."
+                children: ["Este es el comando ideal si no tienes ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " instalado y deseas empezar con un proyecto nuevo al mismo tiempo.\r\nRealiza la instalación global y procede a crear un paquete automáticamente en el directorio en el que se ejecuta."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Al ejecutarlo, se te pedirá los datos del paquete, los cuales puedes ver en esta documentación\r\nen ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  href: "/docs/quick-start#create-package",
+                  children: "la sección de crear paquete."
                 })]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Instalación global"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Puedes instalar ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " de forma global por medio del siguiente comando:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "npm i -g beyond"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["El comando anterior instala ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " de forma global y habilita todos los comandos del CLI. Puedes leer más acerca de ellos en la\r\nsección ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  href: "/docs/cli",
+                  children: "de comandos de cli"
+                }), "."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["A continuación, puedes ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  href: "/docs/quick-start#create-package",
+                  children: "crear un paquete desde cero"
+                }), " o ejecutar ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " sobre una carpeta con proyectos existentes."]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                id: "create-package",
+                tag: "h3",
+                text: "Crear un paquete"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Puedes llegar a este paso si ejecutaste el comando de ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "npx"
+                }), " para crear un proyecto o teniendo ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " instalado por medio del siguiente\r\ncomando:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "beyond add package"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Al ejecutarlo, la consola interactiva te pedirá la siguiente información:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
-                  children: "container: Permite especificar si se desea agregar una carpeta contenedora de proyectos. Recuerde que BeyondJS soporta la posibilidad de manejar múltiples proyectos en simultáneo."
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Para ejemplificar, se puede imaginar que se necesita crear un proyecto login de tipo ", (0, _jsxRuntime.jsx)(_components.strong, {
-                  children: "node"
-                }), ", lo podríamos crear con el siguiente comando:"]
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `npx create-first-project -name @scope/name -type node`
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Al finalizar la ejecución del comando, se debió crear la estructura del proyecto y ya estaría listo para ser ejecutado."
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Para levantar el servidor de desarrollo, se ejecuta el siguiente comando:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `npm start`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["¡Listo! Ya se puede comenzar a programar y probar el proyecto. Se puede acceder al Workspace desde ", (0, _jsxRuntime.jsx)(_html.ELink, {
-                  to: "https://workspace.beyondjs.com/",
-                  children: "https://workspace.beyondjs.com/"
-                }), " y el proyecto creado se encuentra disponible en ", (0, _jsxRuntime.jsx)(_html.ELink, {
-                  to: "http://localhost:6500",
-                  children: "http://localhost:6500"
-                })]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["El Workspace es un sistema que BeyondJS provee para brindar al desarrollador una mejor experiencia de usuario. Puedes leer más sobre el ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/workspace/intro",
-                  children: "aqui."
-                })]
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/projects/structure",
-                    children: "Estructura de un proyecto"
-                  }), "\n"]
+                  children: "specifier: que corresponde al nombre del paquete."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "title: Un titulo comercial y legible."
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
-                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/modules/intro",
-                    children: "Modules"
-                  }), "\n"]
-                }), "\n"]
-              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
-                children: "Instalación global"
-              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "Para instalar BeyondJS globalmente, se debe correr el siguiente comando:"
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `npm i -g beyond `
-              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: `beyond run [--workspace=port]`
-              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
-                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                  children: ["Puedes obtener más información sobre el CLI de ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), " ", (0, _jsxRuntime.jsx)(_html.Link, {
-                    href: "/cli",
-                    children: "en esta página"
+                  children: ["type: Corresponde al tipo de paquete que quieres crear. ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " cuenta con varios templates bases que incluyen las librerias\r\nmás comunes de front o estructuras de trabajo para paquetes backend. Puedes leer más sobre ello en ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    href: "/docs/packages/create",
+                    children: "\r\nla sección de creación de paquetes"
                   }), "."]
                 }), "\n"]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Si todo sale bien, aparecerá un mensaje diciendo que BeyondJS se está ejecutando y que puedes acceder al Workspace\r\nen ", (0, _jsxRuntime.jsx)(_html.ELink, {
-                  to: "https://workspace.beyondjs.com/",
-                  children: "https://workspace.beyondjs.com/"
-                }), ", desde donde se podrá crear un\r\nproyecto por medio de la interfaz gráfica del Workspace."]
+                children: ["Luego de ingresar los datos, ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " terminará el proceso de instalación y estarás listo para empezar a programar, sólo necesitas\r\ninicializar el DevServer con el siguiente comando:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "beyond run --workspace 4000"
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Instalación global"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["Ya en el Workspace, puedes crear un proyecto desde la interfaz gráfica, puedes ver cómo\r\nhacerlo ", (0, _jsxRuntime.jsx)(_html.Link, {
-                  to: "/docs/projects/create",
-                  children: "aquí"
+                children: ["Este comando realiza una instalación global que permite ejecutar el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  href: "/dev-server",
+                  children: "DevServer"
+                }), " de"]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: [(0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " en el directorio que se desee y habilita la lista de comandos disponibles en el CLI."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["Para ver la lista de comandos de ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " puedes ir a ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    href: "/docs/cli",
+                    children: " la sección del CLI"
+                  })]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                tag: "h3",
+                text: "Ejecución del proyecto"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Teniendo instalado ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), " y habiendo creado el proyecto, sólo necesitas ejecutar el DevServer en la raiz de tu proyecto\r\npor medio del siguiente comando:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: "beyond add project"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Este comando inicializa BeyondJS y te permite navegar a tu proyecto en ", (0, _jsxRuntime.jsx)(_html.ELink, {
+                  href: "http://localhost:6530",
+                  children: " http://localhost:6530"
                 }), "."]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.blockquote, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["El puerto ", (0, _jsxRuntime.jsx)(_components.code, {
+                    children: "6530"
+                  }), " es definido por defecto en la distribución de proyecto y puede modificarse de forma simple en el ", (0, _jsxRuntime.jsx)(_components.code, {
+                    children: "package.json"
+                  }), ". Puedes leer en detalle\r\nsobre ello en ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    href: "/distributions",
+                    children: " la sección de distribuciones"
+                  }), "."]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /*******************************
+      INTERNAL MODULE: ./mdx/steps.mdx
+      *******************************/
+
+      ims.set('./mdx/steps.mdx', {
+        hash: 1873673169,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              h1: "h1",
+              ul: "ul",
+              li: "li",
+              p: "p"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_components.h1, {
+                children: "Pasos"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Introducción: Explicar en términos generales qué es BeyondJS y para qué se utiliza."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Comenzar: Proporcionar instrucciones detalladas sobre cómo configurar y empezar a trabajar con BeyondJS, incluyendo la instalación y la creación de un proyecto."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Conceptos básicos: Explicar los conceptos básicos de BeyondJS, como el uso de módulos, la estructura de un proyecto, el uso de dependencias, etc."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Trabajando con el Backend: Explicar cómo trabajar con el backend en BeyondJS, incluyendo cómo crear y configurar un servidor, cómo crear y utilizar rutas, cómo manejar la seguridad, etc."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Trabajando con el Frontend: Explicar cómo trabajar con el frontend en BeyondJS, incluyendo cómo crear y configurar una aplicación, cómo utilizar componentes, cómo manejar el estado, etc."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Herramientas y utilitarios: Proporcionar información sobre las herramientas y utilitarios disponibles para trabajar con BeyondJS, como la CLI, el dashboard, etc."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Ejemplos: Proporcionar ejemplos de código de aplicaciones reales desarrolladas con BeyondJS para ilustrar cómo se utiliza en la práctica."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Referencia: Proporcionar una referencia detallada de todas las funciones, clases y métodos disponibles en BeyondJS."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Además, es importante mantener la documentación actualizada y proporcionar ejemplos de código para ilustrar cada concepto. También es útil proporcionar enlaces a recursos adicionales, como documentación de terceros y comunidades de soporte, para ayudar a los desarrolladores a encontrar la ayuda que necesitan."
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /******************************************
+      INTERNAL MODULE: ./mdx/tutorial/backend.mdx
+      ******************************************/
+
+      ims.set('./mdx/tutorial/backend.mdx', {
+        hash: 1115558944,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Código Backend"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "BeyondJS disponibiliza un entorno seguro y eficiente pare crear código backend, bien sea que se requiera para trabajar con servicios independientes, encargados de tareas específicas o que busque implementar una conexión de un proyecto cliente con una api backend. Para efectos de BeyondJS,\r\npodemos clasificar estas estructuras de código en dos tipos:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Servicios Backend"
+                  }), ": Código node que representa un servicio en ejecución en el backend y sólo puede ser utilizado por módulos que tambien se ejecuten en el backend."]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: [(0, _jsxRuntime.jsx)(_components.strong, {
+                    children: "Api backend"
+                  }), ": permiten la conexión entre el código backend\r\ny el código cliente."]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Api Servidor"
+              }), "\n", "\r\n", "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "Bundle bridge"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Las APIs servidor en BeyondJS representan funciones que ejecutan código en el servidor y pueden ser consumidas desde el código cliente. Manejan la lógica para conectarse a un backend y retornar data. Esto se lógra de forma simple, con la creación de un ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/bundles#bridge",
+                  children: "Bundle Bridge."
+                })]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Para que se pueda ejecutar código Backend en BeyondJS es necesario tener configuradas las distribuciones necesarias. Si el proyecto se creo a partir del tipo de proyecto web-backend, la misma ya se encuentra configurada. Puedes encontrar más información en ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/distributions",
+                  children: "La sección de distribuciones."
+                })]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+    {
+        "name": "module-name",
+        "bridge": {
+            "path": "ts",
+            "files": ["*"]
+        },
+        "platforms": ["*"]
+    }
+`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Al igual que cualquier módulo o bundle, este puede ser gestionado desde el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/workspace",
+                  children: "Workspace"
+                }), " o de forma manual.\r\nCómo su nombre lo indica, el bundle de tipo bridge, sirve de puente entre la lógica cliente y la lógica servidor. Generalmente, en el servidor se impmenentan lógicas asociadas al manejo de datos o manipulación de archivos, el bridge Permite implementar y dejar disponibles funcionalidades que necesiten ser consultadas desde el cliente y mantener encapsuladas en el servidor aquellas que no.\r\nEl código de un bundle bridge luce así:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+export /*actions*//*bundle*/
+class Auth {
+    async login(user :string, password: string) {
+        if (user !== data.user || password !== data.password) {
+            return {status: true, error: "Invalid data" };
+        }
+
+        return {status: true, data: {valid: true} }
+    }
+
+}
+
+`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["Un objeto Javascript común y corriente ¿Verdad?\r\nBeyondJS genera un objeto cliente que realiza la conexión web-socket al servidor, ejecuta el código implementado por el desarrollador y deja disponible la respuesta en el código cliente, abstrayendo al programador de la necesidad de procuparse por la conexión entre las capas cliente y servidor y permitiendo que el código funcione como parte de un mismo ecosistema.\r\nAhora sólo es necesario inicializar el servidor. Para ello es necesario crear un módulo con un bundle start que se encargue de iniciar el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/docs/bee",
+                  children: "BEE."
+                }), " El código del bundle start es el siguiente:"]
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+import { listen } from "@beyond-js/backend/listen/ts";
+listen();
+`
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["En el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                  to: "/tutorial/web",
+                  children: "Tutorial Web"
+                }), " disponible, se implementa un bridge que permite ver en acción el funcionamiento de las apis backend de BeyondJS."]
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Comentarios mágicos"
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
+                children: "bundle backend"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Los bundles backend representan código JavaScript que es ejecutado en el servidor y sólo pueden ser utilizados por módulos que tambien funcionen en el servidor. Dicho en otras palabras, representan cualquier servicio típico de NodeJS, con la salvedad de que, en entorno de desarrollo, son ejecutados por medio de un BEE o proceso BeyondJS lo cual aumenta la productividad al poder trabajar con HMR de forma automatizada y sin configuración."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/project/create",
-                    children: "Crear un proyecto"
+                    to: "/docs/modules/create",
+                    children: "Crear un módulo"
                   }), "\n"]
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
-                    to: "/docs/tutorial/web",
-                    children: "Tutorial"
+                    to: "/docs/bundles",
+                    children: "Bundles"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /*****************************************
+      INTERNAL MODULE: ./mdx/tutorial/bridge.mdx
+      *****************************************/
+
+      ims.set('./mdx/tutorial/bridge.mdx', {
+        hash: 1469342732,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              em: "em",
+              ul: "ul",
+              li: "li"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Tutorial",
+                title: "Código Bridge"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Como mencionamos antes, en esta parte generalmente cada proyecto tiene su propia lógica para la validación de sesión. La\r\nintención hoy no es enfocarse en cómo debe manejarse esto, lo que haremos será crear un código básico que nos permita conectar\r\nnuestro código cliente con el backend node. Esto lo agregaremos en el archivo bridge.ts existente en el módulo que acabamos\r\nde crear."
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+const data = {
+    user: 'admin',
+    password: '123456.'
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+export /*actions*//*bundle*/
+class Auth {
+
+    async login(user: string, password: string) {
+        if (user !== data.user || password !== data.password) {
+            return {status: true, error: 'Invalid data'};
+        }
+
+        return {status: true, data: {valid: true}}
+    }
+
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "El código es bastante simple, pero hay varios puntos interesantes a destacar"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["El comentario mágico /", (0, _jsxRuntime.jsx)(_components.em, {
+                  children: "bundle"
+                }), "/es utilizado por Beyond para identificar que el código a continuación debe ser considerado como código a exportar en el bundle final. Si quieres leer más acerca del funcionamiento de bundles y módulos, te recomendamos ir a La seccion de módulos de la documentacion.\r\nEl comentario mágico /", (0, _jsxRuntime.jsx)(_components.em, {
+                  children: "actions"
+                }), "/es utilizado por Beyond para identificar que segmentos del bundle bridge deben quedar disponibles como acciones que puedan ser consumidas por el cliente.\r\nLa respuesta del método login es un objeto plano que llega con la estructura definida al cliente.\r\nConectar cliente y servidor\r\nEl bridge que creamos es un servicio node. Generalmente, para ejecutar un servicio node, es necesario ir a una consola. Sin embargo, en BeyondJS estos servicios funcionan como un BEE (Beyond Environment Service) y para ejecutarlo debemos ir al Workspace y darle al botón de ejecución, que podemos encontrar en la pantalla de detalle del proyecto."]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Y otro en el detalle del proyecto:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Beyond Environment Execution - Workspace - BeyondJs\r\nPara poder implementar la funcionalidad de login con nuestro servidor, debemos importar nuestro objeto auth en el código cliente y asociar el evento onSubmit a nuestro formulario."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "En BeyondJS los proyectos siguen las mismas directrices para especificación y resolución de nombres y paquetes que npm, de la misma forma que lo hace typescript. Deben tener nombre de módulo y pueden manejar un scope también. En nuestro caso, definimos ambos al momento de crear nuestro proyecto y módulo respectivamente."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "A continuación, en nuestro componente Page importamos el objeto Auth"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `import {Auth} from "@testing/login/home/bridge";`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Agregamos nuestra función onSubmit y la asociamos al formulario, nuestro código debe quedar de la siguiente forma:"
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+import * as React from 'react';
+import { Auth } from '@testing/login/auth';
+
+interface IForm {
+disabled?: boolean;
+}
+const model = new Auth();
+export /_page_/
+function View(): JSX.Element {
+const defaultValues = {username: '', password: '', fetching: false};
+const [values, setValues] = React.useState(defaultValues);
+const [error, setError] = React.useState();
+const handleChange = ({currentTarget: target}) => {
+const currentValue = {...values};
+currentValue[target.name] = target.value;
+setValues(currentValue);
+};
+const formDisabled: IForm = {};
+const {username, password} = values;
+if (!username || !password) {
+formDisabled.disabled = true;
+}
+const onSubmit = async event => {
+try {
+event.preventDefault();
+const response = await model.login(username, password);
+if (response.data?.valid) {
+console.log('valid data');
+return;
+}
+setError(response.error);
+} catch (e) {
+console.log(e)
+}
+}
+
+     return (
+        <div className="page__container">
+            <form onSubmit={onSubmit}>
+                {
+                    error &&
+                    <div className="form__error">
+                        {error}
+                    </div>
+                }
+                <label>User: </label>
+                <input onChange={handleChange} type="text" name="username"/>
+                <label>Password</label>
+                <input onChange={handleChange} type="password" name="password"/>
+                <div className="form__actions">
+                    <button onClick={onSubmit} {...formDisabled}>Login</button>
+                </div>
+            </form>
+        </div>
+    );
+
+}`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Es tiempo de probar nuestro formulario. Si agregamos los datos correctos, podremos ver que en la consola del navegador aparece el mensaje que indica que los datos fueron validados y se puede iniciar sesión, si por el contrario, agregamos datos incorrectos, podremos ver como aparece el mensaje de error \"Invalid data\" el cual actualizamos en la variable de estado del componente."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Resumen:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Creamos un módulo con un widget de tipo page.\r\nCreamos una conexión con un backend node por medio del bundle bridge.\r\nRepasamos la estructura de resolución de módulos para importar el bridge Auth y poder agregar la validación de inicio de sesión.\r\nAhora solo nos falta redireccionar al usuario a una pantalla de bienvenida."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/tutorial/routing",
+                    children: "Enrutamiento"
                   }), "\n"]
                 }), "\n"]
               })]
@@ -4321,7 +4660,7 @@ import {Auth} from '@company/project/login/code';
       *************************************************/
 
       ims.set('./mdx/tutorial/create-project.mdx', {
-        hash: 1597210235,
+        hash: 302363104,
         creator: function (require, exports) {
           "use strict";
 
@@ -4391,7 +4730,7 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsx)("div", {
                 className: "block__note",
                 children: (0, _jsxRuntime.jsxs)(_components.p, {
-                  children: ["El scope y el nombre, son datos que permiten identificar el proyecto y que lo dejan listo para que este pueda ser\r\npublicado como paquete npm o para importarlo desde otro proyecto. Estas configuraciones pueden hacerse de forma\r\nmanual, el dashboard sólo simplifica el proceso. Puedes ver la explicación de ello en\r\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                  children: ["El scope y el nombre, son datos que permiten identificar el proyecto y que lo dejan listo para que este pueda ser\r\npublicado como paquete npm o para importarlo desde otro proyecto. Estas configuraciones pueden hacerse de forma\r\nmanual, el workspace sólo simplifica el proceso. Puedes ver la explicación de ello en\r\n", (0, _jsxRuntime.jsx)(_html.Link, {
                     href: "/project/config",
                     children: " la sección de Configuración de proyecto."
                   })]
@@ -4425,7 +4764,7 @@ import {Auth} from '@company/project/login/code';
                   }), "\n"]
                 }), "\n"]
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "En el dashboard, tenemos dos lugares para ver el modulo. Enn el board del proyecto, que lista los módulos\r\nexistentes y en el aside del proyecto que permite navegar los archivos del mismo. Como vemos en la\r\nsiguiente imagen"
+                children: "En el workspace, tenemos dos lugares para ver el modulo. Enn el board del proyecto, que lista los módulos\r\nexistentes y en el aside del proyecto que permite navegar los archivos del mismo. Como vemos en la\r\nsiguiente imagen"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "La pantalla de detalle del proyecto nos permite realizar las siguientes acciones:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
@@ -4460,12 +4799,360 @@ import {Auth} from '@company/project/login/code';
         }
       });
 
+      /***********************************************
+      INTERNAL MODULE: ./mdx/tutorial/first-module.mdx
+      ***********************************************/
+
+      ims.set('./mdx/tutorial/first-module.mdx', {
+        hash: 2761474146,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              code: "code"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Tutorial",
+                title: "Primer módulo"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "En el workspace, también podemos hacer click sobre el proyecto y esto abrirá un nuevo tab con el listado de módulos del mismo."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Como puede verse, el proyecto trae dos módulos creados, el Home, que responde a la URL base del proyecto y el módulo “start-backend” del cúal se hablará más adelante."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "El Workspace nos permite hacer las siguientes acciones sobre un módulo"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Ver y gestionar módulos."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Agregar archivos."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Editar el código fuente de los archivos."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Generar declaraciones."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Visualizar errores de código."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Gestionar configuraciones generales del proyecto"
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Gestionar Templates"
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Desde el Workspace, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto, hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Desde el Workspace, podemos también navegar el módulo accediendo desde el menu lateral (PreAside), en el icono del proyecto Activo, que desplegará el aside con el listado de módulos del proyecto, hacemos click sobre el módulo home y se mostrará la lista de bundles contenidos en el módulo y el contenido de estos, procesadores y archivos."
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                children: ["La estructura del módulo ", (0, _jsxRuntime.jsx)(_components.code, {
+                  children: "home"
+                }), " es la siguiente:"]
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "widget: Carpeta en donde se encuentra el código del componente page"
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "ts:"
+                  }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                    children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: [(0, _jsxRuntime.jsx)(_components.code, {
+                        children: "controller.ts"
+                      }), ": Objeto controlador del componente, requerido para poder montar el WebComponent en el navegador."]
+                    }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                      children: ["`views", "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                        children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                          children: [(0, _jsxRuntime.jsx)(_components.code, {
+                            children: "index.tsx"
+                          }), ": Componente react que renderiza la página."]
+                        }), "\n"]
+                      }), "\n"]
+                    }), "\n"]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "scss: Carpeta para agregar estilos al módulo."
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "module.json: Archivo de configuración del módulo (Lugar para definir tipo de bundles y procesadores a utilizar)."
+                  }), "\n"]
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "¡Manos a la obra!"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Teniendo clara la estructura, lo que procede a continuación es crear el formulario de inicio de sesión y agregar algo de estilos, para luego continuar con la conexión al backend node"
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Creación del Formulario"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Si has trabajado con React, lo que viene es la parte que seguramente conoces mejor, con algunas sutilezas seguramente. A continuación, editaremos nuestro archivo page.tsx para crear un formulario de inicio de sesión y la funcionalidad básica para actualizar el estado."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "La edición puede hacerse desde tu IDE de preferencia y también desde el Editor integrado del Workspace, el cual tiene como finalidad brindar ayuda para casos especificos al desarrollador, pero para efectos del tutorial recomendamos usarlo, basta con hacer click en el archivo requerido desde el aside."
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+import * as React from 'react';
+
+interface IForm {
+disabled?: boolean;
+}
+
+export /*page*/
+function View(): JSX.Element {
+    const defaultValues = {username: '', password: '', fetching: false};
+    const [values, setValues] = React.useState(defaultValues);
+    const [error, setError] = React.useState();
+    const handleChange = ({currentTarget: target}) => {
+        const currentValue = {...values};
+        currentValue[target.name] = target.value;
+        setValues(currentValue);
+    };
+    const formDisabled: IForm = {};
+    const {username, password} = values;
+    if (!username || !password) {
+        formDisabled.disabled = true;
+    }
+     return (
+        <div className="page__container">
+            <form>
+                {
+                    error &&
+                    <div className="form__error">
+                        {error}
+                    </div>
+                }
+                <label>User: </label>
+                <input onChange={handleChange} type="text" name="username"/>
+                <label>Password</label>
+                <input onChange={handleChange} type="password" name="password"/>
+                <div className="form__actions">
+                    <button {...formDisabled}>Login</button>
+                </div>
+            </form>
+        </div>
+    );
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_html.Title, {
+                children: "Estilos"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "BeyondJS maneja los estilos por defecto con el preprocesador SASS, ahora vamos a nuestro archivo styles.scss y agreguemos un poco de estilo al formulario."
+              }), "\n", (0, _jsxRuntime.jsx)("div", {
+                className: "block__note",
+                children: (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["SASS es un procesador en BeyondJS, si quieres leer a profundidad sobre el mecanismo de procesadores podrás encontrar los detalles en ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/processors",
+                    children: "La seccion de procesadores"
+                  })]
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `
+.page\_\_container {
+display: flex;
+padding: 20px;
+height: 100%;
+margin: 0;
+flex-direction: column;
+align-items: center;
+align-content: center;
+justify-content: center;
+
+.form\_\_error {
+padding: 15px;
+display: grid;
+background: var(--error);
+color: var(--text-on-primary);
+}
+
+form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+background: var(--bg-element);
+padding: 30px;
+width: 100%;
+max-width: 500px;
+
+    input {
+      padding: 8px;
+      border: 1px solid var(--gray-light);
+      transition: all 300ms ease-in;
+
+      &:hover, &:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+    }
+
+    .form__actions {
+      display: flex;
+      justify-content: end;
+
+      button {
+        background: var(--primary);
+        cursor: pointer;
+        border: 1px solid var(--primary-dark);
+        color: var(--text-on-primary);
+        padding: .5rem 2rem;
+        transition: all 300ms ease-in;
+
+        &:disabled {
+          opacity: .6;
+          cursor: not-allowed;
+        }
+
+        &:hover {
+          background: var(--primary-dark);
+        }
+      }
+    }
+
+}
+
+}
+`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Expliquemos un poco el código anterior:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_components.p, {
+                    children: "Agregamos estilo básico al formulario, los inputs, el botón de envío y para manejar un mensaje de error."
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
+                    children: ["Custom properties: las custom properties utilizadas, son una estructura básica para manejo de variables incluidas por beyond en el ", (0, _jsxRuntime.jsx)(_html.Link, {
+                      to: "/template",
+                      children: "Template del proyecto."
+                    })]
+                  }), "\n"]
+                }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
+                  children: ["\n", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/tutorial/backend",
+                    children: "Backend"
+                  }), "\n"]
+                }), "\n"]
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
+      /******************************************
+      INTERNAL MODULE: ./mdx/tutorial/routing.mdx
+      ******************************************/
+
+      ims.set('./mdx/tutorial/routing.mdx', {
+        hash: 1410839980,
+        creator: function (require, exports) {
+          "use strict";
+
+          Object.defineProperty(exports, "__esModule", {
+            value: true
+          });
+          exports.default = void 0;
+          var _jsxRuntime = require("react/jsx-runtime");
+          var _html = require("@beyond/docs/components/html");
+          var _code = require("@beyond/docs/code");
+          /*@jsxRuntime automatic @jsxImportSource react*/
+
+          function _createMdxContent(props) {
+            const _components = Object.assign({
+              p: "p",
+              ul: "ul",
+              li: "li",
+              strong: "strong"
+            }, props.components);
+            return (0, _jsxRuntime.jsxs)(_jsxRuntime.Fragment, {
+              children: [(0, _jsxRuntime.jsx)(_html.DocHeader, {
+                pretitle: "Tutorial",
+                title: "Routing"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Lo primero que debemos hacer, es crear un nuevo módulo con un bundle de tipo Page, esta vez lo haremos desde el Workspace. Accedemos al Workspace y seleccionamos el proyecto (si no lo hemos hecho). Esto habilitará en el PreAside las acciones que podemos realizar sobre el proyecto."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Hacemos clic en el ícono para agregar módulos y se abrirá un modal como el siguiente:"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Seleccionamos módulo en blanco. Y en la siguiente pantalla, nos pide el bundle, seleccionamos \"page\":"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "En la pantalla final, nos pedirá algunos datos, a continuación, se explica que colocar:"
+              }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
+                children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Module name: welcome"
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Web component name: welcome-page."
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Url: \"/welcome\""
+                }), "\n", (0, _jsxRuntime.jsx)(_components.li, {
+                  children: "Las páginas y layouts en Beyond se resuelven haciendo uso de Web components. Si quieres saber en detalle cómo funcionan y porqué, dirígete a la sección de Web Components."
+                }), "\n"]
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Abrimos el objeto Page creado en el módulo y agregaremos un mensaje simple que diga: ¡Bienvenido!"
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "A continuación, Haremos los ajustes necesarios, para redireccionar a nuestro módulo de bienvenida, luego de iniciar sesión. Lo que debemos hacer a continuación, es importar el objeto \"routing\" de Beyond, para usar el método pushState que provee y navegar a la página de Bienvenida."
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "Importación"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `import { routing } from '@beyond-js/kernel/routing';`
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: (0, _jsxRuntime.jsx)(_components.strong, {
+                  children: "Navegación"
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
+                children: `routing.pushState('/welcome');`
+              }), "\n", (0, _jsxRuntime.jsx)("div", {
+                className: "block__note",
+                children: (0, _jsxRuntime.jsxs)(_components.p, {
+                  children: ["BeyondJS provee un objeto routing para interactuar con la api de navegación, puedes aprender más al respecto en la\r\nsección de ", (0, _jsxRuntime.jsx)(_html.Link, {
+                    to: "/docs/routing",
+                    children: "Enrutamiento."
+                  })]
+                })
+              }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
+                children: "Ahora sólo debemos refrescar la página del formulario para que BeyondJS registre la ruta nueva creada y Si volvemos a probar nuestro formulario, podremos iniciar sesión y ver cómo nos dirigimos a la página de bienvenida."
+              })]
+            });
+          }
+          function MDXContent(props = {}) {
+            const {
+              wrapper: MDXLayout
+            } = props.components || {};
+            return MDXLayout ? (0, _jsxRuntime.jsx)(MDXLayout, Object.assign({}, props, {
+              children: (0, _jsxRuntime.jsx)(_createMdxContent, props)
+            })) : _createMdxContent(props);
+          }
+          var _default = MDXContent;
+          exports.default = _default;
+        }
+      });
+
       /****************************************
       INTERNAL MODULE: ./mdx/tutorial/start.mdx
       ****************************************/
 
       ims.set('./mdx/tutorial/start.mdx', {
-        hash: 2802461690,
+        hash: 1538364934,
         creator: function (require, exports) {
           "use strict";
 
@@ -4616,7 +5303,7 @@ import {Auth} from '@company/project/login/code';
                   children: "Inicio Rápido."
                 })]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["A continuación, debemos iniciar ", (0, _jsxRuntime.jsx)(_html.BeyondName, {}), ", para ello ejecutamos el siguiente comando:"]
+                children: ["A continuación, debemos iniciar ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), ", para ello ejecutamos el siguiente comando:"]
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
                 children: "beyond run"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
@@ -4663,7 +5350,7 @@ import {Auth} from '@company/project/login/code';
       *********************************************/
 
       ims.set('./mdx/workspace/workspace.mdx', {
-        hash: 1011840287,
+        hash: 1457803949,
         creator: function (require, exports) {
           "use strict";
 
@@ -4687,7 +5374,7 @@ import {Auth} from '@company/project/login/code';
               children: [(0, _jsxRuntime.jsx)(_html.Title, {
                 children: "Workspace"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "BeyondJS provee un Dashboard integrado, que busca mejorar la experiencia de desarrollo de varias maneras, todas enfocadas en brindar un soporte al programador en tareas diarias que suelen consumir tiempo. Estas tareas abarcan todo el circuito del desarrollo, desde la creación de un proyecto nuevo hasta el despliegue del mismo."
+                children: "BeyondJS provee un Workspace integrado, que busca mejorar la experiencia de desarrollo de varias maneras, todas enfocadas en brindar un soporte al programador en tareas diarias que suelen consumir tiempo. Estas tareas abarcan todo el circuito del desarrollo, desde la creación de un proyecto nuevo hasta el despliegue del mismo."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: ["Se encuentra disponible siempre que el servidor de desarrollo se levanta en ", (0, _jsxRuntime.jsx)(_html.ELink, {
                   to: "https://workspace.beyondjs.com/",
@@ -4732,7 +5419,7 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "// Img"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "El Dashboard funciona como un marco de trabajo (Workspace) y cada componente que lo integra tiene definido un nombre que permite identificarlo, estos son:"
+                children: "El Workspace funciona como un marco de trabajo (Workspace) y cada componente que lo integra tiene definido un nombre que permite identificarlo, estos son:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ol, {
                 children: ["\n", (0, _jsxRuntime.jsx)(_components.li, {
                   children: "PreAside: Primer panel izquierdo, iconográfico de acceso general de acciones las cuales varian si se tiene o no un proyecto abierto"
@@ -4748,7 +5435,7 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
                 children: [(0, _jsxRuntime.jsx)(_components.strong, {
                   children: "Typescript"
-                }), " es un lenguaje tipado y el chequeo de tipos es una tarea pesada. El Dashboard hace uso del compilador de typescript para detectar en tiempo real los errores que pueden existir en el código y suministrar información al programador acerca de ellos en trés niveles distintos:"]
+                }), " es un lenguaje tipado y el chequeo de tipos es una tarea pesada. El Workspace hace uso del compilador de typescript para detectar en tiempo real los errores que pueden existir en el código y suministrar información al programador acerca de ellos en trés niveles distintos:"]
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: [(0, _jsxRuntime.jsx)(_components.strong, {
@@ -4772,11 +5459,11 @@ import {Auth} from '@company/project/login/code';
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Editor y Navegador incluidos"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
-                children: "El Dashboard cuenta con un editor de código integrado que puede resultar sumamente útil para acceder a los archivos de forma rápida y corregir errores detectados, trabajar con estilos o con los bridges. Asimismo, tambien cuenta con un Board que permite navegar los proyectos."
+                children: "El Workspace cuenta con un editor de código integrado que puede resultar sumamente útil para acceder a los archivos de forma rápida y corregir errores detectados, trabajar con estilos o con los bridges. Asimismo, tambien cuenta con un Board que permite navegar los proyectos."
               }), "\n", (0, _jsxRuntime.jsx)(_html.Subtitle, {
                 children: "Despliegue de proyectos"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.p, {
-                children: ["El Dashboard genera el código necesario y optimizado para desplegar los proyectos. Puedes leer en detalle el funcionamiento en la sección de ", (0, _jsxRuntime.jsx)(_html.Link, {
+                children: ["El Workspace genera el código necesario y optimizado para desplegar los proyectos. Puedes leer en detalle el funcionamiento en la sección de ", (0, _jsxRuntime.jsx)(_html.Link, {
                   to: "/docs/deployment",
                   children: "Despliegue de proyectos."
                 })]
@@ -4801,14 +5488,14 @@ import {Auth} from '@company/project/login/code';
       ***********************/
 
       ims.set('./index', {
-        hash: 4147580982,
+        hash: 321014640,
         creator: function (require, exports) {
           "use strict";
 
           Object.defineProperty(exports, "__esModule", {
             value: true
           });
-          exports.Universal = exports.TutorialStart = exports.QuickStart = exports.Modular = exports.Intro = exports.Distributions = exports.DevServer = exports.Cli = exports.BareSpecifiers = void 0;
+          exports.Universal = exports.TutorialStart = exports.TutorialRouting = exports.TutorialFirstModule = exports.TutorialBridge = exports.TutorialBackend = exports.Steps = exports.QuickStart = exports.PackagesTypes = exports.PackagesPublish = exports.PackagesJson = exports.PackagesDistributions = exports.PackagesCreate = exports.Modular = exports.Intro = exports.DevServer = exports.Cli = exports.BareSpecifiers = void 0;
           var _intro = require("./mdx/starting/intro.mdx");
           var _quickStart = require("./mdx/starting/quick-start.mdx");
           var _cli = require("./mdx/starting/cli.mdx");
@@ -4816,8 +5503,17 @@ import {Auth} from '@company/project/login/code';
           var _modular = require("./mdx/foundations/modular.mdx");
           var _universal = require("./mdx/foundations/universal.mdx");
           var _devServer = require("./mdx/foundations/dev-server.mdx");
-          var _distributions = require("./mdx/foundations/distributions.mdx");
           var _start = require("./mdx/tutorial/start.mdx");
+          var _backend = require("./mdx/tutorial/backend.mdx");
+          var _bridge = require("./mdx/tutorial/bridge.mdx");
+          var _routing = require("./mdx/tutorial/routing.mdx");
+          var _firstModule = require("./mdx/tutorial/first-module.mdx");
+          var _steps = require("./mdx/steps.mdx");
+          var _creation = require("./mdx/packages/creation.mdx");
+          var _types = require("./mdx/packages/types.mdx");
+          var _distributions = require("./mdx/packages/distributions.mdx");
+          var _json = require("./mdx/packages/json.mdx");
+          var _publish = require("./mdx/packages/publish.mdx");
           /*bundle */ // import { default as Backend1 } from "./mdx/backend.mdx";
 
           // import { default as Bee1 } from "./mdx/bee.mdx";
@@ -4828,6 +5524,10 @@ import {Auth} from '@company/project/login/code';
           // import { default as URI1 } from "./mdx/uri.mdx";
           // import { default as Projects1 } from "./mdx/projects.mdx";
 
+          // Tutorial
+
+          //packages
+
           // export /*bundle */ const Bee = Bee1;
           // export /*bundle */ const Bundles = Bundles1;
           // export /*bundle */ const Templates = Templates1;
@@ -4837,7 +5537,7 @@ import {Auth} from '@company/project/login/code';
           // export /*bundle */ const URI = URI1;
           // export /*bundle */ const Projects = Projects1;
           // export /*bundle*/ const Backend = Backend1;
-          //Get strating
+          // Get strating
           const Intro = _intro.default;
           exports.Intro = Intro;
           /*bundle */
@@ -4845,12 +5545,40 @@ import {Auth} from '@company/project/login/code';
           exports.Cli = Cli;
           /*bundle */
           const QuickStart = _quickStart.default;
-          // tutorial
+          // Tutorial
           exports.QuickStart = QuickStart;
           /*bundle */
           const TutorialStart = _start.default;
-          // Foundations
           exports.TutorialStart = TutorialStart;
+          /*bundle*/
+          const TutorialBackend = _backend.default;
+          exports.TutorialBackend = TutorialBackend;
+          /*bundle*/
+          const TutorialBridge = _bridge.default;
+          exports.TutorialBridge = TutorialBridge;
+          /*bundle*/
+          const TutorialRouting = _routing.default;
+          exports.TutorialRouting = TutorialRouting;
+          /*bundle */
+          const TutorialFirstModule = _firstModule.default;
+          // basics
+          exports.TutorialFirstModule = TutorialFirstModule;
+          /*bundle */
+          const PackagesCreate = _creation.default;
+          exports.PackagesCreate = PackagesCreate;
+          /*bundle */
+          const PackagesTypes = _types.default;
+          exports.PackagesTypes = PackagesTypes;
+          /*bundle*/
+          const PackagesDistributions = _distributions.default;
+          exports.PackagesDistributions = PackagesDistributions;
+          /*bundle */
+          const PackagesJson = _json.default;
+          exports.PackagesJson = PackagesJson;
+          /*bundle */
+          const PackagesPublish = _publish.default;
+          // Foundations
+          exports.PackagesPublish = PackagesPublish;
           /*bundle*/
           const BareSpecifiers = _bareSpecifiers.default;
           exports.BareSpecifiers = BareSpecifiers;
@@ -4861,11 +5589,11 @@ import {Auth} from '@company/project/login/code';
           const Universal = _universal.default;
           exports.Universal = Universal;
           /*bundle*/
-          const Distributions = _distributions.default;
-          exports.Distributions = Distributions;
-          /*bundle*/
           const DevServer = _devServer.default;
           exports.DevServer = DevServer;
+          /*bundle*/
+          const Steps = _steps.default;
+          exports.Steps = Steps;
         }
       });
       __pkg.exports.descriptor = [{
@@ -4886,6 +5614,42 @@ import {Auth} from '@company/project/login/code';
         "name": "TutorialStart"
       }, {
         "im": "./index",
+        "from": "TutorialBackend",
+        "name": "TutorialBackend"
+      }, {
+        "im": "./index",
+        "from": "TutorialBridge",
+        "name": "TutorialBridge"
+      }, {
+        "im": "./index",
+        "from": "TutorialRouting",
+        "name": "TutorialRouting"
+      }, {
+        "im": "./index",
+        "from": "TutorialFirstModule",
+        "name": "TutorialFirstModule"
+      }, {
+        "im": "./index",
+        "from": "PackagesCreate",
+        "name": "PackagesCreate"
+      }, {
+        "im": "./index",
+        "from": "PackagesTypes",
+        "name": "PackagesTypes"
+      }, {
+        "im": "./index",
+        "from": "PackagesDistributions",
+        "name": "PackagesDistributions"
+      }, {
+        "im": "./index",
+        "from": "PackagesJson",
+        "name": "PackagesJson"
+      }, {
+        "im": "./index",
+        "from": "PackagesPublish",
+        "name": "PackagesPublish"
+      }, {
+        "im": "./index",
         "from": "BareSpecifiers",
         "name": "BareSpecifiers"
       }, {
@@ -4898,12 +5662,12 @@ import {Auth} from '@company/project/login/code';
         "name": "Universal"
       }, {
         "im": "./index",
-        "from": "Distributions",
-        "name": "Distributions"
-      }, {
-        "im": "./index",
         "from": "DevServer",
         "name": "DevServer"
+      }, {
+        "im": "./index",
+        "from": "Steps",
+        "name": "Steps"
       }];
       // Module exports
       __pkg.exports.process = function ({
@@ -4915,11 +5679,20 @@ import {Auth} from '@company/project/login/code';
         (require || prop === 'Cli') && _export("Cli", Cli = require ? require('./index').Cli : value);
         (require || prop === 'QuickStart') && _export("QuickStart", QuickStart = require ? require('./index').QuickStart : value);
         (require || prop === 'TutorialStart') && _export("TutorialStart", TutorialStart = require ? require('./index').TutorialStart : value);
+        (require || prop === 'TutorialBackend') && _export("TutorialBackend", TutorialBackend = require ? require('./index').TutorialBackend : value);
+        (require || prop === 'TutorialBridge') && _export("TutorialBridge", TutorialBridge = require ? require('./index').TutorialBridge : value);
+        (require || prop === 'TutorialRouting') && _export("TutorialRouting", TutorialRouting = require ? require('./index').TutorialRouting : value);
+        (require || prop === 'TutorialFirstModule') && _export("TutorialFirstModule", TutorialFirstModule = require ? require('./index').TutorialFirstModule : value);
+        (require || prop === 'PackagesCreate') && _export("PackagesCreate", PackagesCreate = require ? require('./index').PackagesCreate : value);
+        (require || prop === 'PackagesTypes') && _export("PackagesTypes", PackagesTypes = require ? require('./index').PackagesTypes : value);
+        (require || prop === 'PackagesDistributions') && _export("PackagesDistributions", PackagesDistributions = require ? require('./index').PackagesDistributions : value);
+        (require || prop === 'PackagesJson') && _export("PackagesJson", PackagesJson = require ? require('./index').PackagesJson : value);
+        (require || prop === 'PackagesPublish') && _export("PackagesPublish", PackagesPublish = require ? require('./index').PackagesPublish : value);
         (require || prop === 'BareSpecifiers') && _export("BareSpecifiers", BareSpecifiers = require ? require('./index').BareSpecifiers : value);
         (require || prop === 'Modular') && _export("Modular", Modular = require ? require('./index').Modular : value);
         (require || prop === 'Universal') && _export("Universal", Universal = require ? require('./index').Universal : value);
-        (require || prop === 'Distributions') && _export("Distributions", Distributions = require ? require('./index').Distributions : value);
         (require || prop === 'DevServer') && _export("DevServer", DevServer = require ? require('./index').DevServer : value);
+        (require || prop === 'Steps') && _export("Steps", Steps = require ? require('./index').Steps : value);
       };
       _export("__beyond_pkg", __beyond_pkg = __pkg);
       _export("hmr", hmr = new function () {
@@ -4930,4 +5703,4 @@ import {Auth} from '@company/project/login/code';
     }
   };
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QkFFSTs7NEJBQ0E7OzRCQUNBOzs0QkFDQTs7OzBCQUVNOzs7NEJBRVI7b0JBQVk7Ozs7OEJBRVI7c0JBQXVCOzs7OEJBQ3ZCO3NCQUFlOzs7OEJBQ2Y7c0JBQWU7OzswQkFFckI7OzBCQUVBOzswQkFFQTs7MEJBRVU7OzBCQUVWOzswQkFFVTs7MkJBRVY7OzRCQUF5Szs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztVQzVDeks7VUFDQTtVQUNBO1VBVUE7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUVBO1VBYU8sWUFoQ1A7O1VBSUE7VUFDQTtVQUNBO1VBRUE7VUFDQTtVQUNBO1VBQ0E7O1VBVUE7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBRUE7VUFDbUIsTUFBTUMsS0FBSyxHQUFHQyxjQUFNO1VBQUNDO1VBQ2pDO1VBQVksTUFBTUMsR0FBRyxHQUFHQyxZQUFJO1VBQUNGO1VBQzdCO1VBQVksTUFBTUcsVUFBVSxHQUFHQyxtQkFBVztVQUNqRDtVQUFBSjtVQUNPO1VBQVksTUFBTUssYUFBYSxHQUFHQyxjQUFTO1VBRWxEO1VBQUFOO1VBQ087VUFBVyxNQUFNTyxjQUFjLEdBQUdDLHVCQUFjO1VBQUNSO1VBQ2pEO1VBQVcsTUFBTVMsT0FBTyxHQUFHQyxnQkFBUTtVQUFDVjtVQUNwQztVQUFXLE1BQU1XLFNBQVMsR0FBR0Msa0JBQVU7VUFBQ1o7VUFDeEM7VUFBVyxNQUFNYSxhQUFhLEdBQUdDLHNCQUFjO1VBQUNkO1VBQ2hEO1VBQVcsTUFBTWUsU0FBUyxHQUFHQyxrQkFBVTtVQUFDaEIiLCJuYW1lcyI6WyJ1c2VySWQiLCJjb250ZW50IiwiSW50cm8iLCJJbnRybzEiLCJleHBvcnRzIiwiQ2xpIiwiQ0xJMSIsIlF1aWNrU3RhcnQiLCJRdWlja1N0YXJ0MSIsIlR1dG9yaWFsU3RhcnQiLCJUdXRvcmlhbDEiLCJCYXJlU3BlY2lmaWVycyIsIkJhcmVTcGVjaWZpZXIxIiwiTW9kdWxhciIsIk1vZHVsYXIxIiwiVW5pdmVyc2FsIiwiVW5pdmVyc2FsMSIsIkRpc3RyaWJ1dGlvbnMiLCJEaXN0cmlidXRpb25zMSIsIkRldlNlcnZlciIsIkRldlNlcnZlcjEiXSwic291cmNlUm9vdCI6Ii8iLCJzb3VyY2VzIjpbIm1keC9iYWNrZW5kL21keFxcYmFja2VuZFxcYmFja2VuZC5tZHgiLCJtZHgvYmFja2VuZC9tZHhcXGJhY2tlbmRcXGJlZS5tZHgiLCJtZHgvYmFja2VuZC9tZHhcXGJhY2tlbmRcXGRldmVsb3BtZW50LXNlcnZlci5tZHgiLCJtZHgvZGVwZW5kZW5jaWVzL21keFxcZGVwZW5kZW5jaWVzXFxpbmRleC5tZHgiLCJtZHgvZm91bmRhdGlvbnMvbWR4XFxmb3VuZGF0aW9uc1xcYmFyZS1zcGVjaWZpZXJzLm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxkZXYtc2VydmVyLm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxkaXN0cmlidXRpb25zLm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxnbG9zYXJ5Lm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxobXIubWR4IiwibWR4L2ZvdW5kYXRpb25zL21keFxcZm91bmRhdGlvbnNcXG1vZHVsYXIubWR4IiwibWR4L2ZvdW5kYXRpb25zL21keFxcZm91bmRhdGlvbnNcXHVuaXZlcnNhbC5tZHgiLCJtZHgvZnJvbnRlbmQvbWR4XFxmcm9udGVuZFxcY29udHJvbGxlci1vYmplY3QubWR4IiwibWR4L2Zyb250ZW5kL21keFxcZnJvbnRlbmRcXGxheW91dC5tZHgiLCJtZHgvZnJvbnRlbmQvcm91dGluZy9tZHhcXGZyb250ZW5kXFxyb3V0aW5nXFxyb3V0aW5nLm1keCIsIm1keC9mcm9udGVuZC9yb3V0aW5nL21keFxcZnJvbnRlbmRcXHJvdXRpbmdcXHVyaS5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcbGlnaHQtZGFyay10aGVtZS5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcc3RhdGUtbWFuYWdlbWVudC5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcc3R5bGVzLWltcG9ydGF0aW9uLm1keCIsIm1keC9mcm9udGVuZC9zdHlsZXMvbWR4XFxmcm9udGVuZFxcc3R5bGVzXFxzdHlsZXMtbW9kdWxlLm1keCIsIm1keC9mcm9udGVuZC9zdHlsZXMvbWR4XFxmcm9udGVuZFxcc3R5bGVzXFxzdHlsZXMubWR4IiwibWR4L2Zyb250ZW5kL3RlbXBsYXRlL21keFxcZnJvbnRlbmRcXHRlbXBsYXRlXFx0ZW1wbGF0ZS1zeXN0ZW0ubWR4IiwibWR4L2Zyb250ZW5kL3RlbXBsYXRlL21keFxcZnJvbnRlbmRcXHRlbXBsYXRlXFx0ZW1wbGF0ZXMubWR4IiwibWR4L2Zyb250ZW5kL3dpZGdldHMvbWR4XFxmcm9udGVuZFxcd2lkZ2V0c1xcd2lkZ2V0LWNyZWF0aW9uLm1keCIsIm1keC9mcm9udGVuZC93aWRnZXRzL21keFxcZnJvbnRlbmRcXHdpZGdldHNcXHdpZGdldC1vYmplY3QubWR4IiwibWR4L2Zyb250ZW5kL3dpZGdldHMvbWR4XFxmcm9udGVuZFxcd2lkZ2V0c1xcd2lkZ2V0cy1wYWdlLm1keCIsIm1keC9mcm9udGVuZC93aWRnZXRzL21keFxcZnJvbnRlbmRcXHdpZGdldHNcXHdpZGdldHMubWR4IiwibWR4L21vZHVsZXMvbWR4XFxtb2R1bGVzXFxidW5kbGVzLm1keCIsIm1keC9tb2R1bGVzL21keFxcbW9kdWxlc1xcY3JlYXRlLWEtbW9kdWxlLm1keCIsIm1keC9tb2R1bGVzL21keFxcbW9kdWxlc1xcbW9kdWxlLWNvbmZpZy5tZHgiLCJtZHgvbW9kdWxlcy9tZHhcXG1vZHVsZXNcXG1vZHVsZXMubWR4IiwibWR4L21vZHVsZXMvbWR4XFxtb2R1bGVzXFxwcm9jZXNzb3JzLm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxjcmVhdGUtYS1wcm9qZWN0Lm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxwcm9qZWN0LWpzb24ubWR4IiwibWR4L3BhY2thZ2VzL21keFxccGFja2FnZXNcXHByb2plY3Qtc3RydWN0dXJlLm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxwcm9qZWN0cy1pbXBvcnQubWR4IiwibWR4L3BhY2thZ2VzL21keFxccGFja2FnZXNcXHByb2plY3RzLm1keCIsIm1keC9zdGFydGluZy9tZHhcXHN0YXJ0aW5nXFxjbGkubWR4IiwibWR4L3N0YXJ0aW5nL21keFxcc3RhcnRpbmdcXGludHJvLm1keCIsIm1keC9zdGFydGluZy9tZHhcXHN0YXJ0aW5nXFxxdWljay1zdGFydC5tZHgiLCJtZHgvdHV0b3JpYWwvbWR4XFx0dXRvcmlhbFxcY3JlYXRlLXByb2plY3QubWR4IiwibWR4L3R1dG9yaWFsL21keFxcdHV0b3JpYWxcXHN0YXJ0Lm1keCIsIm1keC93b3Jrc3BhY2UvbWR4XFx3b3Jrc3BhY2VcXHdvcmtzcGFjZS5tZHgiLCJpbmRleC50cyJdLCJzb3VyY2VzQ29udGVudCI6W251bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGxdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,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VUFDNUM7VUFBVyxNQUFNTyxlQUFlLEdBQUdDLGdCQUFTO1VBQUNSO1VBQzdDO1VBQVcsTUFBTVMsY0FBYyxHQUFHQyxlQUFTO1VBQUNWO1VBQzVDO1VBQVcsTUFBTVcsZUFBZSxHQUFHQyxnQkFBUztVQUFDWjtVQUM3QztVQUFZLE1BQU1hLG1CQUFtQixHQUFHQyxvQkFBUztVQUV4RDtVQUFBZDtVQUVPO1VBQVksTUFBTWUsY0FBYyxHQUFHQyxpQkFBZTtVQUFDaEI7VUFDbkQ7VUFBWSxNQUFNaUIsYUFBYSxHQUFHQyxjQUFjO1VBQUNsQjtVQUNqRDtVQUFXLE1BQU1tQixxQkFBcUIsR0FBR0Msc0JBQWM7VUFBQ3BCO1VBQ3hEO1VBQVksTUFBTXFCLFlBQVksR0FBR0MsYUFBYTtVQUFDdEI7VUFDL0M7VUFBWSxNQUFNdUIsZUFBZSxHQUFHQyxnQkFBZ0I7VUFFM0Q7VUFBQXhCO1VBQ087VUFBVyxNQUFNeUIsY0FBYyxHQUFHQyx1QkFBYztVQUFDMUI7VUFDakQ7VUFBVyxNQUFNMkIsT0FBTyxHQUFHQyxnQkFBUTtVQUFDNUI7VUFDcEM7VUFBVyxNQUFNNkIsU0FBUyxHQUFHQyxrQkFBVTtVQUFDOUI7VUFDeEM7VUFBVyxNQUFNK0IsU0FBUyxHQUFHQyxrQkFBVTtVQUFDaEM7VUFDeEM7VUFBVyxNQUFNaUMsS0FBSyxHQUFHQyxjQUFNO1VBQUNsQyIsIm5hbWVzIjpbInVzZXJJZCIsImNvbnRlbnQiLCJJbnRybyIsIkludHJvMSIsImV4cG9ydHMiLCJDbGkiLCJDTEkxIiwiUXVpY2tTdGFydCIsIlF1aWNrU3RhcnQxIiwiVHV0b3JpYWxTdGFydCIsIlR1dG9yaWFsMSIsIlR1dG9yaWFsQmFja2VuZCIsIlR1dG9yaWFsMiIsIlR1dG9yaWFsQnJpZGdlIiwiVHV0b3JpYWwzIiwiVHV0b3JpYWxSb3V0aW5nIiwiVHV0b3JpYWw0IiwiVHV0b3JpYWxGaXJzdE1vZHVsZSIsIlR1dG9yaWFsNSIsIlBhY2thZ2VzQ3JlYXRlIiwiUGFja2FnZXNDcmVhdGUxIiwiUGFja2FnZXNUeXBlcyIsIlBBY2thZ2VzVHlwZXMxIiwiUGFja2FnZXNEaXN0cmlidXRpb25zIiwiRGlzdHJpYnV0aW9uczEiLCJQYWNrYWdlc0pzb24iLCJQYWNrYWdlc0pzb24xIiwiUGFja2FnZXNQdWJsaXNoIiwiUGFja2FnZXNQdWJsaXNoMSIsIkJhcmVTcGVjaWZpZXJzIiwiQmFyZVNwZWNpZmllcjEiLCJNb2R1bGFyIiwiTW9kdWxhcjEiLCJVbml2ZXJzYWwiLCJVbml2ZXJzYWwxIiwiRGV2U2VydmVyIiwiRGV2U2VydmVyMSIsIlN0ZXBzIiwiU3RlcHMxIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJtZHgvYmFja2VuZC9tZHhcXGJhY2tlbmRcXGJlZS5tZHgiLCJtZHgvYmFja2VuZC9tZHhcXGJhY2tlbmRcXGRldmVsb3BtZW50LXNlcnZlci5tZHgiLCJtZHgvY2xpL21keFxcY2xpXFxtb2R1bGUubWR4IiwibWR4L2NsaS9tZHhcXGNsaVxccGFja2FnZS5tZHgiLCJtZHgvZGVwZW5kZW5jaWVzL21keFxcZGVwZW5kZW5jaWVzXFxpbmRleC5tZHgiLCJtZHgvZm91bmRhdGlvbnMvbWR4XFxmb3VuZGF0aW9uc1xcYmFyZS1zcGVjaWZpZXJzLm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxkZXYtc2VydmVyLm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxnbG9zYXJ5Lm1keCIsIm1keC9mb3VuZGF0aW9ucy9tZHhcXGZvdW5kYXRpb25zXFxobXIubWR4IiwibWR4L2ZvdW5kYXRpb25zL21keFxcZm91bmRhdGlvbnNcXG1vZHVsYXIubWR4IiwibWR4L2ZvdW5kYXRpb25zL21keFxcZm91bmRhdGlvbnNcXHVuaXZlcnNhbC5tZHgiLCJtZHgvZnJvbnRlbmQvbWR4XFxmcm9udGVuZFxcY29udHJvbGxlci1vYmplY3QubWR4IiwibWR4L2Zyb250ZW5kL21keFxcZnJvbnRlbmRcXGxheW91dC5tZHgiLCJtZHgvZnJvbnRlbmQvcm91dGluZy9tZHhcXGZyb250ZW5kXFxyb3V0aW5nXFxyb3V0aW5nLm1keCIsIm1keC9mcm9udGVuZC9yb3V0aW5nL21keFxcZnJvbnRlbmRcXHJvdXRpbmdcXHVyaS5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcbGlnaHQtZGFyay10aGVtZS5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcc3RhdGUtbWFuYWdlbWVudC5tZHgiLCJtZHgvZnJvbnRlbmQvc3R5bGVzL21keFxcZnJvbnRlbmRcXHN0eWxlc1xcc3R5bGVzLWltcG9ydGF0aW9uLm1keCIsIm1keC9mcm9udGVuZC9zdHlsZXMvbWR4XFxmcm9udGVuZFxcc3R5bGVzXFxzdHlsZXMtbW9kdWxlLm1keCIsIm1keC9mcm9udGVuZC9zdHlsZXMvbWR4XFxmcm9udGVuZFxcc3R5bGVzXFxzdHlsZXMubWR4IiwibWR4L2Zyb250ZW5kL3RlbXBsYXRlL21keFxcZnJvbnRlbmRcXHRlbXBsYXRlXFx0ZW1wbGF0ZS1zeXN0ZW0ubWR4IiwibWR4L2Zyb250ZW5kL3RlbXBsYXRlL21keFxcZnJvbnRlbmRcXHRlbXBsYXRlXFx0ZW1wbGF0ZXMubWR4IiwibWR4L2Zyb250ZW5kL3dpZGdldHMvbWR4XFxmcm9udGVuZFxcd2lkZ2V0c1xcd2lkZ2V0LWNyZWF0aW9uLm1keCIsIm1keC9mcm9udGVuZC93aWRnZXRzL21keFxcZnJvbnRlbmRcXHdpZGdldHNcXHdpZGdldC1vYmplY3QubWR4IiwibWR4L2Zyb250ZW5kL3dpZGdldHMvbWR4XFxmcm9udGVuZFxcd2lkZ2V0c1xcd2lkZ2V0cy1wYWdlLm1keCIsIm1keC9mcm9udGVuZC93aWRnZXRzL21keFxcZnJvbnRlbmRcXHdpZGdldHNcXHdpZGdldHMubWR4IiwibWR4L21vZHVsZXMvbWR4XFxtb2R1bGVzXFxidW5kbGVzLm1keCIsIm1keC9tb2R1bGVzL21keFxcbW9kdWxlc1xcY3JlYXRlLWEtbW9kdWxlLm1keCIsIm1keC9tb2R1bGVzL21keFxcbW9kdWxlc1xcbW9kdWxlLWNvbmZpZy5tZHgiLCJtZHgvbW9kdWxlcy9tZHhcXG1vZHVsZXNcXG1vZHVsZXMubWR4IiwibWR4L21vZHVsZXMvbWR4XFxtb2R1bGVzXFxwcm9jZXNzb3JzLm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxjcmVhdGlvbi5tZHgiLCJtZHgvcGFja2FnZXMvbWR4XFxwYWNrYWdlc1xcZGlzdHJpYnV0aW9ucy5tZHgiLCJtZHgvcGFja2FnZXMvbWR4XFxwYWNrYWdlc1xcaW1wb3J0Lm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxqc29uLm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFxwdWJsaXNoLm1keCIsIm1keC9wYWNrYWdlcy9tZHhcXHBhY2thZ2VzXFx0eXBlcy5tZHgiLCJtZHgvc3RhcnRpbmcvbWR4XFxzdGFydGluZ1xcY2xpLm1keCIsIm1keC9zdGFydGluZy9tZHhcXHN0YXJ0aW5nXFxpbnRyby5tZHgiLCJtZHgvc3RhcnRpbmcvbWR4XFxzdGFydGluZ1xccXVpY2stc3RhcnQubWR4IiwibWR4L21keFxcc3RlcHMubWR4IiwibWR4L3R1dG9yaWFsL21keFxcdHV0b3JpYWxcXGJhY2tlbmQubWR4IiwibWR4L3R1dG9yaWFsL21keFxcdHV0b3JpYWxcXGJyaWRnZS5tZHgiLCJtZHgvdHV0b3JpYWwvbWR4XFx0dXRvcmlhbFxcY3JlYXRlLXByb2plY3QubWR4IiwibWR4L3R1dG9yaWFsL21keFxcdHV0b3JpYWxcXGZpcnN0LW1vZHVsZS5tZHgiLCJtZHgvdHV0b3JpYWwvbWR4XFx0dXRvcmlhbFxccm91dGluZy5tZHgiLCJtZHgvdHV0b3JpYWwvbWR4XFx0dXRvcmlhbFxcc3RhcnQubWR4IiwibWR4L3dvcmtzcGFjZS9tZHhcXHdvcmtzcGFjZVxcd29ya3NwYWNlLm1keCIsImluZGV4LnRzIl0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbCxudWxsLG51bGwsbnVsbF19
