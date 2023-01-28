@@ -1,2 +1,82 @@
-.beyond-icon-button{height:40px;width:40px;background:0 0;border:none;display:inline-grid;position:relative;outline:0!important;align-items:center;justify-content:center;margin-top:8px;cursor:pointer}.beyond-icon-button svg.beyond-icon{height:15px;width:15px}.beyond-icon-button.circle{border-radius:50%}.beyond-icon-button.circle>.beyond-ripple{border-radius:50%;align-self:center}.beyond-icon-button.primary{background:var(--primary);color:var(--text-on-primary)}.beyond-icon-button.primary.dark{background:var(--primary-dark)}.beyond-icon-button.primary.light{background:var(--primary-light)}.beyond-icon-button.primary svg{fill:var(--text-on-primary)}.beyond-icon-button.gray{background:var(--gray-light)}.beyond-icon-button.secondary{background:var(--secondary);fill:var(--text-on-secondary);color:var(--text-on-secondary)}.beyond-icon-button.secondary.dark{background:var(--secondary-dark)}.beyond-icon-button.secondary.light{background:var(--secondary-light)}.beyond-icon-button.small-icon{height:24px;width:24px}.beyond-icon-button.small-icon .beyond-icon{height:12px;width:12px}.beyond-icon{height:20px;width:20px;position:relative}.beyond-icon.circle{border-radius:50%;padding:5px}.beyond-icon svg{fill:var(--text-on-primary)}.beyond-icon.md-icon,.beyond-icon.md-icon svg{height:50px;width:50px}.beyond-icon.big-icon,.beyond-icon.big-icon svg{height:4rem;width:4rem}
-/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNjc3NcXGJleW9uZC1pY29uLWJ1dHRvbi5zY3NzIiwic2Nzc1xcc3R5bGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0Esb0JBRUUsT0FBQSxLQUNBLE1BQUEsS0FDQSxXQUFBLElBRUEsT0FBQSxLQUNBLFFBQUEsWUFDQSxTQUFBLFNBQ0EsUUFBQSxZQUNBLFlBQUEsT0FDQSxnQkFBQSxPQUNBLFdBQUEsSUFDQSxPQUFBLFFBRUEsb0NBQ0UsT0FBQSxLQUNBLE1BQUEsS0FHRiwyQkFDRSxjQUFBLElBRUEsMENBQ0UsY0FBQSxJQUNBLFdBQUEsT0FJSiw0QkFDRSxXQUFBLGVBQ0EsTUFBQSx1QkFFQSxpQ0FDRSxXQUFBLG9CQUdGLGtDQUNFLFdBQUEscUJBR0YsZ0NBQ0UsS0FBQSx1QkFLSix5QkFDRSxXQUFBLGtCQUdGLDhCQUNFLFdBQUEsaUJBQ0EsS0FBQSx5QkFDQSxNQUFBLHlCQUVBLG1DQUNFLFdBQUEsc0JBR0Ysb0NBQ0UsV0FBQSx1QkFJSiwrQkFDRSxPQUFBLEtBQ0EsTUFBQSxLQUVBLDRDQUNFLE9BQUEsS0FDQSxNQUFBLEtDdkVOLGFBQ0UsT0FBQSxLQUNBLE1BQUEsS0FDQSxTQUFBLFNBRUEsb0JBQ0UsY0FBQSxJQUNBLFFBQUEsSUFHRixpQkFDRSxLQUFBLHVCQUtBLHFCQUFBLHlCQUNFLE9BQUEsS0FDQSxNQUFBLEtBS0Ysc0JBQUEsMEJBQ0UsT0FBQSxLQUNBLE1BQUEifQ== */
+.beyond-icon-button {
+  height: 40px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  display: inline-grid;
+  position: relative;
+  outline: none !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  cursor: pointer;
+}
+.beyond-icon-button svg.beyond-icon {
+  height: 15px;
+  width: 15px;
+}
+.beyond-icon-button.circle {
+  border-radius: 50%;
+}
+.beyond-icon-button.circle > .beyond-ripple {
+  border-radius: 50%;
+  align-self: center;
+}
+.beyond-icon-button.primary {
+  background: var(--primary);
+  color: var(--text-on-primary);
+}
+.beyond-icon-button.primary.dark {
+  background: var(--primary-dark);
+}
+.beyond-icon-button.primary.light {
+  background: var(--primary-light);
+}
+.beyond-icon-button.primary svg {
+  fill: var(--text-on-primary);
+}
+.beyond-icon-button.gray {
+  background: var(--gray-light);
+}
+.beyond-icon-button.secondary {
+  background: var(--secondary);
+  fill: var(--text-on-secondary);
+  color: var(--text-on-secondary);
+}
+.beyond-icon-button.secondary.dark {
+  background: var(--secondary-dark);
+}
+.beyond-icon-button.secondary.light {
+  background: var(--secondary-light);
+}
+.beyond-icon-button.small-icon {
+  height: 24px;
+  width: 24px;
+}
+.beyond-icon-button.small-icon .beyond-icon {
+  height: 12px;
+  width: 12px;
+}
+.beyond-icon {
+  height: 20px;
+  width: 20px;
+  position: relative;
+}
+.beyond-icon.circle {
+  border-radius: 50%;
+  padding: 5px;
+}
+.beyond-icon svg {
+  fill: var(--text-on-primary);
+}
+.beyond-icon.md-icon, .beyond-icon.md-icon svg {
+  height: 50px;
+  width: 50px;
+}
+.beyond-icon.big-icon, .beyond-icon.big-icon svg {
+  height: 4rem;
+  width: 4rem;
+}
+
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNjc3NcXGJleW9uZC1pY29uLWJ1dHRvbi5zY3NzIiwic2Nzc1xcc3R5bGVzLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0E7RUFFRTtFQUNBO0VBQ0E7RUFFQTtFQUNBO0VBQ0E7RUFDQTtFQUNBO0VBQ0E7RUFDQTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUFHRjtFQUNFOztBQUVBO0VBQ0U7RUFDQTs7QUFJSjtFQUNFO0VBQ0E7O0FBRUE7RUFDRTs7QUFHRjtFQUNFOztBQUdGO0VBQ0U7O0FBS0o7RUFDRTs7QUFHRjtFQUNFO0VBQ0E7RUFDQTs7QUFFQTtFQUNFOztBQUdGO0VBQ0U7O0FBSUo7RUFDRTtFQUNBOztBQUVBO0VBQ0U7RUFDQTs7QUN2RU47RUFDRTtFQUNBO0VBQ0E7O0FBRUE7RUFDRTtFQUNBOztBQUdGO0VBQ0U7O0FBS0E7RUFDRTtFQUNBOztBQUtGO0VBQ0U7RUFDQSIsImZpbGUiOiIifQ== */
