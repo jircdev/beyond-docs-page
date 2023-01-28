@@ -57,18 +57,18 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/tran
         "is": "page",
         "route": "/icons"
       }, {
-        "name": "beyond-docs-header",
-        "vspecifier": "@beyond/docs@1/header"
-      }, {
-        "name": "main-layout",
-        "vspecifier": "@beyond/docs@1/layout/main",
-        "is": "layout"
-      }, {
         "name": "docs-header-menu",
         "vspecifier": "@beyond/docs@1/header-menu.widget"
       }, {
         "name": "home-layout",
         "vspecifier": "@beyond/docs@1/layout/home",
+        "is": "layout"
+      }, {
+        "name": "beyond-docs-header",
+        "vspecifier": "@beyond/docs@1/header"
+      }, {
+        "name": "main-layout",
+        "vspecifier": "@beyond/docs@1/layout/main",
         "is": "layout"
       }, {
         "name": "app-docs-missing",

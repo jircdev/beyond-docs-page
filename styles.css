@@ -9658,6 +9658,7 @@ body.body-beyond-modal-opened {
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
   --app-primary-color: var(--primary-dark);
+  --app-preload-bg: var(--secondary-light);
   --app-element-surface: var(--color-gray-5);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
@@ -9674,8 +9675,8 @@ body.body-beyond-modal-opened {
   --app-logo-bg: #fff;
   --app-clipboard-bg: #fff;
   /**
-  highlight content
-   */
+   highlight content
+    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
   --app-opacity-bg: rgba(0, 0, 0, 0.3);
@@ -9683,8 +9684,8 @@ body.body-beyond-modal-opened {
   --app-surface-notes: var(--color-gray-10);
   --app-icon-bg: var(--color-gray-10);
   /**
-  scrollbar
-   */
+   scrollbar
+    */
   --app-scrollbar-color: var(--color-gray-10);
   --app-scrollbar-track: var(--color-gray-10);
   --gh-icon-color: #000;
@@ -9716,6 +9717,7 @@ body.body-beyond-modal-opened {
     --app-aside-link-selected: #fff;
     --primary-surface: #101625;
     --background: #101625;
+    --app-preload-bg: var(--secondary-darker);
     --app-element-surface: rgba(0, 0, 0, 0.7);
     --app-element-hover-surface: rgba(3, 4, 5, 0.5);
     --app-element-border-color-1: var(--color-gray-80);
@@ -9770,6 +9772,7 @@ html[data-beyond-mode=light] {
   --element-border-color: var(--gray-light);
   --separator-color: var(--gray-darker);
   --app-primary-color: var(--primary-dark);
+  --app-preload-bg: var(--secondary-light);
   --app-element-surface: var(--color-gray-5);
   --app-element-hover-surface: var(--color-gray-10);
   --app-element-border-color-1: var(--color-gray-10);
@@ -9786,8 +9789,8 @@ html[data-beyond-mode=light] {
   --app-logo-bg: #fff;
   --app-clipboard-bg: #fff;
   /**
-  highlight content
-   */
+   highlight content
+    */
   --app-insight-surface: var(--primary-light);
   --app-link-hover-bg: rgba(255, 128, 86, 0.5);
   --app-opacity-bg: rgba(0, 0, 0, 0.3);
@@ -9795,8 +9798,8 @@ html[data-beyond-mode=light] {
   --app-surface-notes: var(--color-gray-10);
   --app-icon-bg: var(--color-gray-10);
   /**
-  scrollbar
-   */
+   scrollbar
+    */
   --app-scrollbar-color: var(--color-gray-10);
   --app-scrollbar-track: var(--color-gray-10);
   --gh-icon-color: #000;
@@ -9828,6 +9831,7 @@ html[data-beyond-mode=dark] {
   --app-aside-link-selected: #fff;
   --primary-surface: #101625;
   --background: #101625;
+  --app-preload-bg: var(--secondary-darker);
   --app-element-surface: rgba(0, 0, 0, 0.7);
   --app-element-hover-surface: rgba(3, 4, 5, 0.5);
   --app-element-border-color-1: var(--color-gray-80);
