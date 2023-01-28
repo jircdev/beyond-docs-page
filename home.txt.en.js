@@ -29,38 +29,37 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 768523917,
+        hash: 7499781,
         creator: function (require, exports) {
           exports.txt = {
-            "copyMessage": "Command copied",
             "header": {
-              "notice": "Versión beta",
-              "title": "Crea módulos pensando en el futuro",
-              "subtitle": "El único framework compatible con todos los entornos JavaScript."
+              "notice": "Beta version",
+              "title": "Create modules thinking about the future",
+              "subtitle": "The only framework compatible with all JavaScript environments."
             },
             "whatIs": {
-              "title": "Por qué elegir BeyondJS",
+              "title": "Why choose BeyondJS",
               "links": {
-                "why": "Conocer mas",
+                "why": "Learn more",
                 "github": "Github"
               },
-              "what": "BeyondJS es un meta-framework que provee un Dev Server para desarrollo y un CDN en producción, para consumir módulos desde cualquier entorno de ejecución de forma directa.",
-              "startNow": "Comienza ahora"
+              "what": "BeyondJS is a meta-framework that provides a Dev Server for development and a CDN in production, to consume modules from any execution environment directly.",
+              "startNow": "Start now"
             },
             "whatsIsItFor": {
-              "title": "Programación módular <br/> basada en paquetes universales",
-              "pretitle": "¿PARA QUÉ SIRVE?",
+              "title": "Module-based programming <br/> based on universal packages",
+              "pretitle": "WHAT IS IT FOR?",
               "features": [{
-                "title": "Librerías y paquetes",
-                "description": "Que esperan ser consumidos por otros equipos de desarrolladores.",
+                "title": "Libraries and packages",
+                "description": "That are expected to be consumed by other development teams.",
                 "icon": "libraries"
               }, {
                 "title": " Micro Frontends / Microservices",
-                "description": "De forma directa y sin configuraciones.",
+                "description": "Directly and without configurations.",
                 "icon": "microservices"
               }, {
                 "title": "SPA / WPA / Hybrid APPs",
-                "description": "Para móviles, de escritorio y webs.",
+                "description": "For mobile, desktop, and web.",
                 "icon": "spa"
               }, {
                 "title": "Widgets",
@@ -69,77 +68,77 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
               }]
             },
             "technologies": {
-              "title": "DESAROLLO UNIVERSAL"
+              "title": "UNIVERSAL DEVELOPMENT"
             },
             "universalDevelopment": {
-              "pretitle": "JAVASCRIPT ESTA EN TODOS LADOS",
-              "title": "Desarollo Universal",
-              "subTitle": "La misma experiencia para todo",
-              "concept": "Misma base de código, misma experiencia de desarrollo y con poca curva de aprendizaje. Lleva la experiencia del desarrollo web a todos los ámbitos donde JavaScript tiene alcance.",
-              "startNow": "Comenzar Ahora",
-              "moreInfo": "Mas informacion"
+              "pretitle": "JAVASCRIPT IS EVERYWHERE",
+              "title": "Universal Development",
+              "subTitle": "The same experience for all",
+              "concept": "Same code base, same development experience, and with a low learning curve. Bring the web development experience to all areas where JavaScript has reach.",
+              "startNow": "Start Now",
+              "moreInfo": "More information"
             },
             "doYouWantMore": {
-              "preTitle": "¿QUIERES CONOCER MÁS?",
-              "title": "Más que un Framework, <br/>es BeyondJS",
+              "preTitle": "Do you want to know more?",
+              "title": "More than a Framework, <br/>it's BeyondJS",
               "features": [{
                 "icon": "unification",
-                "title": "Unificación",
-                "description": "Permite consumir paquetes desde cualquier entorno."
+                "title": "Unification",
+                "description": "Allows consuming packages from any environment."
               }, {
                 "icon": "typescript",
                 "title": "Typescript First",
-                "description": "Posibilita la generación automática de tipos (archivos .d.ts) y realiza chequeo de tipos optimizados y sin necesidad de configuración."
+                "description": "Enables automatic generation of types ( .d.ts files) and performs optimized type checking without the need for configuration."
               }, {
                 "icon": "deployment",
                 "title": "Deployment",
-                "description": "Cuenta con <a href=\"https://workspace.beyondjs.com/\">BeyondJS Workspace</a> que gestiona el manejo de dependencias, el proceso de deployment y la gestión de errores."
+                "description": "Features <a href=\"https://workspace.beyondjs.com/\">BeyondJS Workspace</a> which manages dependency management, deployment process, and error management."
               }, {
                 "icon": "hmr",
                 "title": "HMR",
-                "description": "Se encuentra integrado automáticamente para Frontend y Backend."
+                "description": "Is automatically integrated for Frontend and Backend."
               }, {
                 "icon": "websockets",
                 "title": "Web Socket",
-                "description": "Está completamente listo para usar con generación de tipado para el código de interacción entre frontend y backend."
+                "description": "Is fully ready to use with type generation for frontend-backend interaction code."
               }, {
                 "icon": "esm",
-                "title": "ESM estándar",
-                "description": "Permite el desarrollo modular basado en Módulos ES, con generación automática de importmaps y SystemJS para proyectos en el Browser.",
+                "title": "Standard ESM",
+                "description": "Allows modular development based on ES Modules, with automatic generation of importmaps and SystemJS for browser projects.",
                 "moreInfo": {
                   "to": "",
-                  "text": "Leer más"
+                  "text": "Read more"
                 }
               }, {
                 "icon": "checkmark",
-                "title": "Todo lo que necesitas",
-                "description": "BeyondJS es todo lo que necesitas: CSS, SASS, VUE, REACT, SVELTE compatibles entre sí y de forma natural."
+                "title": "Everything you need",
+                "description": "BeyondJS is everything you need: CSS, SASS, VUE, REACT, SVELTE are compatible with each other and naturally."
               }, {
                 "icon": "npm",
-                "title": "Estándar NPM",
-                "description": "Posee una optimización de paquetes npm que erradica el  “dependency hell” y asegurar la compatibilidad con las distintas formas de consumo de paquetes."
+                "title": "Standard NPM",
+                "description": "Has an npm package optimization that eradicates “dependency hell” and ensures compatibility with different ways of consuming packages."
               }, {
                 "icon": "rocket",
-                "title": "Listo para el futuro",
-                "description": "Está diseñado para agregar tecnologías y librerías emergentes."
+                "title": "Ready for the future",
+                "description": "Is designed to add emerging technologies and libraries."
               }]
             },
             "codepen": {
-              "preTitle": "Y HAY MUCHO MÁS….",
+              "preTitle": "AND THERE'S MORE...,",
               "title": "Widgets <i>out-of-the-box</i>",
-              "subTitle": "Listos para usar",
-              "description": "Integramos un widget con carga a demanda de React que inicialmente renderiza con SSR y te permite modificar los tipos de renderizado al instante (inspeccionalo).",
-              "checkItOut": "¡Échale un vistazo al siguiente ejemplo!"
+              "subTitle": "Ready to use",
+              "description": "We integrate a React on-demand loading widget that initially renders with SSR and allows you to instantly change rendering types (inspect it).",
+              "checkItOut": "Check out the next example!"
             },
             "gettingStarted": {
-              "ready": "¿Listo para empezar?",
-              "description": "¡Crea ahora tu propio proyecto y haz la diferencia!",
+              "ready": "Ready to get started?",
+              "description": "Create your own project now and make a difference!",
               "links": {
-                "why": "¿Por que BeyondJS?",
-                "github": "Ver en Github",
-                "startNow": "Comience ahora"
+                "why": "Why BeyondJS?",
+                "github": "View on Github",
+                "startNow": "Start now"
               },
-              "creatingAProject": "O creando un proyecto de forma directa"
+              "creatingAProject": "Or creating a project directly"
             }
           };
         }

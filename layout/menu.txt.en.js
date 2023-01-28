@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 95753871,
+        hash: 2492255017,
         creator: function (require, exports) {
           exports.txt = {
             "/docs/backend": "Backend packages",
@@ -93,11 +93,11 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "frontend": "Frontend",
             "backend": "Backend",
             "widgets": "Widgets",
-            "/docs/tutorial/start": "Introducción",
-            "/docs/tutorial/first-module": "Primer módulo",
+            "/docs/tutorial/start": "Introduction",
+            "/docs/tutorial/first-module": "First module",
             "/docs/tutorial/backend": "Backend",
             "/docs/tutorial/bridge": "Bridge",
-            "/docs/tutorial/routing": "Enrutamiento"
+            "/docs/tutorial/routing": "Routing"
           };
         }
       });
