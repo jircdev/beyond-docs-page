@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 3829111871,
+        hash: 314142047,
         creator: function (require, exports) {
           exports.txt = {
             "copyMessage": "Comando copiado",
@@ -64,7 +64,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
                 "icon": "spa"
               }, {
                 "title": "Widgets",
-                "description": "Pudiendo elegir el renderizado que desees para cada componente.",
+                "description": "Bajo arquitectura Island, pudiendo elegir el renderizado que desees para cada componente.",
                 "icon": "jamstack"
               }]
             },

@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 7499781,
+        hash: 4257040174,
         creator: function (require, exports) {
           exports.txt = {
             "header": {
@@ -63,7 +63,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
                 "icon": "spa"
               }, {
                 "title": "Widgets",
-                "description": "With rendering on the server, on the client or hybrid in each component.",
+                "description": "With Island Architecture and rendering on the server, on the client or hybrid in each component.",
                 "icon": "widgets"
               }]
             },
