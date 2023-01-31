@@ -1,7 +1,7 @@
-System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/styles", "@beyond-js/react-widgets@18.21.1/page", "react@18.2.0", "@beyond/docs@1/store", "@beyond/ui@1.0.0/link", "@beyond/docs@1/preload"], function (_export, _context) {
+System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bundle", "@beyond-js/react-widgets@18.21.1/page", "react@18.2.0", "@beyond/docs@1/store", "@beyond/ui@1.0.0/link", "@beyond/docs@1/preload"], function (_export, _context) {
   "use strict";
 
-  var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, bimport, __Bundle, __pkg, ims, Controller, View, __beyond_pkg, hmr;
+  var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, bimport, __Bundle, __pkg, ims, Controller, View, __beyond_pkg, hmr;
   _export({
     Controller: void 0,
     View: void 0
@@ -11,18 +11,16 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
       dependency_0 = _beyondJsWidgets012Render;
     }, function (_beyondJsKernel017Bundle) {
       dependency_1 = _beyondJsKernel017Bundle;
-    }, function (_beyondJsKernel017Styles) {
-      dependency_2 = _beyondJsKernel017Styles;
     }, function (_beyondJsReactWidgets18211Page) {
-      dependency_3 = _beyondJsReactWidgets18211Page;
+      dependency_2 = _beyondJsReactWidgets18211Page;
     }, function (_react) {
-      dependency_4 = _react;
+      dependency_3 = _react;
     }, function (_beyondDocs1Store) {
-      dependency_5 = _beyondDocs1Store;
+      dependency_4 = _beyondDocs1Store;
     }, function (_beyondUi100Link) {
-      dependency_6 = _beyondUi100Link;
+      dependency_5 = _beyondUi100Link;
     }, function (_beyondDocs1Preload) {
-      dependency_7 = _beyondDocs1Preload;
+      dependency_6 = _beyondDocs1Preload;
     }],
     execute: function () {
       bimport = specifier => {
@@ -40,7 +38,7 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
         "type": "widget"
       }, _context.meta.url).package();
       ;
-      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/kernel/styles', dependency_2], ['@beyond-js/react-widgets/page', dependency_3], ['react', dependency_4], ['@beyond/docs/store', dependency_5], ['@beyond/ui/link', dependency_6], ['@beyond/docs/preload', dependency_7]]);
+      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/react-widgets/page', dependency_2], ['react', dependency_3], ['@beyond/docs/store', dependency_4], ['@beyond/ui/link', dependency_5], ['@beyond/docs/preload', dependency_6]]);
       brequire('@beyond-js/widgets/render').widgets.register([{
         "name": "app-docs-missing",
         "vspecifier": "@beyond/docs@1/missing.widget",
@@ -138,4 +136,4 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
     }
   };
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztVQUFBO1VBQ0E7VUFFTztVQUFVLE1BQ1hBLFVBQVcsU0FBUUMsK0JBQXlCO1lBQzlDLElBQUlDLE1BQU07Y0FDTixPQUFPQyxXQUFJO1lBQ2Y7O1VBQ0hDOzs7Ozs7Ozs7Ozs7Ozs7OztVQ1JEO1VBQ0E7VUFDQTtVQUNBO1VBQ0E7VUFFTztVQUFVLFNBQVVELElBQUk7WUFDM0IsTUFBTSxDQUFDRSxLQUFLLEVBQUVDLEtBQUssQ0FBQyxHQUFHLG1CQUFRLEVBQUNDLHNCQUFNLENBQUNDLFNBQVMsQ0FBQztZQUNqRCxJQUFJLENBQUNILEtBQUssRUFBRSxPQUFPLElBQUk7WUFDdkIsT0FDSUk7Y0FBS0MsU0FBUyxFQUFDO1lBQWUsR0FDMUJEO2NBQUtDLFNBQVMsRUFBQztZQUErQixHQUMxQ0Qsb0NBQ0lBO2NBQU1DLFNBQVMsRUFBQztZQUFhLEdBQUVKLEtBQUssQ0FBQ0ssUUFBUSxDQUFRLEVBQ3JERixnQ0FBS0gsS0FBSyxDQUFDTSxLQUFLLENBQU0sRUFDdEJILCtCQUFJSCxLQUFLLENBQUNPLFdBQVcsQ0FBSyxFQUMxQkosK0JBQ0tILEtBQUssQ0FBQ1EsR0FBRyxDQUFDQyxFQUFFLEVBQUUsR0FBRyxFQUNsQk4sb0JBQUNPLFVBQUk7Y0FBQ0MsSUFBSSxFQUFDLEdBQUc7Y0FBQ1AsU0FBUyxFQUFDO1lBQWMsR0FDbENKLEtBQUssQ0FBQ1EsR0FBRyxDQUFDSSxFQUFFLENBQ1YsRUFBQyxHQUFHLEVBQ1ZaLEtBQUssQ0FBQ1EsR0FBRyxDQUFDSyxFQUFFLENBQ2IsQ0FDQyxFQUNUVjtjQUFLQyxTQUFTLEVBQUM7WUFBYyxHQUN6QkQsc0NBQWMsRUFDZEEsb0JBQUNXLHNCQUFhLE9BQUcsRUFDakJYLHNDQUFjLENBQ1osQ0FDSixDQUNKO1VBRWQiLCJuYW1lcyI6WyJDb250cm9sbGVyIiwiUGFnZVJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsIlZpZXciLCJleHBvcnRzIiwicmVhZHkiLCJ0ZXh0cyIsIm1vZHVsZSIsInNwZWNpZmllciIsIlJlYWN0IiwiY2xhc3NOYW1lIiwicHJldGl0bGUiLCJ0aXRsZSIsImRlc2NyaXB0aW9uIiwiZW5kIiwiczEiLCJMaW5rIiwiaHJlZiIsImwxIiwiczIiLCJCZXlvbmRJc290eXBlIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJ3aWRnZXQvdHMvY29udHJvbGxlci50cyIsIndpZGdldC90cy92aWV3cy9pbmRleC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsLG51bGxdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7VUFBQTtVQUNBO1VBRU87VUFBVSxNQUNYQSxVQUFXLFNBQVFDLCtCQUF5QjtZQUM5QyxJQUFJQyxNQUFNO2NBQ04sT0FBT0MsV0FBSTtZQUNmOztVQUNIQzs7Ozs7Ozs7Ozs7Ozs7Ozs7VUNSRDtVQUNBO1VBQ0E7VUFDQTtVQUNBO1VBRU87VUFBVSxTQUFVRCxJQUFJO1lBQzNCLE1BQU0sQ0FBQ0UsS0FBSyxFQUFFQyxLQUFLLENBQUMsR0FBRyxtQkFBUSxFQUFDQyxzQkFBTSxDQUFDQyxTQUFTLENBQUM7WUFDakQsSUFBSSxDQUFDSCxLQUFLLEVBQUUsT0FBTyxJQUFJO1lBQ3ZCLE9BQ0lJO2NBQUtDLFNBQVMsRUFBQztZQUFlLEdBQzFCRDtjQUFLQyxTQUFTLEVBQUM7WUFBK0IsR0FDMUNELG9DQUNJQTtjQUFNQyxTQUFTLEVBQUM7WUFBYSxHQUFFSixLQUFLLENBQUNLLFFBQVEsQ0FBUSxFQUNyREYsZ0NBQUtILEtBQUssQ0FBQ00sS0FBSyxDQUFNLEVBQ3RCSCwrQkFBSUgsS0FBSyxDQUFDTyxXQUFXLENBQUssRUFDMUJKLCtCQUNLSCxLQUFLLENBQUNRLEdBQUcsQ0FBQ0MsRUFBRSxFQUFFLEdBQUcsRUFDbEJOLG9CQUFDTyxVQUFJO2NBQUNDLElBQUksRUFBQyxHQUFHO2NBQUNQLFNBQVMsRUFBQztZQUFjLEdBQ2xDSixLQUFLLENBQUNRLEdBQUcsQ0FBQ0ksRUFBRSxDQUNWLEVBQUMsR0FBRyxFQUNWWixLQUFLLENBQUNRLEdBQUcsQ0FBQ0ssRUFBRSxDQUNiLENBQ0MsRUFDVFY7Y0FBS0MsU0FBUyxFQUFDO1lBQWMsR0FDekJELHNDQUFjLEVBQ2RBLG9CQUFDVyxzQkFBYSxPQUFHLEVBQ2pCWCxzQ0FBYyxDQUNaLENBQ0osQ0FDSjtVQUVkIiwibmFtZXMiOlsiQ29udHJvbGxlciIsIlBhZ2VSZWFjdFdpZGdldENvbnRyb2xsZXIiLCJXaWRnZXQiLCJWaWV3IiwiZXhwb3J0cyIsInJlYWR5IiwidGV4dHMiLCJtb2R1bGUiLCJzcGVjaWZpZXIiLCJSZWFjdCIsImNsYXNzTmFtZSIsInByZXRpdGxlIiwidGl0bGUiLCJkZXNjcmlwdGlvbiIsImVuZCIsInMxIiwiTGluayIsImhyZWYiLCJsMSIsInMyIiwiQmV5b25kSXNvdHlwZSJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsid2lkZ2V0L3RzL2NvbnRyb2xsZXIudHMiLCJ3aWRnZXQvdHMvdmlld3MvaW5kZXgudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsXX0=

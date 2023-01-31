@@ -1,13 +1,11 @@
-System.register(["@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/styles"], function (_export, _context) {
+System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context) {
   "use strict";
 
-  var dependency_0, dependency_1, bimport, __Bundle, __pkg, ims, beyond__styles, __beyond_pkg, hmr;
+  var dependency_0, bimport, __Bundle, __pkg, ims, beyond__styles, __beyond_pkg, hmr;
   _export("beyond__styles", void 0);
   return {
     setters: [function (_beyondJsKernel017Bundle) {
       dependency_0 = _beyondJsKernel017Bundle;
-    }, function (_beyondJsKernel017Styles) {
-      dependency_1 = _beyondJsKernel017Styles;
     }],
     execute: function () {
       bimport = specifier => {
@@ -24,7 +22,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/styl
         "type": "code"
       }, _context.meta.url).package();
       ;
-      __pkg.dependencies.update([['@beyond-js/kernel/styles', dependency_1]]);
+      __pkg.dependencies.update([]);
       brequire('@beyond-js/kernel/styles').styles.register('@beyond/docs@1/layout/styles');
       ims = new Map();
       /****************************
@@ -66,4 +64,4 @@ System.register(["@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/styl
     }
   };
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7VUFBTztVQUFXLE1BQU1BLGNBQWMsR0FBRyxFQUFFO1VBQUNDIiwibmFtZXMiOlsiYmV5b25kX19zdHlsZXMiLCJleHBvcnRzIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJ0cy9jb250cm9sbGVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1VBQU87VUFBVyxNQUFNQSxjQUFjLEdBQUcsRUFBRTtVQUFDQyIsIm5hbWVzIjpbImJleW9uZF9fc3R5bGVzIiwiZXhwb3J0cyJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsidHMvY29udHJvbGxlci50cyJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 1994596182,
+        hash: 2330815024,
         creator: function (require, exports) {
           exports.txt = {
             "/docs/backend": "Crear paquetes Backend",
@@ -75,11 +75,11 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/modules/processors": "Procesadores",
             "/docs/deployment": "Despliegue",
             "/docs/frontend": "Crear paquetes de Front",
-            "/docs/styles/template": "Plantilla",
+            "/docs/styles/template": "Template",
             "/docs/styles/modules": "Módulos",
             "/docs/styles/themes": "Tema claro y oscuro",
             "/docs/styles/imports": "Importando",
-            "/docs/template": "Sistema de Plantilla",
+            "/docs/template": "Sistema de Template",
             "/docs/widgets": "Introducción",
             "/docs/widgets/controllers": "Controladores",
             "/docs/widgets/page": "Páginas",
@@ -98,7 +98,11 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/universal": "JavaScript Universal",
             "/docs/api/BeyondWidget": "Objecto widget",
             "/docs/api/IWidgetStore": "IWidgetStore",
-            "/docs/frontend/intro": "Paquetes de Frontend"
+            "/docs/frontend/intro": "Paquetes de Frontend",
+            "/docs/styles": "Estilos",
+            "styles": "Estilos",
+            "docs/widgets/add-rendering-engine": "Agregar Librerias de Renderizado",
+            "/docs/widgets/add-rendering-engine": "Agregar Librerias de Renderizado"
           };
         }
       });

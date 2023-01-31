@@ -1,7 +1,7 @@
-System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bundle", "@beyond-js/kernel@0.1.7/styles", "@beyond-js/react-widgets@18.21.1/base", "react@18.2.0", "@beyond/docs@1/store", "@beyond/ui@1.0.0/link", "@beyond/docs@1/preload"], function (_export, _context) {
+System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bundle", "@beyond-js/react-widgets@18.21.1/base", "react@18.2.0", "@beyond/docs@1/store", "@beyond/ui@1.0.0/link", "@beyond/docs@1/preload"], function (_export, _context) {
   "use strict";
 
-  var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, dependency_7, bimport, __Bundle, __pkg, ims, Controller, View, __beyond_pkg, hmr;
+  var dependency_0, dependency_1, dependency_2, dependency_3, dependency_4, dependency_5, dependency_6, bimport, __Bundle, __pkg, ims, Controller, View, __beyond_pkg, hmr;
   _export({
     Controller: void 0,
     View: void 0
@@ -11,18 +11,16 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
       dependency_0 = _beyondJsWidgets012Render;
     }, function (_beyondJsKernel017Bundle) {
       dependency_1 = _beyondJsKernel017Bundle;
-    }, function (_beyondJsKernel017Styles) {
-      dependency_2 = _beyondJsKernel017Styles;
     }, function (_beyondJsReactWidgets18211Base) {
-      dependency_3 = _beyondJsReactWidgets18211Base;
+      dependency_2 = _beyondJsReactWidgets18211Base;
     }, function (_react) {
-      dependency_4 = _react;
+      dependency_3 = _react;
     }, function (_beyondDocs1Store) {
-      dependency_5 = _beyondDocs1Store;
+      dependency_4 = _beyondDocs1Store;
     }, function (_beyondUi100Link) {
-      dependency_6 = _beyondUi100Link;
+      dependency_5 = _beyondUi100Link;
     }, function (_beyondDocs1Preload) {
-      dependency_7 = _beyondDocs1Preload;
+      dependency_6 = _beyondDocs1Preload;
     }],
     execute: function () {
       bimport = specifier => {
@@ -40,7 +38,7 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
         "type": "widget"
       }, _context.meta.url).package();
       ;
-      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/kernel/styles', dependency_2], ['@beyond-js/react-widgets/base', dependency_3], ['react', dependency_4], ['@beyond/docs/store', dependency_5], ['@beyond/ui/link', dependency_6], ['@beyond/docs/preload', dependency_7]]);
+      __pkg.dependencies.update([['@beyond-js/widgets/render', dependency_0], ['@beyond-js/react-widgets/base', dependency_2], ['react', dependency_3], ['@beyond/docs/store', dependency_4], ['@beyond/ui/link', dependency_5], ['@beyond/docs/preload', dependency_6]]);
       brequire('@beyond-js/widgets/render').widgets.register([{
         "name": "app-under-construction",
         "vspecifier": "@beyond/docs@1/under-construction.widget"
@@ -131,4 +129,4 @@ System.register(["@beyond-js/widgets@0.1.2/render", "@beyond-js/kernel@0.1.7/bun
     }
   };
 });
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztVQUFBO1VBQ0E7VUFFTztVQUFVLE1BQ1hBLFVBQVcsU0FBUUMsMkJBQXFCO1lBQzFDLElBQUlDLE1BQU07Y0FDTixPQUFPQyxXQUFJO1lBQ2Y7O1VBQ0hDOzs7Ozs7Ozs7Ozs7Ozs7OztVQ1JEO1VBQ0E7VUFDQTtVQUVBO1VBRU87VUFBVSxTQUFVRCxJQUFJO1lBQzNCLE1BQU0sQ0FBQ0UsS0FBSyxFQUFFQyxLQUFLLENBQUMsR0FBRyxtQkFBUSxFQUFDQyxzQkFBTSxDQUFDQyxTQUFTLENBQUM7WUFDakQsSUFBSSxDQUFDSCxLQUFLLEVBQUUsT0FBTyxJQUFJO1lBQ3ZCLE9BQ0lJO2NBQUtDLFNBQVMsRUFBQztZQUFlLEdBQzFCRDtjQUFLQyxTQUFTLEVBQUM7WUFBK0IsR0FDMUNELG9DQUNJQTtjQUFNQyxTQUFTLEVBQUM7WUFBYSxHQUFFSixLQUFLLENBQUNLLFFBQVEsQ0FBUSxFQUNyREYsZ0NBQUtILEtBQUssQ0FBQ00sS0FBSyxDQUFNLEVBQ3RCSCwrQkFBSUgsS0FBSyxDQUFDTyxXQUFXLENBQUssQ0FDckIsRUFDVEo7Y0FBS0MsU0FBUyxFQUFDO1lBQWMsR0FDekJELG9CQUFDSyxzQkFBYSxPQUFHLENBQ2YsQ0FDSixDQUNKO1VBRWQiLCJuYW1lcyI6WyJDb250cm9sbGVyIiwiUmVhY3RXaWRnZXRDb250cm9sbGVyIiwiV2lkZ2V0IiwiVmlldyIsImV4cG9ydHMiLCJyZWFkeSIsInRleHRzIiwibW9kdWxlIiwic3BlY2lmaWVyIiwiUmVhY3QiLCJjbGFzc05hbWUiLCJwcmV0aXRsZSIsInRpdGxlIiwiZGVzY3JpcHRpb24iLCJCZXlvbmRJc290eXBlIl0sInNvdXJjZVJvb3QiOiIvIiwic291cmNlcyI6WyJ3aWRnZXQvdHMvY29udHJvbGxlci50cyIsIndpZGdldC90cy92aWV3cy9pbmRleC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsLG51bGxdfQ==
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7VUFBQTtVQUNBO1VBRU87VUFBVSxNQUNYQSxVQUFXLFNBQVFDLDJCQUFxQjtZQUMxQyxJQUFJQyxNQUFNO2NBQ04sT0FBT0MsV0FBSTtZQUNmOztVQUNIQzs7Ozs7Ozs7Ozs7Ozs7Ozs7VUNSRDtVQUNBO1VBQ0E7VUFFQTtVQUVPO1VBQVUsU0FBVUQsSUFBSTtZQUMzQixNQUFNLENBQUNFLEtBQUssRUFBRUMsS0FBSyxDQUFDLEdBQUcsbUJBQVEsRUFBQ0Msc0JBQU0sQ0FBQ0MsU0FBUyxDQUFDO1lBQ2pELElBQUksQ0FBQ0gsS0FBSyxFQUFFLE9BQU8sSUFBSTtZQUN2QixPQUNJSTtjQUFLQyxTQUFTLEVBQUM7WUFBZSxHQUMxQkQ7Y0FBS0MsU0FBUyxFQUFDO1lBQStCLEdBQzFDRCxvQ0FDSUE7Y0FBTUMsU0FBUyxFQUFDO1lBQWEsR0FBRUosS0FBSyxDQUFDSyxRQUFRLENBQVEsRUFDckRGLGdDQUFLSCxLQUFLLENBQUNNLEtBQUssQ0FBTSxFQUN0QkgsK0JBQUlILEtBQUssQ0FBQ08sV0FBVyxDQUFLLENBQ3JCLEVBQ1RKO2NBQUtDLFNBQVMsRUFBQztZQUFjLEdBQ3pCRCxvQkFBQ0ssc0JBQWEsT0FBRyxDQUNmLENBQ0osQ0FDSjtVQUVkIiwibmFtZXMiOlsiQ29udHJvbGxlciIsIlJlYWN0V2lkZ2V0Q29udHJvbGxlciIsIldpZGdldCIsIlZpZXciLCJleHBvcnRzIiwicmVhZHkiLCJ0ZXh0cyIsIm1vZHVsZSIsInNwZWNpZmllciIsIlJlYWN0IiwiY2xhc3NOYW1lIiwicHJldGl0bGUiLCJ0aXRsZSIsImRlc2NyaXB0aW9uIiwiQmV5b25kSXNvdHlwZSJdLCJzb3VyY2VSb290IjoiLyIsInNvdXJjZXMiOlsid2lkZ2V0L3RzL2NvbnRyb2xsZXIudHMiLCJ3aWRnZXQvdHMvdmlld3MvaW5kZXgudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbCxudWxsXX0=
