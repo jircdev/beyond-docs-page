@@ -5763,7 +5763,7 @@ function View(): JSX.Element {
       ****************************************/
 
       ims.set('./mdx/tutorial/start.mdx', {
-        hash: 1193661323,
+        hash: 595628512,
         creator: function (require, exports) {
           "use strict";
 
@@ -5884,7 +5884,7 @@ function View(): JSX.Element {
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: ["\n", (0, _jsxRuntime.jsxs)(_components.p, {
                     children: [(0, _jsxRuntime.jsx)(_components.strong, {
-                      children: "projects.json:"
+                      children: "packages.json:"
                     }), " This file records the projects that the DevServer has access to,\r\nusually managed directly by ", (0, _jsxRuntime.jsx)(_html.BeyondJS, {}), "."]
                   }), "\n"]
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
