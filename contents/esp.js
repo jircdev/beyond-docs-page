@@ -5239,7 +5239,7 @@ export /*bundle*/ class User {
       ******************************************/
 
       ims.set('./mdx/tutorial/backend.mdx', {
-        hash: 1708447164,
+        hash: 3108251194,
         creator: function (require, exports) {
           "use strict";
 
@@ -5286,7 +5286,7 @@ export /*bundle*/ class User {
                 children: ["\n", (0, _jsxRuntime.jsxs)(_components.li, {
                   children: [(0, _jsxRuntime.jsx)(_components.strong, {
                     children: "subpath"
-                  }), ": agregaremos \"backend/auth\". Este valor corresponde al subpath del\r\nmódulo y tiene relación directa con el valor del entry point \"exports\" en el ", (0, _jsxRuntime.jsx)(_components.code, {
+                  }), ": agregaremos \"api/auth\". Este valor corresponde al subpath del\r\nmódulo y tiene relación directa con el valor del entry point \"exports\" en el ", (0, _jsxRuntime.jsx)(_components.code, {
                     children: "package.json"
                   })]
                 }), "\n", (0, _jsxRuntime.jsxs)(_components.li, {
@@ -5393,7 +5393,7 @@ class Auth {
                 }), "."]
               }), "\n", (0, _jsxRuntime.jsx)(_code.CodeBox, {
                 title: "home/ts/views/index.tsx",
-                children: `import {Auth} from "@beyond-js/tutorial/backend/auth";`
+                children: `import {Auth} from "@beyond-js/tutorial/api/auth";`
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "Algunos puntos a destacar de la línea de código anterior."
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
@@ -5410,7 +5410,7 @@ class Auth {
                 title: "home/ts/viewes/index.tsx",
                 children: `
 import \* as React from "react";
-import {Auth} from "@beyond-js/tutorial/backend/auth";
+import {Auth} from "@beyond-js/tutorial/api/auth";
 
 interface IForm {
 \tdisabled?: boolean;
