@@ -5764,7 +5764,7 @@ function View(): JSX.Element {
       ****************************************/
 
       ims.set('./mdx/tutorial/start.mdx', {
-        hash: 1655963921,
+        hash: 1621357208,
         creator: function (require, exports) {
           "use strict";
 
@@ -5824,7 +5824,7 @@ function View(): JSX.Element {
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "The first thing we will do is to create our project. To do this we must open the command console\r\nin the folder where we want and execute the following command:"
               }), "\n", (0, _jsxRuntime.jsx)(_code.Code, {
-                children: "npx @beyond-js/create-package"
+                children: "npx @beyond-js/create-package@latest"
               }), "\n", (0, _jsxRuntime.jsx)(_components.p, {
                 children: "This command is interactive and will request some data to define our package or project.\r\nThe data requested are the following:"
               }), "\n", (0, _jsxRuntime.jsxs)(_components.ul, {
