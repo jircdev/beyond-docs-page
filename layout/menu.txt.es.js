@@ -29,7 +29,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
       INTERNAL MODULE: ./txt
       *********************/
       ims.set('./txt', {
-        hash: 2330815024,
+        hash: 469161519,
         creator: function (require, exports) {
           exports.txt = {
             "/docs/backend": "Crear paquetes Backend",
@@ -40,12 +40,12 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/backend/debug": "Depuración de código",
             "/docs/backend/hmr": "hmr",
             "/": "HOME",
-            "getting-start": "Getting started",
-            "fundamentals": "Fundamentals",
-            "packages": "Packages",
-            "configuration": "Configuration",
-            "projects": "Projects",
-            "modules": "Modules",
+            "getting-start": "Empezando",
+            "fundamentals": "Fundamentos",
+            "packages": "Paquetes",
+            "configuration": "Configuración",
+            "projects": "Proyectos",
+            "modules": "Modulos",
             "bundles": "Bundles",
             "widgets": "Widgets",
             "frontend": "Frontend",
@@ -59,7 +59,7 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/tutorial/backend": "Backend",
             "/docs/tutorial/bridge": "Bridge",
             "/docs/tutorial/routing": "Enrutamiento",
-            "concepts": "Basic concepts",
+            "concepts": "Conceptos básicos",
             "/docs/packages/create": "Crear un proyecto",
             "/docs/packages/json": "package.json",
             "/docs/packages/import": "Importar un proyecto",
@@ -102,7 +102,8 @@ System.register(["@beyond-js/kernel@0.1.7/bundle"], function (_export, _context)
             "/docs/styles": "Estilos",
             "styles": "Estilos",
             "docs/widgets/add-rendering-engine": "Agregar Librerias de Renderizado",
-            "/docs/widgets/add-rendering-engine": "Agregar Librerias de Renderizado"
+            "/docs/widgets/add-rendering-engine": "Agregar Librerias de Renderizado",
+            "tutorial": "Tutorial"
           };
         }
       });
