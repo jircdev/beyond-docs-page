@@ -22,38 +22,28 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = target => __defProp(target, "__esModule", {
-  value: true
-});
 var __export = (target, all) => {
   for (var name in all) __defProp(target, name, {
     get: all[name],
     enumerable: true
   });
 };
-var __reExport = (target, module2, copyDefault, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
-    for (let key of __getOwnPropNames(module2)) if (!__hasOwnProp.call(target, key) && (copyDefault || key !== "default")) __defProp(target, key, {
-      get: () => module2[key],
-      enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === "object" || typeof from === "function") {
+    for (let key of __getOwnPropNames(from)) if (!__hasOwnProp.call(to, key) && key !== except) __defProp(to, key, {
+      get: () => from[key],
+      enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable
     });
   }
-  return target;
+  return to;
 };
-var __toESM = (module2, isNodeMode) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", !isNodeMode && module2 && module2.__esModule ? {
-    get: () => module2.default,
-    enumerable: true
-  } : {
-    value: module2,
-    enumerable: true
-  })), module2);
-};
-var __toCommonJS = /* @__PURE__ */(cache => {
-  return (module2, temp) => {
-    return cache && cache.get(module2) || (temp = __reExport(__markAsModule({}), module2, 1), cache && cache.set(module2, temp), temp);
-  };
-})(typeof WeakMap !== "undefined" ? /* @__PURE__ */new WeakMap() : 0);
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", {
+  value: mod,
+  enumerable: true
+}) : target, mod));
+var __toCommonJS = mod => __copyProps(__defProp({}, "__esModule", {
+  value: true
+}), mod);
 
 // .beyond/uimport/@beyond-js/react-widgets/page.18.21.1.js
 var page_18_21_1_exports = {};
@@ -62,6 +52,7 @@ __export(page_18_21_1_exports, {
   __beyond_pkg: () => __beyond_pkg,
   hmr: () => hmr
 });
+module.exports = __toCommonJS(page_18_21_1_exports);
 
 // node_modules/@beyond-js/react-widgets/page/page.browser.mjs
 var dependency_0 = __toESM(require("@beyond-js/kernel@0.1.7/bundle"), 0);
@@ -130,11 +121,10 @@ var hmr = new function () {
   this.off = (event, listener) => void 0;
 }();
 __pkg.initialise(ims);
-module.exports = __toCommonJS(page_18_21_1_exports);
 };
 
 code(module, require);
 _exports(module.exports);
 }}});
 
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy5iZXlvbmQvdWltcG9ydC9AYmV5b25kLWpzL3JlYWN0LXdpZGdldHMvcGFnZS4xOC4yMS4xLmpzIiwiLi4vbm9kZV9tb2R1bGVzL0BiZXlvbmQtanMvcmVhY3Qtd2lkZ2V0cy9wYWdlL19fc291cmNlcy9wYWdlL3BhZ2UudHMiXSwibmFtZXMiOlsiX19leHBvcnQiLCJQYWdlUmVhY3RXaWRnZXRDb250cm9sbGVyIiwiX19iZXlvbmRfcGtnIiwiaG1yIiwiUGFnZVJlYWN0V2lkZ2V0Q29udHJvbGxlcjIiLCJfYmFzZSIsInVyaSIsIm1vdW50IiwiaW5pdGlhbGlzZSIsIl9yb3V0aW5nIiwid2lkZ2V0IiwiZXhwb3J0cyJdLCJmaWxlIjoiIiwic291cmNlUm9vdCI6Ii9kb2N1bWVudGF0aW9uL291dCJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy5iZXlvbmQvdWltcG9ydC9AYmV5b25kLWpzL3JlYWN0LXdpZGdldHMvcGFnZS4xOC4yMS4xLmpzIiwiLi4vbm9kZV9tb2R1bGVzL0BiZXlvbmQtanMvcmVhY3Qtd2lkZ2V0cy9wYWdlL19fc291cmNlcy9wYWdlL3BhZ2UudHMiXSwibmFtZXMiOlsiX19leHBvcnQiLCJQYWdlUmVhY3RXaWRnZXRDb250cm9sbGVyIiwiX19iZXlvbmRfcGtnIiwiaG1yIiwibW9kdWxlIiwiUmVhY3RXaWRnZXRDb250cm9sbGVyIiwidXJpIiwibW91bnQiLCJpbml0aWFsaXNlIiwiUGFnZVVSSSIsIndpZGdldCIsImV4cG9ydHMiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7OztBQUFBO0FBQUFBO0VBQUFDO0VBQUFDO0VBQUFDO0FBQUE7QUFBQUM7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7SUNBQTtJQUNBO0lBRWlCLE1BQ0ZILG1DQUFrQ0ksNEJBQXFCO01BQ2xFO01BQ0EsSUFBSUMsTUFBRztRQUNILE9BQU8sS0FBSztNQUNoQjtNQUVBQyxRQUFLO1FBQ0QsT0FBTyxNQUFNQSxNQUFNO1VBQUNELEtBQUssS0FBSztRQUFJLENBQUM7TUFDdkM7TUFFQSxNQUFNRSxhQUFVO1FBQ1osS0FBSyxPQUFPLElBQUlDLGlCQUFRO1VBQUNDLFFBQWEsS0FBS0E7UUFBTSxDQUFDO1FBQ2xELE1BQU0sTUFBTUYsWUFBVTtNQUMxQjs7SUFDSEciLCJmaWxlIjoiIiwic291cmNlUm9vdCI6Ii9kb2N1bWVudGF0aW9uL291dCJ9
